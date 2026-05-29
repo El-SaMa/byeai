@@ -1,0 +1,18 @@
+#intercom-container,
+#intercom-frame,
+.intercom-lightweight-app,
+.drift-frame-controller,
+iframe[src*="intercom"],
+iframe[src*="drift"],
+iframe[src*="crisp"],
+iframe[src*="tidio"],
+iframe[src*="zendesk"],
+iframe[src*="livechat"],
+iframe[src*="chatbot"],
+iframe[src*="copilot"],
+[data-testid*="chatbot"],
+[class*="ai-assistant"] {
+  display: none !important;
+  visibility: hidden !important;
+  pointer-events: none !important;
+}
