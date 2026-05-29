@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ByeAI Settings</title>
+    <link rel="stylesheet" href="options.css" />
+  </head>
+  <body>
+    <main class="wrap">
+      <header class="hero">
+        <img src="../assets/icons/icon128.png" alt="ByeAI logo" width="72" height="72" />
+        <h1>ByeAI</h1>
+        <p class="tagline">Bye, AI until you allow it.</p>
+      </header>
+
+      <section class="panel welcome" id="help">
+        <h2>Welcome</h2>
+        <p>ByeAI stops websites from loading AI chat boxes and helpers, like an ad blocker for AI.</p>
+        <ul>
+          <li>Blocking is <strong>on</strong> by default.</li>
+          <li>Click the ByeAI icon to see what was blocked on the current page.</li>
+          <li>Use <strong>Allow AI on this site</strong> if you need help chat somewhere.</li>
+          <li>Site acting weird? Allow AI on that site or turn ByeAI off from the popup.</li>
+        </ul>
+        <p class="muted"><strong>ByeAI does not scan your text or images.</strong> It only stops AI tools from loading.</p>
+      </section>
+
+      <section class="panel">
+        <h2>Allowed sites</h2>
+        <p class="muted">Sites where you chose to allow AI. Remove one to start blocking there again.</p>
+        <ul class="host-list" id="allowedList"></ul>
+        <p class="empty hidden" id="emptyAllowed">No allowed sites yet.</p>
+      </section>
+
+      <section class="panel">
+        <h2>Stats</h2>
+        <p>Total blocked since install: <strong id="totalBlocked">0</strong></p>
+        <button type="button" class="secondary-btn" id="resetStatsBtn">Reset total counter</button>
+      </section>
+
+      <section class="panel">
+        <h2>Permissions</h2>
+        <p class="muted">ByeAI needs access to websites you visit so it can block AI loaders before they run. Settings and allowed sites are stored locally on your device.</p>
+        <ul class="plain-list">
+          <li><strong>declarativeNetRequest</strong>: block known AI widget and API URLs</li>
+          <li><strong>storage</strong>: save your settings and allowed sites</li>
+          <li><strong>tabs</strong>: show stats for the page you are viewing</li>
+        </ul>
+      </section>
+
+      <section class="panel">
+        <h2>Privacy</h2>
+        <p class="muted">
+          ByeAI blocks known AI loaders using a local rule list. Your browsing history is not sent to us.
+          Allowed sites and stats are stored on your device only.
+        </p>
+        <p><a id="privacyLink" href="../privacy/privacy.html" target="_blank" rel="noopener">Read the privacy policy</a></p>
+      </section>
+
+      <footer class="page-footer">
+        <span>ByeAI v1.0.1</span>
+      </footer>
+    </main>
+    <script src="options.js"></script>
+  </body>
+</html>

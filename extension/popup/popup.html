@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ByeAI</title>
+    <link rel="stylesheet" href="popup.css" />
+  </head>
+  <body>
+    <header class="header">
+      <div class="brand">
+        <img src="../assets/icons/icon48.png" alt="" class="brand-icon" width="28" height="28" />
+        <div>
+          <span class="brand-name">ByeAI</span>
+          <span class="brand-tag">Block AI widgets</span>
+        </div>
+      </div>
+      <div class="header-actions">
+        <button type="button" class="icon-btn" id="helpBtn" title="Help" aria-label="Open help">
+          <svg width="16" height="16" viewBox="0 0 16 16" aria-hidden="true"><circle cx="8" cy="8" r="7" fill="none" stroke="currentColor" stroke-width="1.5"/><text x="8" y="11.5" text-anchor="middle" font-size="10" fill="currentColor" font-weight="700">?</text></svg>
+        </button>
+        <button type="button" class="icon-btn" id="settingsBtn" title="Settings" aria-label="Open settings">
+          <svg width="16" height="16" viewBox="0 0 16 16" aria-hidden="true"><path fill="currentColor" d="M8 10.2a2.2 2.2 0 1 0 0-4.4 2.2 2.2 0 0 0 0 4.4Zm6.3-2.2-.9-.2a5.4 5.4 0 0 0-.4-1l.5-.8-.8-.8-.8.5a5.4 5.4 0 0 0-1-.4l-.2-.9H7.8l-.2.9a5.4 5.4 0 0 0-1 .4l-.8-.5-.8.8.5.8a5.4 5.4 0 0 0-.4 1l-.9.2v1.1l.9.2c.1.35.23.68.4 1l-.5.8.8.8.8-.5c.32.17.65.3 1 .4l.2.9h1.1l.2-.9c.35-.1.68-.23 1-.4l.8.5.8-.8-.5-.8c.17-.32.3-.65.4-1l.9-.2V8Z"/></svg>
+        </button>
+      </div>
+    </header>
+
+    <div class="site-bar">
+      <span class="status-pill" id="statusPill">Protected</span>
+      <p class="site-name" id="siteName">…</p>
+    </div>
+
+    <section class="card main-card" aria-labelledby="block-ai-heading">
+      <div class="card-row card-header-row">
+        <div class="card-label">
+          <img src="../assets/icons/icon16.png" alt="" width="18" height="18" />
+          <span id="block-ai-heading">Block AI</span>
+          <button type="button" class="tip-btn" data-tip="Stops websites from loading AI chat boxes and helpers." aria-label="What is Block AI?">?</button>
+        </div>
+        <label class="toggle" aria-label="Toggle Block AI">
+          <input type="checkbox" id="enabledToggle" checked />
+          <span class="toggle-track"></span>
+        </label>
+      </div>
+
+      <hr class="divider" />
+
+      <div class="stats-row">
+        <div class="stat">
+          <span class="stat-num" id="pageCount">0</span>
+          <span class="stat-label">
+            on this page
+            <button type="button" class="tip-btn" data-tip="AI loaders blocked on this page right now." aria-label="About on this page count">?</button>
+          </span>
+        </div>
+        <div class="stat stat-right">
+          <span class="stat-num" id="totalCount">0</span>
+          <span class="stat-label">
+            in total
+            <button type="button" class="tip-btn" data-tip="Everything ByeAI has blocked since you installed it." aria-label="About total count">?</button>
+          </span>
+        </div>
+      </div>
+
+      <p class="allowed-note hidden" id="allowedNote">AI allowed on this site</p>
+    </section>
+
+    <p class="tip-banner hidden" id="tipBanner">
+      Site acting weird? Try allowing AI on this site.
+      <button type="button" class="tip-dismiss" id="dismissTip" aria-label="Dismiss tip">×</button>
+    </p>
+
+    <p class="reload-banner hidden" id="reloadBanner">
+      Reload this page so AI can load.
+      <button type="button" class="link-btn" id="reloadBtn">Reload now</button>
+      <button type="button" class="tip-dismiss" id="dismissReload" aria-label="Dismiss">×</button>
+    </p>
+
+    <div class="action-row">
+      <button type="button" class="action-btn" id="allowBtn">
+        <svg class="action-icon" width="14" height="14" viewBox="0 0 14 14" aria-hidden="true"><rect x="3" y="2" width="3" height="10" rx="1" fill="currentColor"/><rect x="8" y="2" width="3" height="10" rx="1" fill="currentColor"/></svg>
+        <span id="allowBtnText">Allow AI on this site</span>
+      </button>
+      <button type="button" class="tip-btn" data-tip="Lets this website use AI. Other sites stay protected." aria-label="About allow on this site">?</button>
+    </div>
+
+    <footer class="footer">
+      <span>v1.0.1</span>
+      <a href="#" id="privacyLink">Privacy</a>
+    </footer>
+
+    <div class="tooltip" id="tooltip" role="tooltip" hidden></div>
+
+    <script src="popup.js"></script>
+  </body>
+</html>
