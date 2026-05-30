@@ -1,0 +1,113 @@
+{
+  "appName": {
+    "message": "ByeAI: Block AI on the Web",
+    "description": "Extension name shown in the Chrome Web Store and in chrome://extensions"
+  },
+  "appShortName": {
+    "message": "ByeAI",
+    "description": "Short extension name shown when space is limited"
+  },
+  "appDescription": {
+    "message": "Block AI on web pages: chat widgets, copilots, Google AI Overviews, AI search summaries. Allow any site with one click.",
+    "description": "Extension summary in the Chrome Web Store"
+  },
+  "actionTitle": {
+    "message": "ByeAI",
+    "description": "Default tooltip on the toolbar icon"
+  },
+  "actionTitleOff": {
+    "message": "ByeAI is off"
+  },
+  "actionTitleAllowed": {
+    "message": "ByeAI: AI allowed on $HOST$",
+    "placeholders": {
+      "host": { "content": "$1", "example": "example.com" }
+    }
+  },
+  "actionTitleBlocked": {
+    "message": "ByeAI: $COUNT$ blocked on this page",
+    "placeholders": {
+      "count": { "content": "$1", "example": "3" }
+    }
+  },
+  "actionTitleNothing": {
+    "message": "ByeAI: nothing blocked here"
+  },
+
+  "popupBrandTag": { "message": "Block AI on the web" },
+  "popupHelpTitle": { "message": "Help" },
+  "popupHelpAria": { "message": "Open help" },
+  "popupSettingsTitle": { "message": "Settings" },
+  "popupSettingsAria": { "message": "Open settings" },
+  "popupStatusProtected": { "message": "Protected" },
+  "popupStatusOff": { "message": "Off" },
+  "popupStatusAllowed": { "message": "Allowed" },
+  "popupSiteFallback": { "message": "This page" },
+  "popupBlockAi": { "message": "Block AI" },
+  "popupBlockAiTip": { "message": "Stops AI features from loading on websites: chatbots, copilots, AI search summaries, and AI service calls." },
+  "popupBlockAiTipAria": { "message": "What is Block AI?" },
+  "popupToggleAria": { "message": "Toggle Block AI" },
+  "popupOnThisPage": { "message": "on this page" },
+  "popupOnThisPageTip": { "message": "AI loaders blocked on this page right now." },
+  "popupOnThisPageAria": { "message": "About on this page count" },
+  "popupInTotal": { "message": "in total" },
+  "popupInTotalTip": { "message": "Everything ByeAI has blocked since you installed it." },
+  "popupInTotalAria": { "message": "About total count" },
+  "popupAllowedNote": { "message": "AI allowed on this site" },
+  "popupTipBanner": { "message": "Site acting weird? Try allowing AI on this site." },
+  "popupDismissTipAria": { "message": "Dismiss tip" },
+  "popupReloadBanner": { "message": "Reload this page so AI can load." },
+  "popupReloadBtn": { "message": "Reload now" },
+  "popupDismissAria": { "message": "Dismiss" },
+  "popupAllowOn": { "message": "Allow AI on this site" },
+  "popupAllowOff": { "message": "Block AI on this site again" },
+  "popupAllowAria": { "message": "About allow on this site" },
+  "popupAllowTip": { "message": "Lets this website use AI. Other sites stay protected." },
+  "popupPrivacy": { "message": "Privacy" },
+  "popupSupport": { "message": "Support" },
+  "popupSupportTitle": { "message": "Support ByeAI" },
+
+  "optionsTitle": { "message": "ByeAI Settings" },
+  "optionsHeroLogoAlt": { "message": "ByeAI logo" },
+  "optionsTagline": { "message": "Bye, AI until you allow it." },
+  "optionsWelcomeHeading": { "message": "Welcome" },
+  "optionsWelcomeIntro": { "message": "ByeAI blocks AI features on websites before they load — chat widgets, copilots, Google AI Overviews and other AI search summaries, \"Ask AI\" panels, and background AI service calls. Like an ad blocker, but for AI." },
+  "optionsWelcomeBullet1Html": { "message": "Blocking is <strong>on</strong> by default." },
+  "optionsWelcomeBullet2": { "message": "Click the ByeAI icon to see what was blocked on the current page." },
+  "optionsWelcomeBullet3Html": { "message": "Use <strong>Allow AI on this site</strong> when you actually want a site's AI features." },
+  "optionsWelcomeBullet4": { "message": "Site acting weird? Allow AI on that site or turn ByeAI off from the popup." },
+  "optionsWelcomeNoteHtml": { "message": "<strong>ByeAI does not scan your text or images.</strong> It only stops AI tools from loading." },
+  "optionsAllowedHeading": { "message": "Allowed sites" },
+  "optionsAllowedIntro": { "message": "Sites where you chose to allow AI. Remove one to start blocking there again." },
+  "optionsAllowedEmpty": { "message": "No allowed sites yet." },
+  "optionsAllowedBlockBtn": { "message": "Block again" },
+  "optionsStatsHeading": { "message": "Stats" },
+  "optionsStatsTotalLabel": { "message": "Total blocked since install:" },
+  "optionsStatsResetBtn": { "message": "Reset total counter" },
+  "optionsStatsResetConfirm": { "message": "Reset the total blocked counter to zero?" },
+  "optionsPrivacyVsHeading": { "message": "Privacy vs UI" },
+  "optionsPrivacyVsIntro": { "message": "What ByeAI actually stops, in plain language." },
+  "optionsPrivacyVsRealTitle": { "message": "Real blocking (privacy)" },
+  "optionsPrivacyVsRealText": { "message": "Stops AI scripts and API calls before they run. Used for chat widgets, copilots, and AI service connections on most sites." },
+  "optionsPrivacyVsGoogleTitle": { "message": "Google Search" },
+  "optionsPrivacyVsGoogleText": { "message": "Switches results to Web mode and blocks known AI fetch URLs. This reduces AI on the page, but Google still receives your search query like normal search." },
+  "optionsPrivacyVsUiTitle": { "message": "UI hiding (backup)" },
+  "optionsPrivacyVsUiText": { "message": "Hides AI boxes that still appear on screen. This is mainly so you do not see them. Network blocking does the heavy work." },
+  "optionsPrivacyVsNote": { "message": "ByeAI does not scan your text or images. It does not make browsing anonymous. For stronger search privacy, use a search engine you trust or turn ByeAI off where you need full site features." },
+  "optionsPermissionsHeading": { "message": "Permissions" },
+  "optionsPermissionsIntro": { "message": "ByeAI needs access to websites you visit so it can block AI loaders before they run. Settings and allowed sites are stored locally on your device." },
+  "optionsPermissionsDnrHtml": { "message": "<strong>declarativeNetRequest</strong>: block known AI widget and API URLs" },
+  "optionsPermissionsStorageHtml": { "message": "<strong>storage</strong>: save your settings and allowed sites" },
+  "optionsPermissionsTabsHtml": { "message": "<strong>tabs</strong>: show stats for the page you are viewing" },
+  "optionsSupportHeading": { "message": "Support ByeAI" },
+  "optionsSupportIntro": { "message": "ByeAI is free and ad-free. If it has saved you from one too many AI chat boxes, you can chip in to keep it that way." },
+  "optionsSupportNote": { "message": "Donations are voluntary and optional. The extension will always work without one." },
+  "optionsSupportBtn": { "message": "Support ByeAI" },
+  "optionsPrivacyHeading": { "message": "Privacy" },
+  "optionsPrivacyIntro": { "message": "ByeAI blocks known AI loaders using a local rule list. Your browsing history is not sent to us. Allowed sites and stats are stored on your device only." },
+  "optionsPrivacyLink": { "message": "Read the privacy policy" },
+  "optionsFooterVersion": {
+    "message": "ByeAI v$VERSION$",
+    "placeholders": { "version": { "content": "$1", "example": "1.0.3" } }
+  }
+}

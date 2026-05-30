@@ -1,17 +1,17 @@
-#intercom-container,
-#intercom-frame,
-.intercom-lightweight-app,
-.drift-frame-controller,
-iframe[src*="intercom"],
-iframe[src*="drift"],
-iframe[src*="crisp"],
-iframe[src*="tidio"],
-iframe[src*="zendesk"],
-iframe[src*="livechat"],
-iframe[src*="chatbot"],
-iframe[src*="copilot"],
-[data-testid*="chatbot"],
-[class*="ai-assistant"] {
+html[data-byeai-active="1"] #intercom-container,
+html[data-byeai-active="1"] #intercom-frame,
+html[data-byeai-active="1"] .intercom-lightweight-app,
+html[data-byeai-active="1"] .drift-frame-controller,
+html[data-byeai-active="1"] iframe[src*="intercom"],
+html[data-byeai-active="1"] iframe[src*="drift"],
+html[data-byeai-active="1"] iframe[src*="crisp"],
+html[data-byeai-active="1"] iframe[src*="tidio"],
+html[data-byeai-active="1"] iframe[src*="zendesk"],
+html[data-byeai-active="1"] iframe[src*="livechat"],
+html[data-byeai-active="1"] iframe[src*="chatbot"],
+html[data-byeai-active="1"] iframe[src*="copilot"],
+html[data-byeai-active="1"] [data-testid*="chatbot"],
+html[data-byeai-active="1"] [class*="ai-assistant"] {
   display: none !important;
   visibility: hidden !important;
   pointer-events: none !important;

@@ -1,0 +1,14 @@
+/* Google Search AI overviews and AI mode UI */
+html[data-byeai-active="1"] [data-attnms],
+html[data-byeai-active="1"] [data-attrid="VisualDigestGeneratedDescription"],
+html[data-byeai-active="1"] [jscontroller="Elkdbc"],
+html[data-byeai-active="1"] [jsname="YrZdPb"][data-evn],
+html[data-byeai-active="1"] [jsname="lHCI7d"],
+html[data-byeai-active="1"] .oGdvd,
+html[data-byeai-active="1"] [jscontroller="DyTeib"],
+html[data-byeai-active="1"] .plR5qb,
+html[data-byeai-active="1"] .olrp5b {
+  display: none !important;
+  visibility: hidden !important;
+  pointer-events: none !important;
+}

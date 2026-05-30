@@ -15,9 +15,22 @@ const tooltip = document.getElementById('tooltip');
 const settingsBtn = document.getElementById('settingsBtn');
 const helpBtn = document.getElementById('helpBtn');
 const privacyLink = document.getElementById('privacyLink');
+const footerVersion = document.getElementById('footerVersion');
+
+const t = (key, args) =>
+  (window.byeaiI18n && window.byeaiI18n.msg(key, args)) || '';
 
 let activeTabId = null;
 let state = null;
+
+function setVersionLabel() {
+  try {
+    const version = chrome.runtime.getManifest().version;
+    if (footerVersion) footerVersion.textContent = `v${version}`;
+  } catch (_) {
+    // ignore
+  }
+}
 
 async function getActiveTab() {
   const [tab] = await chrome.tabs.query({ active: true, currentWindow: true });
@@ -28,19 +41,21 @@ function renderStatusPill(state) {
   statusPill.classList.remove('is-off', 'is-allowed');
 
   if (!state.enabled) {
-    statusPill.textContent = 'Off';
+    statusPill.textContent = t('popupStatusOff') || 'Off';
     statusPill.classList.add('is-off');
   } else if (state.isAllowed) {
-    statusPill.textContent = 'Allowed';
+    statusPill.textContent = t('popupStatusAllowed') || 'Allowed';
     statusPill.classList.add('is-allowed');
   } else {
-    statusPill.textContent = 'Protected';
+    statusPill.textContent = t('popupStatusProtected') || 'Protected';
   }
 }
 
 function render(state) {
   const hasSite = Boolean(state.hostname);
-  siteNameEl.textContent = hasSite ? state.hostname : 'This page';
+  siteNameEl.textContent = hasSite
+    ? state.hostname
+    : t('popupSiteFallback') || 'This page';
   enabledToggle.checked = state.enabled;
   pageCountEl.textContent = String(state.pageBlocked);
   totalCountEl.textContent = String(state.totalBlocked);
@@ -48,10 +63,10 @@ function render(state) {
 
   if (state.isAllowed) {
     allowedNote.classList.remove('hidden');
-    allowBtnText.textContent = 'Block AI on this site again';
+    allowBtnText.textContent = t('popupAllowOff') || 'Block AI on this site again';
   } else {
     allowedNote.classList.add('hidden');
-    allowBtnText.textContent = 'Allow AI on this site';
+    allowBtnText.textContent = t('popupAllowOn') || 'Allow AI on this site';
   }
 
   if (!hasSite || !state.url.startsWith('http')) {
@@ -151,4 +166,5 @@ document.querySelectorAll('.tip-btn').forEach((btn) => {
   });
 });
 
+setVersionLabel();
 refresh();

@@ -1,0 +1,47 @@
+[
+  {
+    "id": 43,
+    "priority": 1,
+    "action": { "type": "block" },
+    "condition": {
+      "urlFilter": "||gemini.google.com^",
+      "resourceTypes": ["script", "sub_frame", "xmlhttprequest", "websocket"]
+    }
+  },
+  {
+    "id": 44,
+    "priority": 1,
+    "action": { "type": "block" },
+    "condition": {
+      "urlFilter": "||bard.google.com^",
+      "resourceTypes": ["script", "sub_frame", "xmlhttprequest", "websocket"]
+    }
+  },
+  {
+    "id": 45,
+    "priority": 1,
+    "action": { "type": "block" },
+    "condition": {
+      "urlFilter": "||gemini.googleapis.com^",
+      "resourceTypes": ["xmlhttprequest", "websocket"]
+    }
+  },
+  {
+    "id": 46,
+    "priority": 1,
+    "action": { "type": "block" },
+    "condition": {
+      "regexFilter": "^https://([^/]+\\.)?google\\.[^/]+/async/folsrch",
+      "resourceTypes": ["xmlhttprequest"]
+    }
+  },
+  {
+    "id": 47,
+    "priority": 1,
+    "action": { "type": "block" },
+    "condition": {
+      "urlFilter": "||ai.google.com^",
+      "resourceTypes": ["script", "sub_frame", "xmlhttprequest", "websocket"]
+    }
+  }
+]
