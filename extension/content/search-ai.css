@@ -1,0 +1,82 @@
+/*
+ * ByeAI: cosmetic blocking for AI features on non-Google search engines.
+ *
+ * All selectors are scoped under html[data-byeai-active="1"] so that when
+ * the user clicks "Allow on this site" (which flips the flag to "0"),
+ * these rules stop applying and any hidden elements become visible again.
+ *
+ * Selectors are best-effort. Search engines change their HTML often,
+ * so this file may need maintenance over time.
+ */
+
+/* === Bing (bing.com) === */
+html[data-byeai-active="1"] cib-serp-main,
+html[data-byeai-active="1"] cib-serp,
+html[data-byeai-active="1"] [data-priority="GenerativeSearch"],
+html[data-byeai-active="1"] [data-bm-name*="generative" i],
+html[data-byeai-active="1"] [data-bm*="generative" i],
+html[data-byeai-active="1"] [data-bm*="copilot" i],
+html[data-byeai-active="1"] [id*="b_results_chat"],
+html[data-byeai-active="1"] .b_searchbox_chat,
+html[data-byeai-active="1"] #b_pole .b_chat,
+html[data-byeai-active="1"] #b_chat_pane,
+html[data-byeai-active="1"] .b_genConvBubble,
+html[data-byeai-active="1"] [class*="GenerativeSearch"],
+html[data-byeai-active="1"] [data-tag="ChatPanel" i],
+html[data-byeai-active="1"] [aria-label*="Copilot" i],
+html[data-byeai-active="1"] a[href*="/chat" i][href*="bing.com" i] {
+  display: none !important;
+  visibility: hidden !important;
+  pointer-events: none !important;
+}
+
+/* === DuckDuckGo (duckduckgo.com) === */
+html[data-byeai-active="1"] [data-testid="duckassist-ia"],
+html[data-byeai-active="1"] [data-testid="duckchat-ia"],
+html[data-byeai-active="1"] [data-tile-type="duckassist"],
+html[data-byeai-active="1"] [data-tile-type="ai_chat"],
+html[data-byeai-active="1"] article[data-testid*="duck-assist" i],
+html[data-byeai-active="1"] article[data-testid*="duckassist" i],
+html[data-byeai-active="1"] [data-testid="ai-chat-button"],
+html[data-byeai-active="1"] [data-testid="ai-chat"],
+html[data-byeai-active="1"] [data-testid*="aichat" i],
+html[data-byeai-active="1"] .module--instant-answer.module--ai,
+html[data-byeai-active="1"] [class*="DuckAssist"],
+html[data-byeai-active="1"] [class*="duckchat" i],
+html[data-byeai-active="1"] a[href*="duck.ai"],
+html[data-byeai-active="1"] a[href*="ia=chat"] {
+  display: none !important;
+  visibility: hidden !important;
+  pointer-events: none !important;
+}
+
+/* === Brave Search (search.brave.com) === */
+html[data-byeai-active="1"] [data-testid="summarizer-content"],
+html[data-byeai-active="1"] [data-testid*="summarizer" i],
+html[data-byeai-active="1"] #summarizer,
+html[data-byeai-active="1"] .summarizer,
+html[data-byeai-active="1"] .summarizer-block,
+html[data-byeai-active="1"] .summarizer-card,
+html[data-byeai-active="1"] [class*="Summarizer"],
+html[data-byeai-active="1"] [class*="summary-card"][class*="ai" i],
+html[data-byeai-active="1"] aside[class*="leo" i],
+html[data-byeai-active="1"] [data-testid*="leo" i],
+html[data-byeai-active="1"] a[href*="leo.brave.com"] {
+  display: none !important;
+  visibility: hidden !important;
+  pointer-events: none !important;
+}
+
+/* === Ecosia (ecosia.org) === */
+html[data-byeai-active="1"] [data-test-id*="ai-chat" i],
+html[data-byeai-active="1"] [data-test-id*="ai-summary" i],
+html[data-byeai-active="1"] [data-test-id*="ai-search" i],
+html[data-byeai-active="1"] .ai-chat,
+html[data-byeai-active="1"] [class*="AiChat"],
+html[data-byeai-active="1"] [class*="ai-chat-button"],
+html[data-byeai-active="1"] #ai-chat-panel,
+html[data-byeai-active="1"] a[href*="/chat" i][href*="ecosia.org" i] {
+  display: none !important;
+  visibility: hidden !important;
+  pointer-events: none !important;
+}

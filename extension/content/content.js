@@ -13,7 +13,6 @@ const COSMETIC_SELECTORS = [
   'iframe[src*="copilot"]',
   '[data-testid*="chatbot"]',
   '[class*="ai-assistant"]',
-  '[id*="copilot" i]',
 ];
 
 async function isActiveOnPage() {

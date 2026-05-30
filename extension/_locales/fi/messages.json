@@ -1,0 +1,113 @@
+{
+  "appName": {
+    "message": "ByeAI: Estä tekoäly verkossa",
+    "description": "Extension name shown in the Chrome Web Store and in chrome://extensions"
+  },
+  "appShortName": {
+    "message": "ByeAI",
+    "description": "Short extension name shown when space is limited"
+  },
+  "appDescription": {
+    "message": "Estä tekoäly verkossa: chat-widgetit, copilotit, Googlen AI-katsaukset, hakuyhteenvedot. Salli sivusto yhdellä klikkauksella.",
+    "description": "Extension summary in the Chrome Web Store"
+  },
+  "actionTitle": {
+    "message": "ByeAI",
+    "description": "Default tooltip on the toolbar icon"
+  },
+  "actionTitleOff": {
+    "message": "ByeAI on pois päältä"
+  },
+  "actionTitleAllowed": {
+    "message": "ByeAI: tekoäly sallittu sivustolla $HOST$",
+    "placeholders": {
+      "host": { "content": "$1", "example": "example.com" }
+    }
+  },
+  "actionTitleBlocked": {
+    "message": "ByeAI: $COUNT$ estetty tällä sivulla",
+    "placeholders": {
+      "count": { "content": "$1", "example": "3" }
+    }
+  },
+  "actionTitleNothing": {
+    "message": "ByeAI: ei estoja tällä sivulla"
+  },
+
+  "popupBrandTag": { "message": "Estä tekoäly verkossa" },
+  "popupHelpTitle": { "message": "Ohje" },
+  "popupHelpAria": { "message": "Avaa ohje" },
+  "popupSettingsTitle": { "message": "Asetukset" },
+  "popupSettingsAria": { "message": "Avaa asetukset" },
+  "popupStatusProtected": { "message": "Suojattu" },
+  "popupStatusOff": { "message": "Pois" },
+  "popupStatusAllowed": { "message": "Sallittu" },
+  "popupSiteFallback": { "message": "Tämä sivu" },
+  "popupBlockAi": { "message": "Estä tekoäly" },
+  "popupBlockAiTip": { "message": "Estää tekoälytoimintojen latautumisen verkkosivuilla: chatbotit, copilotit, hakuyhteenvedot ja tekoälypalvelukutsut." },
+  "popupBlockAiTipAria": { "message": "Mikä on Estä tekoäly?" },
+  "popupToggleAria": { "message": "Vaihda Estä tekoäly -tila" },
+  "popupOnThisPage": { "message": "tällä sivulla" },
+  "popupOnThisPageTip": { "message": "Tällä sivulla juuri nyt estetyt tekoälylataukset." },
+  "popupOnThisPageAria": { "message": "Tietoja tämän sivun laskurista" },
+  "popupInTotal": { "message": "yhteensä" },
+  "popupInTotalTip": { "message": "Kaikki, mitä ByeAI on estänyt asennuksen jälkeen." },
+  "popupInTotalAria": { "message": "Tietoja kokonaislaskurista" },
+  "popupAllowedNote": { "message": "Tekoäly sallittu tällä sivustolla" },
+  "popupTipBanner": { "message": "Toimiiko sivusto oudosti? Kokeile sallia tekoäly tällä sivustolla." },
+  "popupDismissTipAria": { "message": "Hylkää vinkki" },
+  "popupReloadBanner": { "message": "Lataa sivu uudelleen, jotta tekoäly voi latautua." },
+  "popupReloadBtn": { "message": "Lataa uudelleen" },
+  "popupDismissAria": { "message": "Sulje" },
+  "popupAllowOn": { "message": "Salli tekoäly tällä sivustolla" },
+  "popupAllowOff": { "message": "Estä tekoäly tällä sivustolla taas" },
+  "popupAllowAria": { "message": "Tietoja Salli tällä sivustolla -toiminnosta" },
+  "popupAllowTip": { "message": "Sallii tämän sivuston käyttää tekoälyä. Muut sivustot pysyvät suojattuina." },
+  "popupPrivacy": { "message": "Tietosuoja" },
+  "popupSupport": { "message": "Tue" },
+  "popupSupportTitle": { "message": "Tue ByeAI:tä" },
+
+  "optionsTitle": { "message": "ByeAI Asetukset" },
+  "optionsHeroLogoAlt": { "message": "ByeAI-logo" },
+  "optionsTagline": { "message": "Hei vaan, tekoäly — kunnes sallit." },
+  "optionsWelcomeHeading": { "message": "Tervetuloa" },
+  "optionsWelcomeIntro": { "message": "ByeAI estää tekoälytoiminnot verkkosivuilla ennen kuin ne ehtivät latautua — chat-widgetit, copilotit, Googlen tekoälykatsaukset ja muut hakuyhteenvedot, \"Kysy tekoälyltä\" -paneelit sekä taustalla tehtävät tekoälykutsut. Kuin mainostenestäjä, mutta tekoälylle." },
+  "optionsWelcomeBullet1Html": { "message": "Estäminen on <strong>päällä</strong> oletuksena." },
+  "optionsWelcomeBullet2": { "message": "Klikkaa ByeAI-kuvaketta nähdäksesi, mitä on estetty tältä sivulta." },
+  "optionsWelcomeBullet3Html": { "message": "Käytä <strong>Salli tekoäly tällä sivustolla</strong>, kun haluat käyttää sivuston tekoälyominaisuuksia." },
+  "optionsWelcomeBullet4": { "message": "Sivusto toimii oudosti? Salli tekoäly siellä tai poista ByeAI käytöstä popupista." },
+  "optionsWelcomeNoteHtml": { "message": "<strong>ByeAI ei skannaa tekstiäsi tai kuviasi.</strong> Se vain estää tekoälytyökalujen latautumisen." },
+  "optionsAllowedHeading": { "message": "Sallitut sivustot" },
+  "optionsAllowedIntro": { "message": "Sivustot, joilla olet sallinut tekoälyn. Poista yksi aloittaaksesi estämisen taas." },
+  "optionsAllowedEmpty": { "message": "Ei sallittuja sivustoja vielä." },
+  "optionsAllowedBlockBtn": { "message": "Estä taas" },
+  "optionsStatsHeading": { "message": "Tilastot" },
+  "optionsStatsTotalLabel": { "message": "Estetty yhteensä asennuksen jälkeen:" },
+  "optionsStatsResetBtn": { "message": "Nollaa kokonaislaskuri" },
+  "optionsStatsResetConfirm": { "message": "Nollataanko estettyjen kokonaismäärä?" },
+  "optionsPrivacyVsHeading": { "message": "Tietosuoja vs. käyttöliittymä" },
+  "optionsPrivacyVsIntro": { "message": "Mitä ByeAI todella estää, selkokielellä." },
+  "optionsPrivacyVsRealTitle": { "message": "Aito esto (tietosuoja)" },
+  "optionsPrivacyVsRealText": { "message": "Estää tekoälyskriptit ja API-kutsut ennen kuin ne ajetaan. Käytetään chat-widgeteille, copiloteille ja tekoälypalveluyhteyksille useimmilla sivustoilla." },
+  "optionsPrivacyVsGoogleTitle": { "message": "Google-haku" },
+  "optionsPrivacyVsGoogleText": { "message": "Vaihtaa hakutulokset Web-tilaan ja estää tunnetut tekoälykutsujen URL-osoitteet. Tämä vähentää tekoälyä sivulla, mutta Google saa silti hakukyselysi normaalisti." },
+  "optionsPrivacyVsUiTitle": { "message": "Käyttöliittymän piilottaminen (varakeino)" },
+  "optionsPrivacyVsUiText": { "message": "Piilottaa tekoälylaatikot, jotka silti ilmestyvät näytölle. Tämä on lähinnä siksi, ettet näe niitä. Verkkoesto tekee raskaan työn." },
+  "optionsPrivacyVsNote": { "message": "ByeAI ei skannaa tekstiäsi tai kuviasi. Se ei tee selailusta anonyymiä. Vahvempaa hakutietosuojaa varten käytä luotettavaa hakukonetta tai poista ByeAI käytöstä, kun tarvitset sivuston täydet ominaisuudet." },
+  "optionsPermissionsHeading": { "message": "Käyttöoikeudet" },
+  "optionsPermissionsIntro": { "message": "ByeAI tarvitsee pääsyn vierailemillesi sivustoille voidakseen estää tekoälylataukset ennen niiden suoritusta. Asetukset ja sallitut sivustot tallennetaan paikallisesti laitteellesi." },
+  "optionsPermissionsDnrHtml": { "message": "<strong>declarativeNetRequest</strong>: estää tunnetut tekoäly-widgettien ja API:en URL-osoitteet" },
+  "optionsPermissionsStorageHtml": { "message": "<strong>storage</strong>: tallentaa asetuksesi ja sallitut sivustot" },
+  "optionsPermissionsTabsHtml": { "message": "<strong>tabs</strong>: näyttää tilastot katselemastasi sivusta" },
+  "optionsSupportHeading": { "message": "Tue ByeAI:tä" },
+  "optionsSupportIntro": { "message": "ByeAI on ilmainen ja mainoksetön. Jos se on säästänyt sinut yhdeltä liikaa tekoälychatilta, voit lahjoittaa pitääksesi sen sellaisena." },
+  "optionsSupportNote": { "message": "Lahjoitukset ovat vapaaehtoisia. Laajennus toimii aina ilman niitä." },
+  "optionsSupportBtn": { "message": "Tue ByeAI:tä" },
+  "optionsPrivacyHeading": { "message": "Tietosuoja" },
+  "optionsPrivacyIntro": { "message": "ByeAI estää tunnetut tekoälylataukset paikallisen sääntölistan avulla. Selaushistoriaasi ei lähetetä meille. Sallitut sivustot ja tilastot tallennetaan vain laitteellesi." },
+  "optionsPrivacyLink": { "message": "Lue tietosuojaseloste" },
+  "optionsFooterVersion": {
+    "message": "ByeAI v$VERSION$",
+    "placeholders": { "version": { "content": "$1", "example": "1.0.3" } }
+  }
+}

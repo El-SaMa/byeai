@@ -1,9 +1,10 @@
 {
   "manifest_version": 3,
-  "name": "ByeAI: Block AI Widgets",
-  "short_name": "ByeAI",
-  "version": "1.0.1",
-  "description": "Block AI chat widgets, copilots, and AI service calls before they load. Allow any site with one click. No content scanning.",
+  "name": "__MSG_appName__",
+  "short_name": "__MSG_appShortName__",
+  "version": "1.0.4",
+  "default_locale": "en",
+  "description": "__MSG_appDescription__",
   "minimum_chrome_version": "109",
   "icons": {
     "16": "assets/icons/icon16.png",
@@ -17,7 +18,7 @@
       "48": "assets/icons/icon48.png",
       "128": "assets/icons/icon128.png"
     },
-    "default_title": "ByeAI"
+    "default_title": "__MSG_actionTitle__"
   },
   "background": {
     "service_worker": "background/service-worker.js"
@@ -26,7 +27,8 @@
     "declarativeNetRequest",
     "declarativeNetRequestFeedback",
     "storage",
-    "tabs"
+    "tabs",
+    "webNavigation"
   ],
   "host_permissions": [
     "http://*/*",
@@ -38,14 +40,39 @@
         "id": "core_network",
         "enabled": true,
         "path": "rules/core-network.json"
+      },
+      {
+        "id": "google_search",
+        "enabled": true,
+        "path": "rules/google-search.json"
+      },
+      {
+        "id": "search_ai",
+        "enabled": true,
+        "path": "rules/search-ai.json"
       }
     ]
   },
   "content_scripts": [
     {
       "matches": ["http://*/*", "https://*/*"],
-      "js": ["content/content.js"],
-      "css": ["content/content.css"],
+      "js": ["content/byeai-flag.js"],
+      "css": ["content/google-search.css", "content/content.css"],
+      "run_at": "document_start"
+    },
+    {
+      "matches": [
+        "*://*.bing.com/*",
+        "*://*.duckduckgo.com/*",
+        "*://*.search.brave.com/*",
+        "*://*.ecosia.org/*"
+      ],
+      "css": ["content/search-ai.css"],
+      "run_at": "document_start"
+    },
+    {
+      "matches": ["http://*/*", "https://*/*"],
+      "js": ["content/google-search.js", "content/content.js"],
       "run_at": "document_idle"
     }
   ],

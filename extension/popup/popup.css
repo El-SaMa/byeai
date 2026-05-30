@@ -345,6 +345,16 @@ body {
   color: var(--muted);
 }
 
+.footer-links {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.footer-sep {
+  color: #cbd5e1;
+}
+
 .footer a {
   color: var(--accent-dark);
   text-decoration: none;
@@ -352,6 +362,22 @@ body {
 
 .footer a:hover {
   text-decoration: underline;
+}
+
+.support-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  font-weight: 600;
+  color: var(--accent-dark);
+}
+
+.support-link:hover {
+  color: #115e59;
+}
+
+.heart-icon {
+  flex-shrink: 0;
 }
 
 .tooltip {

@@ -1,4 +1,7 @@
 const RULESET_ID = 'core_network';
+const GOOGLE_RULESET_ID = 'google_search';
+const SEARCH_AI_RULESET_ID = 'search_ai';
+const ENABLED_RULESETS = [RULESET_ID, GOOGLE_RULESET_ID, SEARCH_AI_RULESET_ID];
 const WHITELIST_RULE_BASE = 9000000;
 const BLOCK_RESOURCE_TYPES = ['script', 'sub_frame', 'xmlhttprequest', 'websocket', 'other'];
 
@@ -43,15 +46,33 @@ function resetTabStat(tabId) {
 async function syncRulesetEnabled(enabled) {
   if (enabled) {
     await chrome.declarativeNetRequest.updateEnabledRulesets({
-      enableRulesetIds: [RULESET_ID],
+      enableRulesetIds: ENABLED_RULESETS,
       disableRulesetIds: [],
     });
   } else {
     await chrome.declarativeNetRequest.updateEnabledRulesets({
       enableRulesetIds: [],
-      disableRulesetIds: [RULESET_ID],
+      disableRulesetIds: ENABLED_RULESETS,
     });
   }
+}
+
+const GOOGLE_HOST = /^(\w+\.)?google\.[\w.]+$/;
+
+function isGoogleSearchUrl(urlString) {
+  try {
+    const url = new URL(urlString);
+    if (!GOOGLE_HOST.test(url.hostname)) return false;
+    return url.pathname.startsWith('/search');
+  } catch {
+    return false;
+  }
+}
+
+function hostnameAllowed(hostname, allowedHosts) {
+  if (allowedHosts.includes(hostname)) return true;
+  const bare = hostname.replace(/^www\./, '');
+  return allowedHosts.includes(bare);
 }
 
 async function syncWhitelistRules(allowedHosts) {
@@ -77,16 +98,24 @@ async function syncWhitelistRules(allowedHosts) {
 }
 
 async function updateActionTitle(tabId, hostname, pageCount, enabled, isAllowed) {
-  let title = 'ByeAI';
+  const t = (key, args) => {
+    try {
+      return chrome.i18n.getMessage(key, args || []) || '';
+    } catch (_) {
+      return '';
+    }
+  };
+
+  let title = t('actionTitle') || 'ByeAI';
 
   if (!enabled) {
-    title = 'ByeAI is off';
+    title = t('actionTitleOff') || 'ByeAI is off';
   } else if (isAllowed) {
-    title = `ByeAI: AI allowed on ${hostname}`;
+    title = t('actionTitleAllowed', [hostname]) || `ByeAI: AI allowed on ${hostname}`;
   } else if (pageCount > 0) {
-    title = `ByeAI: ${pageCount} blocked on this page`;
+    title = t('actionTitleBlocked', [String(pageCount)]) || `ByeAI: ${pageCount} blocked on this page`;
   } else {
-    title = 'ByeAI: nothing blocked here';
+    title = t('actionTitleNothing') || 'ByeAI: nothing blocked here';
   }
 
   const details = { title };
@@ -195,6 +224,40 @@ async function getPopupState(tabId) {
   };
 }
 
+async function broadcastSettingsChanged() {
+  try {
+    const tabs = await chrome.tabs.query({ url: ['http://*/*', 'https://*/*'] });
+    for (const tab of tabs) {
+      if (typeof tab.id !== 'number') continue;
+      chrome.tabs.sendMessage(tab.id, { type: 'SETTINGS_CHANGED' }).catch(() => {});
+    }
+  } catch {
+    // ignore
+  }
+}
+
+async function unforceWebModeOnAllowedGoogleTabs(allowedHosts) {
+  try {
+    const tabs = await chrome.tabs.query({});
+    for (const tab of tabs) {
+      if (!tab.url || typeof tab.id !== 'number') continue;
+      if (!isGoogleSearchUrl(tab.url)) continue;
+      try {
+        const url = new URL(tab.url);
+        if (url.searchParams.get('udm') !== '14') continue;
+        const hostname = url.hostname.replace(/^www\./, '');
+        if (!hostnameAllowed(hostname, allowedHosts)) continue;
+        url.searchParams.delete('udm');
+        await chrome.tabs.update(tab.id, { url: url.toString() });
+      } catch {
+        // ignore individual tab errors
+      }
+    }
+  } catch {
+    // ignore
+  }
+}
+
 async function toggleEnabled(enabled) {
   await saveSettings({ enabled });
   await syncRulesetEnabled(enabled);
@@ -204,6 +267,7 @@ async function toggleEnabled(enabled) {
       await refreshTabUi(tab.id);
     }
   }
+  await broadcastSettingsChanged();
 }
 
 async function toggleAllowSite(hostname, allow) {
@@ -227,6 +291,12 @@ async function toggleAllowSite(hostname, allow) {
       resetTabStat(tab.id);
       await refreshTabUi(tab.id);
     }
+  }
+
+  await broadcastSettingsChanged();
+
+  if (allow) {
+    await unforceWebModeOnAllowedGoogleTabs(allowedHosts);
   }
 
   return allowedHosts;
@@ -258,6 +328,23 @@ chrome.tabs.onUpdated.addListener((tabId, changeInfo) => {
   resetTabStat(tabId);
   refreshTabUi(tabId);
   scheduleRuleSync(tabId);
+});
+
+chrome.webNavigation.onBeforeNavigate.addListener(async (details) => {
+  if (details.frameId !== 0) return;
+  if (!isGoogleSearchUrl(details.url)) return;
+
+  const url = new URL(details.url);
+  if (url.searchParams.has('udm')) return;
+
+  const settings = await getSettings();
+  if (!settings.enabled) return;
+
+  const hostname = url.hostname.replace(/^www\./, '');
+  if (hostnameAllowed(hostname, settings.allowedHosts)) return;
+
+  url.searchParams.set('udm', '14');
+  await chrome.tabs.update(details.tabId, { url: url.toString() });
 });
 
 chrome.tabs.onRemoved.addListener((tabId) => {

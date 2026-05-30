@@ -3,65 +3,98 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>ByeAI Settings</title>
+    <title data-i18n="optionsTitle">ByeAI Settings</title>
     <link rel="stylesheet" href="options.css" />
   </head>
   <body>
     <main class="wrap">
       <header class="hero">
-        <img src="../assets/icons/icon128.png" alt="ByeAI logo" width="72" height="72" />
+        <img src="../assets/icons/icon128.png" data-i18n-attr="alt:optionsHeroLogoAlt" alt="ByeAI logo" width="72" height="72" />
         <h1>ByeAI</h1>
-        <p class="tagline">Bye, AI until you allow it.</p>
+        <p class="tagline" data-i18n="optionsTagline">Bye, AI until you allow it.</p>
       </header>
 
       <section class="panel welcome" id="help">
-        <h2>Welcome</h2>
-        <p>ByeAI stops websites from loading AI chat boxes and helpers, like an ad blocker for AI.</p>
+        <h2 data-i18n="optionsWelcomeHeading">Welcome</h2>
+        <p data-i18n="optionsWelcomeIntro">ByeAI blocks AI features on websites before they load — chat widgets, copilots, Google AI Overviews and other AI search summaries, "Ask AI" panels, and background AI service calls. Like an ad blocker, but for AI.</p>
         <ul>
-          <li>Blocking is <strong>on</strong> by default.</li>
-          <li>Click the ByeAI icon to see what was blocked on the current page.</li>
-          <li>Use <strong>Allow AI on this site</strong> if you need help chat somewhere.</li>
-          <li>Site acting weird? Allow AI on that site or turn ByeAI off from the popup.</li>
+          <li data-i18n="optionsWelcomeBullet1Html">Blocking is <strong>on</strong> by default.</li>
+          <li data-i18n="optionsWelcomeBullet2">Click the ByeAI icon to see what was blocked on the current page.</li>
+          <li data-i18n="optionsWelcomeBullet3Html">Use <strong>Allow AI on this site</strong> when you actually want a site's AI features.</li>
+          <li data-i18n="optionsWelcomeBullet4">Site acting weird? Allow AI on that site or turn ByeAI off from the popup.</li>
         </ul>
-        <p class="muted"><strong>ByeAI does not scan your text or images.</strong> It only stops AI tools from loading.</p>
+        <p class="muted" data-i18n="optionsWelcomeNoteHtml"><strong>ByeAI does not scan your text or images.</strong> It only stops AI tools from loading.</p>
       </section>
 
       <section class="panel">
-        <h2>Allowed sites</h2>
-        <p class="muted">Sites where you chose to allow AI. Remove one to start blocking there again.</p>
+        <h2 data-i18n="optionsAllowedHeading">Allowed sites</h2>
+        <p class="muted" data-i18n="optionsAllowedIntro">Sites where you chose to allow AI. Remove one to start blocking there again.</p>
         <ul class="host-list" id="allowedList"></ul>
-        <p class="empty hidden" id="emptyAllowed">No allowed sites yet.</p>
+        <p class="empty hidden" id="emptyAllowed" data-i18n="optionsAllowedEmpty">No allowed sites yet.</p>
       </section>
 
       <section class="panel">
-        <h2>Stats</h2>
-        <p>Total blocked since install: <strong id="totalBlocked">0</strong></p>
-        <button type="button" class="secondary-btn" id="resetStatsBtn">Reset total counter</button>
+        <h2 data-i18n="optionsStatsHeading">Stats</h2>
+        <p><span data-i18n="optionsStatsTotalLabel">Total blocked since install:</span> <strong id="totalBlocked">0</strong></p>
+        <button type="button" class="secondary-btn" id="resetStatsBtn" data-i18n="optionsStatsResetBtn">Reset total counter</button>
+      </section>
+
+      <section class="panel" id="privacy-vs-ui">
+        <h2 data-i18n="optionsPrivacyVsHeading">Privacy vs UI</h2>
+        <p class="muted" data-i18n="optionsPrivacyVsIntro">What ByeAI actually stops, in plain language.</p>
+        <ul class="plain-list privacy-vs-list">
+          <li>
+            <strong data-i18n="optionsPrivacyVsRealTitle">Real blocking (privacy)</strong>
+            <span data-i18n="optionsPrivacyVsRealText">Stops AI scripts and API calls before they run. Used for chat widgets, copilots, and AI service connections on most sites.</span>
+          </li>
+          <li>
+            <strong data-i18n="optionsPrivacyVsGoogleTitle">Google Search</strong>
+            <span data-i18n="optionsPrivacyVsGoogleText">Switches results to Web mode and blocks known AI fetch URLs. This reduces AI on the page, but Google still receives your search query like normal search.</span>
+          </li>
+          <li>
+            <strong data-i18n="optionsPrivacyVsUiTitle">UI hiding (backup)</strong>
+            <span data-i18n="optionsPrivacyVsUiText">Hides AI boxes that still appear on screen. This is mainly so you do not see them. Network blocking does the heavy work.</span>
+          </li>
+        </ul>
+        <p class="muted" data-i18n="optionsPrivacyVsNote">
+          ByeAI does not scan your text or images. It does not make browsing anonymous. For stronger search privacy, use a search engine you trust or turn ByeAI off where you need full site features.
+        </p>
       </section>
 
       <section class="panel">
-        <h2>Permissions</h2>
-        <p class="muted">ByeAI needs access to websites you visit so it can block AI loaders before they run. Settings and allowed sites are stored locally on your device.</p>
+        <h2 data-i18n="optionsPermissionsHeading">Permissions</h2>
+        <p class="muted" data-i18n="optionsPermissionsIntro">ByeAI needs access to websites you visit so it can block AI loaders before they run. Settings and allowed sites are stored locally on your device.</p>
         <ul class="plain-list">
-          <li><strong>declarativeNetRequest</strong>: block known AI widget and API URLs</li>
-          <li><strong>storage</strong>: save your settings and allowed sites</li>
-          <li><strong>tabs</strong>: show stats for the page you are viewing</li>
+          <li data-i18n="optionsPermissionsDnrHtml"><strong>declarativeNetRequest</strong>: block known AI widget and API URLs</li>
+          <li data-i18n="optionsPermissionsStorageHtml"><strong>storage</strong>: save your settings and allowed sites</li>
+          <li data-i18n="optionsPermissionsTabsHtml"><strong>tabs</strong>: show stats for the page you are viewing</li>
         </ul>
       </section>
 
+      <section class="panel support-panel">
+        <h2 data-i18n="optionsSupportHeading">Support ByeAI</h2>
+        <p data-i18n="optionsSupportIntro">ByeAI is free and ad-free. If it has saved you from one too many AI chat boxes, you can chip in to keep it that way.</p>
+        <p class="muted" data-i18n="optionsSupportNote">Donations are voluntary and optional. The extension will always work without one.</p>
+        <a class="primary-btn" id="supportBtn" href="https://donate.stripe.com/14A8wO8mn3oA3N40Ge5EY00" target="_blank" rel="noopener noreferrer">
+          <svg class="heart-icon" width="14" height="14" viewBox="0 0 16 16" aria-hidden="true"><path fill="currentColor" d="M8 14s-5.5-3.4-5.5-7.3A3.2 3.2 0 0 1 5.7 3.5c1 0 1.8.5 2.3 1.3.5-.8 1.3-1.3 2.3-1.3a3.2 3.2 0 0 1 3.2 3.2C13.5 10.6 8 14 8 14Z"/></svg>
+          <span data-i18n="optionsSupportBtn">Support ByeAI</span>
+        </a>
+      </section>
+
       <section class="panel">
-        <h2>Privacy</h2>
-        <p class="muted">
+        <h2 data-i18n="optionsPrivacyHeading">Privacy</h2>
+        <p class="muted" data-i18n="optionsPrivacyIntro">
           ByeAI blocks known AI loaders using a local rule list. Your browsing history is not sent to us.
           Allowed sites and stats are stored on your device only.
         </p>
-        <p><a id="privacyLink" href="../privacy/privacy.html" target="_blank" rel="noopener">Read the privacy policy</a></p>
+        <p><a id="privacyLink" href="../privacy/privacy.html" target="_blank" rel="noopener" data-i18n="optionsPrivacyLink">Read the privacy policy</a></p>
       </section>
 
       <footer class="page-footer">
-        <span>ByeAI v1.0.1</span>
+        <span id="footerVersion">ByeAI v1.0.4</span>
       </footer>
     </main>
+    <script src="../shared/i18n.js"></script>
     <script src="options.js"></script>
   </body>
 </html>

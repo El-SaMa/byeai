@@ -1,0 +1,74 @@
+[
+  {
+    "id": 100,
+    "priority": 1,
+    "action": { "type": "block" },
+    "condition": {
+      "regexFilter": "^https://(www\\.|cn\\.)?bing\\.com/(cibchat|cibsmsg|copilotsearch|generativesearch|api/copilot)",
+      "resourceTypes": ["xmlhttprequest", "websocket", "sub_frame", "script"]
+    }
+  },
+  {
+    "id": 101,
+    "priority": 1,
+    "action": { "type": "block" },
+    "condition": {
+      "urlFilter": "||edgeservices.bing.com^",
+      "resourceTypes": ["xmlhttprequest", "websocket", "sub_frame", "script"]
+    }
+  },
+  {
+    "id": 102,
+    "priority": 1,
+    "action": { "type": "block" },
+    "condition": {
+      "urlFilter": "||duckduckgo.com/duckchat/",
+      "resourceTypes": ["xmlhttprequest", "websocket"]
+    }
+  },
+  {
+    "id": 103,
+    "priority": 1,
+    "action": { "type": "block" },
+    "condition": {
+      "urlFilter": "||duck.ai^",
+      "resourceTypes": ["script", "sub_frame", "xmlhttprequest", "websocket"]
+    }
+  },
+  {
+    "id": 104,
+    "priority": 1,
+    "action": { "type": "block" },
+    "condition": {
+      "regexFilter": "^https://(www\\.)?duckduckgo\\.com/.*\\?.*\\bia=chat\\b",
+      "resourceTypes": ["xmlhttprequest"]
+    }
+  },
+  {
+    "id": 105,
+    "priority": 1,
+    "action": { "type": "block" },
+    "condition": {
+      "regexFilter": "^https://search\\.brave\\.com/api/.*summari[sz]er",
+      "resourceTypes": ["xmlhttprequest", "websocket"]
+    }
+  },
+  {
+    "id": 106,
+    "priority": 1,
+    "action": { "type": "block" },
+    "condition": {
+      "urlFilter": "||leo.brave.com^",
+      "resourceTypes": ["script", "sub_frame", "xmlhttprequest", "websocket"]
+    }
+  },
+  {
+    "id": 107,
+    "priority": 1,
+    "action": { "type": "block" },
+    "condition": {
+      "regexFilter": "^https://(www\\.)?ecosia\\.org/(chat|api/.*chat)",
+      "resourceTypes": ["xmlhttprequest", "websocket", "sub_frame"]
+    }
+  }
+]
