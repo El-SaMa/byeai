@@ -8,13 +8,11 @@ Block AI on the web. ByeAI stops chat widgets, copilots, AI Overviews and AI but
 
 Like an ad blocker, but for AI.
 
-<p>
-  <img src="docs/img/popup.png" width="260" alt="ByeAI popup with three switches">
-  &nbsp;
-  <img src="docs/img/feed-blurred.png" width="520" alt="Video feed where AI videos are blurred with a reason">
-</p>
+<img src="docs/img/before-after.png" width="760" alt="The same video feed without and with ByeAI: AI videos are blurred and say why">
 
 ## What it blocks
+
+<img src="docs/img/popup.png" width="240" align="right" alt="ByeAI popup with three switches">
 
 | Switch | What it does |
 | --- | --- |

@@ -52,4 +52,4 @@ Tehty Suomessa, LAFU.
 
 ## Screenshots
 
-Use `docs/img/popup.png` and `docs/img/feed-blurred.png`. The store wants 1280x800, so place them on a plain background.
+Use `docs/img/popup.png` and `docs/img/before-after.png`. The store wants 1280x800, so place them on a plain background.
