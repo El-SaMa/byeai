@@ -4,7 +4,7 @@
  *
  * Flags on <html>:
  *   data-byeai-active   widgets + search AI (used by the cosmetic CSS)
- *   data-byeai-buttons  AI buttons inside apps
+ *   data-byeai-buttons  AI buttons inside apps (same switch as widgets)
  *   data-byeai-labeled  AI videos and images (site labels + AI hashtags)
  *
  * Defaults are pessimistic so AI does not flash in while storage loads.
@@ -14,7 +14,7 @@
 (function () {
   'use strict';
 
-  const FEATURE_DEFAULTS = { widgets: true, buttons: true, labeled: true };
+  const FEATURE_DEFAULTS = { widgets: true, labeled: true };
   const HIDE_PROPS = ['display', 'visibility', 'pointer-events', 'height', 'overflow'];
   const host = location.hostname.replace(/^www\./, '');
   const listeners = [];
@@ -45,7 +45,8 @@
     const on = Boolean(data.enabled) && !allowed;
 
     state.widgets = on && features.widgets;
-    state.buttons = on && features.buttons;
+    // One "AI assistants" switch covers widgets, search AI and AI buttons.
+    state.buttons = on && features.widgets;
     state.labeled = on && features.labeled;
     state.ready = true;
 

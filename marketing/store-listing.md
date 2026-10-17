@@ -19,7 +19,7 @@ What it does
 • Blurs videos and pictures that YouTube, TikTok, Instagram, Facebook and others mark as made with AI. Click one if you still want to see it
 
 Easy to use
-Three switches, that's it. Turn off what you don't need. If a site acts strange, press "Allow AI on this site" and it works like before.
+Two switches, that's it. Turn off what you don't need. If a site acts strange, press "Allow AI on this site" and it works like before.
 
 Private
 ByeAI works on your own device. It doesn't collect, send or sell anything, and you don't need an account. It's free and open source, so anyone can check how it works.
@@ -43,7 +43,7 @@ Mitä se tekee
 • Sumentaa videot ja kuvat, jotka YouTube, TikTok, Instagram, Facebook ja muut ovat merkinneet tekoälyllä tehdyiksi. Klikkaa, jos haluat silti nähdä
 
 Helppo käyttää
-Vain kolme valintaa. Laita pois se, mitä et tarvitse. Jos sivusto toimii oudosti, paina "Salli tekoäly tällä sivustolla", niin kaikki toimii kuten ennenkin.
+Vain kaksi valintaa. Laita pois se, mitä et tarvitse. Jos sivusto toimii oudosti, paina "Salli tekoäly tällä sivustolla", niin kaikki toimii kuten ennenkin.
 
 Yksityinen
 ByeAI toimii omalla laitteellasi. Se ei kerää, lähetä eikä myy mitään, eikä tiliä tarvita. Se on ilmainen ja avointa lähdekoodia, joten kuka tahansa voi tarkistaa, miten se toimii.
@@ -52,4 +52,4 @@ Tehty Suomessa, LAFU.
 
 ## Screenshots
 
-Use `docs/img/popup.png` and `docs/img/before-after.png`. The store wants 1280x800, so place them on a plain background.
+Use `docs/img/popup.png` and `docs/img/youtube.png`. The store wants 1280x800, so place them on a plain background.

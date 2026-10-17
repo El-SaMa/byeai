@@ -60,7 +60,7 @@ export async function resetStorage(worker) {
     chrome.storage.local.set({
       enabled: true,
       allowedHosts: [],
-      features: { widgets: true, buttons: true, labeled: true },
+      features: { widgets: true, labeled: true },
     })
   );
 }

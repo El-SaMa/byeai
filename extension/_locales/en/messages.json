@@ -68,10 +68,8 @@
   "popupSupportTitle": { "message": "Support ByeAI" },
 
   "popupFeaturesHeading": { "message": "What to block" },
-  "featureWidgets": { "message": "Chatbots and AI search" },
-  "featureWidgetsDesc": { "message": "Chat widgets, copilots, AI Overviews" },
-  "featureButtons": { "message": "AI buttons" },
-  "featureButtonsDesc": { "message": "Grok, Meta AI, Gemini, Copilot and more" },
+  "featureWidgets": { "message": "AI assistants" },
+  "featureWidgetsDesc": { "message": "Chatbots, AI answers, Grok, Gemini, Copilot" },
   "featureLabeled": { "message": "AI videos and images" },
   "featureLabeledDesc": { "message": "Blurs what sites label as AI or tag #aiart" },
   "coverTagged": {

@@ -68,10 +68,8 @@
   "popupSupportTitle": { "message": "Tue ByeAI:tä" },
 
   "popupFeaturesHeading": { "message": "Mitä estetään" },
-  "featureWidgets": { "message": "Chatbotit ja tekoälyhaku" },
-  "featureWidgetsDesc": { "message": "Chat-ikkunat, copilotit, Googlen tekoälykatsaukset" },
-  "featureButtons": { "message": "Tekoälypainikkeet" },
-  "featureButtonsDesc": { "message": "Grok, Meta AI, Gemini, Copilot ja muut" },
+  "featureWidgets": { "message": "Tekoälyavustajat" },
+  "featureWidgetsDesc": { "message": "Chatbotit, tekoälyvastaukset, Grok, Gemini, Copilot" },
   "featureLabeled": { "message": "Tekoälyvideot ja -kuvat" },
   "featureLabeledDesc": { "message": "Sumentaa tekoälyksi merkityt ja #aiart-tyyppiset" },
   "coverTagged": {

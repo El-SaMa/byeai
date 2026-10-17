@@ -8,16 +8,15 @@ Block AI on the web. ByeAI stops chat widgets, copilots, AI Overviews and AI but
 
 Like an ad blocker, but for AI.
 
-<img src="docs/img/before-after.png" width="760" alt="The same video feed without and with ByeAI: AI videos are blurred and say why">
+<img src="docs/img/youtube.png" width="760" alt="A YouTube video that the site labels as AI, blurred by ByeAI with Click to show">
 
 ## What it blocks
 
-<img src="docs/img/popup.png" width="240" align="right" alt="ByeAI popup with three switches">
+<img src="docs/img/popup.png" width="240" align="right" alt="ByeAI popup with two switches">
 
 | Switch | What it does |
 | --- | --- |
-| Chatbots and AI search | Blocks chat widgets and copilots at the network level, hides Google AI Overviews, Bing Copilot, DuckDuckGo and Brave AI answers |
-| AI buttons | Hides Grok, Meta AI, Gemini, Copilot, Rufus, "Help me write" and similar |
+| AI assistants | Blocks chat widgets and copilots at the network level, hides Google AI Overviews, Bing Copilot, DuckDuckGo and Brave AI answers, and AI buttons like Grok, Meta AI, Gemini, Copilot, Rufus and "Help me write" |
 | AI videos and images | Blurs posts and videos that YouTube, TikTok, Instagram, Facebook, Threads, Pinterest and LinkedIn label as AI, or that carry clear AI tags like #aiart or #midjourney. Click to show one |
 
 Any site can be allowed with one click.

@@ -101,7 +101,8 @@ function renderFeatures(state) {
     const name = row.dataset.feature;
     row.querySelector('input').checked = Boolean(features[name]);
     const count = row.querySelector('.feature-count');
-    const n = counts[name] || 0;
+    // The assistants row also covers hidden AI buttons.
+    const n = (counts[name] || 0) + (name === 'widgets' ? counts.buttons || 0 : 0);
     count.textContent = String(n);
     count.hidden = n === 0;
   });

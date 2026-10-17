@@ -2,6 +2,7 @@
 
 ## 1.1.1 (2026-10-18)
 
+- Down to two switches: "AI assistants" (chatbots, AI search answers and AI buttons) and "AI videos and images"
 - Strict mode is gone. Clear AI hashtags like #aiart and #midjourney are now part of "AI videos and images"
 - Broad tags like #ai are no longer matched, so news about AI stays visible
 - Blurred posts now say why: labeled by the site, or which tag matched

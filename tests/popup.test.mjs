@@ -13,7 +13,7 @@ after(async () => {
   await ctx?.context.close();
 });
 
-test('popup shows the three rows with defaults and saves a toggle', async () => {
+test('popup shows the two rows with defaults and saves a toggle', async () => {
   const popup = await ctx.context.newPage();
   await popup.goto(`chrome-extension://${ctx.extensionId}/popup/popup.html`);
   await popup.waitForTimeout(300);
@@ -29,7 +29,6 @@ test('popup shows the three rows with defaults and saves a toggle', async () => 
     rows.map((r) => [r.name, r.on]),
     [
       ['widgets', true],
-      ['buttons', true],
       ['labeled', true],
     ]
   );
@@ -39,10 +38,10 @@ test('popup shows the three rows with defaults and saves a toggle', async () => 
   await popup.waitForTimeout(200);
   const features = await ctx.worker.evaluate(async () => (await chrome.storage.local.get('features')).features);
   assert.equal(features.labeled, false);
-  assert.equal(features.buttons, true);
+  assert.equal(features.widgets, true);
 });
 
-test('turning off chatbots and AI search disables the network rules', async () => {
+test('turning off AI assistants disables the network rules', async () => {
   const popup = await ctx.context.newPage();
   await popup.goto(`chrome-extension://${ctx.extensionId}/popup/popup.html`);
   await popup.click('.feature[data-feature="widgets"] .toggle');

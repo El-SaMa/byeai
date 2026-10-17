@@ -34,12 +34,12 @@ test('YouTube feed: labeled and AI-tagged tiles are covered, others are not', as
 
 test('turning off AI videos and images removes covers live', async () => {
   const page = await open(ctx.context, 'https://www.youtube.com/');
-  await setStorage(ctx.worker, { features: { widgets: true, buttons: true, labeled: false } });
+  await setStorage(ctx.worker, { features: { widgets: true, labeled: false } });
   await page.waitForTimeout(400);
   assert.equal(await coverOf(page, '#tagged'), '');
   assert.equal(await coverOf(page, '#labeled'), '');
 
-  await setStorage(ctx.worker, { features: { widgets: true, buttons: true, labeled: true } });
+  await setStorage(ctx.worker, { features: { widgets: true, labeled: true } });
   await page.waitForTimeout(400);
   assert.equal(await coverOf(page, '#labeled'), 'labeled');
 });
@@ -121,9 +121,9 @@ test('X: Grok buttons hidden, tweet text untouched, #midjourney covered', async 
   assert.equal(await coverOf(page, '#t3'), '');
 });
 
-test('AI buttons toggle off shows them again without reload', async () => {
+test('AI assistants switch off shows AI buttons again without reload', async () => {
   const page = await open(ctx.context, 'https://x.com/home');
-  await setStorage(ctx.worker, { features: { widgets: true, buttons: false, labeled: true } });
+  await setStorage(ctx.worker, { features: { widgets: false, labeled: true } });
   await page.waitForTimeout(400);
   assert.equal(await isHidden(page, '#grok-nav'), false);
   assert.equal(await isHidden(page, '#grok-actions'), false);

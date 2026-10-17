@@ -6,7 +6,9 @@ const WHITELIST_RULE_BASE = 9000000;
 const BLOCK_RESOURCE_TYPES = ['script', 'sub_frame', 'xmlhttprequest', 'websocket', 'other'];
 
 const CATEGORIES = ['widgets', 'buttons', 'labeled'];
-const FEATURE_DEFAULTS = { widgets: true, buttons: true, labeled: true };
+// Switches in the popup. Counts still use the finer CATEGORIES.
+const FEATURES = ['widgets', 'labeled'];
+const FEATURE_DEFAULTS = { widgets: true, labeled: true };
 
 /** @type {Map<number, { page: number, seen: Set<string>, cats: Record<string, number> }>} */
 const tabStats = new Map();
@@ -292,7 +294,7 @@ async function toggleEnabled(enabled) {
 }
 
 async function setFeature(name, on) {
-  if (!CATEGORIES.includes(name)) return;
+  if (!FEATURES.includes(name)) return;
   const settings = await getSettings();
   const features = { ...settings.features, [name]: Boolean(on) };
   await saveSettings({ features });
