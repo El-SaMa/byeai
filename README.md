@@ -8,11 +8,11 @@ Block AI on the web. ByeAI stops chat widgets, copilots, AI Overviews and AI but
 
 Like an ad blocker, but for AI.
 
-<img src="docs/img/youtube.png" width="760" alt="A YouTube video that the site labels as AI, blurred by ByeAI with Click to show">
+<p align="center">
+  <img src="docs/img/youtube.png" width="760" alt="A YouTube video that the site labels as AI, blurred by ByeAI with Click to show">
+</p>
 
 ## What it blocks
-
-<img src="docs/img/popup.png" width="240" align="right" alt="ByeAI popup with two switches">
 
 | Switch | What it does |
 | --- | --- |
@@ -20,6 +20,10 @@ Like an ad blocker, but for AI.
 | AI videos and images | Blurs posts and videos that YouTube, TikTok, Instagram, Facebook, Threads, Pinterest and LinkedIn label as AI, or that carry clear AI tags like #aiart or #midjourney. Click to show one |
 
 Any site can be allowed with one click.
+
+<p align="center">
+  <img src="docs/img/popup.png" width="260" alt="ByeAI popup with two switches">
+</p>
 
 ## How it detects AI
 
@@ -55,5 +59,7 @@ npm test
 Load `extension/` as an unpacked extension in `chrome://extensions`. Tests run the real extension in Chromium against local copies of YouTube, X, Instagram, TikTok, Google and Amazon pages ([`tests/fixtures`](tests/fixtures)).
 
 Found AI that slipped through? [Report it](https://github.com/El-SaMa/byeai/issues/new?template=missed-ai.yml). Security issues: see [SECURITY.md](SECURITY.md).
+
+ByeAI is free and has no ads. If it helps you, you can [support it here](https://donate.stripe.com/14A8wO8mn3oA3N40Ge5EY00).
 
 Built by [LAFU](https://lafu.fi). Published by Maximum Effort AY, Finland.
