@@ -174,7 +174,7 @@ test('settings changed on another device apply here', async () => {
   await page.waitForTimeout(500);
   assert.equal(await isHidden(page, '#grok-nav'), false);
   const rules = await ctx.worker.evaluate(() => chrome.declarativeNetRequest.getDynamicRules());
-  assert.ok(rules.some((r) => r.action.type === 'allow' && r.condition.initiatorDomains?.includes('x.com')));
+  assert.ok(rules.some((r) => r.action.type === 'allow' && (r.condition.initiatorDomains || []).some((d) => d === 'x.com')));
 });
 
 test('settings from 1.1 move to sync once', async () => {

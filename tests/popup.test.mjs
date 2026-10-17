@@ -4,6 +4,18 @@ import { launch, resetStorage } from './helpers.mjs';
 
 let ctx;
 
+// Opens the popup as if it was clicked while `pattern`'s tab was active.
+async function popupFor(pattern) {
+  const popup = await ctx.context.newPage();
+  await popup.goto(`chrome-extension://${ctx.extensionId}/popup/popup.html`);
+  await popup.evaluate(async (urlPattern) => {
+    const [tab] = await chrome.tabs.query({ url: urlPattern });
+    chrome.tabs.query = async () => [tab];
+    await refresh();
+  }, pattern);
+  return popup;
+}
+
 before(async () => {
   ctx = await launch();
   await resetStorage(ctx.worker);
@@ -56,19 +68,19 @@ test('turning off AI assistants disables the network rules', async () => {
 });
 
 test('report link opens a GitHub issue without query strings', async () => {
-  const popup = await ctx.context.newPage();
-  await popup.goto(`chrome-extension://${ctx.extensionId}/popup/popup.html`);
-  await popup.waitForTimeout(200);
+  // A page with a token in its URL.
+  const page = await ctx.context.newPage();
+  await page.goto('https://example.com/page?token=secret');
+  const popup = await popupFor('https://example.com/*');
   const opened = await popup.evaluate(() => {
     let url = '';
     chrome.tabs.create = (opts) => {
       url = opts.url;
     };
-    // Pretend the popup belongs to a page with a token in its URL.
-    state = { ...state, hostname: 'example.com', url: 'https://example.com/page?token=secret' };
     document.getElementById('reportLink').click();
     return url;
   });
+  await page.close();
   const target = new URL(opened);
   assert.equal(`${target.host}${target.pathname}`, 'github.com/El-SaMa/byeai/issues/new');
   assert.equal(target.searchParams.get('template'), 'missed-ai.yml');
@@ -82,17 +94,13 @@ test('popup offers "show AI videos" only where something was blurred', async () 
   const yt = await ctx.context.newPage();
   await yt.goto('https://www.youtube.com/');
   await yt.waitForTimeout(800);
-  const popup = await ctx.context.newPage();
-  await popup.goto(`chrome-extension://${ctx.extensionId}/popup/popup.html`);
-  await popup.waitForTimeout(200);
-  assert.equal(await popup.$eval('#mediaSiteBtn', (b) => b.hidden), true, 'popup tab itself has nothing blurred');
+  const plain = await ctx.context.newPage();
+  await plain.goto('https://example.com/page');
+  const other = await popupFor('https://example.com/*');
+  assert.equal(await other.$eval('#mediaSiteBtn', (b) => b.hidden), true, 'nothing blurred, no link');
+  await plain.close();
 
-  await popup.evaluate(async () => {
-    const [tab] = await chrome.tabs.query({ url: 'https://www.youtube.com/*' });
-    activeTabId = tab.id;
-    state = await chrome.runtime.sendMessage({ type: 'GET_STATE', tabId: tab.id });
-    render(state);
-  });
+  const popup = await popupFor('https://www.youtube.com/*');
   assert.equal(await popup.$eval('#mediaSiteBtn', (b) => b.hidden), false);
   assert.match(await popup.textContent('#mediaSiteBtn'), /Show AI videos on youtube\.com/);
 

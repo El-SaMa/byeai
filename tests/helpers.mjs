@@ -31,7 +31,7 @@ export async function launch() {
 
   await context.route(/^https?:\/\//, async (route) => {
     const url = route.request().url();
-    if (url.includes('widget.intercom.io')) {
+    if (new URL(url).hostname === 'widget.intercom.io') {
       return route.fulfill({ contentType: 'text/javascript', body: 'window.__intercom = true;' });
     }
     const file = PAGES[url];

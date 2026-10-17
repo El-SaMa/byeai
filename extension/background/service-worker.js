@@ -154,7 +154,7 @@ async function updateActionTitle(tabId, hostname, pageCount, enabled, isAllowed)
     }
   };
 
-  let title = t('actionTitle') || 'ByeAI';
+  let title;
 
   if (!enabled) {
     title = t('actionTitleOff') || 'ByeAI is off';
