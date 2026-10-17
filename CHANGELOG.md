@@ -1,5 +1,11 @@
 # Changelog
 
+## 1.1.1 (2026-10-18)
+
+- Strict mode is gone. Clear AI hashtags like #aiart and #midjourney are now part of "AI videos and images"
+- Broad tags like #ai are no longer matched, so news about AI stays visible
+- Blurred posts now say why: labeled by the site, or which tag matched
+
 ## 1.1.0 (2026-10-18)
 
 - New switches in the popup: AI buttons, AI-labeled media and strict mode

@@ -72,14 +72,15 @@
   "featureWidgetsDesc": { "message": "Chat-ikkunat, copilotit, Googlen tekoälykatsaukset" },
   "featureButtons": { "message": "Tekoälypainikkeet" },
   "featureButtonsDesc": { "message": "Grok, Meta AI, Gemini, Copilot ja muut" },
-  "featureLabeled": { "message": "Tekoälyksi merkityt" },
-  "featureLabeledDesc": { "message": "Sumentaa julkaisut ja videot, jotka palvelu on merkinnyt tekoälyn tekemiksi" },
-  "featureStrict": { "message": "Tiukka tila" },
-  "featureStrictDesc": { "message": "Myös julkaisut, joissa on #aiart, #sora tai vastaava" },
+  "featureLabeled": { "message": "Tekoälyvideot ja -kuvat" },
+  "featureLabeledDesc": { "message": "Sumentaa tekoälyksi merkityt ja #aiart-tyyppiset" },
+  "coverTagged": {
+    "message": "Tunniste $TAG$\nNäytä klikkaamalla",
+    "placeholders": { "tag": { "content": "$1", "example": "#aiart" } }
+  },
   "popupReport": { "message": "Ilmoita" },
   "popupReportTitle": { "message": "Ilmoita tekoälystä, jota ByeAI ei estänyt" },
   "coverLabeled": { "message": "Palvelu on merkinnyt tämän tekoälyn tekemäksi\nNäytä klikkaamalla" },
-  "coverStrict": { "message": "Näyttää tekoälyn tekemältä\nNäytä klikkaamalla" },
 
   "optionsTitle": { "message": "ByeAI Asetukset" },
   "optionsHeroLogoAlt": { "message": "ByeAI-logo" },

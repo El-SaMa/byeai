@@ -5,8 +5,7 @@
  * Flags on <html>:
  *   data-byeai-active   widgets + search AI (used by the cosmetic CSS)
  *   data-byeai-buttons  AI buttons inside apps
- *   data-byeai-labeled  AI-labeled videos and images
- *   data-byeai-strict   hashtag / keyword matching
+ *   data-byeai-labeled  AI videos and images (site labels + AI hashtags)
  *
  * Defaults are pessimistic so AI does not flash in while storage loads.
  * State is read straight from chrome.storage and kept live with
@@ -15,12 +14,12 @@
 (function () {
   'use strict';
 
-  const FEATURE_DEFAULTS = { widgets: true, buttons: true, labeled: true, strict: false };
+  const FEATURE_DEFAULTS = { widgets: true, buttons: true, labeled: true };
   const HIDE_PROPS = ['display', 'visibility', 'pointer-events', 'height', 'overflow'];
   const host = location.hostname.replace(/^www\./, '');
   const listeners = [];
 
-  const state = { ready: false, widgets: true, buttons: true, labeled: true, strict: false };
+  const state = { ready: false, widgets: true, buttons: true, labeled: true };
 
   function setFlags() {
     const root = document.documentElement;
@@ -28,7 +27,6 @@
     root.setAttribute('data-byeai-active', state.widgets ? '1' : '0');
     root.setAttribute('data-byeai-buttons', state.buttons ? '1' : '0');
     root.setAttribute('data-byeai-labeled', state.labeled ? '1' : '0');
-    root.setAttribute('data-byeai-strict', state.strict ? '1' : '0');
   }
 
   // Undo inline hiding for any category that is no longer active.
@@ -49,7 +47,6 @@
     state.widgets = on && features.widgets;
     state.buttons = on && features.buttons;
     state.labeled = on && features.labeled;
-    state.strict = on && features.strict;
     state.ready = true;
 
     setFlags();

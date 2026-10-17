@@ -72,14 +72,15 @@
   "featureWidgetsDesc": { "message": "Chat widgets, copilots, AI Overviews" },
   "featureButtons": { "message": "AI buttons" },
   "featureButtonsDesc": { "message": "Grok, Meta AI, Gemini, Copilot and more" },
-  "featureLabeled": { "message": "AI-labeled media" },
-  "featureLabeledDesc": { "message": "Blurs posts and videos the site marks as AI" },
-  "featureStrict": { "message": "Strict mode" },
-  "featureStrictDesc": { "message": "Also blurs #aiart, #sora and similar tags" },
+  "featureLabeled": { "message": "AI videos and images" },
+  "featureLabeledDesc": { "message": "Blurs what sites label as AI or tag #aiart" },
+  "coverTagged": {
+    "message": "Tagged $TAG$\nClick to show",
+    "placeholders": { "tag": { "content": "$1", "example": "#aiart" } }
+  },
   "popupReport": { "message": "Report" },
   "popupReportTitle": { "message": "Report AI that ByeAI missed" },
   "coverLabeled": { "message": "Labeled as AI by the site\nClick to show" },
-  "coverStrict": { "message": "Looks like AI content\nClick to show" },
 
   "optionsTitle": { "message": "ByeAI Settings" },
   "optionsHeroLogoAlt": { "message": "ByeAI logo" },

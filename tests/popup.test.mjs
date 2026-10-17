@@ -13,7 +13,7 @@ after(async () => {
   await ctx?.context.close();
 });
 
-test('popup shows the four rows with defaults and saves a toggle', async () => {
+test('popup shows the three rows with defaults and saves a toggle', async () => {
   const popup = await ctx.context.newPage();
   await popup.goto(`chrome-extension://${ctx.extensionId}/popup/popup.html`);
   await popup.waitForTimeout(300);
@@ -31,16 +31,15 @@ test('popup shows the four rows with defaults and saves a toggle', async () => {
       ['widgets', true],
       ['buttons', true],
       ['labeled', true],
-      ['strict', false],
     ]
   );
   assert.ok(rows.every((r) => r.label.length > 0));
 
-  await popup.click('.feature[data-feature="strict"] .toggle');
+  await popup.click('.feature[data-feature="labeled"] .toggle');
   await popup.waitForTimeout(200);
   const features = await ctx.worker.evaluate(async () => (await chrome.storage.local.get('features')).features);
-  assert.equal(features.strict, true);
-  assert.equal(features.labeled, true);
+  assert.equal(features.labeled, false);
+  assert.equal(features.buttons, true);
 });
 
 test('turning off chatbots and AI search disables the network rules', async () => {

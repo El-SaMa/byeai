@@ -8,8 +8,7 @@ Like an ad blocker, but for AI. [Get it on the Chrome Web Store](https://chromew
 
 - **Chatbots and AI search**: chat widgets, copilots, Google AI Overviews, Bing Copilot, DuckDuckGo and Brave AI answers
 - **AI buttons**: Grok, Meta AI, Gemini, Copilot, Rufus, "Help me write" and friends
-- **AI-labeled media**: blurs posts and videos that YouTube, TikTok, Instagram, Facebook, Pinterest and others mark as AI. Click one to see it anyway
-- **Strict mode** (off by default): also blurs posts tagged #aiart, #midjourney, #sora and similar
+- **AI videos and images**: blurs posts and videos that YouTube, TikTok, Instagram, Facebook, Pinterest and others mark as AI, or that are tagged #aiart, #midjourney and similar. Click one to see it anyway
 
 Each one has its own switch in the popup. Everything runs on your device, nothing is sent anywhere.
 

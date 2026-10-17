@@ -1,10 +1,11 @@
 /**
- * AI buttons, AI-labeled media and strict mode.
+ * AI buttons and AI videos / images.
  *
  * Runs at document_start after byeai-flag.js. Everything happens locally:
  * we look for the labels platforms already put on AI content ("AI info",
  * "AI-generated", "Altered or synthetic content"...) and cover the post or
- * video they belong to. Strict mode also looks at hashtags and captions.
+ * video they belong to. Posts with clear AI hashtags (#aiart, #midjourney)
+ * are covered too.
  *
  * Covering is done with a data attribute + CSS (blur and a ::after notice),
  * so we never insert nodes into React/Lit trees. A click on the cover
@@ -17,9 +18,9 @@
   if (!byeai) return;
 
   const host = byeai.host;
-  const msg = (key, fallback) => {
+  const msg = (key, fallback, args) => {
     try {
-      return chrome.i18n.getMessage(key) || fallback;
+      return chrome.i18n.getMessage(key, args || []) || fallback;
     } catch (_) {
       return fallback;
     }
@@ -111,11 +112,14 @@
   const CHIP_SKIP = 'yt-chip-cloud-chip-renderer, chip-shape, [role="tab"], [role="option"]';
   const isLabel = (s) => s.length <= 60 && LABEL_SET.has(normalize(s));
 
-  const STRICT_TAGS =
-    /(^|[^\p{L}\p{N}_])#(ai|aiart\w*|aiartwork|aigenerated|aiimage\w*|aivideo\w*|aimusic|aiphoto\w*|aigirl\w*|aimodel\w*|midjourney\w*|stablediffusion|sdxl|dalle\d*|sora\w*|veo\d*|runwayml|klingai|pikalabs|leonardoai|sunoai|aigc|generativeart|tekoäly\w*)(?![\p{L}\p{N}_])/iu;
-  const STRICT_WORDS =
-    /\b(ai[- ]generated|(made|generated|created) (with|by|using) ai|ai[- ]created|tekoälyllä (tehty|luotu|tuotettu))\b/iu;
-  const isStrictMatch = (text) => STRICT_TAGS.test(text) || STRICT_WORDS.test(text);
+  // Hashtags that almost always mean AI-made media. Broad ones like #ai or
+  // phrases like "made with AI" are left out: they hit news about AI too.
+  const AI_TAGS =
+    /(?:^|[^\p{L}\p{N}_])(#(?:aiart\w*|aiartwork|aigenerated|aiimages?|aivideos?|aiphotography|aigirls?|midjourney\w*|stablediffusion|dalle\d*|soraai|sora2|openaisora|veo3|klingai|runwayml|leonardoai|sunoai|aigc|tekoälytaide))(?![\p{L}\p{N}_])/iu;
+  const findTag = (text) => {
+    const m = AI_TAGS.exec(text);
+    return m ? m[1] : '';
+  };
 
   // AI entry points inside apps. Exact selectors where we know them...
   const BUTTON_SELECTORS = [
@@ -184,19 +188,19 @@
 
   const COVER_CSS = `
 html[data-byeai-labeled="1"] [data-byeai-cover="labeled"],
-html[data-byeai-strict="1"] [data-byeai-cover="strict"] {
+html[data-byeai-labeled="1"] [data-byeai-cover="tagged"] {
   isolation: isolate !important;
   overflow: hidden !important;
   cursor: pointer !important;
 }
 html[data-byeai-labeled="1"] [data-byeai-cover="labeled"] > *,
-html[data-byeai-strict="1"] [data-byeai-cover="strict"] > * {
+html[data-byeai-labeled="1"] [data-byeai-cover="tagged"] > * {
   filter: blur(26px) saturate(0.4) !important;
   pointer-events: none !important;
   user-select: none !important;
 }
 html[data-byeai-labeled="1"] [data-byeai-cover="labeled"]::after,
-html[data-byeai-strict="1"] [data-byeai-cover="strict"]::after {
+html[data-byeai-labeled="1"] [data-byeai-cover="tagged"]::after {
   content: attr(data-byeai-note) !important;
   position: absolute !important;
   inset: 0 !important;
@@ -282,7 +286,7 @@ html[data-byeai-strict="1"] [data-byeai-cover="strict"]::after {
     return `${kind}:${source ? normalize(source.textContent || '').slice(0, 80) : ''}`;
   }
 
-  function cover(card, kind, source) {
+  function cover(card, kind, source, tag = '') {
     if (!card || card === document.body || card === document.documentElement) return;
     if (revealed.get(card) === signature(kind, source)) return;
     const current = covers.get(card);
@@ -291,16 +295,17 @@ html[data-byeai-strict="1"] [data-byeai-cover="strict"]::after {
     covers.set(card, { kind, source });
     coveredList.add(card);
     card.dataset.byeaiCover = kind;
+    // Say why it is covered, so a wrong call at least explains itself.
     card.dataset.byeaiNote =
       kind === 'labeled'
         ? msg('coverLabeled', 'Labeled as AI by the site\nClick to show')
-        : msg('coverStrict', 'Looks like AI content\nClick to show');
+        : msg('coverTagged', `Tagged ${tag}\nClick to show`, [tag]);
     if (getComputedStyle(card).position === 'static') {
       card.style.setProperty('position', 'relative');
       card.dataset.byeaiPos = '1';
     }
     pauseMedia(card);
-    byeai.report(kind, `cover:${nextId(card)}`);
+    byeai.report('labeled', `cover:${nextId(card)}`);
   }
 
   function uncover(card) {
@@ -380,18 +385,19 @@ html[data-byeai-strict="1"] [data-byeai-cover="strict"]::after {
     }
   }
 
-  function strictText(card) {
+  function cardText(card) {
     const title = card.querySelector('#video-title, [title]')?.getAttribute('title') || '';
     return `${title} ${card.textContent || ''}`;
   }
 
-  function scanStrict(root) {
+  function scanTags(root) {
     if (!cardSelector) return;
     const cards = root.matches?.(cardSelector) ? [root] : [];
     root.querySelectorAll(cardSelector).forEach((c) => cards.push(c));
     cards.forEach((card) => {
       if (covers.has(card)) return;
-      if (isStrictMatch(strictText(card))) cover(card, 'strict', null);
+      const tag = findTag(cardText(card));
+      if (tag) cover(card, 'tagged', null, tag);
     });
   }
 
@@ -404,13 +410,13 @@ html[data-byeai-strict="1"] [data-byeai-cover="strict"]::after {
         coveredList.delete(card);
         continue;
       }
-      const off = (info.kind === 'labeled' && !byeai.state.labeled) || (info.kind === 'strict' && !byeai.state.strict);
+      const off = !byeai.state.labeled;
       let stale = false;
       if (info.kind === 'labeled') {
         const src = info.source;
         stale = !src || !src.isConnected || !isLabel(src.textContent || src.getAttribute?.('aria-label') || '');
       } else {
-        stale = !isStrictMatch(strictText(card));
+        stale = !findTag(cardText(card));
       }
       if (off || stale) uncover(card);
     }
@@ -424,11 +430,10 @@ html[data-byeai-strict="1"] [data-byeai-cover="strict"]::after {
       const card = event.target instanceof Element ? event.target.closest('[data-byeai-cover]') : null;
       if (!card) return;
       const info = covers.get(card);
-      const kind = card.dataset.byeaiCover;
-      if (!byeai.state[kind]) return;
+      if (!byeai.state.labeled) return;
       event.preventDefault();
       event.stopImmediatePropagation();
-      revealed.set(card, signature(kind, info?.source || null));
+      revealed.set(card, signature(card.dataset.byeaiCover, info?.source || null));
       uncover(card);
     },
     true
@@ -441,7 +446,7 @@ html[data-byeai-strict="1"] [data-byeai-cover="strict"]::after {
       const el = event.target;
       if (!(el instanceof HTMLMediaElement)) return;
       const card = el.closest('[data-byeai-cover]');
-      if (card && byeai.state[card.dataset.byeaiCover]) el.pause();
+      if (card && byeai.state.labeled) el.pause();
     },
     true
   );
@@ -465,8 +470,10 @@ html[data-byeai-strict="1"] [data-byeai-cover="strict"]::after {
     for (const root of roots) {
       if (!root.isConnected) continue;
       if (s.buttons) scanButtons(root);
-      if (s.labeled) scanLabels(root);
-      if (s.strict) scanStrict(root);
+      if (s.labeled) {
+        scanLabels(root);
+        scanTags(root);
+      }
     }
   }
 
@@ -488,7 +495,7 @@ html[data-byeai-strict="1"] [data-byeai-cover="strict"]::after {
     run([document.body]);
     new MutationObserver((mutations) => {
       const s = byeai.state;
-      if (!s.buttons && !s.labeled && !s.strict) return;
+      if (!s.buttons && !s.labeled) return;
       for (const m of mutations) {
         if (m.type === 'characterData') schedule(m.target.parentElement);
         else m.addedNodes.forEach((n) => schedule(n.nodeType === 1 ? n : n.parentElement));

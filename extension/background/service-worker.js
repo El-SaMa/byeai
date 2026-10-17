@@ -5,8 +5,8 @@ const ENABLED_RULESETS = [RULESET_ID, GOOGLE_RULESET_ID, SEARCH_AI_RULESET_ID];
 const WHITELIST_RULE_BASE = 9000000;
 const BLOCK_RESOURCE_TYPES = ['script', 'sub_frame', 'xmlhttprequest', 'websocket', 'other'];
 
-const CATEGORIES = ['widgets', 'buttons', 'labeled', 'strict'];
-const FEATURE_DEFAULTS = { widgets: true, buttons: true, labeled: true, strict: false };
+const CATEGORIES = ['widgets', 'buttons', 'labeled'];
+const FEATURE_DEFAULTS = { widgets: true, buttons: true, labeled: true };
 
 /** @type {Map<number, { page: number, seen: Set<string>, cats: Record<string, number> }>} */
 const tabStats = new Map();
@@ -25,7 +25,7 @@ async function getSettings() {
 }
 
 function emptyStat() {
-  return { page: 0, seen: new Set(), cats: { widgets: 0, buttons: 0, labeled: 0, strict: 0 } };
+  return { page: 0, seen: new Set(), cats: { widgets: 0, buttons: 0, labeled: 0 } };
 }
 
 async function saveSettings(partial) {

@@ -17,27 +17,28 @@ beforeEach(async () => {
   for (const p of ctx.context.pages()) await p.close();
 });
 
-test('YouTube feed: labeled tile is covered, plain tiles are not', async () => {
+test('YouTube feed: labeled and AI-tagged tiles are covered, others are not', async () => {
   const page = await open(ctx.context, 'https://www.youtube.com/');
   assert.equal(await coverOf(page, '#labeled'), 'labeled');
+  assert.equal(await coverOf(page, '#tagged'), 'tagged');
   assert.equal(await coverOf(page, '#plain'), '');
   assert.equal(await coverOf(page, '#news'), '', 'a title mentioning "AI info" is not a label');
-  assert.equal(await coverOf(page, '#tagged'), '', 'strict mode is off by default');
+  assert.equal(await coverOf(page, '#broad'), '', '#ai and "made with AI" are too broad');
 
-  const note = await page.$eval('#labeled', (el) => getComputedStyle(el, '::after').content);
-  assert.match(note, /Click to show/);
+  const note = (sel) => page.$eval(sel, (el) => getComputedStyle(el, '::after').content);
+  assert.match(await note('#labeled'), /Labeled as AI by the site/);
+  assert.match(await note('#tagged'), /Tagged #aiart/);
 });
 
-test('strict mode covers hashtag posts and turns off live', async () => {
+test('turning off AI videos and images removes covers live', async () => {
   const page = await open(ctx.context, 'https://www.youtube.com/');
-  await setStorage(ctx.worker, { features: { widgets: true, buttons: true, labeled: true, strict: true } });
-  await page.waitForTimeout(400);
-  assert.equal(await coverOf(page, '#tagged'), 'strict');
-  assert.equal(await coverOf(page, '#news'), '');
-
-  await setStorage(ctx.worker, { features: { widgets: true, buttons: true, labeled: true, strict: false } });
+  await setStorage(ctx.worker, { features: { widgets: true, buttons: true, labeled: false } });
   await page.waitForTimeout(400);
   assert.equal(await coverOf(page, '#tagged'), '');
+  assert.equal(await coverOf(page, '#labeled'), '');
+
+  await setStorage(ctx.worker, { features: { widgets: true, buttons: true, labeled: true } });
+  await page.waitForTimeout(400);
   assert.equal(await coverOf(page, '#labeled'), 'labeled');
 });
 
@@ -109,22 +110,18 @@ test('TikTok: AI video covered and paused, normal video keeps playing', async ()
   assert.equal(await page.$eval('#real video', (v) => v.paused), false);
 });
 
-test('X: Grok buttons hidden, tweet text untouched, strict catches #midjourney', async () => {
+test('X: Grok buttons hidden, tweet text untouched, #midjourney covered', async () => {
   const page = await open(ctx.context, 'https://x.com/home');
   assert.equal(await isHidden(page, '#grok-nav'), true);
   assert.equal(await isHidden(page, '#grok-actions'), true);
   assert.equal(await isHidden(page, '#t2 a'), false, 'a "Grok" link inside tweet text stays');
-  assert.equal(await coverOf(page, '#t1'), '');
-
-  await setStorage(ctx.worker, { features: { widgets: true, buttons: true, labeled: true, strict: true } });
-  await page.waitForTimeout(400);
-  assert.equal(await coverOf(page, '#t1'), 'strict');
+  assert.equal(await coverOf(page, '#t1'), 'tagged');
   assert.equal(await coverOf(page, '#t3'), '');
 });
 
 test('AI buttons toggle off shows them again without reload', async () => {
   const page = await open(ctx.context, 'https://x.com/home');
-  await setStorage(ctx.worker, { features: { widgets: true, buttons: false, labeled: true, strict: false } });
+  await setStorage(ctx.worker, { features: { widgets: true, buttons: false, labeled: true } });
   await page.waitForTimeout(400);
   assert.equal(await isHidden(page, '#grok-nav'), false);
   assert.equal(await isHidden(page, '#grok-actions'), false);
