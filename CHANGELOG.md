@@ -5,6 +5,9 @@
 - Strict mode is gone. Clear AI hashtags like #aiart and #midjourney are now part of "AI videos and images"
 - Broad tags like #ai are no longer matched, so news about AI stays visible
 - Blurred posts now say why: labeled by the site, or which tag matched
+- Fixed a tag sometimes running into the next line ("#aiartPixel")
+- Popup shows that ByeAI works on your device, with a link to the source
+- Report link opens a short form on GitHub with the page filled in
 
 ## 1.1.0 (2026-10-18)
 

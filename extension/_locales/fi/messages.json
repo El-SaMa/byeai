@@ -78,6 +78,8 @@
     "message": "Tunniste $TAG$\nNäytä klikkaamalla",
     "placeholders": { "tag": { "content": "$1", "example": "#aiart" } }
   },
+  "popupTrust": { "message": "Toimii laitteellasi. Mitään ei lähetetä minnekään." },
+  "popupOpenSource": { "message": "Avoin lähdekoodi" },
   "popupReport": { "message": "Ilmoita" },
   "popupReportTitle": { "message": "Ilmoita tekoälystä, jota ByeAI ei estänyt" },
   "coverLabeled": { "message": "Palvelu on merkinnyt tämän tekoälyn tekemäksi\nNäytä klikkaamalla" },

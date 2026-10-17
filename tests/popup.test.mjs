@@ -71,9 +71,9 @@ test('report link opens a GitHub issue without query strings', async () => {
     return url;
   });
   const target = new URL(opened);
-  const body = target.searchParams.get('body') || '';
   assert.equal(`${target.host}${target.pathname}`, 'github.com/El-SaMa/byeai/issues/new');
+  assert.equal(target.searchParams.get('template'), 'missed-ai.yml');
   assert.equal(target.searchParams.get('title'), 'Missed AI on example.com');
-  assert.match(body, /https:\/\/example\.com\/page/);
-  assert.doesNotMatch(body, /secret/);
+  assert.equal(target.searchParams.get('page'), 'https://example.com/page');
+  assert.doesNotMatch(opened, /secret/);
 });

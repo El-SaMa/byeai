@@ -78,6 +78,8 @@
     "message": "Tagged $TAG$\nClick to show",
     "placeholders": { "tag": { "content": "$1", "example": "#aiart" } }
   },
+  "popupTrust": { "message": "Works on your device. Nothing is sent anywhere." },
+  "popupOpenSource": { "message": "Open source" },
   "popupReport": { "message": "Report" },
   "popupReportTitle": { "message": "Report AI that ByeAI missed" },
   "coverLabeled": { "message": "Labeled as AI by the site\nClick to show" },

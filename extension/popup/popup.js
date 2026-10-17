@@ -167,14 +167,11 @@ reportLink.addEventListener('click', (event) => {
     // not a web page
   }
   const url = new URL(REPORT_URL);
+  // Prefills the "Missed AI" issue form (.github/ISSUE_TEMPLATE/missed-ai.yml).
+  url.searchParams.set('template', 'missed-ai.yml');
   url.searchParams.set('title', `Missed AI on ${state?.hostname || 'a site'}`);
-  url.searchParams.set(
-    'body',
-    `Page: ${where}
-What was missed (chat widget, button, AI-labeled post...):
-
-ByeAI ${chrome.runtime.getManifest().version}`
-  );
+  url.searchParams.set('page', where);
+  url.searchParams.set('version', chrome.runtime.getManifest().version);
   chrome.tabs.create({ url: url.toString() });
 });
 

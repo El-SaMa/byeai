@@ -1,0 +1,34 @@
+name: Missed AI
+description: ByeAI did not block or blur something AI
+labels: [missed-ai]
+body:
+  - type: input
+    id: page
+    attributes:
+      label: Page
+      description: Where you saw it. Remove anything private from the address.
+      placeholder: https://example.com/page
+    validations:
+      required: true
+  - type: dropdown
+    id: kind
+    attributes:
+      label: What was missed
+      options:
+        - Chat widget or AI assistant
+        - AI button (Grok, Meta AI, Gemini...)
+        - AI search answer
+        - AI-labeled video or image
+        - Something else
+    validations:
+      required: true
+  - type: textarea
+    id: details
+    attributes:
+      label: Details
+      description: What you saw. A screenshot helps a lot.
+  - type: input
+    id: version
+    attributes:
+      label: ByeAI version
+      placeholder: "1.1.1"

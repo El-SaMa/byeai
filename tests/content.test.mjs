@@ -28,6 +28,8 @@ test('YouTube feed: labeled and AI-tagged tiles are covered, others are not', as
   const note = (sel) => page.$eval(sel, (el) => getComputedStyle(el, '::after').content);
   assert.match(await note('#labeled'), /Labeled as AI by the site/);
   assert.match(await note('#tagged'), /Tagged #aiart/);
+  assert.doesNotMatch(await note('#glued'), /aiartPixel/i, 'tag is not glued to the next line');
+  assert.match(await note('#glued'), /Tagged #aiart/);
 });
 
 test('turning off AI videos and images removes covers live', async () => {

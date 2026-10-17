@@ -387,7 +387,12 @@ html[data-byeai-labeled="1"] [data-byeai-cover="tagged"]::after {
 
   function cardText(card) {
     const title = card.querySelector('#video-title, [title]')?.getAttribute('title') || '';
-    return `${title} ${card.textContent || ''}`;
+    // Join text nodes with spaces. textContent glues "#aiart" in a title to
+    // the channel name below it ("#aiartPixel").
+    const parts = [title];
+    const walker = document.createTreeWalker(card, NodeFilter.SHOW_TEXT);
+    for (let n = walker.nextNode(); n; n = walker.nextNode()) parts.push(n.nodeValue);
+    return parts.join(' ');
   }
 
   function scanTags(root) {

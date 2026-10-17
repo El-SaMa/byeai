@@ -1,0 +1,52 @@
+# Builds the store zip from the tagged commit, so anyone can check that the
+# Chrome Web Store version matches this source. Upload the zip from the
+# release to the store, not a locally built one.
+name: Release
+
+on:
+  push:
+    tags: ['v*']
+
+permissions:
+  contents: write
+
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+      - run: npm ci
+      - run: npx playwright install --with-deps chromium
+      - run: npm test
+
+      - name: Check tag matches manifest
+        run: |
+          v=$(node -p "require('./extension/manifest.json').version")
+          test "v$v" = "${GITHUB_REF_NAME}" || { echo "tag ${GITHUB_REF_NAME} != manifest $v"; exit 1; }
+
+      - name: Build zip
+        run: |
+          mkdir -p dist
+          name="byeai-${GITHUB_REF_NAME#v}.zip"
+          (cd extension && TZ=UTC find . -type f ! -path './_metadata/*' -exec touch -d '2020-01-01' {} + && find . -type f ! -path './_metadata/*' | LC_ALL=C sort | zip -X -q "../dist/$name" -@)
+          (cd dist && sha256sum "$name" > "$name.sha256")
+          echo "ZIP=$name" >> "$GITHUB_ENV"
+
+      - name: Release notes from CHANGELOG
+        run: |
+          awk -v v="${GITHUB_REF_NAME#v}" '$0 ~ "^## "v" " {f=1; next} /^## / {f=0} f' CHANGELOG.md > notes.md
+          printf '\nSHA-256 of %s: `%s`\n' "$ZIP" "$(cut -d' ' -f1 "dist/$ZIP.sha256")" >> notes.md
+
+      - name: Publish
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          if gh release view "$GITHUB_REF_NAME" >/dev/null 2>&1; then
+            gh release upload "$GITHUB_REF_NAME" "dist/$ZIP" "dist/$ZIP.sha256" --clobber
+          else
+            gh release create "$GITHUB_REF_NAME" --title "ByeAI ${GITHUB_REF_NAME#v}" --notes-file notes.md "dist/$ZIP" "dist/$ZIP.sha256"
+          fi

@@ -479,3 +479,28 @@ body {
 .features-paused .feature {
   opacity: 0.5;
 }
+
+.trust-line {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 5px;
+  margin: 10px 16px 0;
+  font-size: 11px;
+  color: var(--muted);
+}
+
+.trust-line svg {
+  color: var(--accent);
+}
+
+.trust-line a {
+  color: var(--accent-dark);
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.trust-line a:hover {
+  text-decoration: underline;
+}

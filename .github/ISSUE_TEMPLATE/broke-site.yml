@@ -1,0 +1,22 @@
+name: Site broken
+description: A site stopped working or something normal got hidden
+labels: [false-positive]
+body:
+  - type: input
+    id: page
+    attributes:
+      label: Page
+      description: Remove anything private from the address.
+    validations:
+      required: true
+  - type: textarea
+    id: details
+    attributes:
+      label: What broke
+      description: What stopped working or got hidden by mistake. Does "Allow AI on this site" fix it?
+    validations:
+      required: true
+  - type: input
+    id: version
+    attributes:
+      label: ByeAI version
