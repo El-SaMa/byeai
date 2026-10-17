@@ -5,11 +5,15 @@ const ENABLED_RULESETS = [RULESET_ID, GOOGLE_RULESET_ID, SEARCH_AI_RULESET_ID];
 const WHITELIST_RULE_BASE = 9000000;
 const BLOCK_RESOURCE_TYPES = ['script', 'sub_frame', 'xmlhttprequest', 'websocket', 'other'];
 
-/** @type {Map<number, { page: number, seen: Set<string> }>} */
+const CATEGORIES = ['widgets', 'buttons', 'labeled', 'strict'];
+const FEATURE_DEFAULTS = { widgets: true, buttons: true, labeled: true, strict: false };
+
+/** @type {Map<number, { page: number, seen: Set<string>, cats: Record<string, number> }>} */
 const tabStats = new Map();
 
 const DEFAULTS = {
   enabled: true,
+  features: FEATURE_DEFAULTS,
   totalBlocked: 0,
   allowedHosts: [],
   onboardingComplete: false,
@@ -17,7 +21,11 @@ const DEFAULTS = {
 
 async function getSettings() {
   const data = await chrome.storage.local.get(DEFAULTS);
-  return { ...DEFAULTS, ...data };
+  return { ...DEFAULTS, ...data, features: { ...FEATURE_DEFAULTS, ...(data.features || {}) } };
+}
+
+function emptyStat() {
+  return { page: 0, seen: new Set(), cats: { widgets: 0, buttons: 0, labeled: 0, strict: 0 } };
 }
 
 async function saveSettings(partial) {
@@ -34,17 +42,18 @@ function hostToRuleId(hostname) {
 
 function getTabStat(tabId) {
   if (!tabStats.has(tabId)) {
-    tabStats.set(tabId, { page: 0, seen: new Set() });
+    tabStats.set(tabId, emptyStat());
   }
   return tabStats.get(tabId);
 }
 
 function resetTabStat(tabId) {
-  tabStats.set(tabId, { page: 0, seen: new Set() });
+  tabStats.set(tabId, emptyStat());
 }
 
-async function syncRulesetEnabled(enabled) {
-  if (enabled) {
+// Network rules belong to the widgets + search category.
+async function syncRulesetEnabled(settings) {
+  if (settings.enabled && settings.features.widgets) {
     await chrome.declarativeNetRequest.updateEnabledRulesets({
       enableRulesetIds: ENABLED_RULESETS,
       disableRulesetIds: [],
@@ -143,9 +152,18 @@ async function refreshTabUi(tabId) {
 
   const isAllowed = settings.allowedHosts.includes(hostname);
   await updateActionTitle(tabId, hostname, stat.page, settings.enabled, isAllowed);
+  await updateBadge(tabId, settings.enabled && !isAllowed ? stat.page : 0);
 }
 
-async function recordBlock(tabId, dedupeKey) {
+async function updateBadge(tabId, count) {
+  try {
+    await chrome.action.setBadgeText({ tabId, text: count > 0 ? (count > 99 ? '99+' : String(count)) : '' });
+  } catch {
+    // tab closed
+  }
+}
+
+async function recordBlock(tabId, dedupeKey, category = 'widgets') {
   const settings = await getSettings();
   if (!settings.enabled) return;
 
@@ -166,6 +184,7 @@ async function recordBlock(tabId, dedupeKey) {
   stat.seen.add(dedupeKey);
 
   stat.page += 1;
+  if (CATEGORIES.includes(category)) stat.cats[category] += 1;
   const totalBlocked = settings.totalBlocked + 1;
   await saveSettings({ totalBlocked });
 
@@ -199,7 +218,7 @@ function scheduleRuleSync(tabId) {
 async function getPopupState(tabId) {
   await syncMatchedRules();
   const settings = await getSettings();
-  const stat = tabStats.get(tabId) || { page: 0, seen: new Set() };
+  const stat = tabStats.get(tabId) || emptyStat();
   let hostname = '';
   let url = '';
 
@@ -218,6 +237,8 @@ async function getPopupState(tabId) {
     hostname,
     url,
     pageBlocked: stat.page,
+    pageByCategory: stat.cats,
+    features: settings.features,
     totalBlocked: settings.totalBlocked,
     isAllowed: Boolean(hostname && settings.allowedHosts.includes(hostname)),
     allowedHosts: settings.allowedHosts,
@@ -260,13 +281,22 @@ async function unforceWebModeOnAllowedGoogleTabs(allowedHosts) {
 
 async function toggleEnabled(enabled) {
   await saveSettings({ enabled });
-  await syncRulesetEnabled(enabled);
+  await syncRulesetEnabled(await getSettings());
   const tabs = await chrome.tabs.query({});
   for (const tab of tabs) {
     if (typeof tab.id === 'number') {
       await refreshTabUi(tab.id);
     }
   }
+  await broadcastSettingsChanged();
+}
+
+async function setFeature(name, on) {
+  if (!CATEGORIES.includes(name)) return;
+  const settings = await getSettings();
+  const features = { ...settings.features, [name]: Boolean(on) };
+  await saveSettings({ features });
+  await syncRulesetEnabled({ ...settings, features });
   await broadcastSettingsChanged();
 }
 
@@ -308,8 +338,9 @@ async function removeAllowedHost(hostname) {
 
 chrome.runtime.onInstalled.addListener(async (details) => {
   const settings = await getSettings();
-  await syncRulesetEnabled(settings.enabled);
+  await syncRulesetEnabled(settings);
   await syncWhitelistRules(settings.allowedHosts);
+  await chrome.action.setBadgeBackgroundColor({ color: '#0f766e' });
 
   if (details.reason === 'install' && !settings.onboardingComplete) {
     await chrome.runtime.openOptionsPage();
@@ -338,7 +369,7 @@ chrome.webNavigation.onBeforeNavigate.addListener(async (details) => {
   if (url.searchParams.has('udm')) return;
 
   const settings = await getSettings();
-  if (!settings.enabled) return;
+  if (!settings.enabled || !settings.features.widgets) return;
 
   const hostname = url.hostname.replace(/^www\./, '');
   if (hostnameAllowed(hostname, settings.allowedHosts)) return;
@@ -368,13 +399,16 @@ chrome.runtime.onMessage.addListener((message, sender, sendResponse) => {
       case 'TOGGLE_ALLOW_SITE':
         await toggleAllowSite(message.hostname, message.allow);
         return getPopupState(message.tabId);
+      case 'SET_FEATURE':
+        await setFeature(message.name, message.on);
+        return getPopupState(message.tabId);
       case 'REMOVE_ALLOWED_HOST':
         await removeAllowedHost(message.hostname);
         return getPopupState(message.tabId);
       case 'COSMETIC_BLOCK': {
         const tabId = sender.tab?.id;
         if (typeof tabId === 'number') {
-          await recordBlock(tabId, `cosmetic:${message.key}`);
+          await recordBlock(tabId, `cosmetic:${message.key}`, message.category);
         }
         return { ok: true };
       }
@@ -388,6 +422,7 @@ chrome.runtime.onMessage.addListener((message, sender, sendResponse) => {
 });
 
 getSettings().then(async (settings) => {
-  await syncRulesetEnabled(settings.enabled);
+  await syncRulesetEnabled(settings);
+  chrome.action.setBadgeBackgroundColor({ color: '#0f766e' }).catch(() => {});
   await syncWhitelistRules(settings.allowedHosts);
 });

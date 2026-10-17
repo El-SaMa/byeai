@@ -1,0 +1,11 @@
+{
+  "name": "byeai",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "test": "node --test tests/"
+  },
+  "devDependencies": {
+    "playwright": "^1.56.1"
+  }
+}

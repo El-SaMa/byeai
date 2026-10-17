@@ -1,52 +1,96 @@
 /**
- * Runs at document_start. Sets html[data-byeai-active] so the cosmetic
- * CSS knows whether the page should be hidden or revealed.
+ * Runs at document_start. Works out what ByeAI should block on this page
+ * and exposes it to the other content scripts as globalThis.byeai.
  *
- * The default is "active" (block) to avoid AI flashing visible while we
- * fetch state. The async check below relaxes it to "0" if the page is
- * allowed or the master toggle is off.
+ * Flags on <html>:
+ *   data-byeai-active   widgets + search AI (used by the cosmetic CSS)
+ *   data-byeai-buttons  AI buttons inside apps
+ *   data-byeai-labeled  AI-labeled videos and images
+ *   data-byeai-strict   hashtag / keyword matching
  *
- * Also handles live updates from the popup / background by listening
- * for SETTINGS_CHANGED. When the page becomes allowed, this script
- * un-hides any elements that the other content scripts already hid
- * with inline styles.
+ * Defaults are pessimistic so AI does not flash in while storage loads.
+ * State is read straight from chrome.storage and kept live with
+ * storage.onChanged, so toggles apply without a reload.
  */
 (function () {
   'use strict';
 
+  const FEATURE_DEFAULTS = { widgets: true, buttons: true, labeled: true, strict: false };
   const HIDE_PROPS = ['display', 'visibility', 'pointer-events', 'height', 'overflow'];
+  const host = location.hostname.replace(/^www\./, '');
+  const listeners = [];
 
-  function setFlag(active) {
-    if (!document.documentElement) return;
-    document.documentElement.setAttribute('data-byeai-active', active ? '1' : '0');
+  const state = { ready: false, widgets: true, buttons: true, labeled: true, strict: false };
+
+  function setFlags() {
+    const root = document.documentElement;
+    if (!root) return;
+    root.setAttribute('data-byeai-active', state.widgets ? '1' : '0');
+    root.setAttribute('data-byeai-buttons', state.buttons ? '1' : '0');
+    root.setAttribute('data-byeai-labeled', state.labeled ? '1' : '0');
+    root.setAttribute('data-byeai-strict', state.strict ? '1' : '0');
   }
 
-  function revealHidden() {
+  // Undo inline hiding for any category that is no longer active.
+  function revealInactive() {
     document.querySelectorAll('[data-byeai-hidden]').forEach((el) => {
+      const category = el.dataset.byeaiHidden === 'buttons' ? 'buttons' : 'widgets';
+      if (state[category]) return;
       HIDE_PROPS.forEach((p) => el.style.removeProperty(p));
       delete el.dataset.byeaiHidden;
     });
   }
 
-  // Pessimistic default before async state arrives.
-  setFlag(true);
+  function apply(data) {
+    const features = { ...FEATURE_DEFAULTS, ...(data.features || {}) };
+    const allowed = (data.allowedHosts || []).includes(host);
+    const on = Boolean(data.enabled) && !allowed;
 
-  async function refresh() {
-    try {
-      const state = await chrome.runtime.sendMessage({ type: 'GET_STATE' });
-      const active = Boolean(state?.enabled && !state?.isAllowed);
-      setFlag(active);
-      if (!active) revealHidden();
-    } catch (_) {
-      // If messaging fails, keep blocking.
-    }
+    state.widgets = on && features.widgets;
+    state.buttons = on && features.buttons;
+    state.labeled = on && features.labeled;
+    state.strict = on && features.strict;
+    state.ready = true;
+
+    setFlags();
+    revealInactive();
+    listeners.forEach((fn) => {
+      try {
+        fn(state);
+      } catch (_) {
+        // one bad listener should not stop the others
+      }
+    });
   }
 
-  refresh();
+  function load() {
+    chrome.storage.local
+      .get({ enabled: true, allowedHosts: [], features: FEATURE_DEFAULTS })
+      .then(apply)
+      .catch(() => {});
+  }
+
+  globalThis.byeai = {
+    host,
+    state,
+    onChange(fn) {
+      listeners.push(fn);
+      if (state.ready) fn(state);
+    },
+    report(category, key) {
+      chrome.runtime.sendMessage({ type: 'COSMETIC_BLOCK', category, key }).catch(() => {});
+    },
+  };
+
+  setFlags();
+  load();
+
+  chrome.storage.onChanged.addListener((changes, area) => {
+    if (area !== 'local') return;
+    if (changes.enabled || changes.allowedHosts || changes.features) load();
+  });
 
   chrome.runtime.onMessage.addListener((message) => {
-    if (message?.type === 'SETTINGS_CHANGED') {
-      refresh();
-    }
+    if (message?.type === 'SETTINGS_CHANGED') load();
   });
 })();

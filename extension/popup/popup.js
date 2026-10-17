@@ -16,6 +16,11 @@ const settingsBtn = document.getElementById('settingsBtn');
 const helpBtn = document.getElementById('helpBtn');
 const privacyLink = document.getElementById('privacyLink');
 const footerVersion = document.getElementById('footerVersion');
+const reportLink = document.getElementById('reportLink');
+const featureCard = document.querySelector('.feature-card');
+const featureRows = document.querySelectorAll('.feature');
+
+const REPORT_URL = 'https://github.com/El-SaMa/byeai/issues/new';
 
 const t = (key, args) =>
   (window.byeaiI18n && window.byeaiI18n.msg(key, args)) || '';
@@ -60,6 +65,7 @@ function render(state) {
   pageCountEl.textContent = String(state.pageBlocked);
   totalCountEl.textContent = String(state.totalBlocked);
   renderStatusPill(state);
+  renderFeatures(state);
 
   if (state.isAllowed) {
     allowedNote.classList.remove('hidden');
@@ -83,6 +89,21 @@ function render(state) {
     } else {
       tipBanner.classList.add('hidden');
     }
+  });
+}
+
+function renderFeatures(state) {
+  const features = state.features || {};
+  const counts = state.pageByCategory || {};
+  featureCard.classList.toggle('features-paused', !state.enabled || state.isAllowed);
+
+  featureRows.forEach((row) => {
+    const name = row.dataset.feature;
+    row.querySelector('input').checked = Boolean(features[name]);
+    const count = row.querySelector('.feature-count');
+    const n = counts[name] || 0;
+    count.textContent = String(n);
+    count.hidden = n === 0;
   });
 }
 
@@ -120,6 +141,41 @@ allowBtn.addEventListener('click', async () => {
   } else {
     reloadBanner.classList.add('hidden');
   }
+});
+
+featureRows.forEach((row) => {
+  row.querySelector('input').addEventListener('change', async (event) => {
+    state = await chrome.runtime.sendMessage({
+      type: 'SET_FEATURE',
+      name: row.dataset.feature,
+      on: event.target.checked,
+      tabId: activeTabId,
+    });
+    render(state);
+  });
+});
+
+// Only opens a prefilled GitHub issue. Nothing is sent unless you submit it.
+reportLink.addEventListener('click', (event) => {
+  event.preventDefault();
+  // Origin and path only: query strings can carry tokens and issues are public.
+  let where = '';
+  try {
+    const page = new URL(state?.url || '');
+    if (page.protocol.startsWith('http')) where = `${page.origin}${page.pathname}`;
+  } catch (_) {
+    // not a web page
+  }
+  const url = new URL(REPORT_URL);
+  url.searchParams.set('title', `Missed AI on ${state?.hostname || 'a site'}`);
+  url.searchParams.set(
+    'body',
+    `Page: ${where}
+What was missed (chat widget, button, AI-labeled post...):
+
+ByeAI ${chrome.runtime.getManifest().version}`
+  );
+  chrome.tabs.create({ url: url.toString() });
 });
 
 reloadBtn.addEventListener('click', async () => {

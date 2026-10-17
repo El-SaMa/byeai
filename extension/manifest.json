@@ -2,7 +2,7 @@
   "manifest_version": 3,
   "name": "__MSG_appName__",
   "short_name": "__MSG_appShortName__",
-  "version": "1.0.4",
+  "version": "1.1.0",
   "default_locale": "en",
   "description": "__MSG_appDescription__",
   "minimum_chrome_version": "109",
@@ -56,7 +56,7 @@
   "content_scripts": [
     {
       "matches": ["http://*/*", "https://*/*"],
-      "js": ["content/byeai-flag.js"],
+      "js": ["content/byeai-flag.js", "content/ai-content.js"],
       "css": ["content/google-search.css", "content/content.css"],
       "run_at": "document_start"
     },

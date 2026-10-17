@@ -1,0 +1,11 @@
+<!doctype html><html><head><style>div[data-e2e]{width:360px;height:640px;display:block}video{width:100%;height:90%}</style></head><body>
+<div data-e2e="recommend-list-item-container" id="ai"><video muted playsinline></video><p>Creator labeled as AI-generated</p></div>
+<div data-e2e="recommend-list-item-container" id="real"><video muted playsinline></video><p>dance</p></div>
+<script>
+  for (const v of document.querySelectorAll('video')) {
+    const c = document.createElement('canvas'); c.width = 32; c.height = 32;
+    const ctx = c.getContext('2d'); setInterval(() => { ctx.fillRect(0,0,Math.random()*32,32); }, 50);
+    v.srcObject = c.captureStream(10); v.play().catch(() => {});
+  }
+</script>
+</body></html>

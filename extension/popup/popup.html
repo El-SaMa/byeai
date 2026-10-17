@@ -50,7 +50,7 @@
           <span class="stat-num" id="pageCount">0</span>
           <span class="stat-label">
             <span data-i18n="popupOnThisPage">on this page</span>
-            <button type="button" class="tip-btn" data-i18n-attr="data-tip:popupOnThisPageTip,aria-label:popupOnThisPageAria" data-tip="AI loaders blocked on this page right now." aria-label="About on this page count">?</button>
+            <button type="button" class="tip-btn" data-i18n-attr="data-tip:popupOnThisPageTip,aria-label:popupOnThisPageAria" data-tip="AI blocked, hidden or covered on this page right now." aria-label="About on this page count">?</button>
           </span>
         </div>
         <div class="stat stat-right">
@@ -63,6 +63,56 @@
       </div>
 
       <p class="allowed-note hidden" id="allowedNote" data-i18n="popupAllowedNote">AI allowed on this site</p>
+    </section>
+
+    <section class="card feature-card" aria-labelledby="features-heading">
+      <h2 class="feature-heading" id="features-heading" data-i18n="popupFeaturesHeading">What to block</h2>
+      <ul class="feature-list">
+        <li class="feature" data-feature="widgets">
+          <div class="feature-text">
+            <span class="feature-name" data-i18n="featureWidgets">Chatbots and AI search</span>
+            <span class="feature-desc" data-i18n="featureWidgetsDesc">Chat widgets, copilots, AI Overviews</span>
+          </div>
+          <span class="feature-count" hidden>0</span>
+          <label class="toggle toggle-sm">
+            <input type="checkbox" data-i18n-attr="aria-label:featureWidgets" aria-label="Chatbots and AI search" />
+            <span class="toggle-track"></span>
+          </label>
+        </li>
+        <li class="feature" data-feature="buttons">
+          <div class="feature-text">
+            <span class="feature-name" data-i18n="featureButtons">AI buttons</span>
+            <span class="feature-desc" data-i18n="featureButtonsDesc">Grok, Meta AI, Gemini, Copilot and more</span>
+          </div>
+          <span class="feature-count" hidden>0</span>
+          <label class="toggle toggle-sm">
+            <input type="checkbox" data-i18n-attr="aria-label:featureButtons" aria-label="AI buttons" />
+            <span class="toggle-track"></span>
+          </label>
+        </li>
+        <li class="feature" data-feature="labeled">
+          <div class="feature-text">
+            <span class="feature-name" data-i18n="featureLabeled">AI-labeled media</span>
+            <span class="feature-desc" data-i18n="featureLabeledDesc">Blurs posts and videos the site marks as AI</span>
+          </div>
+          <span class="feature-count" hidden>0</span>
+          <label class="toggle toggle-sm">
+            <input type="checkbox" data-i18n-attr="aria-label:featureLabeled" aria-label="AI-labeled media" />
+            <span class="toggle-track"></span>
+          </label>
+        </li>
+        <li class="feature" data-feature="strict">
+          <div class="feature-text">
+            <span class="feature-name" data-i18n="featureStrict">Strict mode</span>
+            <span class="feature-desc" data-i18n="featureStrictDesc">Also blurs #aiart, #sora and similar tags</span>
+          </div>
+          <span class="feature-count" hidden>0</span>
+          <label class="toggle toggle-sm">
+            <input type="checkbox" data-i18n-attr="aria-label:featureStrict" aria-label="Strict mode" />
+            <span class="toggle-track"></span>
+          </label>
+        </li>
+      </ul>
     </section>
 
     <p class="tip-banner hidden" id="tipBanner">
@@ -85,8 +135,10 @@
     </div>
 
     <footer class="footer">
-      <span id="footerVersion">v1.0.4</span>
+      <span id="footerVersion">v1.1.0</span>
       <div class="footer-links">
+        <a href="#" id="reportLink" data-i18n="popupReport" data-i18n-attr="title:popupReportTitle" title="Report AI that ByeAI missed">Report</a>
+        <span class="footer-sep" aria-hidden="true">·</span>
         <a href="#" id="privacyLink" data-i18n="popupPrivacy">Privacy</a>
         <span class="footer-sep" aria-hidden="true">·</span>
         <a href="https://donate.stripe.com/14A8wO8mn3oA3N40Ge5EY00" id="supportLink" class="support-link" target="_blank" rel="noopener noreferrer" data-i18n-attr="title:popupSupportTitle" title="Support ByeAI">

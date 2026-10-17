@@ -402,3 +402,80 @@ body {
   pointer-events: none;
   opacity: 0.55;
 }
+
+.feature-card {
+  padding: 12px 0 4px;
+}
+
+.feature-heading {
+  padding: 0 16px 6px;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+
+.feature-list {
+  list-style: none;
+}
+
+.feature {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 9px 16px;
+  border-top: 1px solid #f1f2f4;
+}
+
+.feature:first-child {
+  border-top: none;
+}
+
+.feature-text {
+  flex: 1;
+  min-width: 0;
+}
+
+.feature-name {
+  display: block;
+  font-weight: 600;
+}
+
+.feature-desc {
+  display: block;
+  margin-top: 2px;
+  font-size: 11px;
+  color: var(--muted);
+  line-height: 1.35;
+}
+
+.feature-count {
+  min-width: 22px;
+  padding: 2px 7px;
+  border-radius: 999px;
+  background: #fde8e6;
+  color: var(--danger);
+  font-size: 11px;
+  font-weight: 700;
+  text-align: center;
+}
+
+.toggle-sm {
+  width: 36px;
+  height: 20px;
+  flex-shrink: 0;
+}
+
+.toggle-sm .toggle-track::after {
+  width: 14px;
+  height: 14px;
+}
+
+.toggle-sm input:checked + .toggle-track::after {
+  transform: translateX(16px);
+}
+
+.features-paused .feature {
+  opacity: 0.5;
+}
