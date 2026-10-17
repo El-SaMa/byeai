@@ -8,8 +8,8 @@
  *   data-byeai-labeled  AI videos and images (site labels + AI hashtags)
  *
  * Defaults are pessimistic so AI does not flash in while storage loads.
- * State is read straight from chrome.storage and kept live with
- * storage.onChanged, so toggles apply without a reload.
+ * State is read straight from chrome.storage.sync and kept live with
+ * storage.onChanged, so switches apply without a reload, on every device.
  */
 (function () {
   'use strict';
@@ -42,12 +42,13 @@
   function apply(data) {
     const features = { ...FEATURE_DEFAULTS, ...(data.features || {}) };
     const allowed = (data.allowedHosts || []).includes(host);
+    const mediaAllowed = (data.mediaAllowedHosts || []).includes(host);
     const on = Boolean(data.enabled) && !allowed;
 
     state.widgets = on && features.widgets;
     // One "AI assistants" switch covers widgets, search AI and AI buttons.
     state.buttons = on && features.widgets;
-    state.labeled = on && features.labeled;
+    state.labeled = on && features.labeled && !mediaAllowed;
     state.ready = true;
 
     setFlags();
@@ -62,8 +63,8 @@
   }
 
   function load() {
-    chrome.storage.local
-      .get({ enabled: true, allowedHosts: [], features: FEATURE_DEFAULTS })
+    chrome.storage.sync
+      .get({ enabled: true, allowedHosts: [], mediaAllowedHosts: [], features: FEATURE_DEFAULTS })
       .then(apply)
       .catch(() => {});
   }
@@ -84,8 +85,8 @@
   load();
 
   chrome.storage.onChanged.addListener((changes, area) => {
-    if (area !== 'local') return;
-    if (changes.enabled || changes.allowedHosts || changes.features) load();
+    if (area !== 'sync') return;
+    if (changes.enabled || changes.allowedHosts || changes.mediaAllowedHosts || changes.features) load();
   });
 
   chrome.runtime.onMessage.addListener((message) => {

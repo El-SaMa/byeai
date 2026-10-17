@@ -51,18 +51,28 @@ export async function launch() {
   return { context, worker, extensionId };
 }
 
+const SYNC_KEYS = ['enabled', 'features', 'allowedHosts', 'mediaAllowedHosts'];
+
+// Same split as the extension: settings in sync, counters in local.
 export async function setStorage(worker, data) {
-  await worker.evaluate((d) => chrome.storage.local.set(d), data);
+  await worker.evaluate(
+    ({ d, keys }) => {
+      const synced = {};
+      const local = {};
+      for (const [k, v] of Object.entries(d)) (keys.includes(k) ? synced : local)[k] = v;
+      return Promise.all([chrome.storage.sync.set(synced), chrome.storage.local.set(local)]);
+    },
+    { d: data, keys: SYNC_KEYS }
+  );
 }
 
 export async function resetStorage(worker) {
-  await worker.evaluate(() =>
-    chrome.storage.local.set({
-      enabled: true,
-      allowedHosts: [],
-      features: { widgets: true, labeled: true },
-    })
-  );
+  await setStorage(worker, {
+    enabled: true,
+    allowedHosts: [],
+    mediaAllowedHosts: [],
+    features: { widgets: true, labeled: true },
+  });
 }
 
 export async function open(context, url) {

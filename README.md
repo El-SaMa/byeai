@@ -16,10 +16,10 @@ Like an ad blocker, but for AI.
 
 | Switch | What it does |
 | --- | --- |
-| AI assistants | Blocks chat widgets and copilots at the network level, hides Google AI Overviews, Bing Copilot, DuckDuckGo and Brave AI answers, and AI buttons like Grok, Meta AI, Gemini, Copilot, Rufus and "Help me write" |
+| AI assistants | Blocks chat widgets and copilots at the network level, hides Google AI Overviews, Bing Copilot, DuckDuckGo and Brave AI answers, Amazon's AI review summary, and AI buttons like Grok, Meta AI, Gemini, Copilot, Rufus and "Help me write" |
 | AI videos and images | Blurs posts and videos that YouTube, TikTok, Instagram, Facebook, Threads, Pinterest and LinkedIn label as AI, or that carry clear AI tags like #aiart or #midjourney. Click to show one |
 
-Any site can be allowed with one click.
+Any site can be allowed with one click, or you can show AI videos on just that site. Settings follow you to your other computers through Chrome sync.
 
 <p align="center">
   <img src="docs/img/popup.png" width="260" alt="ByeAI popup with two switches">
@@ -35,17 +35,19 @@ No AI models, no guessing, no remote lists. Covers say why they are there.
 
 ## Privacy
 
-Everything runs locally. ByeAI makes no network requests of its own, has no analytics and stores settings only in `chrome.storage.local`. Full policy: [privacy](https://el-sama.github.io/byeai/privacy.html).
+Everything runs locally. ByeAI makes no network requests of its own and has no analytics. Settings live in `chrome.storage.sync` (Chrome's own sync, never our servers), counters in `chrome.storage.local`. Full policy: [privacy](https://el-sama.github.io/byeai/privacy.html).
 
 | Permission | Why |
 | --- | --- |
 | `declarativeNetRequest` | Block AI scripts and API calls |
 | `declarativeNetRequestFeedback` | Count what was blocked on the current tab |
-| `storage` | Save your switches and allowed sites |
-| `tabs`, `webNavigation` | Show per-tab counts, switch Google to Web results |
+| `storage` | Save your switches and allowed sites, synced by Chrome |
+| `webNavigation` | Switch Google searches to Web results so AI Overviews never load |
 | Access to all sites | AI widgets can appear on any site |
 
 ## Verify a release
+
+No `tabs` permission: site access already covers what the popup needs. CodeQL scans every push and Dependabot keeps the tooling current.
 
 Store packages are built by [GitHub Actions](.github/workflows/release.yml) from the tagged commit, after the tests pass. Each [release](https://github.com/El-SaMa/byeai/releases) lists the SHA-256 of the zip that goes to the Chrome Web Store.
 

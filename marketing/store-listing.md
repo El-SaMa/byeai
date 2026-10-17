@@ -22,7 +22,7 @@ Easy to use
 Two switches, that's it. Turn off what you don't need. If a site acts strange, press "Allow AI on this site" and it works like before.
 
 Private
-ByeAI works on your own device. It doesn't collect, send or sell anything, and you don't need an account. It's free and open source, so anyone can check how it works.
+ByeAI works on your own device. It doesn't collect, send or sell anything, and you don't need an account. Your settings follow you to your other computers through Chrome. It's free and open source, so anyone can check how it works.
 
 Made in Finland by LAFU.
 
@@ -46,7 +46,7 @@ Helppo käyttää
 Vain kaksi valintaa. Laita pois se, mitä et tarvitse. Jos sivusto toimii oudosti, paina "Salli tekoäly tällä sivustolla", niin kaikki toimii kuten ennenkin.
 
 Yksityinen
-ByeAI toimii omalla laitteellasi. Se ei kerää, lähetä eikä myy mitään, eikä tiliä tarvita. Se on ilmainen ja avointa lähdekoodia, joten kuka tahansa voi tarkistaa, miten se toimii.
+ByeAI toimii omalla laitteellasi. Se ei kerää, lähetä eikä myy mitään, eikä tiliä tarvita. Asetuksesi seuraavat sinua muille tietokoneillesi Chromen kautta. Se on ilmainen ja avointa lähdekoodia, joten kuka tahansa voi tarkistaa, miten se toimii.
 
 Tehty Suomessa, LAFU.
 

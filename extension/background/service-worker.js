@@ -13,17 +13,47 @@ const FEATURE_DEFAULTS = { widgets: true, labeled: true };
 /** @type {Map<number, { page: number, seen: Set<string>, cats: Record<string, number> }>} */
 const tabStats = new Map();
 
-const DEFAULTS = {
+// Settings follow the user across devices through Chrome sync (it still
+// works locally when sync is off). Counters change often, so they stay local.
+const SYNC_DEFAULTS = {
   enabled: true,
   features: FEATURE_DEFAULTS,
-  totalBlocked: 0,
   allowedHosts: [],
+  mediaAllowedHosts: [],
+};
+const LOCAL_DEFAULTS = {
+  totalBlocked: 0,
   onboardingComplete: false,
+  syncMigrated: false,
 };
 
 async function getSettings() {
-  const data = await chrome.storage.local.get(DEFAULTS);
-  return { ...DEFAULTS, ...data, features: { ...FEATURE_DEFAULTS, ...(data.features || {}) } };
+  const [synced, local] = await Promise.all([
+    chrome.storage.sync.get(SYNC_DEFAULTS),
+    chrome.storage.local.get(LOCAL_DEFAULTS),
+  ]);
+  return {
+    ...SYNC_DEFAULTS,
+    ...LOCAL_DEFAULTS,
+    ...synced,
+    ...local,
+    features: { ...FEATURE_DEFAULTS, ...(synced.features || {}) },
+  };
+}
+
+// 1.1 and older kept settings in local storage. Copy them over once.
+async function migrateToSync() {
+  const { syncMigrated } = await chrome.storage.local.get({ syncMigrated: false });
+  if (syncMigrated) return;
+  const old = await chrome.storage.local.get(['enabled', 'features', 'allowedHosts']);
+  const current = await chrome.storage.sync.get(['allowedHosts']);
+  const merged = { ...old };
+  if (old.allowedHosts || current.allowedHosts) {
+    merged.allowedHosts = [...new Set([...(current.allowedHosts || []), ...(old.allowedHosts || [])])];
+  }
+  if (Object.keys(merged).length) await chrome.storage.sync.set(merged);
+  await chrome.storage.local.remove(['enabled', 'features', 'allowedHosts']);
+  await chrome.storage.local.set({ syncMigrated: true });
 }
 
 function emptyStat() {
@@ -31,7 +61,14 @@ function emptyStat() {
 }
 
 async function saveSettings(partial) {
-  await chrome.storage.local.set(partial);
+  const synced = {};
+  const local = {};
+  for (const [key, value] of Object.entries(partial)) {
+    if (key in SYNC_DEFAULTS) synced[key] = value;
+    else local[key] = value;
+  }
+  if (Object.keys(synced).length) await chrome.storage.sync.set(synced);
+  if (Object.keys(local).length) await chrome.storage.local.set(local);
 }
 
 function hostToRuleId(hostname) {
@@ -243,6 +280,7 @@ async function getPopupState(tabId) {
     features: settings.features,
     totalBlocked: settings.totalBlocked,
     isAllowed: Boolean(hostname && settings.allowedHosts.includes(hostname)),
+    isMediaAllowed: Boolean(hostname && settings.mediaAllowedHosts.includes(hostname)),
     allowedHosts: settings.allowedHosts,
   };
 }
@@ -334,11 +372,23 @@ async function toggleAllowSite(hostname, allow) {
   return allowedHosts;
 }
 
+// "Show AI videos on this site": keeps everything else blocked.
+async function toggleMediaSite(hostname, allow) {
+  if (!hostname) return;
+  const settings = await getSettings();
+  const set = new Set(settings.mediaAllowedHosts);
+  if (allow) set.add(hostname);
+  else set.delete(hostname);
+  await saveSettings({ mediaAllowedHosts: [...set] });
+  await broadcastSettingsChanged();
+}
+
 async function removeAllowedHost(hostname) {
   return toggleAllowSite(hostname, false);
 }
 
 chrome.runtime.onInstalled.addListener(async (details) => {
+  await migrateToSync();
   const settings = await getSettings();
   await syncRulesetEnabled(settings);
   await syncWhitelistRules(settings.allowedHosts);
@@ -404,6 +454,9 @@ chrome.runtime.onMessage.addListener((message, sender, sendResponse) => {
       case 'SET_FEATURE':
         await setFeature(message.name, message.on);
         return getPopupState(message.tabId);
+      case 'TOGGLE_MEDIA_SITE':
+        await toggleMediaSite(message.hostname, message.allow);
+        return getPopupState(message.tabId);
       case 'REMOVE_ALLOWED_HOST':
         await removeAllowedHost(message.hostname);
         return getPopupState(message.tabId);
@@ -423,7 +476,14 @@ chrome.runtime.onMessage.addListener((message, sender, sendResponse) => {
   return true;
 });
 
-getSettings().then(async (settings) => {
+// Settings changed on another device (or in the options page).
+chrome.storage.onChanged.addListener(async (changes, area) => {
+  if (area !== 'sync') return;
+  if (changes.enabled || changes.features) await syncRulesetEnabled(await getSettings());
+  if (changes.allowedHosts) await syncWhitelistRules(changes.allowedHosts.newValue || []);
+});
+
+migrateToSync().then(getSettings).then(async (settings) => {
   await syncRulesetEnabled(settings);
   chrome.action.setBadgeBackgroundColor({ color: '#0f766e' }).catch(() => {});
   await syncWhitelistRules(settings.allowedHosts);

@@ -146,10 +146,47 @@ test('Google: Gemini button hidden, late AI overview hidden by script', async ()
   assert.equal(await page.$eval('#late-ov', (el) => el.dataset.byeaiHidden || ''), 'widgets');
 });
 
-test('Amazon: Rufus hidden', async () => {
+test('Amazon: Rufus and the AI review summary hidden, real reviews kept', async () => {
   const page = await open(ctx.context, 'https://www.amazon.com/');
   assert.equal(await isHidden(page, '#nav-rufus-disco'), true);
   assert.equal(await isHidden(page, '#rufus-btn'), true);
+  assert.equal(await isHidden(page, '#ai-summary'), true);
+  assert.equal(await isHidden(page, '#reviews'), false);
+});
+
+test('show AI videos on one site keeps the rest blocked', async () => {
+  const page = await open(ctx.context, 'https://www.instagram.com/');
+  assert.equal(await coverOf(page, '#ai'), 'labeled');
+  await setStorage(ctx.worker, { mediaAllowedHosts: ['instagram.com'] });
+  await page.waitForTimeout(400);
+  assert.equal(await coverOf(page, '#ai'), '');
+  assert.equal(await isHidden(page, '#meta-ai'), true, 'AI buttons stay hidden');
+
+  const yt = await open(ctx.context, 'https://www.youtube.com/');
+  assert.equal(await coverOf(yt, '#labeled'), 'labeled', 'other sites still blur');
+});
+
+test('settings changed on another device apply here', async () => {
+  const page = await open(ctx.context, 'https://x.com/home');
+  assert.equal(await isHidden(page, '#grok-nav'), true);
+  // A write straight to sync storage is what Chrome does when another device changes it.
+  await ctx.worker.evaluate(() => chrome.storage.sync.set({ allowedHosts: ['x.com'] }));
+  await page.waitForTimeout(500);
+  assert.equal(await isHidden(page, '#grok-nav'), false);
+  const rules = await ctx.worker.evaluate(() => chrome.declarativeNetRequest.getDynamicRules());
+  assert.ok(rules.some((r) => r.action.type === 'allow' && r.condition.initiatorDomains?.includes('x.com')));
+});
+
+test('settings from 1.1 move to sync once', async () => {
+  await ctx.worker.evaluate(() =>
+    chrome.storage.local.set({ allowedHosts: ['old.example'], enabled: true, syncMigrated: false })
+  );
+  await ctx.worker.evaluate(() => migrateToSync());
+  const synced = await ctx.worker.evaluate(() => chrome.storage.sync.get('allowedHosts'));
+  const local = await ctx.worker.evaluate(() => chrome.storage.local.get(['allowedHosts', 'syncMigrated']));
+  assert.ok(synced.allowedHosts.includes('old.example'));
+  assert.equal(local.allowedHosts, undefined);
+  assert.equal(local.syncMigrated, true);
 });
 
 test('chat widget script is blocked and its shell hidden', async () => {

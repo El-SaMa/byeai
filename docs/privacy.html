@@ -82,7 +82,7 @@
     <section class="lang-section active" id="lang-en" lang="en">
       <header>
         <h1>ByeAI Privacy Policy</h1>
-        <p class="muted">Effective date: October 18, 2026</p>
+        <p class="muted">Effective date: October 18, 2026 (version 1.2)</p>
         <p class="muted">Extension: ByeAI: Block AI on the Web</p>
       </header>
 
@@ -92,7 +92,7 @@
           <li>We do <strong>not</strong> sell your data.</li>
           <li>We do <strong>not</strong> upload or store your page text, images, audio, or video. AI label checks run on your device.</li>
           <li>We do <strong>not</strong> send your browsing history to our servers.</li>
-          <li>Your settings stay on your device in Chrome storage.</li>
+          <li>Your settings are kept in Chrome storage. If you use Chrome sync, Google syncs them to your other devices. We never receive them.</li>
         </ul>
       </div>
 
@@ -130,11 +130,15 @@
       <p><strong>We do not collect personal information from you.</strong></p>
       <p>ByeAI does not require an account and does not operate backend servers that receive your browsing data.</p>
 
-      <h2>4. Information stored on your device</h2>
-      <p>The extension stores the following locally in Chrome storage on your device only:</p>
+      <h2>4. Information stored by the extension</h2>
+      <p>Your settings are saved with Chrome's own storage sync. If Chrome sync is on, Google stores them with your Chrome profile and copies them to your other devices. If it is off, they stay on this device. We never receive them:</p>
       <ul>
-        <li>Whether ByeAI blocking is turned on or off</li>
+        <li>Whether ByeAI blocking is turned on or off, and which switches are on</li>
         <li>A list of websites where you chose to allow AI</li>
+        <li>A list of websites where you chose to show AI videos and images</li>
+      </ul>
+      <p>These are kept on this device only:</p>
+      <ul>
         <li>A count of blocked items on the current page session</li>
         <li>A running total count of blocked items since install</li>
         <li>Minor UI preferences, such as whether a help tip was dismissed</li>
@@ -161,8 +165,8 @@
         <li><strong>Website access (http and https)</strong>: apply blocking and cosmetic rules on pages you visit, and show stats for the active tab.</li>
         <li><strong>declarativeNetRequest</strong>: block known AI widget and AI service URLs before they load.</li>
         <li><strong>declarativeNetRequestFeedback</strong>: show accurate blocked counts in the popup.</li>
-        <li><strong>storage</strong>: save your settings, allowed sites, and counters locally.</li>
-        <li><strong>tabs</strong>: read the active tab hostname for the popup and Allow AI on this site.</li>
+        <li><strong>storage</strong>: save your settings and allowed sites (synced through Chrome sync if you use it), and counters on this device.</li>
+        <li><strong>webNavigation</strong>: switch Google searches to Web results so AI Overviews do not load.</li>
       </ul>
       <p>
         Chrome may show a notice that the extension can read and change data on websites you visit. That
@@ -249,7 +253,7 @@
     <section class="lang-section" id="lang-fi" lang="fi">
       <header>
         <h1>ByeAI – Tietosuojaseloste</h1>
-        <p class="muted">Voimassa: 18.10.2026</p>
+        <p class="muted">Voimassa: 18.10.2026 (versio 1.2)</p>
         <p class="muted">Laajennus: ByeAI: Estä tekoäly verkossa</p>
       </header>
 
@@ -259,7 +263,7 @@
           <li><strong>Emme</strong> myy tietojasi.</li>
           <li><strong>Emme</strong> lähetä tai tallenna sivun tekstiä, kuvia, ääntä tai videota. Tekoälymerkinnät tarkistetaan laitteellasi.</li>
           <li><strong>Emme</strong> lähetä selaushistoriaasi palvelimillemme.</li>
-          <li>Asetuksesi pysyvät laitteellasi Chromen tallennustilassa.</li>
+          <li>Asetuksesi tallennetaan Chromen tallennustilaan. Jos käytät Chromen synkronointia, Google synkronoi ne muille laitteillesi. Me emme saa niitä.</li>
         </ul>
       </div>
 
@@ -298,11 +302,15 @@
       <p><strong>Emme kerää sinusta henkilötietoja.</strong></p>
       <p>ByeAI ei vaadi tilin luomista eikä käytä taustapalvelimia, jotka vastaanottaisivat selaustietojasi.</p>
 
-      <h2>4. Laitteellasi tallennettavat tiedot</h2>
-      <p>Laajennus tallentaa seuraavat tiedot vain paikallisesti Chromen tallennustilaan laitteellasi:</p>
+      <h2>4. Laajennuksen tallentamat tiedot</h2>
+      <p>Asetuksesi tallennetaan Chromen omalla synkronoinnilla. Jos Chromen synkronointi on päällä, Google säilyttää ne Chrome-profiilisi mukana ja kopioi ne muille laitteillesi. Jos se on pois, ne pysyvät tällä laitteella. Me emme saa niitä:</p>
       <ul>
-        <li>Onko ByeAI:n esto päällä vai pois</li>
+        <li>Onko ByeAI:n esto päällä vai pois ja mitkä valinnat ovat päällä</li>
         <li>Lista sivustoista, joilla olet sallinut tekoälyn</li>
+        <li>Lista sivustoista, joilla olet valinnut näyttää tekoälyvideot ja -kuvat</li>
+      </ul>
+      <p>Nämä pysyvät vain tällä laitteella:</p>
+      <ul>
         <li>Tällä sivuistunnolla estettyjen kohteiden lukumäärä</li>
         <li>Estettyjen kohteiden kokonaislaskuri asennuksen jälkeen</li>
         <li>Pieniä käyttöliittymäasetuksia, kuten onko ohjevinkki ohitettu</li>
@@ -329,8 +337,8 @@
         <li><strong>Pääsy verkkosivustoille (http ja https)</strong>: soveltaa esto- ja kosmeettisia sääntöjä vierailemillasi sivuilla ja näyttää tilastot aktiivisesta välilehdestä.</li>
         <li><strong>declarativeNetRequest</strong>: estää tunnettujen tekoäly-widgettien ja tekoälypalveluiden URL-osoitteet ennen niiden latautumista.</li>
         <li><strong>declarativeNetRequestFeedback</strong>: näyttää tarkat estetyt määrät popupissa.</li>
-        <li><strong>storage</strong>: tallentaa asetuksesi, sallitut sivustot ja laskurit paikallisesti.</li>
-        <li><strong>tabs</strong>: lukee aktiivisen välilehden isäntänimen popupia ja "Salli tekoäly tällä sivustolla" -toimintoa varten.</li>
+        <li><strong>storage</strong>: tallentaa asetuksesi ja sallitut sivustot (synkronoidaan Chromen synkronoinnilla, jos käytät sitä) sekä laskurit tälle laitteelle.</li>
+        <li><strong>webNavigation</strong>: vaihtaa Google-haut Verkko-tuloksiin, jotta tekoälykatsaukset eivät lataudu.</li>
       </ul>
       <p>
         Chrome saattaa näyttää ilmoituksen, että laajennus voi lukea ja muuttaa tietoja vierailemillasi

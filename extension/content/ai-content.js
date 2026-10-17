@@ -182,6 +182,10 @@
   // Plain names that mean something else on other sites (horoscopes, pets).
   if (isGoogle) BUTTON_NAMES.add('gemini');
   if (isAmazon) BUTTON_NAMES.add('rufus');
+  // AI summaries that replace real content, found by their heading.
+  // Amazon: "Customers say" is written by AI from the reviews.
+  const SUMMARY_BLOCKS = isAmazon ? [{ heading: 'customers say', container: '.celwidget' }] : [];
+
   const BUTTON_SKIP = '[contenteditable="true"], [data-testid="tweetText"], textarea, input';
 
   // --------------------------------------------------------------- styles
@@ -258,6 +262,18 @@ html[data-byeai-labeled="1"] [data-byeai-cover="tagged"]::after {
       if (label.length > 40) return;
       if (BUTTON_NAMES.has(normalize(label))) hideButton(el, `name:${normalize(label)}`);
     });
+  }
+
+  function scanSummaries(root) {
+    for (const block of SUMMARY_BLOCKS) {
+      root.querySelectorAll('h2, h3').forEach((h) => {
+        if (normalize(h.textContent || '') !== block.heading) return;
+        const box = h.closest(block.container);
+        // Never hide the real reviews around it.
+        if (!box || box.querySelector('[data-hook="review"]')) return;
+        hideButton(box, `summary:${block.heading}`);
+      });
+    }
   }
 
   function unhideButtons() {
@@ -474,7 +490,10 @@ html[data-byeai-labeled="1"] [data-byeai-cover="tagged"]::after {
     if (!s.buttons) unhideButtons();
     for (const root of roots) {
       if (!root.isConnected) continue;
-      if (s.buttons) scanButtons(root);
+      if (s.buttons) {
+        scanButtons(root);
+        scanSummaries(root);
+      }
       if (s.labeled) {
         scanLabels(root);
         scanTags(root);

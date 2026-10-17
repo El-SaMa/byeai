@@ -76,8 +76,19 @@
     "message": "Tagged $TAG$\nClick to show",
     "placeholders": { "tag": { "content": "$1", "example": "#aiart" } }
   },
-  "popupTrust": { "message": "Works on your device. Nothing is sent anywhere." },
+  "popupTrust": { "message": "Works on your device. We never see what you browse." },
   "popupOpenSource": { "message": "Open source" },
+  "popupMediaShow": {
+    "message": "Show AI videos on $HOST$",
+    "placeholders": { "host": { "content": "$1", "example": "youtube.com" } }
+  },
+  "popupMediaBlur": {
+    "message": "Blur AI videos on $HOST$ again",
+    "placeholders": { "host": { "content": "$1", "example": "youtube.com" } }
+  },
+  "optionsMediaAllowedNote": { "message": "AI videos shown" },
+  "optionsMediaBlurBtn": { "message": "Blur again" },
+  "optionsPermissionsNavHtml": { "message": "<strong>webNavigation</strong>: switch Google searches to Web results" },
   "popupReport": { "message": "Report" },
   "popupReportTitle": { "message": "Report AI that ByeAI missed" },
   "coverLabeled": { "message": "Labeled as AI by the site\nClick to show" },
@@ -110,16 +121,15 @@
   "optionsPrivacyVsUiText": { "message": "Hides AI boxes that still appear on screen. This is mainly so you do not see them. Network blocking does the heavy work." },
   "optionsPrivacyVsNote": { "message": "ByeAI only looks for AI labels and tags on the page, on your device. Nothing is sent anywhere. It does not make browsing anonymous. For stronger search privacy, use a search engine you trust or turn ByeAI off where you need full site features." },
   "optionsPermissionsHeading": { "message": "Permissions" },
-  "optionsPermissionsIntro": { "message": "ByeAI needs access to websites you visit so it can block AI loaders before they run. Settings and allowed sites are stored locally on your device." },
+  "optionsPermissionsIntro": { "message": "ByeAI needs access to websites you visit so it can block AI before it loads. Your settings follow you to your other computers through Chrome sync. Nothing goes to us." },
   "optionsPermissionsDnrHtml": { "message": "<strong>declarativeNetRequest</strong>: block known AI widget and API URLs" },
-  "optionsPermissionsStorageHtml": { "message": "<strong>storage</strong>: save your settings and allowed sites" },
-  "optionsPermissionsTabsHtml": { "message": "<strong>tabs</strong>: show stats for the page you are viewing" },
+  "optionsPermissionsStorageHtml": { "message": "<strong>storage</strong>: save your settings and sync them between your devices" },
   "optionsSupportHeading": { "message": "Support ByeAI" },
   "optionsSupportIntro": { "message": "ByeAI is free and ad-free. If it has saved you from one too many AI chat boxes, you can chip in to keep it that way." },
   "optionsSupportNote": { "message": "Donations are voluntary and optional. The extension will always work without one." },
   "optionsSupportBtn": { "message": "Support ByeAI" },
   "optionsPrivacyHeading": { "message": "Privacy" },
-  "optionsPrivacyIntro": { "message": "ByeAI blocks known AI loaders using a local rule list. Your browsing history is not sent to us. Allowed sites and stats are stored on your device only." },
+  "optionsPrivacyIntro": { "message": "ByeAI blocks known AI using a rule list built into the extension. Your browsing history is not sent to us. Your settings sync through your Chrome account, and stats stay on this device." },
   "optionsPrivacyLink": { "message": "Read the privacy policy" },
   "optionsFooterVersion": {
     "message": "ByeAI v$VERSION$",

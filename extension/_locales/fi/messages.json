@@ -76,8 +76,19 @@
     "message": "Tunniste $TAG$\nNäytä klikkaamalla",
     "placeholders": { "tag": { "content": "$1", "example": "#aiart" } }
   },
-  "popupTrust": { "message": "Toimii laitteellasi. Mitään ei lähetetä minnekään." },
+  "popupTrust": { "message": "Toimii laitteellasi. Emme näe, mitä selaat." },
   "popupOpenSource": { "message": "Avoin lähdekoodi" },
+  "popupMediaShow": {
+    "message": "Näytä tekoälyvideot sivustolla $HOST$",
+    "placeholders": { "host": { "content": "$1", "example": "youtube.com" } }
+  },
+  "popupMediaBlur": {
+    "message": "Sumenna taas sivustolla $HOST$",
+    "placeholders": { "host": { "content": "$1", "example": "youtube.com" } }
+  },
+  "optionsMediaAllowedNote": { "message": "tekoälyvideot näytetään" },
+  "optionsMediaBlurBtn": { "message": "Sumenna taas" },
+  "optionsPermissionsNavHtml": { "message": "<strong>webNavigation</strong>: vaihtaa Google-haut Verkko-tuloksiin" },
   "popupReport": { "message": "Ilmoita" },
   "popupReportTitle": { "message": "Ilmoita tekoälystä, jota ByeAI ei estänyt" },
   "coverLabeled": { "message": "Palvelu on merkinnyt tämän tekoälyn tekemäksi\nNäytä klikkaamalla" },
@@ -110,16 +121,15 @@
   "optionsPrivacyVsUiText": { "message": "Piilottaa tekoälylaatikot, jotka silti ilmestyvät näytölle. Tämä on lähinnä siksi, ettet näe niitä. Verkkoesto tekee raskaan työn." },
   "optionsPrivacyVsNote": { "message": "ByeAI etsii sivulta vain tekoälymerkintöjä ja -tunnisteita, omalla laitteellasi. Mitään ei lähetetä minnekään. Se ei tee selailusta anonyymiä. Vahvempaa hakutietosuojaa varten käytä luotettavaa hakukonetta tai poista ByeAI käytöstä, kun tarvitset sivuston täydet ominaisuudet." },
   "optionsPermissionsHeading": { "message": "Käyttöoikeudet" },
-  "optionsPermissionsIntro": { "message": "ByeAI tarvitsee pääsyn vierailemillesi sivustoille voidakseen estää tekoälylataukset ennen niiden suoritusta. Asetukset ja sallitut sivustot tallennetaan paikallisesti laitteellesi." },
+  "optionsPermissionsIntro": { "message": "ByeAI tarvitsee pääsyn vierailemillesi sivustoille voidakseen estää tekoälyn ennen kuin se latautuu. Asetuksesi siirtyvät muille tietokoneillesi Chromen synkronoinnin kautta. Meille ei lähetetä mitään." },
   "optionsPermissionsDnrHtml": { "message": "<strong>declarativeNetRequest</strong>: estää tunnetut tekoäly-widgettien ja API:en URL-osoitteet" },
-  "optionsPermissionsStorageHtml": { "message": "<strong>storage</strong>: tallentaa asetuksesi ja sallitut sivustot" },
-  "optionsPermissionsTabsHtml": { "message": "<strong>tabs</strong>: näyttää tilastot katselemastasi sivusta" },
+  "optionsPermissionsStorageHtml": { "message": "<strong>storage</strong>: tallentaa asetuksesi ja synkronoi ne laitteidesi välillä" },
   "optionsSupportHeading": { "message": "Tue ByeAI:tä" },
   "optionsSupportIntro": { "message": "ByeAI on ilmainen ja mainoksetön. Jos se on säästänyt sinut yhdeltä liikaa tekoälychatilta, voit lahjoittaa pitääksesi sen sellaisena." },
   "optionsSupportNote": { "message": "Lahjoitukset ovat vapaaehtoisia. Laajennus toimii aina ilman niitä." },
   "optionsSupportBtn": { "message": "Tue ByeAI:tä" },
   "optionsPrivacyHeading": { "message": "Tietosuoja" },
-  "optionsPrivacyIntro": { "message": "ByeAI estää tunnetut tekoälylataukset paikallisen sääntölistan avulla. Selaushistoriaasi ei lähetetä meille. Sallitut sivustot ja tilastot tallennetaan vain laitteellesi." },
+  "optionsPrivacyIntro": { "message": "ByeAI estää tunnetun tekoälyn laajennuksen omalla sääntölistalla. Selaushistoriaasi ei lähetetä meille. Asetuksesi synkronoidaan Chrome-tilisi kautta, ja tilastot pysyvät tällä laitteella." },
   "optionsPrivacyLink": { "message": "Lue tietosuojaseloste" },
   "optionsFooterVersion": {
     "message": "ByeAI v$VERSION$",

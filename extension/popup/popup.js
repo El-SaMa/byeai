@@ -19,6 +19,7 @@ const footerVersion = document.getElementById('footerVersion');
 const reportLink = document.getElementById('reportLink');
 const featureCard = document.querySelector('.feature-card');
 const featureRows = document.querySelectorAll('.feature');
+const mediaSiteBtn = document.getElementById('mediaSiteBtn');
 
 const REPORT_URL = 'https://github.com/El-SaMa/byeai/issues/new';
 
@@ -106,6 +107,15 @@ function renderFeatures(state) {
     count.textContent = String(n);
     count.hidden = n === 0;
   });
+
+  // Only offered where it matters: AI media was blurred here, or the site is already an exception.
+  const showLink =
+    state.enabled && !state.isAllowed && state.hostname && features.labeled &&
+    (state.isMediaAllowed || (counts.labeled || 0) > 0);
+  mediaSiteBtn.hidden = !showLink;
+  mediaSiteBtn.textContent = state.isMediaAllowed
+    ? t('popupMediaBlur', [state.hostname]) || `Blur AI videos on ${state.hostname} again`
+    : t('popupMediaShow', [state.hostname]) || `Show AI videos on ${state.hostname}`;
 }
 
 async function refresh() {
@@ -154,6 +164,17 @@ featureRows.forEach((row) => {
     });
     render(state);
   });
+});
+
+mediaSiteBtn.addEventListener('click', async () => {
+  if (!state?.hostname) return;
+  state = await chrome.runtime.sendMessage({
+    type: 'TOGGLE_MEDIA_SITE',
+    hostname: state.hostname,
+    allow: !state.isMediaAllowed,
+    tabId: activeTabId,
+  });
+  render(state);
 });
 
 // Only opens a prefilled GitHub issue. Nothing is sent unless you submit it.

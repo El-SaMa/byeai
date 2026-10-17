@@ -39,3 +39,13 @@ test('no long dashes in user-facing text', () => {
     for (const [k, v] of Object.entries(messages[l])) assert.ok(!v.message.includes('—'), `${l}.${k}`);
   }
 });
+
+test('manifest asks only for what it needs', () => {
+  const manifest = JSON.parse(read('manifest.json'));
+  assert.deepEqual(manifest.permissions.sort(), [
+    'declarativeNetRequest',
+    'declarativeNetRequestFeedback',
+    'storage',
+    'webNavigation',
+  ]);
+});

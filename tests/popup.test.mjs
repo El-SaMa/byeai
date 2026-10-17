@@ -36,7 +36,7 @@ test('popup shows the two rows with defaults and saves a toggle', async () => {
 
   await popup.click('.feature[data-feature="labeled"] .toggle');
   await popup.waitForTimeout(200);
-  const features = await ctx.worker.evaluate(async () => (await chrome.storage.local.get('features')).features);
+  const features = await ctx.worker.evaluate(async () => (await chrome.storage.sync.get('features')).features);
   assert.equal(features.labeled, false);
   assert.equal(features.widgets, true);
 });
@@ -75,4 +75,31 @@ test('report link opens a GitHub issue without query strings', async () => {
   assert.equal(target.searchParams.get('title'), 'Missed AI on example.com');
   assert.equal(target.searchParams.get('page'), 'https://example.com/page');
   assert.doesNotMatch(opened, /secret/);
+});
+
+test('popup offers "show AI videos" only where something was blurred', async () => {
+  await resetStorage(ctx.worker);
+  const yt = await ctx.context.newPage();
+  await yt.goto('https://www.youtube.com/');
+  await yt.waitForTimeout(800);
+  const popup = await ctx.context.newPage();
+  await popup.goto(`chrome-extension://${ctx.extensionId}/popup/popup.html`);
+  await popup.waitForTimeout(200);
+  assert.equal(await popup.$eval('#mediaSiteBtn', (b) => b.hidden), true, 'popup tab itself has nothing blurred');
+
+  await popup.evaluate(async () => {
+    const [tab] = await chrome.tabs.query({ url: 'https://www.youtube.com/*' });
+    activeTabId = tab.id;
+    state = await chrome.runtime.sendMessage({ type: 'GET_STATE', tabId: tab.id });
+    render(state);
+  });
+  assert.equal(await popup.$eval('#mediaSiteBtn', (b) => b.hidden), false);
+  assert.match(await popup.textContent('#mediaSiteBtn'), /Show AI videos on youtube\.com/);
+
+  await popup.click('#mediaSiteBtn');
+  await popup.waitForTimeout(300);
+  const synced = await ctx.worker.evaluate(() => chrome.storage.sync.get('mediaAllowedHosts'));
+  assert.deepEqual(synced.mediaAllowedHosts, ['youtube.com']);
+  assert.match(await popup.textContent('#mediaSiteBtn'), /Blur AI videos on youtube\.com again/);
+  await yt.close();
 });
