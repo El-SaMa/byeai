@@ -202,6 +202,16 @@ async function updateBadge(tabId, count) {
   }
 }
 
+// Blocks arrive in bursts. Chain the read-modify-write so none get lost.
+let totalQueue = Promise.resolve();
+function bumpTotal() {
+  totalQueue = totalQueue.then(async () => {
+    const { totalBlocked } = await chrome.storage.local.get({ totalBlocked: 0 });
+    await chrome.storage.local.set({ totalBlocked: totalBlocked + 1 });
+  });
+  return totalQueue;
+}
+
 async function recordBlock(tabId, dedupeKey, category = 'widgets') {
   const settings = await getSettings();
   if (!settings.enabled) return;
@@ -224,8 +234,7 @@ async function recordBlock(tabId, dedupeKey, category = 'widgets') {
 
   stat.page += 1;
   if (CATEGORIES.includes(category)) stat.cats[category] += 1;
-  const totalBlocked = settings.totalBlocked + 1;
-  await saveSettings({ totalBlocked });
+  await bumpTotal();
 
   await refreshTabUi(tabId);
 }

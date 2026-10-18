@@ -56,6 +56,8 @@
     if (scope === document) {
       try {
         document.documentElement.lang = chrome.i18n.getUILanguage();
+        // Arabic and Persian read right to left.
+        document.documentElement.dir = chrome.i18n.getMessage('@@bidi_dir') || 'ltr';
       } catch (_) {
         // ignore
       }

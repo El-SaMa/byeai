@@ -119,7 +119,7 @@
   "optionsPrivacyVsGoogleText": { "message": "Switches results to Web mode and blocks known AI fetch URLs. This reduces AI on the page, but Google still receives your search query like normal search." },
   "optionsPrivacyVsUiTitle": { "message": "UI hiding (backup)" },
   "optionsPrivacyVsUiText": { "message": "Hides AI boxes that still appear on screen. This is mainly so you do not see them. Network blocking does the heavy work." },
-  "optionsPrivacyVsNote": { "message": "ByeAI only looks for AI labels and tags on the page, on your device. Nothing is sent anywhere. It does not make browsing anonymous. For stronger search privacy, use a search engine you trust or turn ByeAI off where you need full site features." },
+  "optionsPrivacyVsNote": { "message": "ByeAI only looks for AI labels and tags on the page, on your device. Nothing is sent to us. It does not make browsing anonymous. For stronger search privacy, use a search engine you trust or turn ByeAI off where you need full site features." },
   "optionsPermissionsHeading": { "message": "Permissions" },
   "optionsPermissionsIntro": { "message": "ByeAI needs access to websites you visit so it can block AI before it loads. Your settings follow you to your other computers through Chrome sync. Nothing goes to us." },
   "optionsPermissionsDnrHtml": { "message": "<strong>declarativeNetRequest</strong>: block known AI widget and API URLs" },

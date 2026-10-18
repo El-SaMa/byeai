@@ -223,3 +223,13 @@ test('popup counts each category for the tab', async () => {
   assert.ok(state.pageBlocked >= 2);
   await page.close();
 });
+
+test('total counter does not lose blocks that arrive together', async () => {
+  await setStorage(ctx.worker, { totalBlocked: 0 });
+  const page = await open(ctx.context, 'https://www.youtube.com/');
+  await page.waitForTimeout(500);
+  const { totalBlocked } = await ctx.worker.evaluate(() => chrome.storage.local.get('totalBlocked'));
+  const covered = await page.$$eval('[data-byeai-cover]', (els) => els.length);
+  assert.ok(covered >= 3);
+  assert.ok(totalBlocked >= covered, `total ${totalBlocked} < covered ${covered}`);
+});

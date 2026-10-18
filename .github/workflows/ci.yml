@@ -17,6 +17,8 @@ jobs:
         with:
           node-version: 22
           cache: npm
+      - name: Check translations
+        run: python3 scripts/build-locales.py --check
       - run: npm ci
       - run: npx playwright install --with-deps chromium
       - run: npm test

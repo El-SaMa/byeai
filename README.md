@@ -25,6 +25,16 @@ Any site can be allowed with one click, or you can show AI videos on just that s
   <img src="docs/img/popup.png" width="260" alt="ByeAI popup with two switches">
 </p>
 
+## Languages
+
+30 languages, including Arabic and Persian with a right-to-left layout. English and Finnish are written by hand. The rest live as flat files in [`translations/`](translations) and are built with:
+
+```
+python scripts/build-locales.py
+```
+
+The script checks every key, placeholder and store length limit. Native speakers are welcome to send fixes.
+
 ## How it detects AI
 
 - **Network rules** ([`extension/rules`](extension/rules)): `declarativeNetRequest` blocks known AI widget scripts and API hosts before they run.

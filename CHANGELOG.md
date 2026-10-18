@@ -2,10 +2,12 @@
 
 ## 1.2.0 (2026-10-18)
 
+- Now in 30 languages, with a right-to-left layout for Arabic and Persian
 - Settings sync between your computers through Chrome sync
 - "Show AI videos on this site" in the popup, for sites where you want them
 - Hides Amazon's AI review summary ("Customers say"), real reviews stay
 - Asks for one permission less: "tabs" was not needed
+- Fixed the total counter missing blocks that happened at the same moment
 - Down to two switches: "AI assistants" (chatbots, AI search answers and AI buttons) and "AI videos and images"
 - Strict mode is gone. Clear AI hashtags like #aiart and #midjourney are now part of "AI videos and images"
 - Broad tags like #ai are no longer matched, so news about AI stays visible
