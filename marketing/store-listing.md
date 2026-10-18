@@ -13,7 +13,7 @@ Block AI on the web: chat widgets, copilots, AI Overviews, AI buttons and AI-lab
 **Description**
 
 ```
-Block AI on the web: chatbots, AI buttons, AI Overviews and AI videos
+Block AI on the web: chatbots, AI buttons, AI search answers and AI videos
 
 ByeAI keeps AI out of your way while you browse. It stops AI chat bubbles, AI buttons and AI search answers before they load, and blurs videos and pictures that sites mark as made with AI. You decide which sites can use AI.
 
