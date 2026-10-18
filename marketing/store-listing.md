@@ -4,51 +4,113 @@ Paste into the store dashboard. Written for everyday users, no tech words.
 
 ## English
 
-**Short description**
+**Short description** (comes from the extension itself)
 
-Block AI chatbots, AI buttons and AI search answers. Blur videos and posts marked as AI. Works on your device.
+Block AI on the web: chat widgets, copilots, AI Overviews, AI buttons and AI-labeled videos. Allow any site with one click.
 
 **Description**
 
-ByeAI keeps AI out of your way while you browse.
+```
+Block AI on the web: chatbots, AI buttons, AI Overviews and AI videos
 
-What it does
-• Stops AI chat bubbles and assistants from popping up on websites
-• Hides AI answers on Google, Bing, DuckDuckGo and Brave
-• Hides AI buttons like Grok, Meta AI, Gemini and Copilot
-• Blurs videos and pictures that YouTube, TikTok, Instagram, Facebook and others mark as made with AI. Click one if you still want to see it
+ByeAI keeps AI out of your way while you browse. It stops AI chat bubbles, AI buttons and AI search answers before they load, and blurs videos and pictures that sites mark as made with AI. You decide which sites can use AI.
 
-Easy to use
-Two switches, that's it. Turn off what you don't need. If a site acts strange, press "Allow AI on this site" and it works like before.
+==============================
+WHAT BYEAI BLOCKS
 
-Private
-ByeAI works on your own device. It doesn't collect, send or sell anything, and you don't need an account. Your settings follow you to your other computers through Chrome. It's free and open source, so anyone can check how it works.
+★ AI chat bubbles and help bots on shops, news sites and apps
+★ AI buttons like Grok, Meta AI, Gemini, Copilot, Rufus and "Help me write"
+★ AI answers in search: Google AI Overviews, Bing Copilot, DuckDuckGo, Brave and Ecosia
+★ Amazon's AI-written review summaries (the real reviews stay)
+★ Hidden AI connections that sites use to stream AI answers in the background
+
+==============================
+AI VIDEOS AND IMAGES
+
+★ Blurs posts and videos that YouTube, TikTok, Instagram, Facebook, Pinterest and others label as AI
+★ Also catches clear AI tags like #aiart and #midjourney
+★ Each blur says why it is there. Click it to see the post anyway
+★ Blurred videos stay paused until you choose to watch
+
+==============================
+SIMPLE TO USE
+
+★ Two switches: AI assistants, and AI videos and images
+★ See how much was blocked on the page you are on
+★ Allow AI on any site with one click, or show AI videos on just that site
+★ Your settings follow you to your other computers through Chrome
+★ Available in 30 languages
+
+==============================
+PRIVATE BY DESIGN
+
+★ Works on your device. We never see what you browse
+★ No account, no tracking, no ads
+★ ByeAI does not use AI to guess what is AI. It only reacts to labels and tags the site already shows
+★ Free and open source: github.com/El-SaMa/byeai
+
+==============================
+GOOD TO KNOW
+
+• Chrome shows a notice that ByeAI can read and change data on websites. It needs this to stop AI on the pages you visit. Your browsing history is never sent to us.
+• If a site acts strange, press "Allow AI on this site". Everything else stays protected.
+• Spotted AI that got through? Use Report in the popup.
 
 Made in Finland by LAFU.
+```
 
 ## Suomi
 
-**Lyhyt kuvaus**
-
-Estä tekoälychatit, tekoälypainikkeet ja tekoälyn hakuvastaukset. Sumentaa tekoälyllä tehdyiksi merkityt videot ja kuvat.
-
 **Kuvaus**
 
-ByeAI pitää tekoälyn poissa tieltäsi, kun selaat verkkoa.
+```
+Estä tekoäly verkossa: chatbotit, tekoälypainikkeet, tekoälykatsaukset ja tekoälyvideot
 
-Mitä se tekee
-• Estää tekoälychatit ja -avustajat, jotka ponnahtavat esiin sivustoilla
-• Piilottaa tekoälyn vastaukset Googlesta, Bingistä, DuckDuckGosta ja Bravesta
-• Piilottaa tekoälypainikkeet, kuten Grok, Meta AI, Gemini ja Copilot
-• Sumentaa videot ja kuvat, jotka YouTube, TikTok, Instagram, Facebook ja muut ovat merkinneet tekoälyllä tehdyiksi. Klikkaa, jos haluat silti nähdä
+ByeAI pitää tekoälyn poissa tieltäsi, kun selaat. Se estää tekoälychatit, tekoälypainikkeet ja tekoälyn hakuvastaukset ennen kuin ne latautuvat, ja sumentaa videot ja kuvat, jotka palvelu on merkinnyt tekoälyn tekemiksi. Sinä päätät, millä sivustoilla tekoäly saa toimia.
 
-Helppo käyttää
-Vain kaksi valintaa. Laita pois se, mitä et tarvitse. Jos sivusto toimii oudosti, paina "Salli tekoäly tällä sivustolla", niin kaikki toimii kuten ennenkin.
+==============================
+MITÄ BYEAI ESTÄÄ
 
-Yksityinen
-ByeAI toimii omalla laitteellasi. Se ei kerää, lähetä eikä myy mitään, eikä tiliä tarvita. Asetuksesi seuraavat sinua muille tietokoneillesi Chromen kautta. Se on ilmainen ja avointa lähdekoodia, joten kuka tahansa voi tarkistaa, miten se toimii.
+★ Tekoälychatit ja -avustajat verkkokaupoissa, uutissivuilla ja sovelluksissa
+★ Tekoälypainikkeet, kuten Grok, Meta AI, Gemini, Copilot, Rufus ja "Help me write"
+★ Tekoälyn vastaukset hauissa: Googlen tekoälykatsaukset, Bing Copilot, DuckDuckGo, Brave ja Ecosia
+★ Amazonin tekoälyn kirjoittamat arvostelukoosteet (oikeat arvostelut jäävät näkyviin)
+★ Taustalla toimivat tekoälyyhteydet, joilla sivustot hakevat vastauksia huomaamatta
+
+==============================
+TEKOÄLYVIDEOT JA -KUVAT
+
+★ Sumentaa julkaisut ja videot, jotka YouTube, TikTok, Instagram, Facebook, Pinterest ja muut merkitsevät tekoälyn tekemiksi
+★ Tunnistaa myös selvät tekoälytunnisteet, kuten #aiart ja #midjourney
+★ Jokainen sumennus kertoo syynsä. Klikkaa, jos haluat silti nähdä
+★ Sumennetut videot pysyvät pysäytettyinä, kunnes itse päätät katsoa
+
+==============================
+HELPPO KÄYTTÄÄ
+
+★ Kaksi valintaa: tekoälyavustajat sekä tekoälyvideot ja -kuvat
+★ Näet, paljonko sivulla estettiin
+★ Salli tekoäly millä tahansa sivustolla yhdellä klikkauksella, tai näytä tekoälyvideot vain sillä sivustolla
+★ Asetuksesi seuraavat sinua muille tietokoneillesi Chromen kautta
+★ Saatavilla 30 kielellä
+
+==============================
+YKSITYINEN
+
+★ Toimii laitteellasi. Emme näe, mitä selaat
+★ Ei tiliä, ei seurantaa, ei mainoksia
+★ ByeAI ei käytä tekoälyä arvatakseen, mikä on tekoälyä. Se reagoi vain merkintöihin ja tunnisteisiin, jotka sivusto itse näyttää
+★ Ilmainen ja avointa lähdekoodia: github.com/El-SaMa/byeai
+
+==============================
+HYVÄ TIETÄÄ
+
+• Chrome kertoo, että ByeAI voi lukea ja muuttaa sivustojen tietoja. Sitä tarvitaan, jotta tekoäly voidaan estää vierailemillasi sivuilla. Selaushistoriaasi ei koskaan lähetetä meille.
+• Jos sivusto toimii oudosti, paina "Salli tekoäly tällä sivustolla". Muualla suojaus pysyy päällä.
+• Pääsikö tekoäly läpi? Kerro siitä ponnahdusikkunan Ilmoita-linkillä.
 
 Tehty Suomessa, LAFU.
+```
 
 ## Images
 
