@@ -50,6 +50,12 @@ ByeAI toimii omalla laitteellasi. Se ei kerää, lähetä eikä myy mitään, ei
 
 Tehty Suomessa, LAFU.
 
-## Screenshots
+## Images
 
-Use `docs/img/popup.png` and `docs/img/youtube.png`. The store wants 1280x800, so place them on a plain background.
+Ready in `marketing/store/` (24-bit PNG, no alpha):
+
+- Small promo tile: `promo-small-440x280.png`
+- Marquee promo tile: `promo-marquee-1400x560.png`
+- Screenshots, in this order: `screenshot-1-videos-1280x800.png`, `screenshot-2-popup-1280x800.png`, `screenshot-3-privacy-1280x800.png`
+
+Rebuild with `node scripts/store-images.mjs` then `python scripts/flatten-png.py marketing/store`.
