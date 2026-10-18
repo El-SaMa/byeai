@@ -2,6 +2,8 @@
 
 Paste into the store dashboard. Written for everyday users, no tech words.
 
+No brand or platform names in the description: the store rejected 1.2.1 for "keyword spam" when it listed them (2026-10-18).
+
 ## English
 
 **Short description** (comes from the extension itself)
@@ -19,16 +21,16 @@ ByeAI keeps AI out of your way while you browse. It stops AI chat bubbles, AI bu
 WHAT BYEAI BLOCKS
 
 ★ AI chat bubbles and help bots on shops, news sites and apps
-★ AI buttons like Grok, Meta AI, Gemini, Copilot, Rufus and "Help me write"
-★ AI answers in search: Google AI Overviews, Bing Copilot, DuckDuckGo, Brave and Ecosia
-★ Amazon's AI-written review summaries (the real reviews stay)
+★ AI buttons and "write it for me" helpers that sites add
+★ AI answers at the top of search results
+★ AI-written review summaries in shops (the real reviews stay)
 ★ Hidden AI connections that sites use to stream AI answers in the background
 
 ==============================
 AI VIDEOS AND IMAGES
 
-★ Blurs posts and videos that YouTube, TikTok, Instagram, Facebook, Pinterest and others label as AI
-★ Also catches clear AI tags like #aiart and #midjourney
+★ Blurs posts and videos that video and social sites label as made with AI
+★ Also catches posts with clear AI art tags
 ★ Each blur says why it is there. Click it to see the post anyway
 ★ Blurred videos stay paused until you choose to watch
 
@@ -72,16 +74,16 @@ ByeAI pitää tekoälyn poissa tieltäsi, kun selaat. Se estää tekoälychatit,
 MITÄ BYEAI ESTÄÄ
 
 ★ Tekoälychatit ja -avustajat verkkokaupoissa, uutissivuilla ja sovelluksissa
-★ Tekoälypainikkeet, kuten Grok, Meta AI, Gemini, Copilot, Rufus ja "Help me write"
-★ Tekoälyn vastaukset hauissa: Googlen tekoälykatsaukset, Bing Copilot, DuckDuckGo, Brave ja Ecosia
-★ Amazonin tekoälyn kirjoittamat arvostelukoosteet (oikeat arvostelut jäävät näkyviin)
+★ Tekoälypainikkeet ja "kirjoita puolestani" -apurit, joita sivustot lisäävät
+★ Tekoälyn vastaukset hakutulosten yläosassa
+★ Verkkokauppojen tekoälyn kirjoittamat arvostelukoosteet (oikeat arvostelut jäävät näkyviin)
 ★ Taustalla toimivat tekoälyyhteydet, joilla sivustot hakevat vastauksia huomaamatta
 
 ==============================
 TEKOÄLYVIDEOT JA -KUVAT
 
-★ Sumentaa julkaisut ja videot, jotka YouTube, TikTok, Instagram, Facebook, Pinterest ja muut merkitsevät tekoälyn tekemiksi
-★ Tunnistaa myös selvät tekoälytunnisteet, kuten #aiart ja #midjourney
+★ Sumentaa julkaisut ja videot, jotka video- ja somepalvelut merkitsevät tekoälyn tekemiksi
+★ Tunnistaa myös julkaisut, joissa on selvä tekoälytaiteen tunniste
 ★ Jokainen sumennus kertoo syynsä. Klikkaa, jos haluat silti nähdä
 ★ Sumennetut videot pysyvät pysäytettyinä, kunnes itse päätät katsoa
 

@@ -66,7 +66,7 @@ const pages = {
       <div style="max-width:520px">
         <div class="name" style="font-size:52px">Two switches.<br>That's it.</div>
         <ul style="list-style:none;margin-top:30px;font-size:23px;line-height:1.45">
-          <li style="margin-bottom:18px"><b class="teal">AI assistants</b><br><span class="muted">Chatbots, AI answers, Grok, Gemini, Copilot</span></li>
+          <li style="margin-bottom:18px"><b class="teal">AI assistants</b><br><span class="muted">Chat bots, AI answers and AI buttons</span></li>
           <li style="margin-bottom:18px"><b class="teal">AI videos and images</b><br><span class="muted">Blurred, with a click to show</span></li>
           <li><b class="teal">Allow any site</b><br><span class="muted">One click when you do want AI</span></li>
         </ul>
