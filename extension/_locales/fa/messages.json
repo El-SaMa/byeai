@@ -49,7 +49,7 @@
   "featureWidgets": { "message": "دستیارهای هوش مصنوعی" },
   "featureWidgetsDesc": { "message": "چت‌بات‌ها، پاسخ‌های AI، Grok، Gemini، Copilot" },
   "featureLabeled": { "message": "ویدیو و تصویر هوش مصنوعی" },
-  "featureLabeledDesc": { "message": "آنچه سایت‌ها هوش مصنوعی می‌نامند یا با #aiart برچسب می‌زنند را تار می‌کند" },
+  "featureLabeledDesc": { "message": "آنچه سایت‌ها هوش مصنوعی می‌نامند یا با ⁦#aiart⁩ برچسب می‌زنند را تار می‌کند" },
   "coverTagged": {
     "message": "برچسب $TAG$\nبرای نمایش کلیک کنید",
     "placeholders": {"tag": {"content": "$1", "example": "#aiart"}}

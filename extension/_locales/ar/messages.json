@@ -49,7 +49,7 @@
   "featureWidgets": { "message": "مساعدو الذكاء الاصطناعي" },
   "featureWidgetsDesc": { "message": "روبوتات الدردشة، إجابات AI، Grok، Gemini، Copilot" },
   "featureLabeled": { "message": "فيديوهات وصور الذكاء الاصطناعي" },
-  "featureLabeledDesc": { "message": "يموّه ما تصنّفه المواقع كذكاء اصطناعي أو يحمل وسم #aiart" },
+  "featureLabeledDesc": { "message": "يموّه ما تصنّفه المواقع كذكاء اصطناعي أو يحمل وسم ⁦#aiart⁩" },
   "coverTagged": {
     "message": "الوسم $TAG$\nانقر للعرض",
     "placeholders": {"tag": {"content": "$1", "example": "#aiart"}}

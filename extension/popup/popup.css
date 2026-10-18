@@ -438,17 +438,14 @@ body {
   min-width: 0;
 }
 
-.feature-name {
-  display: block;
-  font-weight: 600;
+.feature-title {
+  display: flex;
+  align-items: center;
+  gap: 6px;
 }
 
-.feature-desc {
-  display: block;
-  margin-top: 2px;
-  font-size: 11px;
-  color: var(--muted);
-  line-height: 1.35;
+.feature-name {
+  font-weight: 600;
 }
 
 .feature-count {

@@ -1,5 +1,10 @@
 # Changelog
 
+## 1.2.1 (2026-10-18)
+
+- Cleaner popup: switch descriptions moved behind a small ? tooltip
+- Hashtags read correctly in Arabic and Persian
+
 ## 1.2.0 (2026-10-18)
 
 - Now in 30 languages, with a right-to-left layout for Arabic and Persian

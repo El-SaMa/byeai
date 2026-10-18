@@ -227,7 +227,9 @@ document.querySelectorAll('.tip-btn').forEach((btn) => {
     tooltip.textContent = text;
     tooltip.hidden = false;
     const rect = btn.getBoundingClientRect();
-    tooltip.style.left = `${Math.max(8, rect.left - 70)}px`;
+    // Keep it inside the popup on both sides (right-to-left puts buttons on the right).
+    const maxLeft = window.innerWidth - tooltip.offsetWidth - 8;
+    tooltip.style.left = `${Math.max(8, Math.min(rect.left - 70, maxLeft))}px`;
     tooltip.style.top = `${rect.bottom + 8}px`;
   };
 
