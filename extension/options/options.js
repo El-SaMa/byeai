@@ -4,6 +4,7 @@ const totalBlockedEl = document.getElementById('totalBlocked');
 const resetStatsBtn = document.getElementById('resetStatsBtn');
 const privacyLink = document.getElementById('privacyLink');
 const footerVersion = document.getElementById('footerVersion');
+const showNotices = document.getElementById('showNotices');
 
 const t = (key, args) =>
   (window.byeaiI18n && window.byeaiI18n.msg(key, args)) || '';
@@ -43,11 +44,12 @@ function addRow(host, note, buttonText, onClick) {
 
 async function load() {
   const [synced, local] = await Promise.all([
-    chrome.storage.sync.get({ allowedHosts: [], mediaAllowedHosts: [] }),
+    chrome.storage.sync.get({ allowedHosts: [], mediaAllowedHosts: [], showNotices: true }),
     chrome.storage.local.get({ totalBlocked: 0 }),
   ]);
 
   totalBlockedEl.textContent = String(local.totalBlocked);
+  showNotices.checked = synced.showNotices !== false;
   allowedList.innerHTML = '';
 
   const empty = !synced.allowedHosts.length && !synced.mediaAllowedHosts.length;
@@ -68,7 +70,11 @@ async function load() {
 
 // Lists can change from another device.
 chrome.storage.onChanged.addListener((changes, area) => {
-  if (area === 'sync' && (changes.allowedHosts || changes.mediaAllowedHosts)) load();
+  if (area === 'sync' && (changes.allowedHosts || changes.mediaAllowedHosts || changes.showNotices)) load();
+});
+
+showNotices.addEventListener('change', () => {
+  chrome.storage.sync.set({ showNotices: showNotices.checked });
 });
 
 resetStatsBtn.addEventListener('click', async () => {

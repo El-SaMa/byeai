@@ -1,7 +1,8 @@
 /**
- * AI apps people open on purpose. ByeAI never blocks or hides anything on
- * these sites: you chose to be there. The same services embedded in other
- * sites are still blocked.
+ * AI apps (sites that are the AI itself). Opening one shows ByeAI's block
+ * page with Allow this site / Allow once. If an AI app page is showing at
+ * all, you let it through, so content scripts leave it alone. The same
+ * services embedded in other sites are still blocked by the network rules.
  *
  * Loaded by the service worker (importScripts), the content scripts and the
  * popup, so this is the single list.

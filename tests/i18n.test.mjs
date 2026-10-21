@@ -21,6 +21,9 @@ test('every key used in pages and scripts exists', () => {
     'options/options.js',
     'content/ai-content.js',
     'background/service-worker.js',
+    'blocked/blocked.html',
+    'blocked/blocked.js',
+    'content/notice.js',
   ].map(read);
   const used = new Set();
   for (const src of sources) {

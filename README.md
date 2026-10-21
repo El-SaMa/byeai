@@ -19,6 +19,8 @@ Like an ad blocker, but for AI.
 | AI assistants | Blocks chat widgets and copilots at the network level, hides Google AI Overviews, Bing Copilot, DuckDuckGo and Brave AI answers, Amazon's AI review summary, and AI buttons like Grok, Meta AI, Gemini, Copilot, Rufus and "Help me write" |
 | AI videos and images | Blurs posts and videos that YouTube, TikTok, Instagram, Facebook, Threads, Pinterest and LinkedIn label as AI, or that carry clear AI tags like #aiart or #midjourney. Click to show one |
 
+AI apps you open yourself, like ChatGPT, Claude or Gemini, show a ByeAI page instead of loading, with **Allow this site** and **Allow once** buttons. The first time ByeAI blocks AI on a site, a small notice in the corner says so (turn it off in settings).
+
 Any site can be allowed with one click, or you can show AI videos on just that site. Settings follow you to your other computers through Chrome sync.
 
 <p align="center">
@@ -45,7 +47,7 @@ No AI models, no guessing, no remote lists. Covers say why they are there.
 
 ## Privacy
 
-Everything runs locally. ByeAI makes no network requests of its own and has no analytics. Settings live in `chrome.storage.sync` (Chrome's own sync, never our servers), counters in `chrome.storage.local`. Full policy: [privacy](https://el-sama.github.io/byeai/privacy.html).
+Everything runs locally. ByeAI makes no network requests of its own and has no analytics. Settings live in `chrome.storage.sync` (Chrome's own sync, never our servers), counters and the list of sites that already showed the notice (up to 500) in `chrome.storage.local`, and "Allow once" in `chrome.storage.session` for that tab only. Full policy: [privacy](https://el-sama.github.io/byeai/privacy.html).
 
 | Permission | Why |
 | --- | --- |

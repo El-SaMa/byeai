@@ -169,3 +169,28 @@ body {
 .hidden {
   display: none !important;
 }
+
+.check-row {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  cursor: pointer;
+}
+
+.check-row input {
+  width: 18px;
+  height: 18px;
+  margin: 3px 0 0;
+  flex: none;
+  accent-color: var(--accent-dark);
+}
+
+.check-row input:focus-visible {
+  outline: 2px solid var(--accent-dark);
+  outline-offset: 2px;
+}
+
+.check-row .muted {
+  display: block;
+  margin-top: 2px;
+}

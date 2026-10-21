@@ -5,8 +5,14 @@ const GOOGLE_RULESET_ID = 'google_search';
 const SEARCH_AI_RULESET_ID = 'search_ai';
 const ENABLED_RULESETS = [RULESET_ID, GOOGLE_RULESET_ID, SEARCH_AI_RULESET_ID];
 const WHITELIST_RULE_BASE = 9000000;
-const AI_APP_RULE_ID = WHITELIST_RULE_BASE - 1;
+// Sends AI apps (chatgpt.com and friends) to blocked/blocked.html instead of a frozen page.
+const AI_APP_PAGE_RULE_ID = WHITELIST_RULE_BASE - 1;
+// Session rules for "Allow once", scoped to one tab.
+const ONCE_RULE_BASE = 9900000;
 const BLOCK_RESOURCE_TYPES = ['script', 'sub_frame', 'xmlhttprequest', 'websocket', 'other'];
+const BLOCKED_PAGE = 'blocked/blocked.html';
+// Hosts that already got the "ByeAI blocked AI on this page" notice.
+const NOTICE_LIMIT = 500;
 
 const CATEGORIES = ['widgets', 'buttons', 'labeled'];
 // Switches in the popup. Counts still use the finer CATEGORIES.
@@ -23,6 +29,7 @@ const SYNC_DEFAULTS = {
   features: FEATURE_DEFAULTS,
   allowedHosts: [],
   mediaAllowedHosts: [],
+  showNotices: true,
 };
 const LOCAL_DEFAULTS = {
   totalBlocked: 0,
@@ -60,7 +67,7 @@ async function migrateToSync() {
 }
 
 function emptyStat() {
-  return { page: 0, seen: new Set(), cats: { widgets: 0, buttons: 0, labeled: 0 } };
+  return { page: 0, seen: new Set(), cats: { widgets: 0, buttons: 0, labeled: 0 }, notice: '' };
 }
 
 async function saveSettings(partial) {
@@ -126,21 +133,33 @@ function hostnameAllowed(hostname, allowedHosts) {
   return allowedHosts.includes(bare);
 }
 
-async function syncWhitelistRules(allowedHosts) {
+function aiAppPageRule(settings) {
+  const allowed = settings.allowedHosts.filter((h) => globalThis.byeaiIsAiApp(h));
+  const condition = {
+    regexFilter: '^https?://.*$',
+    requestDomains: globalThis.BYEAI_AI_APPS,
+    resourceTypes: ['main_frame'],
+  };
+  if (allowed.length) condition.excludedRequestDomains = allowed;
+  return {
+    id: AI_APP_PAGE_RULE_ID,
+    priority: 50,
+    action: {
+      type: 'redirect',
+      redirect: { regexSubstitution: `chrome-extension://${chrome.runtime.id}/${BLOCKED_PAGE}#\\0` },
+    },
+    condition,
+  };
+}
+
+async function applyDynamicRules() {
+  const settings = await getSettings();
   const existing = await chrome.declarativeNetRequest.getDynamicRules();
   const removeRuleIds = existing
-    .filter((rule) => rule.id === AI_APP_RULE_ID || (rule.id >= WHITELIST_RULE_BASE && rule.id < WHITELIST_RULE_BASE + 1000000))
+    .filter((rule) => rule.id === AI_APP_PAGE_RULE_ID || (rule.id >= WHITELIST_RULE_BASE && rule.id < WHITELIST_RULE_BASE + 1000000))
     .map((rule) => rule.id);
 
-  // AI apps you open yourself load normally. Only their embeds on other sites are blocked.
-  const aiAppRule = {
-    id: AI_APP_RULE_ID,
-    priority: 100,
-    action: { type: 'allow' },
-    condition: { initiatorDomains: globalThis.BYEAI_AI_APPS, resourceTypes: BLOCK_RESOURCE_TYPES },
-  };
-
-  const addRules = [aiAppRule, ...allowedHosts.map((host) => ({
+  const addRules = settings.allowedHosts.map((host) => ({
     id: hostToRuleId(host),
     priority: 100,
     action: { type: 'allow' },
@@ -148,12 +167,19 @@ async function syncWhitelistRules(allowedHosts) {
       initiatorDomains: [host],
       resourceTypes: BLOCK_RESOURCE_TYPES,
     },
-  }))];
+  }));
 
-  await chrome.declarativeNetRequest.updateDynamicRules({
-    removeRuleIds,
-    addRules,
-  });
+  // AI apps get the block page while ByeAI and "AI assistants" are on.
+  if (settings.enabled && settings.features.widgets) addRules.push(aiAppPageRule(settings));
+
+  await chrome.declarativeNetRequest.updateDynamicRules({ removeRuleIds, addRules });
+}
+
+// Allowed sites and the AI app page rule. Runs one at a time, always from fresh settings.
+let rulesQueue = Promise.resolve();
+function syncDynamicRules() {
+  rulesQueue = rulesQueue.then(applyDynamicRules).catch((err) => console.warn('ByeAI rules', err));
+  return rulesQueue;
 }
 
 async function updateActionTitle(tabId, hostname, pageCount, enabled, isAllowed) {
@@ -248,6 +274,132 @@ async function recordBlock(tabId, dedupeKey, category = 'widgets') {
   await bumpTotal();
 
   await refreshTabUi(tabId);
+  if (hostname && !stat.notice) sendNotice(tabId, hostname);
+}
+
+// --- "ByeAI blocked AI on this page" notice, once per site ---
+
+let noticeQueue = Promise.resolve();
+function inNoticeQueue(fn) {
+  const run = noticeQueue.then(fn);
+  noticeQueue = run.catch(() => {});
+  return run;
+}
+
+async function noticeAllowed(hostname) {
+  if (!hostname || globalThis.byeaiIsAiApp(hostname)) return false;
+  const settings = await getSettings();
+  if (!settings.enabled || !settings.showNotices) return false;
+  if (hostnameAllowed(hostname, settings.allowedHosts)) return false;
+  const { notifiedHosts } = await chrome.storage.local.get({ notifiedHosts: [] });
+  return !notifiedHosts.includes(hostname);
+}
+
+async function markNotified(hostname) {
+  const { notifiedHosts } = await chrome.storage.local.get({ notifiedHosts: [] });
+  const next = notifiedHosts.filter((h) => h !== hostname);
+  next.push(hostname);
+  await chrome.storage.local.set({ notifiedHosts: next.slice(-NOTICE_LIMIT) });
+}
+
+// First block on a tab: ask its content script to show the notice. If the
+// script is not listening yet, it asks again itself (NOTICE_READY).
+function sendNotice(tabId, hostname) {
+  const stat = getTabStat(tabId);
+  return inNoticeQueue(async () => {
+    if (stat.notice) return;
+    if (!(await noticeAllowed(hostname))) {
+      stat.notice = 'skip';
+      return;
+    }
+    try {
+      const reply = await chrome.tabs.sendMessage(tabId, { type: 'SHOW_NOTICE', host: hostname }, { frameId: 0 });
+      if (reply?.shown) {
+        stat.notice = 'shown';
+        await markNotified(hostname);
+      }
+    } catch {
+      // not listening yet
+    }
+  });
+}
+
+function noticeReady(tabId, hostname) {
+  const stat = getTabStat(tabId);
+  return inNoticeQueue(async () => {
+    if (stat.notice || stat.page === 0 || !(await noticeAllowed(hostname))) return { show: false };
+    stat.notice = 'shown';
+    await markNotified(hostname);
+    return { show: true };
+  });
+}
+
+// --- "Allow once": session rules for one tab, gone when the tab leaves the site ---
+
+function bareHost(urlString) {
+  try {
+    const url = new URL(urlString);
+    if (url.protocol === 'chrome-extension:' && url.pathname === `/${BLOCKED_PAGE}`) {
+      return bareHost(url.hash.slice(1));
+    }
+    if (!url.protocol.startsWith('http')) return '';
+    return url.hostname.replace(/^www\./, '');
+  } catch {
+    return '';
+  }
+}
+
+function sameSite(host, base) {
+  return host === base || host.endsWith(`.${base}`);
+}
+
+async function getOnceHosts() {
+  const { onceHosts } = await chrome.storage.session.get({ onceHosts: {} });
+  return onceHosts;
+}
+
+async function allowOnce(tabId, urlString) {
+  const host = bareHost(urlString);
+  if (typeof tabId !== 'number' || !host) return false;
+  await clearOnce(tabId);
+  const rules = await chrome.declarativeNetRequest.getSessionRules();
+  const next = Math.max(ONCE_RULE_BASE, ...rules.map((r) => r.id + 1));
+  await chrome.declarativeNetRequest.updateSessionRules({
+    addRules: [
+      {
+        id: next,
+        priority: 200,
+        action: { type: 'allow' },
+        condition: { tabIds: [tabId], requestDomains: [host], resourceTypes: ['main_frame'] },
+      },
+      {
+        id: next + 1,
+        priority: 200,
+        action: { type: 'allow' },
+        condition: { tabIds: [tabId], initiatorDomains: [host], resourceTypes: BLOCK_RESOURCE_TYPES },
+      },
+    ],
+  });
+  const onceHosts = await getOnceHosts();
+  onceHosts[tabId] = host;
+  await chrome.storage.session.set({ onceHosts });
+  return true;
+}
+
+async function clearOnce(tabId) {
+  const rules = await chrome.declarativeNetRequest.getSessionRules();
+  const removeRuleIds = rules.filter((r) => (r.condition.tabIds || []).includes(tabId)).map((r) => r.id);
+  if (removeRuleIds.length) await chrome.declarativeNetRequest.updateSessionRules({ removeRuleIds });
+  const onceHosts = await getOnceHosts();
+  if (tabId in onceHosts) {
+    delete onceHosts[tabId];
+    await chrome.storage.session.set({ onceHosts });
+  }
+}
+
+// Only the static rulesets block. Dynamic and session rules are allows and the AI app page.
+function isStaticBlock(rule) {
+  return Boolean(rule) && rule.rulesetId !== '_dynamic' && rule.rulesetId !== '_session';
 }
 
 async function syncMatchedRules() {
@@ -256,6 +408,7 @@ async function syncMatchedRules() {
   try {
     const { rulesMatchedInfo } = await chrome.declarativeNetRequest.getMatchedRules({});
     for (const info of rulesMatchedInfo || []) {
+      if (!isStaticBlock(info.rule)) continue;
       const tabId = info.request?.tabId;
       if (typeof tabId !== 'number' || tabId < 0) continue;
       const dedupeKey = `${info.request.url}|${info.rule.ruleId}`;
@@ -301,6 +454,7 @@ async function getPopupState(tabId) {
     totalBlocked: settings.totalBlocked,
     isAllowed: Boolean(hostname && settings.allowedHosts.includes(hostname)),
     isAiApp: Boolean(hostname && globalThis.byeaiIsAiApp(hostname)),
+    isAllowedOnce: Boolean(hostname && (await getOnceHosts())[tabId] === hostname),
     isMediaAllowed: Boolean(hostname && settings.mediaAllowedHosts.includes(hostname)),
     allowedHosts: settings.allowedHosts,
   };
@@ -374,7 +528,7 @@ async function toggleAllowSite(hostname, allow) {
   }
 
   await saveSettings({ allowedHosts });
-  await syncWhitelistRules(allowedHosts);
+  await syncDynamicRules();
 
   const tabs = await chrome.tabs.query({});
   for (const tab of tabs) {
@@ -412,7 +566,7 @@ chrome.runtime.onInstalled.addListener(async (details) => {
   await migrateToSync();
   const settings = await getSettings();
   await syncRulesetEnabled(settings);
-  await syncWhitelistRules(settings.allowedHosts);
+  await syncDynamicRules();
   await chrome.action.setBadgeBackgroundColor({ color: '#0f766e' });
 
   if (details.reason === 'install' && !settings.onboardingComplete) {
@@ -422,12 +576,18 @@ chrome.runtime.onInstalled.addListener(async (details) => {
 });
 
 chrome.declarativeNetRequest.onRuleMatchedDebug?.addListener(async (info) => {
-  if (info.request.tabId < 0) return;
+  if (info.request.tabId < 0 || !isStaticBlock(info.rule)) return;
   const dedupeKey = `${info.request.url}|${info.rule.ruleId}`;
   await recordBlock(info.request.tabId, dedupeKey);
 });
 
 chrome.tabs.onUpdated.addListener((tabId, changeInfo) => {
+  if (changeInfo.url) {
+    getOnceHosts().then((onceHosts) => {
+      const base = onceHosts[tabId];
+      if (base && !sameSite(bareHost(changeInfo.url), base)) clearOnce(tabId);
+    });
+  }
   if (changeInfo.status !== 'loading') return;
   resetTabStat(tabId);
   refreshTabUi(tabId);
@@ -453,6 +613,7 @@ chrome.webNavigation.onBeforeNavigate.addListener(async (details) => {
 
 chrome.tabs.onRemoved.addListener((tabId) => {
   tabStats.delete(tabId);
+  clearOnce(tabId).catch(() => {});
 });
 
 chrome.tabs.onActivated.addListener(async ({ tabId }) => {
@@ -481,6 +642,19 @@ chrome.runtime.onMessage.addListener((message, sender, sendResponse) => {
       case 'REMOVE_ALLOWED_HOST':
         await removeAllowedHost(message.hostname);
         return getPopupState(message.tabId);
+      case 'AI_APP_BLOCKED': {
+        // The block page counts as one block.
+        const tabId = sender.tab?.id;
+        if (typeof tabId === 'number') await recordBlock(tabId, `aiapp:${message.url}`, 'widgets');
+        return { ok: true };
+      }
+      case 'ALLOW_ONCE':
+        return { ok: await allowOnce(sender.tab?.id, message.url) };
+      case 'NOTICE_READY': {
+        const tabId = sender.tab?.id;
+        if (typeof tabId !== 'number' || sender.frameId !== 0) return { show: false };
+        return noticeReady(tabId, bareHost(sender.url || sender.tab.url || ''));
+      }
       case 'COSMETIC_BLOCK': {
         const tabId = sender.tab?.id;
         if (typeof tabId === 'number') {
@@ -501,11 +675,11 @@ chrome.runtime.onMessage.addListener((message, sender, sendResponse) => {
 chrome.storage.onChanged.addListener(async (changes, area) => {
   if (area !== 'sync') return;
   if (changes.enabled || changes.features) await syncRulesetEnabled(await getSettings());
-  if (changes.allowedHosts) await syncWhitelistRules(changes.allowedHosts.newValue || []);
+  if (changes.enabled || changes.features || changes.allowedHosts) await syncDynamicRules();
 });
 
 migrateToSync().then(getSettings).then(async (settings) => {
   await syncRulesetEnabled(settings);
   chrome.action.setBadgeBackgroundColor({ color: '#0f766e' }).catch(() => {});
-  await syncWhitelistRules(settings.allowedHosts);
+  await syncDynamicRules();
 });

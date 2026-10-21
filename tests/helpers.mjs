@@ -20,6 +20,15 @@ export const PAGES = {
   'https://www.amazon.com/': 'amazon.html',
   'https://blog.example.com/post': 'generic.html',
   'https://shop.example.com/': 'widget.html',
+  'https://chatgpt.com/': 'ai-app.html',
+  'https://embed.example.com/': 'ai-embed.html',
+  'https://net.example.com/': 'widget-network.html',
+};
+
+// Scripts that leave a mark on the page when they run.
+const SCRIPTS = {
+  'https://chatgpt.com/app.js': 'window.__app = true;',
+  'https://chatgpt.com/widget.js': 'window.__chatgptWidget = true;',
 };
 
 export async function launch() {
@@ -34,6 +43,12 @@ export async function launch() {
     if (new URL(url).hostname === 'widget.intercom.io') {
       return route.fulfill({ contentType: 'text/javascript', body: 'window.__intercom = true;' });
     }
+    // Holds up parsing, so blocks happen well before DOMContentLoaded.
+    if (new URL(url).hostname === 'slow.example.com') {
+      await new Promise((resolve) => setTimeout(resolve, 1000));
+      return route.fulfill({ contentType: 'text/javascript', body: 'window.__slow = true;' });
+    }
+    if (SCRIPTS[url]) return route.fulfill({ contentType: 'text/javascript', body: SCRIPTS[url] });
     const file = PAGES[url];
     if (file) return route.fulfill({ contentType: 'text/html', body: fixture(file) });
     return route.fulfill({ contentType: 'text/html', body: '<!doctype html><title>stub</title>' });
@@ -51,7 +66,7 @@ export async function launch() {
   return { context, worker, extensionId };
 }
 
-const SYNC_KEYS = ['enabled', 'features', 'allowedHosts', 'mediaAllowedHosts'];
+const SYNC_KEYS = ['enabled', 'features', 'allowedHosts', 'mediaAllowedHosts', 'showNotices'];
 
 // Same split as the extension: settings in sync, counters in local.
 export async function setStorage(worker, data) {
@@ -72,6 +87,7 @@ export async function resetStorage(worker) {
     allowedHosts: [],
     mediaAllowedHosts: [],
     features: { widgets: true, labeled: true },
+    showNotices: true,
   });
 }
 

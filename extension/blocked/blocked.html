@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="color-scheme" content="light dark" />
+    <title>ByeAI</title>
+    <link rel="icon" href="../assets/icons/icon16.png" />
+    <link rel="stylesheet" href="blocked.css" />
+  </head>
+  <body>
+    <main class="card">
+      <img class="logo" src="../assets/icons/icon128.png" alt="" width="72" height="72" />
+      <h1 id="title">ByeAI blocked this site</h1>
+      <p class="lead" data-i18n="blockedPageText">This is an AI app, so ByeAI stopped it from loading.</p>
+      <div class="actions">
+        <button type="button" class="btn primary" id="allowSite" data-i18n="blockedAllowSite">Allow this site</button>
+        <button type="button" class="btn" id="allowOnce" data-i18n="blockedAllowOnce">Allow once</button>
+        <button type="button" class="btn ghost" id="goBack" data-i18n="blockedGoBack">Go back</button>
+      </div>
+      <p class="hint" data-i18n="blockedHint">Allow once works in this tab until you leave the site.</p>
+    </main>
+    <script src="../shared/i18n.js"></script>
+    <script src="blocked.js"></script>
+  </body>
+</html>

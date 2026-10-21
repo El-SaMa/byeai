@@ -1,5 +1,12 @@
 # Changelog
 
+## 1.2.2 (2026-10-21)
+
+- AI apps like ChatGPT now show a ByeAI page instead of hanging, with one click to allow them
+- "Allow once" lets an AI app load in that tab only, until you leave the site
+- A small notice tells you when ByeAI blocked AI on a site, the first time only. Turn it off in settings
+- The popup on an allowed AI app can block it again
+
 ## 1.2.1 (2026-10-18)
 
 - Cleaner popup: switch descriptions moved behind a small ? tooltip

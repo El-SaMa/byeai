@@ -49,7 +49,10 @@ function renderStatusPill(state) {
   if (!state.enabled) {
     statusPill.textContent = t('popupStatusOff') || 'Off';
     statusPill.classList.add('is-off');
-  } else if (state.isAiApp) {
+  } else if (state.isAiApp && state.isAllowedOnce && !state.isAllowed) {
+    statusPill.textContent = t('popupStatusOnce') || 'Allowed once';
+    statusPill.classList.add('is-allowed');
+  } else if (state.isAiApp && !state.isAllowed) {
     statusPill.textContent = t('popupStatusAiApp') || 'AI app';
     statusPill.classList.add('is-allowed');
   } else if (state.isAllowed) {
@@ -72,10 +75,18 @@ function render(state) {
   renderFeatures(state);
 
   if (state.isAiApp) {
-    // Opened on purpose: nothing to block, nothing to allow.
-    allowedNote.textContent = t('popupAiAppNote') || 'You opened this AI app yourself, so ByeAI leaves it alone.';
-    allowedNote.classList.remove('hidden');
-    allowBtnText.textContent = t('popupAllowOn') || 'Allow AI on this site';
+    // AI apps get the block page unless you allowed them (site or once).
+    let note = '';
+    if (state.isAllowed) note = t('popupAiAppAllowedNote') || 'You allowed this AI app. ByeAI leaves it alone.';
+    else if (state.isAllowedOnce) note = t('popupAiAppOnceNote') || 'Allowed in this tab until you leave the site.';
+    else if (state.enabled && !state.features?.widgets) {
+      note = t('popupAiAppOffNote') || 'AI assistants is off, so this AI app is not blocked.';
+    }
+    allowedNote.textContent = note;
+    allowedNote.classList.toggle('hidden', !note);
+    allowBtnText.textContent = state.isAllowed
+      ? t('popupAiAppBlockAgain') || 'Block this AI app again'
+      : t('popupAllowOn') || 'Allow AI on this site';
   } else if (state.isAllowed) {
     allowedNote.textContent = t('popupAllowedNote') || 'AI allowed on this site';
     allowedNote.classList.remove('hidden');
@@ -90,11 +101,11 @@ function render(state) {
     allowBtn.disabled = true;
   } else {
     document.body.classList.remove('unavailable');
-    allowBtn.disabled = Boolean(state.isAiApp);
+    allowBtn.disabled = false;
   }
 
   chrome.storage.local.get({ tipDismissed: false }).then(({ tipDismissed }) => {
-    if (!tipDismissed && state.enabled && !state.isAllowed && state.pageBlocked === 0) {
+    if (!tipDismissed && state.enabled && !state.isAllowed && !state.isAiApp && state.pageBlocked === 0) {
       tipBanner.classList.remove('hidden');
     } else {
       tipBanner.classList.add('hidden');
@@ -148,6 +159,7 @@ allowBtn.addEventListener('click', async () => {
   if (!state?.hostname) return;
 
   const allow = !state.isAllowed;
+  const aiApp = state.isAiApp;
   state = await chrome.runtime.sendMessage({
     type: 'TOGGLE_ALLOW_SITE',
     hostname: state.hostname,
@@ -156,7 +168,11 @@ allowBtn.addEventListener('click', async () => {
   });
   render(state);
 
-  if (allow) {
+  if (aiApp) {
+    // Already loaded when allowed. Blocked again: reload so the ByeAI page shows.
+    if (!allow && typeof activeTabId === 'number') chrome.tabs.reload(activeTabId);
+    reloadBanner.classList.add('hidden');
+  } else if (allow) {
     reloadBanner.classList.remove('hidden');
   } else {
     reloadBanner.classList.add('hidden');
