@@ -67,6 +67,8 @@
   "optionsMediaAllowedNote": { "message": "AI-video's zichtbaar" },
   "optionsMediaBlurBtn": { "message": "Weer vervagen" },
   "optionsPermissionsNavHtml": { "message": "<strong>webNavigation</strong>: zet Google-zoekopdrachten op Web-resultaten" },
+  "popupStatusAiApp": { "message": "AI-app" },
+  "popupAiAppNote": { "message": "Je hebt deze AI-app zelf geopend, dus ByeAI laat hem met rust." },
   "popupReport": { "message": "Melden" },
   "popupReportTitle": { "message": "AI melden die ByeAI heeft gemist" },
   "coverLabeled": { "message": "Door de site als AI gemarkeerd\nKlik om te tonen" },

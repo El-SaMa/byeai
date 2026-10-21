@@ -67,6 +67,8 @@
   "optionsMediaAllowedNote": { "message": "video AI ditampilkan" },
   "optionsMediaBlurBtn": { "message": "Buramkan lagi" },
   "optionsPermissionsNavHtml": { "message": "<strong>webNavigation</strong>: mengalihkan pencarian Google ke hasil Web" },
+  "popupStatusAiApp": { "message": "Aplikasi AI" },
+  "popupAiAppNote": { "message": "Kamu sendiri yang membuka aplikasi AI ini, jadi ByeAI tidak mengganggunya." },
   "popupReport": { "message": "Laporkan" },
   "popupReportTitle": { "message": "Laporkan AI yang terlewat oleh ByeAI" },
   "coverLabeled": { "message": "Ditandai sebagai AI oleh situs\nKlik untuk melihat" },

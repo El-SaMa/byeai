@@ -67,6 +67,8 @@
   "optionsMediaAllowedNote": { "message": "AI動画を表示中" },
   "optionsMediaBlurBtn": { "message": "再びぼかす" },
   "optionsPermissionsNavHtml": { "message": "<strong>webNavigation</strong>：Google検索を「ウェブ」の結果に切り替えます" },
+  "popupStatusAiApp": { "message": "AIアプリ" },
+  "popupAiAppNote": { "message": "このAIアプリはご自身で開いたものなので、ByeAIは何もしません。" },
   "popupReport": { "message": "報告" },
   "popupReportTitle": { "message": "ByeAIが見逃したAIを報告" },
   "coverLabeled": { "message": "サイトがAIと表示しています\nクリックで表示" },

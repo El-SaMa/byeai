@@ -93,5 +93,7 @@
   "optionsPrivacyHeading": "Quyền riêng tư",
   "optionsPrivacyIntro": "ByeAI chặn AI đã biết bằng danh sách quy tắc có sẵn trong tiện ích. Lịch sử duyệt web của bạn không được gửi cho chúng tôi. Cài đặt được đồng bộ qua tài khoản Chrome, còn thống kê ở lại trên thiết bị này.",
   "optionsPrivacyLink": "Đọc chính sách quyền riêng tư",
-  "optionsFooterVersion": "ByeAI v$VERSION$"
+  "optionsFooterVersion": "ByeAI v$VERSION$",
+  "popupStatusAiApp": "Ứng dụng AI",
+  "popupAiAppNote": "Bạn tự mở ứng dụng AI này nên ByeAI không can thiệp."
 }

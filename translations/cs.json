@@ -93,5 +93,7 @@
   "optionsPrivacyHeading": "Soukromí",
   "optionsPrivacyIntro": "ByeAI blokuje známé AI podle seznamu pravidel, který je součástí rozšíření. Vaše historie prohlížení se nám neposílá. Nastavení se synchronizuje přes váš účet Chrome a statistiky zůstávají v tomto zařízení.",
   "optionsPrivacyLink": "Přečíst zásady ochrany soukromí",
-  "optionsFooterVersion": "ByeAI v$VERSION$"
+  "optionsFooterVersion": "ByeAI v$VERSION$",
+  "popupStatusAiApp": "AI aplikace",
+  "popupAiAppNote": "Tuto AI aplikaci jste otevřeli sami, takže ji ByeAI nechává být."
 }

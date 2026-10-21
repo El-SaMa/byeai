@@ -93,5 +93,7 @@
   "optionsPrivacyHeading": "プライバシー",
   "optionsPrivacyIntro": "ByeAIは拡張機能に組み込まれたルール一覧で既知のAIをブロックします。閲覧履歴が私たちに送られることはありません。設定はChromeアカウントで同期され、統計はこの端末に残ります。",
   "optionsPrivacyLink": "プライバシーポリシーを読む",
-  "optionsFooterVersion": "ByeAI v$VERSION$"
+  "optionsFooterVersion": "ByeAI v$VERSION$",
+  "popupStatusAiApp": "AIアプリ",
+  "popupAiAppNote": "このAIアプリはご自身で開いたものなので、ByeAIは何もしません。"
 }

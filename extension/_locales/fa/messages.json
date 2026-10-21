@@ -67,6 +67,8 @@
   "optionsMediaAllowedNote": { "message": "ویدیوهای هوش مصنوعی نمایش داده می‌شوند" },
   "optionsMediaBlurBtn": { "message": "تار کردن دوباره" },
   "optionsPermissionsNavHtml": { "message": "<strong>webNavigation</strong>: جست‌وجوهای Google را به نتایج وب تغییر می‌دهد" },
+  "popupStatusAiApp": { "message": "اپ هوش مصنوعی" },
+  "popupAiAppNote": { "message": "این اپ هوش مصنوعی را خودتان باز کرده‌اید، پس ByeAI کاری به آن ندارد." },
   "popupReport": { "message": "گزارش" },
   "popupReportTitle": { "message": "گزارش هوش مصنوعی که ByeAI از دست داد" },
   "coverLabeled": { "message": "سایت این را هوش مصنوعی برچسب زده است\nبرای نمایش کلیک کنید" },

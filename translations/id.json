@@ -93,5 +93,7 @@
   "optionsPrivacyHeading": "Privasi",
   "optionsPrivacyIntro": "ByeAI memblokir AI yang dikenal dengan daftar aturan bawaan ekstensi. Riwayat penjelajahanmu tidak dikirim ke kami. Setelan disinkronkan lewat akun Chrome-mu, dan statistik tetap di perangkat ini.",
   "optionsPrivacyLink": "Baca kebijakan privasi",
-  "optionsFooterVersion": "ByeAI v$VERSION$"
+  "optionsFooterVersion": "ByeAI v$VERSION$",
+  "popupStatusAiApp": "Aplikasi AI",
+  "popupAiAppNote": "Kamu sendiri yang membuka aplikasi AI ini, jadi ByeAI tidak mengganggunya."
 }

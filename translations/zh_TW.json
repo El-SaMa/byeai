@@ -93,5 +93,7 @@
   "optionsPrivacyHeading": "隱私",
   "optionsPrivacyIntro": "ByeAI 使用擴充功能內建的規則清單封鎖已知 AI。你的瀏覽紀錄不會傳送給我們。設定透過你的 Chrome 帳戶同步，統計資料留在這台裝置上。",
   "optionsPrivacyLink": "閱讀隱私權政策",
-  "optionsFooterVersion": "ByeAI v$VERSION$"
+  "optionsFooterVersion": "ByeAI v$VERSION$",
+  "popupStatusAiApp": "AI 應用程式",
+  "popupAiAppNote": "這是你自己開啟的 AI 應用程式，ByeAI 不會干預。"
 }

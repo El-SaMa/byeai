@@ -67,6 +67,8 @@
   "optionsMediaAllowedNote": { "message": "KI-videoer vises" },
   "optionsMediaBlurBtn": { "message": "Gjør uskarp igjen" },
   "optionsPermissionsNavHtml": { "message": "<strong>webNavigation</strong>: bytter Google-søk til nettresultater" },
+  "popupStatusAiApp": { "message": "KI-app" },
+  "popupAiAppNote": { "message": "Du åpnet denne KI-appen selv, så ByeAI lar den være i fred." },
   "popupReport": { "message": "Rapporter" },
   "popupReportTitle": { "message": "Rapporter KI som ByeAI gikk glipp av" },
   "coverLabeled": { "message": "Merket som KI av nettstedet\nKlikk for å vise" },

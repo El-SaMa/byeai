@@ -93,5 +93,7 @@
   "optionsPrivacyHeading": "Gizlilik",
   "optionsPrivacyIntro": "ByeAI bilinen yapay zekâyı eklentinin içindeki bir kural listesiyle engeller. Tarama geçmişiniz bize gönderilmez. Ayarlarınız Chrome hesabınız üzerinden senkronize edilir, istatistikler bu cihazda kalır.",
   "optionsPrivacyLink": "Gizlilik politikasını oku",
-  "optionsFooterVersion": "ByeAI v$VERSION$"
+  "optionsFooterVersion": "ByeAI v$VERSION$",
+  "popupStatusAiApp": "YZ uygulaması",
+  "popupAiAppNote": "Bu YZ uygulamasını kendiniz açtınız, bu yüzden ByeAI ona dokunmaz."
 }

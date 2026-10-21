@@ -93,5 +93,7 @@
   "optionsPrivacyHeading": "隐私",
   "optionsPrivacyIntro": "ByeAI 使用扩展内置的规则列表屏蔽已知 AI。你的浏览记录不会发送给我们。设置通过你的 Chrome 账号同步，统计数据保留在本设备上。",
   "optionsPrivacyLink": "阅读隐私政策",
-  "optionsFooterVersion": "ByeAI v$VERSION$"
+  "optionsFooterVersion": "ByeAI v$VERSION$",
+  "popupStatusAiApp": "AI 应用",
+  "popupAiAppNote": "这是你自己打开的 AI 应用，ByeAI 不会干预。"
 }

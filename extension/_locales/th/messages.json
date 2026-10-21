@@ -67,6 +67,8 @@
   "optionsMediaAllowedNote": { "message": "แสดงวิดีโอ AI" },
   "optionsMediaBlurBtn": { "message": "เบลออีกครั้ง" },
   "optionsPermissionsNavHtml": { "message": "<strong>webNavigation</strong>: เปลี่ยนการค้นหา Google เป็นผลลัพธ์แบบเว็บ" },
+  "popupStatusAiApp": { "message": "แอป AI" },
+  "popupAiAppNote": { "message": "คุณเปิดแอป AI นี้เอง ByeAI จึงไม่ยุ่งกับมัน" },
   "popupReport": { "message": "รายงาน" },
   "popupReportTitle": { "message": "รายงาน AI ที่ ByeAI พลาดไป" },
   "coverLabeled": { "message": "เว็บติดป้ายว่าเป็น AI\nคลิกเพื่อดู" },

@@ -43,7 +43,9 @@
     const features = { ...FEATURE_DEFAULTS, ...(data.features || {}) };
     const allowed = (data.allowedHosts || []).includes(host);
     const mediaAllowed = (data.mediaAllowedHosts || []).includes(host);
-    const on = Boolean(data.enabled) && !allowed;
+    // An AI app you opened yourself is left alone (shared/ai-apps.js).
+    const aiApp = Boolean(globalThis.byeaiIsAiApp?.(host));
+    const on = Boolean(data.enabled) && !allowed && !aiApp;
 
     state.widgets = on && features.widgets;
     // One "AI assistants" switch covers widgets, search AI and AI buttons.

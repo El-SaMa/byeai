@@ -93,5 +93,7 @@
   "optionsPrivacyHeading": "Απόρρητο",
   "optionsPrivacyIntro": "Το ByeAI αποκλείει γνωστή AI με μια λίστα κανόνων που υπάρχει μέσα στην επέκταση. Το ιστορικό σας δεν στέλνεται σε εμάς. Οι ρυθμίσεις συγχρονίζονται μέσω του λογαριασμού σας στο Chrome και τα στατιστικά μένουν σε αυτή τη συσκευή.",
   "optionsPrivacyLink": "Διαβάστε την πολιτική απορρήτου",
-  "optionsFooterVersion": "ByeAI v$VERSION$"
+  "optionsFooterVersion": "ByeAI v$VERSION$",
+  "popupStatusAiApp": "Εφαρμογή AI",
+  "popupAiAppNote": "Ανοίξατε μόνοι σας αυτή την εφαρμογή AI, οπότε το ByeAI δεν την αγγίζει."
 }

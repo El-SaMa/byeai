@@ -93,5 +93,7 @@
   "optionsPrivacyHeading": "Confidențialitate",
   "optionsPrivacyIntro": "ByeAI blochează AI cunoscut cu o listă de reguli inclusă în extensie. Istoricul tău nu ne este trimis. Setările se sincronizează prin contul tău Chrome, iar statisticile rămân pe acest dispozitiv.",
   "optionsPrivacyLink": "Citește politica de confidențialitate",
-  "optionsFooterVersion": "ByeAI v$VERSION$"
+  "optionsFooterVersion": "ByeAI v$VERSION$",
+  "popupStatusAiApp": "Aplicație AI",
+  "popupAiAppNote": "Ai deschis singur această aplicație AI, așa că ByeAI o lasă în pace."
 }

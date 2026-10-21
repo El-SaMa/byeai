@@ -67,6 +67,8 @@
   "optionsMediaAllowedNote": { "message": "MI-videók láthatók" },
   "optionsMediaBlurBtn": { "message": "Elmosás újra" },
   "optionsPermissionsNavHtml": { "message": "<strong>webNavigation</strong>: a Google-kereséseket webes találatokra állítja" },
+  "popupStatusAiApp": { "message": "MI-alkalmazás" },
+  "popupAiAppNote": { "message": "Ezt az MI-alkalmazást te nyitottad meg, ezért a ByeAI nem nyúl hozzá." },
   "popupReport": { "message": "Jelentés" },
   "popupReportTitle": { "message": "MI jelentése, amit a ByeAI nem fogott meg" },
   "coverLabeled": { "message": "Az oldal MI-nek jelölte\nKattints a megjelenítéshez" },

@@ -67,6 +67,8 @@
   "optionsMediaAllowedNote": { "message": "video IA visibili" },
   "optionsMediaBlurBtn": { "message": "Sfoca di nuovo" },
   "optionsPermissionsNavHtml": { "message": "<strong>webNavigation</strong>: passa le ricerche Google ai risultati Web" },
+  "popupStatusAiApp": { "message": "App di IA" },
+  "popupAiAppNote": { "message": "Hai aperto tu questa app di IA, quindi ByeAI non la tocca." },
   "popupReport": { "message": "Segnala" },
   "popupReportTitle": { "message": "Segnala IA sfuggita a ByeAI" },
   "coverLabeled": { "message": "Segnalato come IA dal sito\nClicca per vedere" },

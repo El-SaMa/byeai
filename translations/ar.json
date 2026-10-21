@@ -93,5 +93,7 @@
   "optionsPrivacyHeading": "الخصوصية",
   "optionsPrivacyIntro": "يحظر ByeAI الذكاء الاصطناعي المعروف بقائمة قواعد مدمجة في الإضافة. لا يُرسل سجل تصفحك إلينا. تتزامن إعداداتك عبر حسابك في Chrome، وتبقى الإحصاءات على هذا الجهاز.",
   "optionsPrivacyLink": "اقرأ سياسة الخصوصية",
-  "optionsFooterVersion": "ByeAI v$VERSION$"
+  "optionsFooterVersion": "ByeAI v$VERSION$",
+  "popupStatusAiApp": "تطبيق ذكاء اصطناعي",
+  "popupAiAppNote": "فتحت تطبيق الذكاء الاصطناعي هذا بنفسك، لذلك لا يتدخل فيه ByeAI."
 }

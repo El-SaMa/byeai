@@ -89,6 +89,8 @@
   "optionsMediaAllowedNote": { "message": "AI videos shown" },
   "optionsMediaBlurBtn": { "message": "Blur again" },
   "optionsPermissionsNavHtml": { "message": "<strong>webNavigation</strong>: switch Google searches to Web results" },
+  "popupStatusAiApp": { "message": "AI app" },
+  "popupAiAppNote": { "message": "You opened this AI app yourself, so ByeAI leaves it alone." },
   "popupReport": { "message": "Report" },
   "popupReportTitle": { "message": "Report AI that ByeAI missed" },
   "coverLabeled": { "message": "Labeled as AI by the site\nClick to show" },

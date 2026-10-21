@@ -67,6 +67,8 @@
   "optionsMediaAllowedNote": { "message": "AI वीडियो दिख रहे हैं" },
   "optionsMediaBlurBtn": { "message": "फिर से धुंधला करें" },
   "optionsPermissionsNavHtml": { "message": "<strong>webNavigation</strong>: Google सर्च को वेब नतीजों पर बदलता है" },
+  "popupStatusAiApp": { "message": "AI ऐप" },
+  "popupAiAppNote": { "message": "यह AI ऐप आपने खुद खोला है, इसलिए ByeAI इसमें दखल नहीं देता।" },
   "popupReport": { "message": "रिपोर्ट" },
   "popupReportTitle": { "message": "ऐसा AI रिपोर्ट करें जो ByeAI से छूट गया" },
   "coverLabeled": { "message": "साइट ने इसे AI बताया है\nदेखने के लिए क्लिक करें" },

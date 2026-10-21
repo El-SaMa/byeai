@@ -55,7 +55,7 @@
   "content_scripts": [
     {
       "matches": ["http://*/*", "https://*/*"],
-      "js": ["content/byeai-flag.js", "content/ai-content.js"],
+      "js": ["shared/ai-apps.js", "content/byeai-flag.js", "content/ai-content.js"],
       "css": ["content/google-search.css", "content/content.css"],
       "run_at": "document_start"
     },

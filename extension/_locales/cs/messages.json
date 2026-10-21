@@ -67,6 +67,8 @@
   "optionsMediaAllowedNote": { "message": "AI videa se zobrazují" },
   "optionsMediaBlurBtn": { "message": "Znovu rozmazávat" },
   "optionsPermissionsNavHtml": { "message": "<strong>webNavigation</strong>: přepíná vyhledávání Google na webové výsledky" },
+  "popupStatusAiApp": { "message": "AI aplikace" },
+  "popupAiAppNote": { "message": "Tuto AI aplikaci jste otevřeli sami, takže ji ByeAI nechává být." },
   "popupReport": { "message": "Nahlásit" },
   "popupReportTitle": { "message": "Nahlásit AI, které ByeAI přehlédl" },
   "coverLabeled": { "message": "Web to označil jako AI\nKlikněte pro zobrazení" },

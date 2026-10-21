@@ -93,5 +93,7 @@
   "optionsPrivacyHeading": "Конфіденційність",
   "optionsPrivacyIntro": "ByeAI блокує відомий ШІ за списком правил, вбудованим у розширення. Ваша історія браузера нам не надсилається. Налаштування синхронізуються через ваш обліковий запис Chrome, а статистика залишається на цьому пристрої.",
   "optionsPrivacyLink": "Політика конфіденційності",
-  "optionsFooterVersion": "ByeAI v$VERSION$"
+  "optionsFooterVersion": "ByeAI v$VERSION$",
+  "popupStatusAiApp": "ШІ-застосунок",
+  "popupAiAppNote": "Ви самі відкрили цей ШІ-застосунок, тому ByeAI його не чіпає."
 }

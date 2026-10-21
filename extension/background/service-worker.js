@@ -1,8 +1,11 @@
+importScripts('../shared/ai-apps.js');
+
 const RULESET_ID = 'core_network';
 const GOOGLE_RULESET_ID = 'google_search';
 const SEARCH_AI_RULESET_ID = 'search_ai';
 const ENABLED_RULESETS = [RULESET_ID, GOOGLE_RULESET_ID, SEARCH_AI_RULESET_ID];
 const WHITELIST_RULE_BASE = 9000000;
+const AI_APP_RULE_ID = WHITELIST_RULE_BASE - 1;
 const BLOCK_RESOURCE_TYPES = ['script', 'sub_frame', 'xmlhttprequest', 'websocket', 'other'];
 
 const CATEGORIES = ['widgets', 'buttons', 'labeled'];
@@ -126,10 +129,18 @@ function hostnameAllowed(hostname, allowedHosts) {
 async function syncWhitelistRules(allowedHosts) {
   const existing = await chrome.declarativeNetRequest.getDynamicRules();
   const removeRuleIds = existing
-    .filter((rule) => rule.id >= WHITELIST_RULE_BASE && rule.id < WHITELIST_RULE_BASE + 1000000)
+    .filter((rule) => rule.id === AI_APP_RULE_ID || (rule.id >= WHITELIST_RULE_BASE && rule.id < WHITELIST_RULE_BASE + 1000000))
     .map((rule) => rule.id);
 
-  const addRules = allowedHosts.map((host) => ({
+  // AI apps you open yourself load normally. Only their embeds on other sites are blocked.
+  const aiAppRule = {
+    id: AI_APP_RULE_ID,
+    priority: 100,
+    action: { type: 'allow' },
+    condition: { initiatorDomains: globalThis.BYEAI_AI_APPS, resourceTypes: BLOCK_RESOURCE_TYPES },
+  };
+
+  const addRules = [aiAppRule, ...allowedHosts.map((host) => ({
     id: hostToRuleId(host),
     priority: 100,
     action: { type: 'allow' },
@@ -137,7 +148,7 @@ async function syncWhitelistRules(allowedHosts) {
       initiatorDomains: [host],
       resourceTypes: BLOCK_RESOURCE_TYPES,
     },
-  }));
+  }))];
 
   await chrome.declarativeNetRequest.updateDynamicRules({
     removeRuleIds,
@@ -289,6 +300,7 @@ async function getPopupState(tabId) {
     features: settings.features,
     totalBlocked: settings.totalBlocked,
     isAllowed: Boolean(hostname && settings.allowedHosts.includes(hostname)),
+    isAiApp: Boolean(hostname && globalThis.byeaiIsAiApp(hostname)),
     isMediaAllowed: Boolean(hostname && settings.mediaAllowedHosts.includes(hostname)),
     allowedHosts: settings.allowedHosts,
   };

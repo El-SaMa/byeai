@@ -67,6 +67,8 @@
   "optionsMediaAllowedNote": { "message": "ШІ-відео показуються" },
   "optionsMediaBlurBtn": { "message": "Знову розмивати" },
   "optionsPermissionsNavHtml": { "message": "<strong>webNavigation</strong>: перемикає пошук Google на вебрезультати" },
+  "popupStatusAiApp": { "message": "ШІ-застосунок" },
+  "popupAiAppNote": { "message": "Ви самі відкрили цей ШІ-застосунок, тому ByeAI його не чіпає." },
   "popupReport": { "message": "Повідомити" },
   "popupReportTitle": { "message": "Повідомити про ШІ, який ByeAI пропустив" },
   "coverLabeled": { "message": "Сайт позначив це як ШІ\nНатисніть, щоб показати" },

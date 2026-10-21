@@ -67,6 +67,8 @@
   "optionsMediaAllowedNote": { "message": "AI-videor visas" },
   "optionsMediaBlurBtn": { "message": "Sudda igen" },
   "optionsPermissionsNavHtml": { "message": "<strong>webNavigation</strong>: byter Google-sökningar till webbresultat" },
+  "popupStatusAiApp": { "message": "AI-app" },
+  "popupAiAppNote": { "message": "Du öppnade den här AI-appen själv, så ByeAI låter den vara." },
   "popupReport": { "message": "Rapportera" },
   "popupReportTitle": { "message": "Rapportera AI som ByeAI missade" },
   "coverLabeled": { "message": "Märkt som AI av sajten\nKlicka för att visa" },

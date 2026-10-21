@@ -67,6 +67,8 @@
   "optionsMediaAllowedNote": { "message": "videoclipuri AI afișate" },
   "optionsMediaBlurBtn": { "message": "Estompează din nou" },
   "optionsPermissionsNavHtml": { "message": "<strong>webNavigation</strong>: trece căutările Google pe rezultate Web" },
+  "popupStatusAiApp": { "message": "Aplicație AI" },
+  "popupAiAppNote": { "message": "Ai deschis singur această aplicație AI, așa că ByeAI o lasă în pace." },
   "popupReport": { "message": "Raportează" },
   "popupReportTitle": { "message": "Raportează AI pe care ByeAI l-a ratat" },
   "coverLabeled": { "message": "Site-ul l-a marcat ca AI\nApasă pentru a vedea" },

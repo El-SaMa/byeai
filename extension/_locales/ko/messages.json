@@ -67,6 +67,8 @@
   "optionsMediaAllowedNote": { "message": "AI 동영상 표시 중" },
   "optionsMediaBlurBtn": { "message": "다시 흐리게" },
   "optionsPermissionsNavHtml": { "message": "<strong>webNavigation</strong>: Google 검색을 웹 결과로 전환" },
+  "popupStatusAiApp": { "message": "AI 앱" },
+  "popupAiAppNote": { "message": "직접 연 AI 앱이므로 ByeAI가 건드리지 않습니다." },
   "popupReport": { "message": "신고" },
   "popupReportTitle": { "message": "ByeAI가 놓친 AI 신고" },
   "coverLabeled": { "message": "사이트가 AI로 표시함\n클릭해서 보기" },

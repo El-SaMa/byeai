@@ -93,5 +93,7 @@
   "optionsPrivacyHeading": "حریم خصوصی",
   "optionsPrivacyIntro": "ByeAI هوش مصنوعی شناخته‌شده را با فهرست قوانینی که داخل افزونه است مسدود می‌کند. سابقه مرور شما برای ما فرستاده نمی‌شود. تنظیمات از طریق حساب Chrome شما همگام می‌شود و آمار روی همین دستگاه می‌ماند.",
   "optionsPrivacyLink": "خواندن سیاست حفظ حریم خصوصی",
-  "optionsFooterVersion": "ByeAI v$VERSION$"
+  "optionsFooterVersion": "ByeAI v$VERSION$",
+  "popupStatusAiApp": "اپ هوش مصنوعی",
+  "popupAiAppNote": "این اپ هوش مصنوعی را خودتان باز کرده‌اید، پس ByeAI کاری به آن ندارد."
 }

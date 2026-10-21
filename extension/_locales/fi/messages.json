@@ -89,6 +89,8 @@
   "optionsMediaAllowedNote": { "message": "tekoälyvideot näytetään" },
   "optionsMediaBlurBtn": { "message": "Sumenna taas" },
   "optionsPermissionsNavHtml": { "message": "<strong>webNavigation</strong>: vaihtaa Google-haut Verkko-tuloksiin" },
+  "popupStatusAiApp": { "message": "Tekoälysovellus" },
+  "popupAiAppNote": { "message": "Avasit tämän tekoälysovelluksen itse, joten ByeAI ei koske siihen." },
   "popupReport": { "message": "Ilmoita" },
   "popupReportTitle": { "message": "Ilmoita tekoälystä, jota ByeAI ei estänyt" },
   "coverLabeled": { "message": "Palvelu on merkinnyt tämän tekoälyn tekemäksi\nNäytä klikkaamalla" },

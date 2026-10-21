@@ -67,6 +67,8 @@
   "optionsMediaAllowedNote": { "message": "đang hiện video AI" },
   "optionsMediaBlurBtn": { "message": "Làm mờ lại" },
   "optionsPermissionsNavHtml": { "message": "<strong>webNavigation</strong>: chuyển tìm kiếm Google sang kết quả Web" },
+  "popupStatusAiApp": { "message": "Ứng dụng AI" },
+  "popupAiAppNote": { "message": "Bạn tự mở ứng dụng AI này nên ByeAI không can thiệp." },
   "popupReport": { "message": "Báo cáo" },
   "popupReportTitle": { "message": "Báo cáo AI mà ByeAI bỏ sót" },
   "coverLabeled": { "message": "Trang web gắn nhãn đây là AI\nNhấp để xem" },

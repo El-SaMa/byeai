@@ -93,5 +93,7 @@
   "optionsPrivacyHeading": "Privatliv",
   "optionsPrivacyIntro": "ByeAI blokerer kendt AI med en regelliste, der er indbygget i udvidelsen. Din browserhistorik sendes ikke til os. Dine indstillinger synkroniseres via din Chrome-konto, og statistikken bliver på denne enhed.",
   "optionsPrivacyLink": "Læs privatlivspolitikken",
-  "optionsFooterVersion": "ByeAI v$VERSION$"
+  "optionsFooterVersion": "ByeAI v$VERSION$",
+  "popupStatusAiApp": "AI-app",
+  "popupAiAppNote": "Du har selv åbnet denne AI-app, så ByeAI lader den være."
 }

@@ -67,6 +67,8 @@
   "optionsMediaAllowedNote": { "message": "YZ videoları gösteriliyor" },
   "optionsMediaBlurBtn": { "message": "Yeniden bulanıklaştır" },
   "optionsPermissionsNavHtml": { "message": "<strong>webNavigation</strong>: Google aramalarını Web sonuçlarına çevirir" },
+  "popupStatusAiApp": { "message": "YZ uygulaması" },
+  "popupAiAppNote": { "message": "Bu YZ uygulamasını kendiniz açtınız, bu yüzden ByeAI ona dokunmaz." },
   "popupReport": { "message": "Bildir" },
   "popupReportTitle": { "message": "ByeAI'ın kaçırdığı yapay zekâyı bildir" },
   "coverLabeled": { "message": "Site bunu YZ olarak işaretledi\nGöstermek için tıklayın" },

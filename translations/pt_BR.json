@@ -93,5 +93,7 @@
   "optionsPrivacyHeading": "Privacidade",
   "optionsPrivacyIntro": "O ByeAI bloqueia IA conhecida com uma lista de regras que vem na extensão. Seu histórico não é enviado para nós. Suas configurações sincronizam pela sua conta do Chrome e as estatísticas ficam neste aparelho.",
   "optionsPrivacyLink": "Ler a política de privacidade",
-  "optionsFooterVersion": "ByeAI v$VERSION$"
+  "optionsFooterVersion": "ByeAI v$VERSION$",
+  "popupStatusAiApp": "App de IA",
+  "popupAiAppNote": "Você abriu este app de IA por conta própria, então o ByeAI não mexe nele."
 }

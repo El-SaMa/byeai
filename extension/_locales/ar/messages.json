@@ -67,6 +67,8 @@
   "optionsMediaAllowedNote": { "message": "فيديوهات الذكاء الاصطناعي معروضة" },
   "optionsMediaBlurBtn": { "message": "تمويه مجددًا" },
   "optionsPermissionsNavHtml": { "message": "<strong>webNavigation</strong>: يحوّل بحث Google إلى نتائج الويب" },
+  "popupStatusAiApp": { "message": "تطبيق ذكاء اصطناعي" },
+  "popupAiAppNote": { "message": "فتحت تطبيق الذكاء الاصطناعي هذا بنفسك، لذلك لا يتدخل فيه ByeAI." },
   "popupReport": { "message": "إبلاغ" },
   "popupReportTitle": { "message": "أبلغ عن ذكاء اصطناعي فات ByeAI" },
   "coverLabeled": { "message": "صنّفه الموقع كذكاء اصطناعي\nانقر للعرض" },

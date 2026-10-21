@@ -49,6 +49,9 @@ function renderStatusPill(state) {
   if (!state.enabled) {
     statusPill.textContent = t('popupStatusOff') || 'Off';
     statusPill.classList.add('is-off');
+  } else if (state.isAiApp) {
+    statusPill.textContent = t('popupStatusAiApp') || 'AI app';
+    statusPill.classList.add('is-allowed');
   } else if (state.isAllowed) {
     statusPill.textContent = t('popupStatusAllowed') || 'Allowed';
     statusPill.classList.add('is-allowed');
@@ -68,7 +71,13 @@ function render(state) {
   renderStatusPill(state);
   renderFeatures(state);
 
-  if (state.isAllowed) {
+  if (state.isAiApp) {
+    // Opened on purpose: nothing to block, nothing to allow.
+    allowedNote.textContent = t('popupAiAppNote') || 'You opened this AI app yourself, so ByeAI leaves it alone.';
+    allowedNote.classList.remove('hidden');
+    allowBtnText.textContent = t('popupAllowOn') || 'Allow AI on this site';
+  } else if (state.isAllowed) {
+    allowedNote.textContent = t('popupAllowedNote') || 'AI allowed on this site';
     allowedNote.classList.remove('hidden');
     allowBtnText.textContent = t('popupAllowOff') || 'Block AI on this site again';
   } else {
@@ -81,7 +90,7 @@ function render(state) {
     allowBtn.disabled = true;
   } else {
     document.body.classList.remove('unavailable');
-    allowBtn.disabled = false;
+    allowBtn.disabled = Boolean(state.isAiApp);
   }
 
   chrome.storage.local.get({ tipDismissed: false }).then(({ tipDismissed }) => {
@@ -96,7 +105,7 @@ function render(state) {
 function renderFeatures(state) {
   const features = state.features || {};
   const counts = state.pageByCategory || {};
-  featureCard.classList.toggle('features-paused', !state.enabled || state.isAllowed);
+  featureCard.classList.toggle('features-paused', !state.enabled || state.isAllowed || state.isAiApp);
 
   featureRows.forEach((row) => {
     const name = row.dataset.feature;

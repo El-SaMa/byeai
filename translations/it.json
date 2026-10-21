@@ -93,5 +93,7 @@
   "optionsPrivacyHeading": "Privacy",
   "optionsPrivacyIntro": "ByeAI blocca l’IA nota con un elenco di regole incluso nell’estensione. La tua cronologia non ci viene inviata. Le impostazioni si sincronizzano con il tuo account Chrome e le statistiche restano su questo dispositivo.",
   "optionsPrivacyLink": "Leggi l’informativa sulla privacy",
-  "optionsFooterVersion": "ByeAI v$VERSION$"
+  "optionsFooterVersion": "ByeAI v$VERSION$",
+  "popupStatusAiApp": "App di IA",
+  "popupAiAppNote": "Hai aperto tu questa app di IA, quindi ByeAI non la tocca."
 }

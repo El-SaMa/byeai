@@ -67,6 +67,8 @@
   "optionsMediaAllowedNote": { "message": "filmy AI widoczne" },
   "optionsMediaBlurBtn": { "message": "Znowu rozmywaj" },
   "optionsPermissionsNavHtml": { "message": "<strong>webNavigation</strong>: przełącza wyszukiwania Google na wyniki Sieć" },
+  "popupStatusAiApp": { "message": "Aplikacja AI" },
+  "popupAiAppNote": { "message": "Ta aplikacja AI została otwarta przez Ciebie, więc ByeAI jej nie rusza." },
   "popupReport": { "message": "Zgłoś" },
   "popupReportTitle": { "message": "Zgłoś AI, które ByeAI przepuścił" },
   "coverLabeled": { "message": "Strona oznaczyła to jako AI\nKliknij, aby pokazać" },

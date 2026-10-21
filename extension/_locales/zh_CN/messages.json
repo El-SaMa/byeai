@@ -67,6 +67,8 @@
   "optionsMediaAllowedNote": { "message": "显示 AI 视频" },
   "optionsMediaBlurBtn": { "message": "重新模糊" },
   "optionsPermissionsNavHtml": { "message": "<strong>webNavigation</strong>：将 Google 搜索切换为网页结果" },
+  "popupStatusAiApp": { "message": "AI 应用" },
+  "popupAiAppNote": { "message": "这是你自己打开的 AI 应用，ByeAI 不会干预。" },
   "popupReport": { "message": "反馈" },
   "popupReportTitle": { "message": "反馈 ByeAI 漏掉的 AI" },
   "coverLabeled": { "message": "网站已标为 AI\n点击查看" },

@@ -67,6 +67,8 @@
   "optionsMediaAllowedNote": { "message": "KI-Videos werden gezeigt" },
   "optionsMediaBlurBtn": { "message": "Wieder verwischen" },
   "optionsPermissionsNavHtml": { "message": "<strong>webNavigation</strong>: stellt Google-Suchen auf Web-Ergebnisse um" },
+  "popupStatusAiApp": { "message": "KI-App" },
+  "popupAiAppNote": { "message": "Du hast diese KI-App selbst geöffnet, deshalb lässt ByeAI sie in Ruhe." },
   "popupReport": { "message": "Melden" },
   "popupReportTitle": { "message": "KI melden, die ByeAI übersehen hat" },
   "coverLabeled": { "message": "Von der Seite als KI markiert\nZum Anzeigen klicken" },

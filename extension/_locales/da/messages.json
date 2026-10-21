@@ -67,6 +67,8 @@
   "optionsMediaAllowedNote": { "message": "AI-videoer vises" },
   "optionsMediaBlurBtn": { "message": "Slør igen" },
   "optionsPermissionsNavHtml": { "message": "<strong>webNavigation</strong>: skifter Google-søgninger til webresultater" },
+  "popupStatusAiApp": { "message": "AI-app" },
+  "popupAiAppNote": { "message": "Du har selv åbnet denne AI-app, så ByeAI lader den være." },
   "popupReport": { "message": "Rapportér" },
   "popupReportTitle": { "message": "Rapportér AI, som ByeAI overså" },
   "coverLabeled": { "message": "Mærket som AI af webstedet\nKlik for at vise" },

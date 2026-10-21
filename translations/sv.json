@@ -93,5 +93,7 @@
   "optionsPrivacyHeading": "Integritet",
   "optionsPrivacyIntro": "ByeAI blockerar känd AI med en regellista som finns i tillägget. Din webbhistorik skickas inte till oss. Dina inställningar synkas via ditt Chrome-konto och statistiken stannar på den här enheten.",
   "optionsPrivacyLink": "Läs integritetspolicyn",
-  "optionsFooterVersion": "ByeAI v$VERSION$"
+  "optionsFooterVersion": "ByeAI v$VERSION$",
+  "popupStatusAiApp": "AI-app",
+  "popupAiAppNote": "Du öppnade den här AI-appen själv, så ByeAI låter den vara."
 }

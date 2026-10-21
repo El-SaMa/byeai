@@ -67,6 +67,8 @@
   "optionsMediaAllowedNote": { "message": "τα βίντεο AI εμφανίζονται" },
   "optionsMediaBlurBtn": { "message": "Ξανά θόλωμα" },
   "optionsPermissionsNavHtml": { "message": "<strong>webNavigation</strong>: αλλάζει τις αναζητήσεις Google σε αποτελέσματα Ιστού" },
+  "popupStatusAiApp": { "message": "Εφαρμογή AI" },
+  "popupAiAppNote": { "message": "Ανοίξατε μόνοι σας αυτή την εφαρμογή AI, οπότε το ByeAI δεν την αγγίζει." },
   "popupReport": { "message": "Αναφορά" },
   "popupReportTitle": { "message": "Αναφέρετε AI που ξέφυγε από το ByeAI" },
   "coverLabeled": { "message": "Ο ιστότοπος το σήμανε ως AI\nΚάντε κλικ για εμφάνιση" },

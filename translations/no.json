@@ -93,5 +93,7 @@
   "optionsPrivacyHeading": "Personvern",
   "optionsPrivacyIntro": "ByeAI blokkerer kjent KI med en regelliste som ligger i utvidelsen. Nettleserloggen din sendes ikke til oss. Innstillingene synkroniseres via Chrome-kontoen din, og statistikken blir på denne enheten.",
   "optionsPrivacyLink": "Les personvernerklæringen",
-  "optionsFooterVersion": "ByeAI v$VERSION$"
+  "optionsFooterVersion": "ByeAI v$VERSION$",
+  "popupStatusAiApp": "KI-app",
+  "popupAiAppNote": "Du åpnet denne KI-appen selv, så ByeAI lar den være i fred."
 }

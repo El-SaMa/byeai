@@ -93,5 +93,7 @@
   "optionsPrivacyHeading": "Privacy",
   "optionsPrivacyIntro": "ByeAI blokkeert bekende AI met een regellijst die in de extensie zit. Je browsegeschiedenis wordt niet naar ons gestuurd. Je instellingen synchroniseren via je Chrome-account en de statistieken blijven op dit apparaat.",
   "optionsPrivacyLink": "Privacybeleid lezen",
-  "optionsFooterVersion": "ByeAI v$VERSION$"
+  "optionsFooterVersion": "ByeAI v$VERSION$",
+  "popupStatusAiApp": "AI-app",
+  "popupAiAppNote": "Je hebt deze AI-app zelf geopend, dus ByeAI laat hem met rust."
 }

@@ -93,5 +93,7 @@
   "optionsPrivacyHeading": "ความเป็นส่วนตัว",
   "optionsPrivacyIntro": "ByeAI บล็อก AI ที่รู้จักด้วยรายการกฎที่มีอยู่ในส่วนขยาย ประวัติการท่องเว็บของคุณไม่ถูกส่งมาที่เรา การตั้งค่าซิงค์ผ่านบัญชี Chrome ของคุณ ส่วนสถิติอยู่บนอุปกรณ์นี้",
   "optionsPrivacyLink": "อ่านนโยบายความเป็นส่วนตัว",
-  "optionsFooterVersion": "ByeAI v$VERSION$"
+  "optionsFooterVersion": "ByeAI v$VERSION$",
+  "popupStatusAiApp": "แอป AI",
+  "popupAiAppNote": "คุณเปิดแอป AI นี้เอง ByeAI จึงไม่ยุ่งกับมัน"
 }

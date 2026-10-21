@@ -93,5 +93,7 @@
   "optionsPrivacyHeading": "Adatvédelem",
   "optionsPrivacyIntro": "A ByeAI a bővítménybe épített szabálylistával blokkolja az ismert MI-t. A böngészési előzményeidet nem küldjük el magunknak. A beállításaid a Chrome-fiókodon keresztül szinkronizálódnak, a statisztika ezen az eszközön marad.",
   "optionsPrivacyLink": "Adatvédelmi szabályzat",
-  "optionsFooterVersion": "ByeAI v$VERSION$"
+  "optionsFooterVersion": "ByeAI v$VERSION$",
+  "popupStatusAiApp": "MI-alkalmazás",
+  "popupAiAppNote": "Ezt az MI-alkalmazást te nyitottad meg, ezért a ByeAI nem nyúl hozzá."
 }

@@ -93,5 +93,7 @@
   "optionsPrivacyHeading": "निजता",
   "optionsPrivacyIntro": "ByeAI एक्सटेंशन में मौजूद नियमों की सूची से जाने-पहचाने AI को ब्लॉक करता है। आपकी ब्राउज़िंग हिस्ट्री हमें नहीं भेजी जाती। सेटिंग आपके Chrome खाते से सिंक होती हैं और आंकड़े इसी डिवाइस पर रहते हैं।",
   "optionsPrivacyLink": "निजता नीति पढ़ें",
-  "optionsFooterVersion": "ByeAI v$VERSION$"
+  "optionsFooterVersion": "ByeAI v$VERSION$",
+  "popupStatusAiApp": "AI ऐप",
+  "popupAiAppNote": "यह AI ऐप आपने खुद खोला है, इसलिए ByeAI इसमें दखल नहीं देता।"
 }

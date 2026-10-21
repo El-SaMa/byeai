@@ -67,6 +67,8 @@
   "optionsMediaAllowedNote": { "message": "顯示 AI 影片" },
   "optionsMediaBlurBtn": { "message": "重新模糊" },
   "optionsPermissionsNavHtml": { "message": "<strong>webNavigation</strong>：將 Google 搜尋切換為網頁結果" },
+  "popupStatusAiApp": { "message": "AI 應用程式" },
+  "popupAiAppNote": { "message": "這是你自己開啟的 AI 應用程式，ByeAI 不會干預。" },
   "popupReport": { "message": "回報" },
   "popupReportTitle": { "message": "回報 ByeAI 漏掉的 AI" },
   "coverLabeled": { "message": "網站已標示為 AI\n點擊查看" },

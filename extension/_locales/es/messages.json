@@ -67,6 +67,8 @@
   "optionsMediaAllowedNote": { "message": "vídeos de IA visibles" },
   "optionsMediaBlurBtn": { "message": "Volver a difuminar" },
   "optionsPermissionsNavHtml": { "message": "<strong>webNavigation</strong>: cambiar las búsquedas de Google a resultados web" },
+  "popupStatusAiApp": { "message": "App de IA" },
+  "popupAiAppNote": { "message": "Abriste esta app de IA tú mismo, así que ByeAI no la toca." },
   "popupReport": { "message": "Avisar" },
   "popupReportTitle": { "message": "Avisar de IA que ByeAI no bloqueó" },
   "coverLabeled": { "message": "El sitio lo marca como IA\nHaz clic para ver" },

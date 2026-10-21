@@ -93,5 +93,7 @@
   "optionsPrivacyHeading": "개인정보",
   "optionsPrivacyIntro": "ByeAI는 확장 프로그램에 내장된 규칙 목록으로 알려진 AI를 차단합니다. 방문 기록은 저희에게 전송되지 않습니다. 설정은 Chrome 계정으로 동기화되고, 통계는 이 기기에 남습니다.",
   "optionsPrivacyLink": "개인정보처리방침 읽기",
-  "optionsFooterVersion": "ByeAI v$VERSION$"
+  "optionsFooterVersion": "ByeAI v$VERSION$",
+  "popupStatusAiApp": "AI 앱",
+  "popupAiAppNote": "직접 연 AI 앱이므로 ByeAI가 건드리지 않습니다."
 }

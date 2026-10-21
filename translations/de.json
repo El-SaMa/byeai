@@ -93,5 +93,7 @@
   "optionsPrivacyHeading": "Datenschutz",
   "optionsPrivacyIntro": "ByeAI blockiert bekannte KI mit einer Regelliste, die in der Erweiterung steckt. Dein Browserverlauf wird nicht an uns gesendet. Deine Einstellungen werden über dein Chrome-Konto synchronisiert, die Statistik bleibt auf diesem Gerät.",
   "optionsPrivacyLink": "Datenschutzerklärung lesen",
-  "optionsFooterVersion": "ByeAI v$VERSION$"
+  "optionsFooterVersion": "ByeAI v$VERSION$",
+  "popupStatusAiApp": "KI-App",
+  "popupAiAppNote": "Du hast diese KI-App selbst geöffnet, deshalb lässt ByeAI sie in Ruhe."
 }

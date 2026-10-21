@@ -67,6 +67,8 @@
   "optionsMediaAllowedNote": { "message": "ИИ-видео показываются" },
   "optionsMediaBlurBtn": { "message": "Снова размывать" },
   "optionsPermissionsNavHtml": { "message": "<strong>webNavigation</strong>: переключает поиск Google на веб-результаты" },
+  "popupStatusAiApp": { "message": "ИИ-приложение" },
+  "popupAiAppNote": { "message": "Вы сами открыли это ИИ-приложение, поэтому ByeAI его не трогает." },
   "popupReport": { "message": "Сообщить" },
   "popupReportTitle": { "message": "Сообщить об ИИ, который ByeAI пропустил" },
   "coverLabeled": { "message": "Сайт пометил это как ИИ\nНажмите, чтобы показать" },
