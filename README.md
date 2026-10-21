@@ -55,6 +55,7 @@ Everything runs locally and there are no analytics. ByeAI makes two kinds of req
 
 - Once a day it downloads the public ByeAI Community list. A plain GET with no cookies and no data about you. Off in settings means no download.
 - Only when you click **Suggest as AI channel**, it sends the channel id, name, the reason (`labeled`, `tagged` or `manual`) and the ByeAI version. Suggestions are anonymous: Lanetti stores no IP address, only a hash that rotates daily to count distinct people. At most 20 a day.
+- Only if you turn on **Help the Community automatically** (off by default): when YouTube itself labels a video you open as AI, it sends that channel's id and name with reason `labeled`, at most once per channel per 30 days, never for channels already in the list. Nothing about the video.
 
 Settings and hidden channels (up to 500) live in `chrome.storage.sync` (Chrome's own sync, never our servers). Counters, the Community list and the list of sites that already showed the notice (up to 500) are in `chrome.storage.local`, and "Allow once" in `chrome.storage.session` for that tab only. Full policy: [privacy](https://el-sama.github.io/byeai/privacy.html).
 

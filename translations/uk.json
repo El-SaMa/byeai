@@ -129,5 +129,8 @@
   "optionsCommunityHeading": "ByeAI Community",
   "optionsCommunityLabel": "Використовувати список ByeAI Community",
   "optionsCommunityText": "Список ШІ-каналів, про які повідомили користувачі ByeAI. Завантажується раз на день. Про вас нічого не надсилається.",
-  "optionsPermissionsAlarmsHtml": "<strong>alarms</strong>: завантажувати список ByeAI Community раз на день"
+  "optionsPermissionsAlarmsHtml": "<strong>alarms</strong>: завантажувати список ByeAI Community раз на день",
+  "optionsAutoShareLabel": "Допомагати спільноті автоматично",
+  "optionsAutoShareText": "Коли YouTube сам позначає відео як ШІ, ByeAI анонімно надсилає до списку Community лише назву каналу.",
+  "optionsAutoShareCount": "Каналів надіслано автоматично: $COUNT$"
 }

@@ -129,5 +129,8 @@
   "optionsCommunityHeading": "ByeAI Community",
   "optionsCommunityLabel": "Gunakan daftar ByeAI Community",
   "optionsCommunityText": "Daftar kanal AI yang dilaporkan pengguna ByeAI, diunduh sekali sehari. Tidak ada data tentang Anda yang dikirim.",
-  "optionsPermissionsAlarmsHtml": "<strong>alarms</strong>: mengunduh daftar ByeAI Community sekali sehari"
+  "optionsPermissionsAlarmsHtml": "<strong>alarms</strong>: mengunduh daftar ByeAI Community sekali sehari",
+  "optionsAutoShareLabel": "Bantu Community secara otomatis",
+  "optionsAutoShareText": "Saat YouTube sendiri melabeli video sebagai AI, ByeAI hanya mengirim nama kanal itu ke daftar Community, secara anonim.",
+  "optionsAutoShareCount": "Kanal yang dibagikan otomatis: $COUNT$"
 }

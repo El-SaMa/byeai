@@ -153,5 +153,11 @@
   "optionsCommunityHeading": { "message": "ByeAI Community" },
   "optionsCommunityLabel": { "message": "Använd ByeAI Community-listan" },
   "optionsCommunityText": { "message": "En lista med AI-kanaler som ByeAI-användare har rapporterat, hämtas en gång om dagen. Inget om dig skickas." },
-  "optionsPermissionsAlarmsHtml": { "message": "<strong>alarms</strong>: hämta ByeAI Community-listan en gång om dagen" }
+  "optionsPermissionsAlarmsHtml": { "message": "<strong>alarms</strong>: hämta ByeAI Community-listan en gång om dagen" },
+  "optionsAutoShareLabel": { "message": "Hjälp communityn automatiskt" },
+  "optionsAutoShareText": { "message": "När YouTube själv märker en video som AI skickar ByeAI bara kanalens namn till Community-listan, anonymt." },
+  "optionsAutoShareCount": {
+    "message": "Kanaler som delats automatiskt: $COUNT$",
+    "placeholders": {"count": {"content": "$1", "example": "3"}}
+  }
 }

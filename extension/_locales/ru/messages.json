@@ -153,5 +153,11 @@
   "optionsCommunityHeading": { "message": "ByeAI Community" },
   "optionsCommunityLabel": { "message": "Использовать список ByeAI Community" },
   "optionsCommunityText": { "message": "Список ИИ-каналов, о которых сообщили пользователи ByeAI. Загружается раз в день. О вас ничего не отправляется." },
-  "optionsPermissionsAlarmsHtml": { "message": "<strong>alarms</strong>: загружать список ByeAI Community раз в день" }
+  "optionsPermissionsAlarmsHtml": { "message": "<strong>alarms</strong>: загружать список ByeAI Community раз в день" },
+  "optionsAutoShareLabel": { "message": "Помогать сообществу автоматически" },
+  "optionsAutoShareText": { "message": "Когда YouTube сам помечает видео как ИИ, ByeAI анонимно отправляет в список Community только название канала." },
+  "optionsAutoShareCount": {
+    "message": "Каналов отправлено автоматически: $COUNT$",
+    "placeholders": {"count": {"content": "$1", "example": "3"}}
+  }
 }

@@ -16,6 +16,9 @@ export const PAGES = {
   'https://www.youtube.com/feed/channels': 'youtube-channels.html',
   'https://www.youtube.com/results?search_query=cats': 'youtube-search.html',
   'https://www.youtube.com/watch?v=dream': 'youtube-watch-channel.html',
+  'https://www.youtube.com/watch?v=labeled': 'youtube-watch-labeled.html',
+  'https://www.youtube.com/watch?v=labeled2': 'youtube-watch-labeled2.html',
+  'https://www.youtube.com/watch?v=tagged': 'youtube-watch-tagged.html',
   'https://x.com/home': 'x.html',
   'https://www.instagram.com/': 'instagram.html',
   'https://www.tiktok.com/foryou': 'tiktok.html',
@@ -95,7 +98,7 @@ export async function launch() {
 }
 
 const HIDDEN_KEYS = ['hiddenChannels', ...Array.from({ length: 9 }, (_, i) => `hiddenChannels${i + 1}`)];
-const SYNC_KEYS = ['enabled', 'features', 'allowedHosts', 'mediaAllowedHosts', 'showNotices', 'communityEnabled', ...HIDDEN_KEYS];
+const SYNC_KEYS = ['enabled', 'features', 'allowedHosts', 'mediaAllowedHosts', 'showNotices', 'communityEnabled', 'communityAutoShare', ...HIDDEN_KEYS];
 
 // Same split as the extension: settings in sync, counters in local.
 export async function setStorage(worker, data) {
@@ -118,8 +121,11 @@ export async function resetStorage(worker) {
     features: { widgets: true, labeled: true },
     showNotices: true,
     communityEnabled: true,
+    communityAutoShare: false,
     community: { ...EMPTY_LIST, etag: '', fetchedAt: Date.now() },
     suggestCount: { day: '', count: 0 },
+    autoShared: {},
+    autoSharedCount: 0,
   });
   await worker.evaluate((keys) => chrome.storage.sync.remove(keys), HIDDEN_KEYS);
 }

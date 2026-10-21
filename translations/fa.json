@@ -129,5 +129,8 @@
   "optionsCommunityHeading": "ByeAI Community",
   "optionsCommunityLabel": "استفاده از فهرست ByeAI Community",
   "optionsCommunityText": "فهرستی از کانال‌های هوش مصنوعی که کاربران ByeAI گزارش داده‌اند، روزی یک بار دریافت می‌شود. هیچ چیزی دربارهٔ شما ارسال نمی‌شود.",
-  "optionsPermissionsAlarmsHtml": "<strong>alarms</strong>: دریافت فهرست ByeAI Community روزی یک بار"
+  "optionsPermissionsAlarmsHtml": "<strong>alarms</strong>: دریافت فهرست ByeAI Community روزی یک بار",
+  "optionsAutoShareLabel": "کمک خودکار به جامعه",
+  "optionsAutoShareText": "وقتی خود YouTube ویدیویی را هوش مصنوعی برچسب بزند، ByeAI فقط نام آن کانال را به‌صورت ناشناس به فهرست Community می‌فرستد.",
+  "optionsAutoShareCount": "کانال‌های هم‌رسانی‌شده به‌صورت خودکار: $COUNT$"
 }

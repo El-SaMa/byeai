@@ -9,6 +9,7 @@
 - Both are part of the "AI videos and images" switch
 - Suggestions are sent only when you click Suggest, with just the channel and the reason. Nothing about you
 - Asks for the "alarms" permission, used for the daily list download
+- Help the Community automatically (off by default): when YouTube itself labels a video as AI, ByeAI sends just that channel to the Community list, once per channel per 30 days
 
 ## 1.2.2 (2026-10-21)
 

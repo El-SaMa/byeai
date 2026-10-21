@@ -129,5 +129,8 @@
   "optionsCommunityHeading": "ByeAI Community",
   "optionsCommunityLabel": "استخدام قائمة ByeAI Community",
   "optionsCommunityText": "قائمة بقنوات الذكاء الاصطناعي التي أبلغ عنها مستخدمو ByeAI، تُنزَّل مرة يوميًا. لا يُرسَل أي شيء عنك.",
-  "optionsPermissionsAlarmsHtml": "<strong>alarms</strong>: تنزيل قائمة ByeAI Community مرة يوميًا"
+  "optionsPermissionsAlarmsHtml": "<strong>alarms</strong>: تنزيل قائمة ByeAI Community مرة يوميًا",
+  "optionsAutoShareLabel": "ساعد المجتمع تلقائيًا",
+  "optionsAutoShareText": "عندما يضع YouTube نفسه علامة الذكاء الاصطناعي على فيديو، يرسل ByeAI اسم تلك القناة فقط إلى قائمة Community، دون الكشف عن هويتك.",
+  "optionsAutoShareCount": "القنوات المُشارَكة تلقائيًا: $COUNT$"
 }

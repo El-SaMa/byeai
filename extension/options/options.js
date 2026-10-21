@@ -8,6 +8,9 @@ const showNotices = document.getElementById('showNotices');
 const hiddenList = document.getElementById('hiddenList');
 const emptyHidden = document.getElementById('emptyHidden');
 const communityEnabled = document.getElementById('communityEnabled');
+const autoShare = document.getElementById('communityAutoShare');
+const autoShareRow = document.getElementById('autoShareRow');
+const autoShareCount = document.getElementById('autoShareCount');
 const hiddenStore = window.byeaiHiddenChannels;
 
 const t = (key, args) =>
@@ -53,14 +56,24 @@ async function load() {
       mediaAllowedHosts: [],
       showNotices: true,
       communityEnabled: true,
+      communityAutoShare: false,
+      enabled: true,
+      features: { labeled: true },
       ...Object.fromEntries(hiddenStore.KEYS.map((k) => [k, []])),
     }),
-    chrome.storage.local.get({ totalBlocked: 0 }),
+    chrome.storage.local.get({ totalBlocked: 0, autoSharedCount: 0 }),
   ]);
 
   totalBlockedEl.textContent = String(local.totalBlocked);
   showNotices.checked = synced.showNotices !== false;
   communityEnabled.checked = synced.communityEnabled !== false;
+  // Only works with ByeAI, AI videos and images, and the Community list on.
+  const canShare = communityEnabled.checked && synced.enabled !== false && synced.features?.labeled !== false;
+  autoShare.checked = synced.communityAutoShare === true;
+  autoShare.disabled = !canShare;
+  autoShareRow.classList.toggle('disabled', !canShare);
+  const count = String(local.autoSharedCount || 0);
+  autoShareCount.textContent = t('optionsAutoShareCount', [count]) || `Channels shared automatically: ${count}`;
   allowedList.innerHTML = '';
   hiddenList.innerHTML = '';
 
@@ -95,10 +108,12 @@ async function load() {
 }
 
 // Lists can change from another device.
+const WATCHED = ['allowedHosts', 'mediaAllowedHosts', 'showNotices', 'communityEnabled', 'communityAutoShare', 'enabled', 'features'];
 chrome.storage.onChanged.addListener((changes, area) => {
-  if (area !== 'sync') return;
   const keys = Object.keys(changes);
-  if (keys.some((k) => hiddenStore.isKey(k) || ['allowedHosts', 'mediaAllowedHosts', 'showNotices', 'communityEnabled'].includes(k))) load();
+  if (area === 'local' && changes.autoSharedCount) load();
+  if (area !== 'sync') return;
+  if (keys.some((k) => hiddenStore.isKey(k) || WATCHED.includes(k))) load();
 });
 
 showNotices.addEventListener('change', () => {
@@ -107,6 +122,10 @@ showNotices.addEventListener('change', () => {
 
 communityEnabled.addEventListener('change', () => {
   chrome.storage.sync.set({ communityEnabled: communityEnabled.checked });
+});
+
+autoShare.addEventListener('change', () => {
+  chrome.storage.sync.set({ communityAutoShare: autoShare.checked });
 });
 
 resetStatsBtn.addEventListener('click', async () => {

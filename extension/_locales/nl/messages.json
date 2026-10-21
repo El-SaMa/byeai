@@ -153,5 +153,11 @@
   "optionsCommunityHeading": { "message": "ByeAI Community" },
   "optionsCommunityLabel": { "message": "De ByeAI Community-lijst gebruiken" },
   "optionsCommunityText": { "message": "Een lijst met AI-kanalen die ByeAI-gebruikers hebben gemeld, één keer per dag gedownload. Er wordt niets over jou verstuurd." },
-  "optionsPermissionsAlarmsHtml": { "message": "<strong>alarms</strong>: de ByeAI Community-lijst één keer per dag downloaden" }
+  "optionsPermissionsAlarmsHtml": { "message": "<strong>alarms</strong>: de ByeAI Community-lijst één keer per dag downloaden" },
+  "optionsAutoShareLabel": { "message": "De community automatisch helpen" },
+  "optionsAutoShareText": { "message": "Als YouTube zelf een video als AI labelt, stuurt ByeAI alleen de naam van dat kanaal anoniem naar de Community-lijst." },
+  "optionsAutoShareCount": {
+    "message": "Automatisch gedeelde kanalen: $COUNT$",
+    "placeholders": {"count": {"content": "$1", "example": "3"}}
+  }
 }

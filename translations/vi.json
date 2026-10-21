@@ -129,5 +129,8 @@
   "optionsCommunityHeading": "ByeAI Community",
   "optionsCommunityLabel": "Dùng danh sách ByeAI Community",
   "optionsCommunityText": "Danh sách kênh AI do người dùng ByeAI báo cáo, tải về mỗi ngày một lần. Không gửi gì về bạn.",
-  "optionsPermissionsAlarmsHtml": "<strong>alarms</strong>: tải danh sách ByeAI Community mỗi ngày một lần"
+  "optionsPermissionsAlarmsHtml": "<strong>alarms</strong>: tải danh sách ByeAI Community mỗi ngày một lần",
+  "optionsAutoShareLabel": "Tự động giúp Community",
+  "optionsAutoShareText": "Khi chính YouTube gắn nhãn AI cho một video, ByeAI chỉ gửi tên kênh đó vào danh sách Community, ẩn danh.",
+  "optionsAutoShareCount": "Kênh đã tự động chia sẻ: $COUNT$"
 }

@@ -129,5 +129,8 @@
   "optionsCommunityHeading": "ByeAI Community",
   "optionsCommunityLabel": "ใช้รายการ ByeAI Community",
   "optionsCommunityText": "รายการช่อง AI ที่ผู้ใช้ ByeAI รายงาน ดาวน์โหลดวันละครั้ง ไม่มีการส่งข้อมูลใดๆ เกี่ยวกับคุณ",
-  "optionsPermissionsAlarmsHtml": "<strong>alarms</strong>: ดาวน์โหลดรายการ ByeAI Community วันละครั้ง"
+  "optionsPermissionsAlarmsHtml": "<strong>alarms</strong>: ดาวน์โหลดรายการ ByeAI Community วันละครั้ง",
+  "optionsAutoShareLabel": "ช่วย Community โดยอัตโนมัติ",
+  "optionsAutoShareText": "เมื่อ YouTube ติดป้ายวิดีโอว่าเป็น AI เอง ByeAI จะส่งเพียงชื่อช่องนั้นไปยังรายการ Community โดยไม่ระบุตัวตน",
+  "optionsAutoShareCount": "ช่องที่แชร์โดยอัตโนมัติ: $COUNT$"
 }

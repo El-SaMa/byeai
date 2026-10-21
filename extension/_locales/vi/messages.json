@@ -153,5 +153,11 @@
   "optionsCommunityHeading": { "message": "ByeAI Community" },
   "optionsCommunityLabel": { "message": "Dùng danh sách ByeAI Community" },
   "optionsCommunityText": { "message": "Danh sách kênh AI do người dùng ByeAI báo cáo, tải về mỗi ngày một lần. Không gửi gì về bạn." },
-  "optionsPermissionsAlarmsHtml": { "message": "<strong>alarms</strong>: tải danh sách ByeAI Community mỗi ngày một lần" }
+  "optionsPermissionsAlarmsHtml": { "message": "<strong>alarms</strong>: tải danh sách ByeAI Community mỗi ngày một lần" },
+  "optionsAutoShareLabel": { "message": "Tự động giúp Community" },
+  "optionsAutoShareText": { "message": "Khi chính YouTube gắn nhãn AI cho một video, ByeAI chỉ gửi tên kênh đó vào danh sách Community, ẩn danh." },
+  "optionsAutoShareCount": {
+    "message": "Kênh đã tự động chia sẻ: $COUNT$",
+    "placeholders": {"count": {"content": "$1", "example": "3"}}
+  }
 }

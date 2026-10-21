@@ -129,5 +129,8 @@
   "optionsCommunityHeading": "ByeAI Community",
   "optionsCommunityLabel": "Bruk ByeAI Community-listen",
   "optionsCommunityText": "En liste over KI-kanaler meldt inn av ByeAI-brukere, lastet ned én gang om dagen. Ingenting om deg blir sendt.",
-  "optionsPermissionsAlarmsHtml": "<strong>alarms</strong>: laste ned ByeAI Community-listen én gang om dagen"
+  "optionsPermissionsAlarmsHtml": "<strong>alarms</strong>: laste ned ByeAI Community-listen én gang om dagen",
+  "optionsAutoShareLabel": "Hjelp fellesskapet automatisk",
+  "optionsAutoShareText": "Når YouTube selv merker en video som KI, sender ByeAI bare navnet på kanalen til Community-listen, anonymt.",
+  "optionsAutoShareCount": "Kanaler delt automatisk: $COUNT$"
 }

@@ -153,5 +153,11 @@
   "optionsCommunityHeading": { "message": "ByeAI Community" },
   "optionsCommunityLabel": { "message": "Використовувати список ByeAI Community" },
   "optionsCommunityText": { "message": "Список ШІ-каналів, про які повідомили користувачі ByeAI. Завантажується раз на день. Про вас нічого не надсилається." },
-  "optionsPermissionsAlarmsHtml": { "message": "<strong>alarms</strong>: завантажувати список ByeAI Community раз на день" }
+  "optionsPermissionsAlarmsHtml": { "message": "<strong>alarms</strong>: завантажувати список ByeAI Community раз на день" },
+  "optionsAutoShareLabel": { "message": "Допомагати спільноті автоматично" },
+  "optionsAutoShareText": { "message": "Коли YouTube сам позначає відео як ШІ, ByeAI анонімно надсилає до списку Community лише назву каналу." },
+  "optionsAutoShareCount": {
+    "message": "Каналів надіслано автоматично: $COUNT$",
+    "placeholders": {"count": {"content": "$1", "example": "3"}}
+  }
 }

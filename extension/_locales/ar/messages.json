@@ -153,5 +153,11 @@
   "optionsCommunityHeading": { "message": "ByeAI Community" },
   "optionsCommunityLabel": { "message": "استخدام قائمة ByeAI Community" },
   "optionsCommunityText": { "message": "قائمة بقنوات الذكاء الاصطناعي التي أبلغ عنها مستخدمو ByeAI، تُنزَّل مرة يوميًا. لا يُرسَل أي شيء عنك." },
-  "optionsPermissionsAlarmsHtml": { "message": "<strong>alarms</strong>: تنزيل قائمة ByeAI Community مرة يوميًا" }
+  "optionsPermissionsAlarmsHtml": { "message": "<strong>alarms</strong>: تنزيل قائمة ByeAI Community مرة يوميًا" },
+  "optionsAutoShareLabel": { "message": "ساعد المجتمع تلقائيًا" },
+  "optionsAutoShareText": { "message": "عندما يضع YouTube نفسه علامة الذكاء الاصطناعي على فيديو، يرسل ByeAI اسم تلك القناة فقط إلى قائمة Community، دون الكشف عن هويتك." },
+  "optionsAutoShareCount": {
+    "message": "القنوات المُشارَكة تلقائيًا: $COUNT$",
+    "placeholders": {"count": {"content": "$1", "example": "3"}}
+  }
 }

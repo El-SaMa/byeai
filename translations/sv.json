@@ -129,5 +129,8 @@
   "optionsCommunityHeading": "ByeAI Community",
   "optionsCommunityLabel": "Använd ByeAI Community-listan",
   "optionsCommunityText": "En lista med AI-kanaler som ByeAI-användare har rapporterat, hämtas en gång om dagen. Inget om dig skickas.",
-  "optionsPermissionsAlarmsHtml": "<strong>alarms</strong>: hämta ByeAI Community-listan en gång om dagen"
+  "optionsPermissionsAlarmsHtml": "<strong>alarms</strong>: hämta ByeAI Community-listan en gång om dagen",
+  "optionsAutoShareLabel": "Hjälp communityn automatiskt",
+  "optionsAutoShareText": "När YouTube själv märker en video som AI skickar ByeAI bara kanalens namn till Community-listan, anonymt.",
+  "optionsAutoShareCount": "Kanaler som delats automatiskt: $COUNT$"
 }

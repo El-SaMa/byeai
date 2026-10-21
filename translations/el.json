@@ -129,5 +129,8 @@
   "optionsCommunityHeading": "ByeAI Community",
   "optionsCommunityLabel": "Χρήση της λίστας ByeAI Community",
   "optionsCommunityText": "Λίστα καναλιών AI που ανέφεραν χρήστες του ByeAI, λαμβάνεται μία φορά την ημέρα. Δεν στέλνεται τίποτα για εσάς.",
-  "optionsPermissionsAlarmsHtml": "<strong>alarms</strong>: λήψη της λίστας ByeAI Community μία φορά την ημέρα"
+  "optionsPermissionsAlarmsHtml": "<strong>alarms</strong>: λήψη της λίστας ByeAI Community μία φορά την ημέρα",
+  "optionsAutoShareLabel": "Αυτόματη βοήθεια στην κοινότητα",
+  "optionsAutoShareText": "Όταν το ίδιο το YouTube επισημαίνει ένα βίντεο ως AI, το ByeAI στέλνει μόνο το όνομα του καναλιού στη λίστα Community, ανώνυμα.",
+  "optionsAutoShareCount": "Κανάλια που κοινοποιήθηκαν αυτόματα: $COUNT$"
 }

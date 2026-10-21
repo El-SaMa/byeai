@@ -129,5 +129,8 @@
   "optionsCommunityHeading": "ByeAI Community",
   "optionsCommunityLabel": "ByeAI-Community-Liste verwenden",
   "optionsCommunityText": "Eine Liste von KI-Kanälen, gemeldet von ByeAI-Nutzern, einmal am Tag geladen. Über dich wird nichts gesendet.",
-  "optionsPermissionsAlarmsHtml": "<strong>alarms</strong>: lädt die ByeAI-Community-Liste einmal am Tag"
+  "optionsPermissionsAlarmsHtml": "<strong>alarms</strong>: lädt die ByeAI-Community-Liste einmal am Tag",
+  "optionsAutoShareLabel": "Der Community automatisch helfen",
+  "optionsAutoShareText": "Wenn YouTube selbst ein Video als KI kennzeichnet, sendet ByeAI nur den Namen des Kanals an die Community-Liste, anonym.",
+  "optionsAutoShareCount": "Automatisch geteilte Kanäle: $COUNT$"
 }

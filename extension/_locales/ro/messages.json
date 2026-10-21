@@ -153,5 +153,11 @@
   "optionsCommunityHeading": { "message": "ByeAI Community" },
   "optionsCommunityLabel": { "message": "Folosește lista ByeAI Community" },
   "optionsCommunityText": { "message": "O listă de canale AI raportate de utilizatorii ByeAI, descărcată o dată pe zi. Nu se trimite nimic despre tine." },
-  "optionsPermissionsAlarmsHtml": { "message": "<strong>alarms</strong>: descarcă lista ByeAI Community o dată pe zi" }
+  "optionsPermissionsAlarmsHtml": { "message": "<strong>alarms</strong>: descarcă lista ByeAI Community o dată pe zi" },
+  "optionsAutoShareLabel": { "message": "Ajută comunitatea automat" },
+  "optionsAutoShareText": { "message": "Când YouTube însuși marchează un videoclip ca AI, ByeAI trimite anonim doar numele canalului în lista Community." },
+  "optionsAutoShareCount": {
+    "message": "Canale trimise automat: $COUNT$",
+    "placeholders": {"count": {"content": "$1", "example": "3"}}
+  }
 }

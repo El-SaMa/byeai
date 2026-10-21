@@ -129,5 +129,8 @@
   "optionsCommunityHeading": "ByeAI Community",
   "optionsCommunityLabel": "ByeAI Community 목록 사용",
   "optionsCommunityText": "ByeAI 사용자들이 신고한 AI 채널 목록으로, 하루에 한 번 내려받습니다. 사용자에 관한 정보는 보내지 않습니다.",
-  "optionsPermissionsAlarmsHtml": "<strong>alarms</strong>: 하루에 한 번 ByeAI Community 목록 내려받기"
+  "optionsPermissionsAlarmsHtml": "<strong>alarms</strong>: 하루에 한 번 ByeAI Community 목록 내려받기",
+  "optionsAutoShareLabel": "Community에 자동으로 기여",
+  "optionsAutoShareText": "YouTube가 직접 동영상에 AI 라벨을 붙이면 ByeAI가 해당 채널 이름만 익명으로 Community 목록에 보냅니다.",
+  "optionsAutoShareCount": "자동으로 공유한 채널: $COUNT$"
 }

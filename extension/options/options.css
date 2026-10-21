@@ -194,3 +194,19 @@ body {
   display: block;
   margin-top: 2px;
 }
+
+.sub-setting {
+  margin: 14px 0 0;
+  padding-inline-start: 30px;
+}
+
+.sub-setting.disabled .check-row {
+  cursor: default;
+  opacity: 0.6;
+}
+
+.count-line {
+  margin: 6px 0 0;
+  padding-inline-start: 30px;
+  font-size: 13px;
+}

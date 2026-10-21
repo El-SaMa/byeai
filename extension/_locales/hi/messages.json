@@ -153,5 +153,11 @@
   "optionsCommunityHeading": { "message": "ByeAI Community" },
   "optionsCommunityLabel": { "message": "ByeAI Community सूची का उपयोग करें" },
   "optionsCommunityText": { "message": "ByeAI उपयोगकर्ताओं द्वारा बताए गए AI चैनलों की सूची, दिन में एक बार डाउनलोड होती है। आपके बारे में कुछ नहीं भेजा जाता।" },
-  "optionsPermissionsAlarmsHtml": { "message": "<strong>alarms</strong>: ByeAI Community सूची दिन में एक बार डाउनलोड करना" }
+  "optionsPermissionsAlarmsHtml": { "message": "<strong>alarms</strong>: ByeAI Community सूची दिन में एक बार डाउनलोड करना" },
+  "optionsAutoShareLabel": { "message": "कम्युनिटी की अपने आप मदद करें" },
+  "optionsAutoShareText": { "message": "जब YouTube खुद किसी वीडियो को AI बताता है, तो ByeAI सिर्फ़ उस चैनल का नाम Community सूची में गुमनाम रूप से भेजता है।" },
+  "optionsAutoShareCount": {
+    "message": "अपने आप साझा किए गए चैनल: $COUNT$",
+    "placeholders": {"count": {"content": "$1", "example": "3"}}
+  }
 }

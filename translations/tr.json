@@ -129,5 +129,8 @@
   "optionsCommunityHeading": "ByeAI Community",
   "optionsCommunityLabel": "ByeAI Community listesini kullan",
   "optionsCommunityText": "ByeAI kullanıcılarının bildirdiği YZ kanallarının listesi, günde bir kez indirilir. Sizinle ilgili hiçbir şey gönderilmez.",
-  "optionsPermissionsAlarmsHtml": "<strong>alarms</strong>: ByeAI Community listesini günde bir kez indirmek"
+  "optionsPermissionsAlarmsHtml": "<strong>alarms</strong>: ByeAI Community listesini günde bir kez indirmek",
+  "optionsAutoShareLabel": "Topluluğa otomatik yardım et",
+  "optionsAutoShareText": "YouTube bir videoyu kendisi YZ olarak etiketlediğinde ByeAI, Community listesine anonim olarak yalnızca kanalın adını gönderir.",
+  "optionsAutoShareCount": "Otomatik paylaşılan kanallar: $COUNT$"
 }

@@ -24,6 +24,9 @@ const COMMUNITY_MAX = 50000;
 const COMMUNITY_FRESH_MS = 23 * 60 * 60 * 1000;
 const SUGGEST_DAILY_LIMIT = 20;
 const SUGGEST_REASONS = ['labeled', 'tagged', 'manual'];
+// "Help the Community automatically": once per channel per 30 days.
+const AUTO_SHARE_MS = 30 * 24 * 60 * 60 * 1000;
+const AUTO_SHARE_MAX = 1000;
 
 const CATEGORIES = ['widgets', 'buttons', 'labeled'];
 // Switches in the popup. Counts still use the finer CATEGORIES.
@@ -42,6 +45,7 @@ const SYNC_DEFAULTS = {
   mediaAllowedHosts: [],
   showNotices: true,
   communityEnabled: true,
+  communityAutoShare: false,
 };
 const LOCAL_DEFAULTS = {
   totalBlocked: 0,
@@ -693,6 +697,52 @@ async function suggestChannel(message) {
   }
 }
 
+// "Help the Community automatically": a YouTube watch page showed YouTube's
+// own AI label. Sends the channel id and name only, and only when the
+// setting is on, the channel is not in the list and was not sent lately.
+async function autoShare(message, sender) {
+  const s = await getSettings();
+  if (!s.enabled || !s.features.labeled || !s.communityEnabled || !s.communityAutoShare) return { ok: false };
+  const host = bareHost(sender?.url || sender?.tab?.url || '');
+  if (!/(^|\.)youtube\.com$/.test(host)) return { ok: false };
+  if (hostnameAllowed(host, s.allowedHosts) || hostnameAllowed(host, s.mediaAllowedHosts)) return { ok: false };
+  const norm = globalThis.byeaiHiddenChannels.normId;
+  const ids = [...new Set([message.id, ...(Array.isArray(message.ids) ? message.ids : [])].map(norm).filter(Boolean))];
+  if (!ids.length) return { ok: false };
+
+  const community = await readCommunity();
+  if (community.channels.some((c) => ids.includes(c.id))) return { ok: false, listed: true };
+
+  const now = Date.now();
+  const { autoShared } = await chrome.storage.local.get({ autoShared: {} });
+  if (ids.some((id) => now - (autoShared[id] || 0) < AUTO_SHARE_MS)) return { ok: false, recent: true };
+
+  const result = await suggestChannel({ id: ids[0], n: message.n, why: 'labeled' });
+  if (result.limit) return result;
+  // Remember the try even when it failed, so a broken server is not hit on every visit.
+  ids.forEach((id) => {
+    autoShared[id] = now;
+  });
+  const kept = Object.entries(autoShared)
+    .filter(([, at]) => now - at < AUTO_SHARE_MS)
+    .sort((a, b) => a[1] - b[1])
+    .slice(-AUTO_SHARE_MAX);
+  const { autoSharedCount } = await chrome.storage.local.get({ autoSharedCount: 0 });
+  await chrome.storage.local.set({
+    autoShared: Object.fromEntries(kept),
+    autoSharedCount: autoSharedCount + (result.ok ? 1 : 0),
+  });
+  return result;
+}
+
+// One at a time, so two tabs never send the same channel twice.
+let autoShareQueue = Promise.resolve();
+function queueAutoShare(message, sender) {
+  const run = autoShareQueue.then(() => autoShare(message, sender));
+  autoShareQueue = run.catch(() => {});
+  return run.catch(() => ({ ok: false }));
+}
+
 // Hidden channels: one writer, so two tabs never overwrite each other.
 let hiddenQueue = Promise.resolve();
 function editHidden(fn) {
@@ -824,6 +874,8 @@ chrome.runtime.onMessage.addListener((message, sender, sendResponse) => {
         return { ok: true };
       case 'SUGGEST_CHANNEL':
         return suggestChannel(message);
+      case 'AUTO_SHARE_CHANNEL':
+        return queueAutoShare(message, sender);
       case 'COSMETIC_BLOCK': {
         const tabId = sender.tab?.id;
         if (typeof tabId === 'number') {

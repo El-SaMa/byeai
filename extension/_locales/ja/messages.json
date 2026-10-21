@@ -153,5 +153,11 @@
   "optionsCommunityHeading": { "message": "ByeAI Community" },
   "optionsCommunityLabel": { "message": "ByeAI Community リストを使う" },
   "optionsCommunityText": { "message": "ByeAIのユーザーが報告したAIチャンネルのリストで、1日1回ダウンロードされます。あなたに関する情報は送信されません。" },
-  "optionsPermissionsAlarmsHtml": { "message": "<strong>alarms</strong>：ByeAI Community リストを1日1回ダウンロードします" }
+  "optionsPermissionsAlarmsHtml": { "message": "<strong>alarms</strong>：ByeAI Community リストを1日1回ダウンロードします" },
+  "optionsAutoShareLabel": { "message": "Communityに自動で協力する" },
+  "optionsAutoShareText": { "message": "YouTube自身が動画にAIラベルを付けたとき、ByeAIはそのチャンネル名だけを匿名でCommunityリストに送ります。" },
+  "optionsAutoShareCount": {
+    "message": "自動で共有したチャンネル：$COUNT$",
+    "placeholders": {"count": {"content": "$1", "example": "3"}}
+  }
 }

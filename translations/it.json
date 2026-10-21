@@ -129,5 +129,8 @@
   "optionsCommunityHeading": "ByeAI Community",
   "optionsCommunityLabel": "Usa la lista ByeAI Community",
   "optionsCommunityText": "Una lista di canali IA segnalati dagli utenti di ByeAI, scaricata una volta al giorno. Non viene inviato nulla su di te.",
-  "optionsPermissionsAlarmsHtml": "<strong>alarms</strong>: scaricare la lista ByeAI Community una volta al giorno"
+  "optionsPermissionsAlarmsHtml": "<strong>alarms</strong>: scaricare la lista ByeAI Community una volta al giorno",
+  "optionsAutoShareLabel": "Aiuta la community in automatico",
+  "optionsAutoShareText": "Quando è YouTube stesso a etichettare un video come IA, ByeAI invia solo il nome del canale alla lista Community, in forma anonima.",
+  "optionsAutoShareCount": "Canali condivisi in automatico: $COUNT$"
 }

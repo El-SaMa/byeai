@@ -129,5 +129,8 @@
   "optionsCommunityHeading": "ByeAI Community",
   "optionsCommunityLabel": "ByeAI Community सूची का उपयोग करें",
   "optionsCommunityText": "ByeAI उपयोगकर्ताओं द्वारा बताए गए AI चैनलों की सूची, दिन में एक बार डाउनलोड होती है। आपके बारे में कुछ नहीं भेजा जाता।",
-  "optionsPermissionsAlarmsHtml": "<strong>alarms</strong>: ByeAI Community सूची दिन में एक बार डाउनलोड करना"
+  "optionsPermissionsAlarmsHtml": "<strong>alarms</strong>: ByeAI Community सूची दिन में एक बार डाउनलोड करना",
+  "optionsAutoShareLabel": "कम्युनिटी की अपने आप मदद करें",
+  "optionsAutoShareText": "जब YouTube खुद किसी वीडियो को AI बताता है, तो ByeAI सिर्फ़ उस चैनल का नाम Community सूची में गुमनाम रूप से भेजता है।",
+  "optionsAutoShareCount": "अपने आप साझा किए गए चैनल: $COUNT$"
 }

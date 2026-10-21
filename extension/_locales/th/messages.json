@@ -153,5 +153,11 @@
   "optionsCommunityHeading": { "message": "ByeAI Community" },
   "optionsCommunityLabel": { "message": "ใช้รายการ ByeAI Community" },
   "optionsCommunityText": { "message": "รายการช่อง AI ที่ผู้ใช้ ByeAI รายงาน ดาวน์โหลดวันละครั้ง ไม่มีการส่งข้อมูลใดๆ เกี่ยวกับคุณ" },
-  "optionsPermissionsAlarmsHtml": { "message": "<strong>alarms</strong>: ดาวน์โหลดรายการ ByeAI Community วันละครั้ง" }
+  "optionsPermissionsAlarmsHtml": { "message": "<strong>alarms</strong>: ดาวน์โหลดรายการ ByeAI Community วันละครั้ง" },
+  "optionsAutoShareLabel": { "message": "ช่วย Community โดยอัตโนมัติ" },
+  "optionsAutoShareText": { "message": "เมื่อ YouTube ติดป้ายวิดีโอว่าเป็น AI เอง ByeAI จะส่งเพียงชื่อช่องนั้นไปยังรายการ Community โดยไม่ระบุตัวตน" },
+  "optionsAutoShareCount": {
+    "message": "ช่องที่แชร์โดยอัตโนมัติ: $COUNT$",
+    "placeholders": {"count": {"content": "$1", "example": "3"}}
+  }
 }

@@ -49,6 +49,16 @@
             <span class="muted" data-i18n="optionsCommunityText">A list of AI channels reported by ByeAI users, downloaded once a day. Nothing about you is sent.</span>
           </span>
         </label>
+        <div class="sub-setting" id="autoShareRow">
+          <label class="check-row" for="communityAutoShare">
+            <input type="checkbox" id="communityAutoShare" aria-describedby="autoShareText autoShareCount" />
+            <span>
+              <strong data-i18n="optionsAutoShareLabel">Help the Community automatically</strong>
+              <span class="muted" id="autoShareText" data-i18n="optionsAutoShareText">When YouTube itself labels a video as AI, ByeAI sends just that channel's name to the Community list, anonymously.</span>
+            </span>
+          </label>
+          <p class="muted count-line" id="autoShareCount" aria-live="polite"></p>
+        </div>
       </section>
 
       <section class="panel">

@@ -176,5 +176,11 @@
   "optionsCommunityHeading": { "message": "ByeAI Community" },
   "optionsCommunityLabel": { "message": "Use the ByeAI Community list" },
   "optionsCommunityText": { "message": "A list of AI channels reported by ByeAI users, downloaded once a day. Nothing about you is sent." },
-  "optionsPermissionsAlarmsHtml": { "message": "<strong>alarms</strong>: download the ByeAI Community list once a day" }
+  "optionsPermissionsAlarmsHtml": { "message": "<strong>alarms</strong>: download the ByeAI Community list once a day" },
+  "optionsAutoShareLabel": { "message": "Help the Community automatically" },
+  "optionsAutoShareText": { "message": "When YouTube itself labels a video as AI, ByeAI sends just that channel's name to the Community list, anonymously." },
+  "optionsAutoShareCount": {
+    "message": "Channels shared automatically: $COUNT$",
+    "placeholders": { "count": { "content": "$1", "example": "3" } }
+  }
 }

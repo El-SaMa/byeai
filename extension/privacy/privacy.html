@@ -94,7 +94,7 @@
           <li>We do <strong>not</strong> send your browsing history to our servers.</li>
           <li>Your settings are kept in Chrome storage. If you use Chrome sync, Google syncs them to your other devices. We never receive them.</li>
           <li>Once a day ByeAI downloads the public ByeAI Community list of AI channels from oma.lanetti.fi. It is a plain download that carries no data about you.</li>
-          <li>A channel suggestion is sent only when you click <strong>Suggest as AI channel</strong>. It is anonymous.</li>
+          <li>A channel suggestion is sent only when you click <strong>Suggest as AI channel</strong>, or, if you turned on <strong>Help the Community automatically</strong> (off by default), when YouTube itself labels a video you open as AI. It is anonymous.</li>
         </ul>
       </div>
 
@@ -140,13 +140,20 @@
         suggestions a day.
       </p>
       <p>
+        <strong>Help the Community automatically.</strong> This setting is off by default. If you turn it on,
+        and YouTube itself labels a video you open as AI, ByeAI sends that channel's id and name with the
+        reason "labeled" and the ByeAI version, anonymously, the same way as a suggestion. It sends at most
+        once per channel per 30 days, never for a channel already in the Community list, and counts toward
+        the 20 a day. Nothing else about the video or about you is sent: no video, no address, no title.
+      </p>
+      <p>
         The <strong>Report</strong> link in the popup opens a prefilled GitHub issue with the page address
         (without query parameters). Nothing is sent unless you submit that issue yourself on GitHub.
       </p>
 
       <h2>3. Information we collect</h2>
       <p><strong>We do not collect personal information from you.</strong></p>
-      <p>ByeAI does not require an account and does not operate backend servers that receive your browsing data. The only thing that reaches us is a channel suggestion you choose to send (see section 2).</p>
+      <p>ByeAI does not require an account and does not operate backend servers that receive your browsing data. The only thing that reaches us is a channel suggestion you choose to send, or that "Help the Community automatically" sends if you turned it on (see section 2).</p>
 
       <h2>4. Information stored by the extension</h2>
       <p>Your settings are saved with Chrome's own storage sync. If Chrome sync is on, Google stores them with your Chrome profile and copies them to your other devices. If it is off, they stay on this device. We never receive them:</p>
@@ -156,7 +163,7 @@
         <li>A list of websites where you chose to show AI videos and images</li>
         <li>Whether ByeAI shows its small "blocked AI on this page" notice</li>
         <li>YouTube channels you chose to hide (up to 500 channel ids and names)</li>
-        <li>Whether the ByeAI Community list is used</li>
+        <li>Whether the ByeAI Community list is used, and whether "Help the Community automatically" is on</li>
       </ul>
       <p>These are kept on this device only:</p>
       <ul>
@@ -167,6 +174,7 @@
         <li>AI apps you allowed once, for that tab only. Cleared when you leave the site, close the tab or close Chrome</li>
         <li>The latest copy of the ByeAI Community list and when it was downloaded</li>
         <li>How many suggestions were sent today, to keep to the daily limit</li>
+        <li>Channel ids shared automatically in the last 30 days, with the time (up to 1000), so each channel is sent only once, and how many were shared</li>
       </ul>
       <p>
         This data stays in your browser profile. We cannot access it remotely unless you choose to share
@@ -291,7 +299,7 @@
           <li><strong>Emme</strong> lähetä selaushistoriaasi palvelimillemme.</li>
           <li>Asetuksesi tallennetaan Chromen tallennustilaan. Jos käytät Chromen synkronointia, Google synkronoi ne muille laitteillesi. Me emme saa niitä.</li>
           <li>Kerran päivässä ByeAI lataa julkisen ByeAI Community -listan tekoälykanavista osoitteesta oma.lanetti.fi. Se on pelkkä lataus, eikä siinä lähetetä mitään tietoja sinusta.</li>
-          <li>Kanavaehdotus lähetetään vain, kun painat <strong>Ehdota tekoälykanavaksi</strong>. Se on nimetön.</li>
+          <li>Kanavaehdotus lähetetään vain, kun painat <strong>Ehdota tekoälykanavaksi</strong>, tai jos olet laittanut päälle asetuksen <strong>Auta yhteisöä automaattisesti</strong> (oletuksena pois), kun YouTube itse merkitsee avaamasi videon tekoälyksi. Se on nimetön.</li>
         </ul>
       </div>
 
@@ -337,13 +345,21 @@
         jolla lasketaan, moniko eri ihminen on ehdottanut kanavaa. ByeAI lähettää enintään 20 ehdotusta päivässä.
       </p>
       <p>
+        <strong>Auta yhteisöä automaattisesti.</strong> Asetus on oletuksena pois. Jos laitat sen päälle ja
+        YouTube itse merkitsee avaamasi videon tekoälyksi, ByeAI lähettää nimettömästi kanavan tunnuksen ja
+        nimen, syyn ”labeled” ja ByeAI:n version, samaan tapaan kuin ehdotuksen. Samasta kanavasta lähetetään
+        enintään kerran 30 päivässä, ei koskaan kanavasta, joka on jo Community-listalla, ja lähetykset
+        lasketaan mukaan 20 päivittäiseen ehdotukseen. Videosta tai sinusta ei lähetetä mitään muuta: ei videota,
+        osoitetta eikä otsikkoa.
+      </p>
+      <p>
         Ponnahdusikkunan <strong>Ilmoita</strong>-linkki avaa valmiiksi täytetyn GitHub-ilmoituksen, jossa on sivun
         osoite ilman kyselyparametreja. Mitään ei lähetetä, ellet itse lähetä ilmoitusta GitHubissa.
       </p>
 
       <h2>3. Mitä tietoja keräämme</h2>
       <p><strong>Emme kerää sinusta henkilötietoja.</strong></p>
-      <p>ByeAI ei vaadi tilin luomista eikä käytä taustapalvelimia, jotka vastaanottaisivat selaustietojasi. Meille päätyy vain kanavaehdotus, jonka itse päätät lähettää (katso kohta 2).</p>
+      <p>ByeAI ei vaadi tilin luomista eikä käytä taustapalvelimia, jotka vastaanottaisivat selaustietojasi. Meille päätyy vain kanavaehdotus, jonka itse päätät lähettää tai jonka ”Auta yhteisöä automaattisesti” lähettää, jos olet laittanut sen päälle (katso kohta 2).</p>
 
       <h2>4. Laajennuksen tallentamat tiedot</h2>
       <p>Asetuksesi tallennetaan Chromen omalla synkronoinnilla. Jos Chromen synkronointi on päällä, Google säilyttää ne Chrome-profiilisi mukana ja kopioi ne muille laitteillesi. Jos se on pois, ne pysyvät tällä laitteella. Me emme saa niitä:</p>
@@ -353,7 +369,7 @@
         <li>Lista sivustoista, joilla olet valinnut näyttää tekoälyvideot ja -kuvat</li>
         <li>Näyttääkö ByeAI pienen ”esti tekoälyn tällä sivulla” -ilmoituksen</li>
         <li>YouTube-kanavat, jotka olet piilottanut (enintään 500 kanavan tunnusta ja nimeä)</li>
-        <li>Onko ByeAI Community -lista käytössä</li>
+        <li>Onko ByeAI Community -lista käytössä ja onko ”Auta yhteisöä automaattisesti” päällä</li>
       </ul>
       <p>Nämä pysyvät vain tällä laitteella:</p>
       <ul>
@@ -364,6 +380,7 @@
         <li>Kerran sallitut tekoälysovellukset, vain kyseisessä välilehdessä. Tieto poistuu, kun poistut sivustolta, suljet välilehden tai suljet Chromen</li>
         <li>Viimeisin ByeAI Community -lista ja sen latausaika</li>
         <li>Tänään lähetettyjen ehdotusten määrä päivärajaa varten</li>
+        <li>Viimeisen 30 päivän aikana automaattisesti jaettujen kanavien tunnukset ja ajat (enintään 1000), jotta samaa kanavaa ei lähetetä uudelleen, sekä jaettujen määrä</li>
       </ul>
       <p>
         Nämä tiedot pysyvät selainprofiilissasi. Emme pääse niihin etänä, ellet itse jaa tietoa meille

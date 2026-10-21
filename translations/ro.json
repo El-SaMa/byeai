@@ -129,5 +129,8 @@
   "optionsCommunityHeading": "ByeAI Community",
   "optionsCommunityLabel": "Folosește lista ByeAI Community",
   "optionsCommunityText": "O listă de canale AI raportate de utilizatorii ByeAI, descărcată o dată pe zi. Nu se trimite nimic despre tine.",
-  "optionsPermissionsAlarmsHtml": "<strong>alarms</strong>: descarcă lista ByeAI Community o dată pe zi"
+  "optionsPermissionsAlarmsHtml": "<strong>alarms</strong>: descarcă lista ByeAI Community o dată pe zi",
+  "optionsAutoShareLabel": "Ajută comunitatea automat",
+  "optionsAutoShareText": "Când YouTube însuși marchează un videoclip ca AI, ByeAI trimite anonim doar numele canalului în lista Community.",
+  "optionsAutoShareCount": "Canale trimise automat: $COUNT$"
 }

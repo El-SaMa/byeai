@@ -153,5 +153,11 @@
   "optionsCommunityHeading": { "message": "ByeAI Community" },
   "optionsCommunityLabel": { "message": "Gunakan daftar ByeAI Community" },
   "optionsCommunityText": { "message": "Daftar kanal AI yang dilaporkan pengguna ByeAI, diunduh sekali sehari. Tidak ada data tentang Anda yang dikirim." },
-  "optionsPermissionsAlarmsHtml": { "message": "<strong>alarms</strong>: mengunduh daftar ByeAI Community sekali sehari" }
+  "optionsPermissionsAlarmsHtml": { "message": "<strong>alarms</strong>: mengunduh daftar ByeAI Community sekali sehari" },
+  "optionsAutoShareLabel": { "message": "Bantu Community secara otomatis" },
+  "optionsAutoShareText": { "message": "Saat YouTube sendiri melabeli video sebagai AI, ByeAI hanya mengirim nama kanal itu ke daftar Community, secara anonim." },
+  "optionsAutoShareCount": {
+    "message": "Kanal yang dibagikan otomatis: $COUNT$",
+    "placeholders": {"count": {"content": "$1", "example": "3"}}
+  }
 }

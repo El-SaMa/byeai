@@ -129,5 +129,8 @@
   "optionsCommunityHeading": "ByeAI Community",
   "optionsCommunityLabel": "使用 ByeAI Community 清單",
   "optionsCommunityText": "由 ByeAI 使用者回報的 AI 頻道清單，每天下載一次。不會傳送任何關於你的資訊。",
-  "optionsPermissionsAlarmsHtml": "<strong>alarms</strong>：每天下載一次 ByeAI Community 清單"
+  "optionsPermissionsAlarmsHtml": "<strong>alarms</strong>：每天下載一次 ByeAI Community 清單",
+  "optionsAutoShareLabel": "自動協助社群",
+  "optionsAutoShareText": "當 YouTube 自己將影片標示為 AI 時，ByeAI 只會匿名將該頻道的名稱傳送到 Community 清單。",
+  "optionsAutoShareCount": "已自動分享的頻道：$COUNT$"
 }

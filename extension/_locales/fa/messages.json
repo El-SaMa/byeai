@@ -153,5 +153,11 @@
   "optionsCommunityHeading": { "message": "ByeAI Community" },
   "optionsCommunityLabel": { "message": "استفاده از فهرست ByeAI Community" },
   "optionsCommunityText": { "message": "فهرستی از کانال‌های هوش مصنوعی که کاربران ByeAI گزارش داده‌اند، روزی یک بار دریافت می‌شود. هیچ چیزی دربارهٔ شما ارسال نمی‌شود." },
-  "optionsPermissionsAlarmsHtml": { "message": "<strong>alarms</strong>: دریافت فهرست ByeAI Community روزی یک بار" }
+  "optionsPermissionsAlarmsHtml": { "message": "<strong>alarms</strong>: دریافت فهرست ByeAI Community روزی یک بار" },
+  "optionsAutoShareLabel": { "message": "کمک خودکار به جامعه" },
+  "optionsAutoShareText": { "message": "وقتی خود YouTube ویدیویی را هوش مصنوعی برچسب بزند، ByeAI فقط نام آن کانال را به‌صورت ناشناس به فهرست Community می‌فرستد." },
+  "optionsAutoShareCount": {
+    "message": "کانال‌های هم‌رسانی‌شده به‌صورت خودکار: $COUNT$",
+    "placeholders": {"count": {"content": "$1", "example": "3"}}
+  }
 }

@@ -129,5 +129,8 @@
   "optionsCommunityHeading": "ByeAI Community",
   "optionsCommunityLabel": "Používat seznam ByeAI Community",
   "optionsCommunityText": "Seznam AI kanálů nahlášených uživateli ByeAI, stahuje se jednou denně. Nic o vás se neodesílá.",
-  "optionsPermissionsAlarmsHtml": "<strong>alarms</strong>: stahovat seznam ByeAI Community jednou denně"
+  "optionsPermissionsAlarmsHtml": "<strong>alarms</strong>: stahovat seznam ByeAI Community jednou denně",
+  "optionsAutoShareLabel": "Pomáhat komunitě automaticky",
+  "optionsAutoShareText": "Když YouTube sám označí video jako AI, ByeAI anonymně pošle do seznamu Community jen název kanálu.",
+  "optionsAutoShareCount": "Automaticky sdílené kanály: $COUNT$"
 }

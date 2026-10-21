@@ -153,5 +153,11 @@
   "optionsCommunityHeading": { "message": "ByeAI Community" },
   "optionsCommunityLabel": { "message": "Χρήση της λίστας ByeAI Community" },
   "optionsCommunityText": { "message": "Λίστα καναλιών AI που ανέφεραν χρήστες του ByeAI, λαμβάνεται μία φορά την ημέρα. Δεν στέλνεται τίποτα για εσάς." },
-  "optionsPermissionsAlarmsHtml": { "message": "<strong>alarms</strong>: λήψη της λίστας ByeAI Community μία φορά την ημέρα" }
+  "optionsPermissionsAlarmsHtml": { "message": "<strong>alarms</strong>: λήψη της λίστας ByeAI Community μία φορά την ημέρα" },
+  "optionsAutoShareLabel": { "message": "Αυτόματη βοήθεια στην κοινότητα" },
+  "optionsAutoShareText": { "message": "Όταν το ίδιο το YouTube επισημαίνει ένα βίντεο ως AI, το ByeAI στέλνει μόνο το όνομα του καναλιού στη λίστα Community, ανώνυμα." },
+  "optionsAutoShareCount": {
+    "message": "Κανάλια που κοινοποιήθηκαν αυτόματα: $COUNT$",
+    "placeholders": {"count": {"content": "$1", "example": "3"}}
+  }
 }

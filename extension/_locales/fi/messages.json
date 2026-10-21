@@ -176,5 +176,11 @@
   "optionsCommunityHeading": { "message": "ByeAI Community" },
   "optionsCommunityLabel": { "message": "Käytä ByeAI Community -listaa" },
   "optionsCommunityText": { "message": "ByeAI-käyttäjien ilmoittamat tekoälykanavat, ladataan kerran päivässä. Sinusta ei lähetetä mitään." },
-  "optionsPermissionsAlarmsHtml": { "message": "<strong>alarms</strong>: lataa ByeAI Community -listan kerran päivässä" }
+  "optionsPermissionsAlarmsHtml": { "message": "<strong>alarms</strong>: lataa ByeAI Community -listan kerran päivässä" },
+  "optionsAutoShareLabel": { "message": "Auta yhteisöä automaattisesti" },
+  "optionsAutoShareText": { "message": "Kun YouTube itse merkitsee videon tekoälyksi, ByeAI lähettää Community-listalle vain kanavan nimen, nimettömästi." },
+  "optionsAutoShareCount": {
+    "message": "Automaattisesti jaetut kanavat: $COUNT$",
+    "placeholders": { "count": { "content": "$1", "example": "3" } }
+  }
 }

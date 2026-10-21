@@ -464,6 +464,24 @@ html[data-byeai-labeled="1"] [data-byeai-cover="community"]::after {
     return signature('community', null, info.id) !== covers.get(card)?.sig;
   }
 
+  // "Help the Community automatically": when YouTube's own AI label covers
+  // the player, tell the service worker whose video it is. The worker checks
+  // the setting and decides whether to send. Labels in comments do not count.
+  const told = new Set();
+  function shareLabeled() {
+    if (!channels || site !== 'youtube' || location.pathname !== '/watch') return;
+    const player = document.querySelector('#movie_player');
+    const info = player && covers.get(player);
+    if (info?.kind !== 'labeled' || !info.source?.isConnected) return;
+    if (info.source.closest('ytd-comments, #comments, yt-live-chat-renderer')) return;
+    const channel = channels.watch();
+    if (!channel || channels.community(channel) || channel.ids.some((id) => told.has(id))) return;
+    channel.ids.forEach((id) => told.add(id));
+    chrome.runtime
+      .sendMessage({ type: 'AUTO_SHARE_CHANNEL', id: channel.id, ids: channel.ids, n: channel.n })
+      .catch(() => {});
+  }
+
   // Cards get recycled by infinite feeds and SPA navigation. Drop covers
   // whose reason is gone, and covers for categories that were switched off.
   function recheckCovers() {
@@ -544,6 +562,7 @@ html[data-byeai-labeled="1"] [data-byeai-cover="community"]::after {
         scanCommunity(root);
       }
     }
+    if (s.labeled) shareLabeled();
   }
 
   function flush() {

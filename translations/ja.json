@@ -129,5 +129,8 @@
   "optionsCommunityHeading": "ByeAI Community",
   "optionsCommunityLabel": "ByeAI Community リストを使う",
   "optionsCommunityText": "ByeAIのユーザーが報告したAIチャンネルのリストで、1日1回ダウンロードされます。あなたに関する情報は送信されません。",
-  "optionsPermissionsAlarmsHtml": "<strong>alarms</strong>：ByeAI Community リストを1日1回ダウンロードします"
+  "optionsPermissionsAlarmsHtml": "<strong>alarms</strong>：ByeAI Community リストを1日1回ダウンロードします",
+  "optionsAutoShareLabel": "Communityに自動で協力する",
+  "optionsAutoShareText": "YouTube自身が動画にAIラベルを付けたとき、ByeAIはそのチャンネル名だけを匿名でCommunityリストに送ります。",
+  "optionsAutoShareCount": "自動で共有したチャンネル：$COUNT$"
 }

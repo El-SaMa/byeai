@@ -153,5 +153,11 @@
   "optionsCommunityHeading": { "message": "ByeAI Community" },
   "optionsCommunityLabel": { "message": "A ByeAI Community lista használata" },
   "optionsCommunityText": { "message": "A ByeAI-felhasználók által jelentett MI-csatornák listája, naponta egyszer töltődik le. Rólad semmit nem küldünk el." },
-  "optionsPermissionsAlarmsHtml": { "message": "<strong>alarms</strong>: a ByeAI Community lista napi egyszeri letöltése" }
+  "optionsPermissionsAlarmsHtml": { "message": "<strong>alarms</strong>: a ByeAI Community lista napi egyszeri letöltése" },
+  "optionsAutoShareLabel": { "message": "A közösség automatikus segítése" },
+  "optionsAutoShareText": { "message": "Ha maga a YouTube jelöl meg egy videót MI-ként, a ByeAI névtelenül csak a csatorna nevét küldi el a Community listának." },
+  "optionsAutoShareCount": {
+    "message": "Automatikusan megosztott csatornák: $COUNT$",
+    "placeholders": {"count": {"content": "$1", "example": "3"}}
+  }
 }

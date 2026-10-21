@@ -129,5 +129,8 @@
   "optionsCommunityHeading": "ByeAI Community",
   "optionsCommunityLabel": "Использовать список ByeAI Community",
   "optionsCommunityText": "Список ИИ-каналов, о которых сообщили пользователи ByeAI. Загружается раз в день. О вас ничего не отправляется.",
-  "optionsPermissionsAlarmsHtml": "<strong>alarms</strong>: загружать список ByeAI Community раз в день"
+  "optionsPermissionsAlarmsHtml": "<strong>alarms</strong>: загружать список ByeAI Community раз в день",
+  "optionsAutoShareLabel": "Помогать сообществу автоматически",
+  "optionsAutoShareText": "Когда YouTube сам помечает видео как ИИ, ByeAI анонимно отправляет в список Community только название канала.",
+  "optionsAutoShareCount": "Каналов отправлено автоматически: $COUNT$"
 }

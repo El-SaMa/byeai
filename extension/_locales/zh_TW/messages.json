@@ -153,5 +153,11 @@
   "optionsCommunityHeading": { "message": "ByeAI Community" },
   "optionsCommunityLabel": { "message": "使用 ByeAI Community 清單" },
   "optionsCommunityText": { "message": "由 ByeAI 使用者回報的 AI 頻道清單，每天下載一次。不會傳送任何關於你的資訊。" },
-  "optionsPermissionsAlarmsHtml": { "message": "<strong>alarms</strong>：每天下載一次 ByeAI Community 清單" }
+  "optionsPermissionsAlarmsHtml": { "message": "<strong>alarms</strong>：每天下載一次 ByeAI Community 清單" },
+  "optionsAutoShareLabel": { "message": "自動協助社群" },
+  "optionsAutoShareText": { "message": "當 YouTube 自己將影片標示為 AI 時，ByeAI 只會匿名將該頻道的名稱傳送到 Community 清單。" },
+  "optionsAutoShareCount": {
+    "message": "已自動分享的頻道：$COUNT$",
+    "placeholders": {"count": {"content": "$1", "example": "3"}}
+  }
 }

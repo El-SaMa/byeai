@@ -153,5 +153,11 @@
   "optionsCommunityHeading": { "message": "ByeAI Community" },
   "optionsCommunityLabel": { "message": "Utiliser la liste ByeAI Community" },
   "optionsCommunityText": { "message": "Une liste de chaînes IA signalées par les utilisateurs de ByeAI, téléchargée une fois par jour. Rien sur vous n’est envoyé." },
-  "optionsPermissionsAlarmsHtml": { "message": "<strong>alarms</strong> : télécharger la liste ByeAI Community une fois par jour" }
+  "optionsPermissionsAlarmsHtml": { "message": "<strong>alarms</strong> : télécharger la liste ByeAI Community une fois par jour" },
+  "optionsAutoShareLabel": { "message": "Aider la communauté automatiquement" },
+  "optionsAutoShareText": { "message": "Quand YouTube indique lui-même qu’une vidéo est de l’IA, ByeAI envoie seulement le nom de la chaîne à la liste Community, de façon anonyme." },
+  "optionsAutoShareCount": {
+    "message": "Chaînes partagées automatiquement : $COUNT$",
+    "placeholders": {"count": {"content": "$1", "example": "3"}}
+  }
 }
