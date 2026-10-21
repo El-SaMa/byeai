@@ -49,7 +49,7 @@
   "featureWidgets": { "message": "Assistentes de IA" },
   "featureWidgetsDesc": { "message": "Chatbots, respostas de IA, Grok, Gemini, Copilot" },
   "featureLabeled": { "message": "Vídeos e imagens de IA" },
-  "featureLabeledDesc": { "message": "Desfoca o que os sites marcam como IA ou com #aiart" },
+  "featureLabeledDesc": { "message": "Desfoca o que os sites marcam como IA ou com #aiart, e canais da ByeAI Community" },
   "coverTagged": {
     "message": "Etiqueta $TAG$\nClique para ver",
     "placeholders": {"tag": {"content": "$1", "example": "#aiart"}}
@@ -134,5 +134,24 @@
   "optionsFooterVersion": {
     "message": "ByeAI v$VERSION$",
     "placeholders": {"version": {"content": "$1", "example": "1.0.3"}}
-  }
+  },
+  "channelHide": { "message": "Ocultar canal" },
+  "channelUnhide": { "message": "Mostrar canal" },
+  "channelHidden": {
+    "message": "$NAME$ ocultado",
+    "placeholders": {"name": {"content": "$1", "example": "Slop Studio"}}
+  },
+  "channelUndo": { "message": "Anular" },
+  "channelSuggest": { "message": "Sugerir como canal de IA" },
+  "channelSuggestSent": { "message": "Obrigado, sugestão enviada" },
+  "channelSuggestFailed": { "message": "Não foi possível enviar, tente mais tarde" },
+  "coverCommunity": { "message": "Na lista da ByeAI Community\nClique para ver" },
+  "optionsHiddenHeading": { "message": "Canais ocultos" },
+  "optionsHiddenIntro": { "message": "Canais do YouTube que ocultou. Os vídeos deles não aparecem em lado nenhum do YouTube." },
+  "optionsHiddenEmpty": { "message": "Ainda não há canais ocultos. Passe o rato sobre um vídeo do YouTube e use o botão no canto." },
+  "optionsUnhideBtn": { "message": "Mostrar" },
+  "optionsCommunityHeading": { "message": "ByeAI Community" },
+  "optionsCommunityLabel": { "message": "Usar a lista da ByeAI Community" },
+  "optionsCommunityText": { "message": "Uma lista de canais de IA comunicados por utilizadores do ByeAI, transferida uma vez por dia. Nada sobre si é enviado." },
+  "optionsPermissionsAlarmsHtml": { "message": "<strong>alarms</strong>: transferir a lista da ByeAI Community uma vez por dia" }
 }

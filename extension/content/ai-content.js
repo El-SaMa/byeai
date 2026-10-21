@@ -40,6 +40,8 @@
     { id: 'linkedin', match: /(^|\.)linkedin\.com$/ },
   ];
   const site = (SITES.find((s) => s.match.test(host)) || { id: 'other' }).id;
+  // YouTube channel helpers from channels.js (hidden channels, Community list).
+  const channels = byeai.channels || null;
 
   // A "card" is the post, tile or video we cover when it carries an AI label.
   const CARDS = {
@@ -192,19 +194,22 @@
 
   const COVER_CSS = `
 html[data-byeai-labeled="1"] [data-byeai-cover="labeled"],
-html[data-byeai-labeled="1"] [data-byeai-cover="tagged"] {
+html[data-byeai-labeled="1"] [data-byeai-cover="tagged"],
+html[data-byeai-labeled="1"] [data-byeai-cover="community"] {
   isolation: isolate !important;
   overflow: hidden !important;
   cursor: pointer !important;
 }
 html[data-byeai-labeled="1"] [data-byeai-cover="labeled"] > *,
-html[data-byeai-labeled="1"] [data-byeai-cover="tagged"] > * {
+html[data-byeai-labeled="1"] [data-byeai-cover="tagged"] > *,
+html[data-byeai-labeled="1"] [data-byeai-cover="community"] > * {
   filter: blur(26px) saturate(0.4) !important;
   pointer-events: none !important;
   user-select: none !important;
 }
 html[data-byeai-labeled="1"] [data-byeai-cover="labeled"]::after,
-html[data-byeai-labeled="1"] [data-byeai-cover="tagged"]::after {
+html[data-byeai-labeled="1"] [data-byeai-cover="tagged"]::after,
+html[data-byeai-labeled="1"] [data-byeai-cover="community"]::after {
   content: attr(data-byeai-note) !important;
   position: absolute !important;
   inset: 0 !important;
@@ -298,24 +303,36 @@ html[data-byeai-labeled="1"] [data-byeai-cover="tagged"]::after {
     return ids.get(el);
   }
 
-  function signature(kind, source) {
+  // Community covers carry the channel id, so a recycled tile of another
+  // listed channel is covered again.
+  function signature(kind, source, tag = '') {
+    if (kind === 'community') return `community:${tag}`;
     return `${kind}:${source ? normalize(source.textContent || '').slice(0, 80) : ''}`;
+  }
+
+  const isPlayer = (card) => card.id === 'movie_player' || card.matches('ytd-player');
+  const channelOf = (card) => (channels ? (isPlayer(card) ? channels.watch() : channels.of(card)) : null);
+
+  function coverNote(kind, tag) {
+    if (kind === 'labeled') return msg('coverLabeled', 'Labeled as AI by the site\nClick to show');
+    if (kind === 'community') return msg('coverCommunity', 'In the ByeAI Community list\nClick to show');
+    return msg('coverTagged', `Tagged ${tag}\nClick to show`, [tag]);
   }
 
   function cover(card, kind, source, tag = '') {
     if (!card || card === document.body || card === document.documentElement) return;
-    if (revealed.get(card) === signature(kind, source)) return;
+    const sig = signature(kind, source, tag);
+    if (revealed.get(card) === sig) return;
     const current = covers.get(card);
     if (current && (current.kind === 'labeled' || current.kind === kind)) return;
+    // Remember which channels showed AI, for the reason of a suggestion.
+    if (channels && kind !== 'community') channels.noteAi(channelOf(card), kind);
 
-    covers.set(card, { kind, source });
+    covers.set(card, { kind, source, sig });
     coveredList.add(card);
     card.dataset.byeaiCover = kind;
     // Say why it is covered, so a wrong call at least explains itself.
-    card.dataset.byeaiNote =
-      kind === 'labeled'
-        ? msg('coverLabeled', 'Labeled as AI by the site\nClick to show')
-        : msg('coverTagged', `Tagged ${tag}\nClick to show`, [tag]);
+    card.dataset.byeaiNote = coverNote(kind, tag);
     if (getComputedStyle(card).position === 'static') {
       card.style.setProperty('position', 'relative');
       card.dataset.byeaiPos = '1';
@@ -422,6 +439,31 @@ html[data-byeai-labeled="1"] [data-byeai-cover="tagged"]::after {
     });
   }
 
+  // Tiles and the watch page of channels in the ByeAI Community list.
+  // Channels you hid yourself are gone completely (channels.js), so skip them.
+  function scanCommunity(root) {
+    if (!channels || !cardSelector) return;
+    const cards = root.matches?.(cardSelector) ? [root] : [];
+    root.querySelectorAll(cardSelector).forEach((c) => cards.push(c));
+    for (const card of cards) {
+      // Nested tiles: cover the outer one only.
+      if (covers.has(card) || card.parentElement?.closest(cardSelector)) continue;
+      const info = channels.of(card);
+      if (channels.community(info) && !channels.hidden(info)) cover(card, 'community', null, info.id);
+    }
+    const player = document.querySelector('#movie_player');
+    if (player && !covers.has(player)) {
+      const info = channels.watch();
+      if (channels.community(info) && !channels.hidden(info)) cover(player, 'community', null, info.id);
+    }
+  }
+
+  function communityStale(card) {
+    const info = channelOf(card);
+    if (!channels.community(info) || channels.hidden(info)) return true;
+    return signature('community', null, info.id) !== covers.get(card)?.sig;
+  }
+
   // Cards get recycled by infinite feeds and SPA navigation. Drop covers
   // whose reason is gone, and covers for categories that were switched off.
   function recheckCovers() {
@@ -436,6 +478,8 @@ html[data-byeai-labeled="1"] [data-byeai-cover="tagged"]::after {
       if (info.kind === 'labeled') {
         const src = info.source;
         stale = !src || !src.isConnected || !isLabel(src.textContent || src.getAttribute?.('aria-label') || '');
+      } else if (info.kind === 'community') {
+        stale = communityStale(card);
       } else {
         stale = !findTag(cardText(card));
       }
@@ -454,7 +498,7 @@ html[data-byeai-labeled="1"] [data-byeai-cover="tagged"]::after {
       if (!byeai.state.labeled) return;
       event.preventDefault();
       event.stopImmediatePropagation();
-      revealed.set(card, signature(card.dataset.byeaiCover, info?.source || null));
+      revealed.set(card, info?.sig || signature(card.dataset.byeaiCover, null));
       uncover(card);
     },
     true
@@ -497,6 +541,7 @@ html[data-byeai-labeled="1"] [data-byeai-cover="tagged"]::after {
       if (s.labeled) {
         scanLabels(root);
         scanTags(root);
+        scanCommunity(root);
       }
     }
   }
@@ -529,6 +574,10 @@ html[data-byeai-labeled="1"] [data-byeai-cover="tagged"]::after {
 
   injectStyles();
   byeai.onChange(() => {
+    if (document.body) run([document.body]);
+  });
+  // Hidden channels or the Community list changed.
+  channels?.onChange(() => {
     if (document.body) run([document.body]);
   });
 

@@ -24,6 +24,7 @@ test('every key used in pages and scripts exists', () => {
     'blocked/blocked.html',
     'blocked/blocked.js',
     'content/notice.js',
+    'content/channels.js',
   ].map(read);
   const used = new Set();
   for (const src of sources) {
@@ -46,6 +47,7 @@ test('no long dashes in user-facing text', () => {
 test('manifest asks only for what it needs', () => {
   const manifest = JSON.parse(read('manifest.json'));
   assert.deepEqual(manifest.permissions.sort(), [
+    'alarms',
     'declarativeNetRequest',
     'declarativeNetRequestFeedback',
     'storage',

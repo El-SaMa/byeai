@@ -49,7 +49,7 @@
   "featureWidgets": { "message": "ผู้ช่วย AI" },
   "featureWidgetsDesc": { "message": "แชตบอต, คำตอบจาก AI, Grok, Gemini, Copilot" },
   "featureLabeled": { "message": "วิดีโอและรูปภาพ AI" },
-  "featureLabeledDesc": { "message": "เบลอสิ่งที่เว็บติดป้ายว่า AI หรือติดแท็ก #aiart" },
+  "featureLabeledDesc": { "message": "เบลอสิ่งที่เว็บติดป้ายว่า AI หรือติดแท็ก #aiart รวมถึงช่องในรายการ ByeAI Community" },
   "coverTagged": {
     "message": "แท็ก $TAG$\nคลิกเพื่อดู",
     "placeholders": {"tag": {"content": "$1", "example": "#aiart"}}
@@ -134,5 +134,24 @@
   "optionsFooterVersion": {
     "message": "ByeAI v$VERSION$",
     "placeholders": {"version": {"content": "$1", "example": "1.0.3"}}
-  }
+  },
+  "channelHide": { "message": "ซ่อนช่อง" },
+  "channelUnhide": { "message": "แสดงช่อง" },
+  "channelHidden": {
+    "message": "ซ่อน $NAME$ แล้ว",
+    "placeholders": {"name": {"content": "$1", "example": "Slop Studio"}}
+  },
+  "channelUndo": { "message": "เลิกทำ" },
+  "channelSuggest": { "message": "เสนอว่าเป็นช่อง AI" },
+  "channelSuggestSent": { "message": "ขอบคุณ ส่งคำแนะนำแล้ว" },
+  "channelSuggestFailed": { "message": "ส่งไม่สำเร็จ ลองใหม่ภายหลัง" },
+  "coverCommunity": { "message": "อยู่ในรายการ ByeAI Community\nคลิกเพื่อดู" },
+  "optionsHiddenHeading": { "message": "ช่องที่ซ่อนไว้" },
+  "optionsHiddenIntro": { "message": "ช่อง YouTube ที่คุณซ่อนไว้ วิดีโอของช่องเหล่านี้จะไม่แสดงที่ใดบน YouTube" },
+  "optionsHiddenEmpty": { "message": "ยังไม่มีช่องที่ซ่อนไว้ ชี้เมาส์ที่วิดีโอ YouTube แล้วใช้ปุ่มที่มุมของวิดีโอ" },
+  "optionsUnhideBtn": { "message": "แสดง" },
+  "optionsCommunityHeading": { "message": "ByeAI Community" },
+  "optionsCommunityLabel": { "message": "ใช้รายการ ByeAI Community" },
+  "optionsCommunityText": { "message": "รายการช่อง AI ที่ผู้ใช้ ByeAI รายงาน ดาวน์โหลดวันละครั้ง ไม่มีการส่งข้อมูลใดๆ เกี่ยวกับคุณ" },
+  "optionsPermissionsAlarmsHtml": { "message": "<strong>alarms</strong>: ดาวน์โหลดรายการ ByeAI Community วันละครั้ง" }
 }

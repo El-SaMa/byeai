@@ -49,7 +49,7 @@
   "featureWidgets": { "message": "KI-Assistenten" },
   "featureWidgetsDesc": { "message": "Chatbots, KI-Antworten, Grok, Gemini, Copilot" },
   "featureLabeled": { "message": "KI-Videos und -Bilder" },
-  "featureLabeledDesc": { "message": "Verwischt, was Seiten als KI markieren oder mit #aiart taggen" },
+  "featureLabeledDesc": { "message": "Verwischt, was Seiten als KI markieren oder mit #aiart taggen, plus Kanäle aus der ByeAI Community" },
   "coverTagged": {
     "message": "Getaggt mit $TAG$\nZum Anzeigen klicken",
     "placeholders": {"tag": {"content": "$1", "example": "#aiart"}}
@@ -134,5 +134,24 @@
   "optionsFooterVersion": {
     "message": "ByeAI v$VERSION$",
     "placeholders": {"version": {"content": "$1", "example": "1.0.3"}}
-  }
+  },
+  "channelHide": { "message": "Kanal ausblenden" },
+  "channelUnhide": { "message": "Kanal wieder zeigen" },
+  "channelHidden": {
+    "message": "$NAME$ ausgeblendet",
+    "placeholders": {"name": {"content": "$1", "example": "Slop Studio"}}
+  },
+  "channelUndo": { "message": "Rückgängig" },
+  "channelSuggest": { "message": "Als KI-Kanal vorschlagen" },
+  "channelSuggestSent": { "message": "Danke, Vorschlag gesendet" },
+  "channelSuggestFailed": { "message": "Senden fehlgeschlagen, bitte später erneut versuchen" },
+  "coverCommunity": { "message": "Auf der ByeAI-Community-Liste\nZum Anzeigen klicken" },
+  "optionsHiddenHeading": { "message": "Ausgeblendete Kanäle" },
+  "optionsHiddenIntro": { "message": "YouTube-Kanäle, die du ausgeblendet hast. Ihre Videos tauchen nirgends auf YouTube auf." },
+  "optionsHiddenEmpty": { "message": "Noch keine ausgeblendeten Kanäle. Zeig auf ein YouTube-Video und nutze den Knopf in seiner Ecke." },
+  "optionsUnhideBtn": { "message": "Wieder zeigen" },
+  "optionsCommunityHeading": { "message": "ByeAI Community" },
+  "optionsCommunityLabel": { "message": "ByeAI-Community-Liste verwenden" },
+  "optionsCommunityText": { "message": "Eine Liste von KI-Kanälen, gemeldet von ByeAI-Nutzern, einmal am Tag geladen. Über dich wird nichts gesendet." },
+  "optionsPermissionsAlarmsHtml": { "message": "<strong>alarms</strong>: lädt die ByeAI-Community-Liste einmal am Tag" }
 }

@@ -49,7 +49,7 @@
   "featureWidgets": { "message": "KI-assistenter" },
   "featureWidgetsDesc": { "message": "Chatboter, KI-svar, Grok, Gemini, Copilot" },
   "featureLabeled": { "message": "KI-videoer og -bilder" },
-  "featureLabeledDesc": { "message": "Gjør uskarpt det nettsteder merker som KI eller tagger #aiart" },
+  "featureLabeledDesc": { "message": "Gjør uskarpt det nettsteder merker som KI eller tagger #aiart, og kanaler fra ByeAI Community" },
   "coverTagged": {
     "message": "Tagget $TAG$\nKlikk for å vise",
     "placeholders": {"tag": {"content": "$1", "example": "#aiart"}}
@@ -134,5 +134,24 @@
   "optionsFooterVersion": {
     "message": "ByeAI v$VERSION$",
     "placeholders": {"version": {"content": "$1", "example": "1.0.3"}}
-  }
+  },
+  "channelHide": { "message": "Skjul kanal" },
+  "channelUnhide": { "message": "Vis kanal" },
+  "channelHidden": {
+    "message": "Skjulte $NAME$",
+    "placeholders": {"name": {"content": "$1", "example": "Slop Studio"}}
+  },
+  "channelUndo": { "message": "Angre" },
+  "channelSuggest": { "message": "Foreslå som KI-kanal" },
+  "channelSuggestSent": { "message": "Takk, forslaget er sendt" },
+  "channelSuggestFailed": { "message": "Kunne ikke sende, prøv igjen senere" },
+  "coverCommunity": { "message": "På ByeAI Community-listen\nKlikk for å vise" },
+  "optionsHiddenHeading": { "message": "Skjulte kanaler" },
+  "optionsHiddenIntro": { "message": "YouTube-kanaler du har skjult. Videoene deres vises ikke noe sted på YouTube." },
+  "optionsHiddenEmpty": { "message": "Ingen skjulte kanaler ennå. Pek på en YouTube-video og bruk knappen i hjørnet." },
+  "optionsUnhideBtn": { "message": "Vis igjen" },
+  "optionsCommunityHeading": { "message": "ByeAI Community" },
+  "optionsCommunityLabel": { "message": "Bruk ByeAI Community-listen" },
+  "optionsCommunityText": { "message": "En liste over KI-kanaler meldt inn av ByeAI-brukere, lastet ned én gang om dagen. Ingenting om deg blir sendt." },
+  "optionsPermissionsAlarmsHtml": { "message": "<strong>alarms</strong>: laste ned ByeAI Community-listen én gang om dagen" }
 }

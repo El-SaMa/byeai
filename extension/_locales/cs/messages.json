@@ -49,7 +49,7 @@
   "featureWidgets": { "message": "AI asistenti" },
   "featureWidgetsDesc": { "message": "Chatboti, AI odpovědi, Grok, Gemini, Copilot" },
   "featureLabeled": { "message": "AI videa a obrázky" },
-  "featureLabeledDesc": { "message": "Rozmaže, co weby označí jako AI nebo štítkem #aiart" },
+  "featureLabeledDesc": { "message": "Rozmaže, co weby označí jako AI nebo štítkem #aiart, i kanály z ByeAI Community" },
   "coverTagged": {
     "message": "Štítek $TAG$\nKlikněte pro zobrazení",
     "placeholders": {"tag": {"content": "$1", "example": "#aiart"}}
@@ -134,5 +134,24 @@
   "optionsFooterVersion": {
     "message": "ByeAI v$VERSION$",
     "placeholders": {"version": {"content": "$1", "example": "1.0.3"}}
-  }
+  },
+  "channelHide": { "message": "Skrýt kanál" },
+  "channelUnhide": { "message": "Zobrazit kanál" },
+  "channelHidden": {
+    "message": "Skryto: $NAME$",
+    "placeholders": {"name": {"content": "$1", "example": "Slop Studio"}}
+  },
+  "channelUndo": { "message": "Zpět" },
+  "channelSuggest": { "message": "Navrhnout jako AI kanál" },
+  "channelSuggestSent": { "message": "Díky, návrh odeslán" },
+  "channelSuggestFailed": { "message": "Nepodařilo se odeslat, zkuste to později" },
+  "coverCommunity": { "message": "V seznamu ByeAI Community\nKlikněte pro zobrazení" },
+  "optionsHiddenHeading": { "message": "Skryté kanály" },
+  "optionsHiddenIntro": { "message": "Kanály na YouTube, které jste skryli. Jejich videa se na YouTube nikde nezobrazí." },
+  "optionsHiddenEmpty": { "message": "Zatím žádné skryté kanály. Najeďte myší na video na YouTube a použijte tlačítko v jeho rohu." },
+  "optionsUnhideBtn": { "message": "Zobrazit" },
+  "optionsCommunityHeading": { "message": "ByeAI Community" },
+  "optionsCommunityLabel": { "message": "Používat seznam ByeAI Community" },
+  "optionsCommunityText": { "message": "Seznam AI kanálů nahlášených uživateli ByeAI, stahuje se jednou denně. Nic o vás se neodesílá." },
+  "optionsPermissionsAlarmsHtml": { "message": "<strong>alarms</strong>: stahovat seznam ByeAI Community jednou denně" }
 }

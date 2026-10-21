@@ -49,7 +49,7 @@
   "featureWidgets": { "message": "Βοηθοί AI" },
   "featureWidgetsDesc": { "message": "Chatbot, απαντήσεις AI, Grok, Gemini, Copilot" },
   "featureLabeled": { "message": "Βίντεο και εικόνες AI" },
-  "featureLabeledDesc": { "message": "Θολώνει ό,τι σημαίνουν οι ιστότοποι ως AI ή με #aiart" },
+  "featureLabeledDesc": { "message": "Θολώνει ό,τι σημαίνουν οι ιστότοποι ως AI ή με #aiart, και κανάλια της ByeAI Community" },
   "coverTagged": {
     "message": "Ετικέτα $TAG$\nΚάντε κλικ για εμφάνιση",
     "placeholders": {"tag": {"content": "$1", "example": "#aiart"}}
@@ -134,5 +134,24 @@
   "optionsFooterVersion": {
     "message": "ByeAI v$VERSION$",
     "placeholders": {"version": {"content": "$1", "example": "1.0.3"}}
-  }
+  },
+  "channelHide": { "message": "Απόκρυψη καναλιού" },
+  "channelUnhide": { "message": "Εμφάνιση καναλιού" },
+  "channelHidden": {
+    "message": "Κρύφτηκε: $NAME$",
+    "placeholders": {"name": {"content": "$1", "example": "Slop Studio"}}
+  },
+  "channelUndo": { "message": "Αναίρεση" },
+  "channelSuggest": { "message": "Πρόταση ως κανάλι AI" },
+  "channelSuggestSent": { "message": "Ευχαριστούμε, η πρόταση στάλθηκε" },
+  "channelSuggestFailed": { "message": "Η αποστολή απέτυχε, δοκιμάστε αργότερα" },
+  "coverCommunity": { "message": "Στη λίστα ByeAI Community\nΚάντε κλικ για εμφάνιση" },
+  "optionsHiddenHeading": { "message": "Κρυφά κανάλια" },
+  "optionsHiddenIntro": { "message": "Κανάλια YouTube που κρύψατε. Τα βίντεό τους δεν εμφανίζονται πουθενά στο YouTube." },
+  "optionsHiddenEmpty": { "message": "Δεν υπάρχουν ακόμη κρυφά κανάλια. Περάστε τον δείκτη πάνω από ένα βίντεο στο YouTube και πατήστε το κουμπί στη γωνία του." },
+  "optionsUnhideBtn": { "message": "Εμφάνιση" },
+  "optionsCommunityHeading": { "message": "ByeAI Community" },
+  "optionsCommunityLabel": { "message": "Χρήση της λίστας ByeAI Community" },
+  "optionsCommunityText": { "message": "Λίστα καναλιών AI που ανέφεραν χρήστες του ByeAI, λαμβάνεται μία φορά την ημέρα. Δεν στέλνεται τίποτα για εσάς." },
+  "optionsPermissionsAlarmsHtml": { "message": "<strong>alarms</strong>: λήψη της λίστας ByeAI Community μία φορά την ημέρα" }
 }

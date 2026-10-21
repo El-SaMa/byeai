@@ -49,7 +49,7 @@
   "featureWidgets": { "message": "Trợ lý AI" },
   "featureWidgetsDesc": { "message": "Chatbot, câu trả lời AI, Grok, Gemini, Copilot" },
   "featureLabeled": { "message": "Video và hình ảnh AI" },
-  "featureLabeledDesc": { "message": "Làm mờ nội dung trang web gắn nhãn AI hoặc thẻ #aiart" },
+  "featureLabeledDesc": { "message": "Làm mờ nội dung trang web gắn nhãn AI hoặc thẻ #aiart, và các kênh trong ByeAI Community" },
   "coverTagged": {
     "message": "Thẻ $TAG$\nNhấp để xem",
     "placeholders": {"tag": {"content": "$1", "example": "#aiart"}}
@@ -134,5 +134,24 @@
   "optionsFooterVersion": {
     "message": "ByeAI v$VERSION$",
     "placeholders": {"version": {"content": "$1", "example": "1.0.3"}}
-  }
+  },
+  "channelHide": { "message": "Ẩn kênh" },
+  "channelUnhide": { "message": "Hiện kênh" },
+  "channelHidden": {
+    "message": "Đã ẩn $NAME$",
+    "placeholders": {"name": {"content": "$1", "example": "Slop Studio"}}
+  },
+  "channelUndo": { "message": "Hoàn tác" },
+  "channelSuggest": { "message": "Đề xuất là kênh AI" },
+  "channelSuggestSent": { "message": "Cảm ơn, đã gửi đề xuất" },
+  "channelSuggestFailed": { "message": "Không gửi được, hãy thử lại sau" },
+  "coverCommunity": { "message": "Có trong danh sách ByeAI Community\nNhấp để xem" },
+  "optionsHiddenHeading": { "message": "Kênh đã ẩn" },
+  "optionsHiddenIntro": { "message": "Các kênh YouTube bạn đã ẩn. Video của họ sẽ không hiện ở bất kỳ đâu trên YouTube." },
+  "optionsHiddenEmpty": { "message": "Chưa có kênh nào bị ẩn. Di chuột lên một video YouTube và dùng nút ở góc video." },
+  "optionsUnhideBtn": { "message": "Hiện" },
+  "optionsCommunityHeading": { "message": "ByeAI Community" },
+  "optionsCommunityLabel": { "message": "Dùng danh sách ByeAI Community" },
+  "optionsCommunityText": { "message": "Danh sách kênh AI do người dùng ByeAI báo cáo, tải về mỗi ngày một lần. Không gửi gì về bạn." },
+  "optionsPermissionsAlarmsHtml": { "message": "<strong>alarms</strong>: tải danh sách ByeAI Community mỗi ngày một lần" }
 }

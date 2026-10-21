@@ -1,4 +1,4 @@
-importScripts('../shared/ai-apps.js');
+importScripts('../shared/ai-apps.js', '../shared/hidden-channels.js');
 
 const RULESET_ID = 'core_network';
 const GOOGLE_RULESET_ID = 'google_search';
@@ -13,6 +13,17 @@ const BLOCK_RESOURCE_TYPES = ['script', 'sub_frame', 'xmlhttprequest', 'websocke
 const BLOCKED_PAGE = 'blocked/blocked.html';
 // Hosts that already got the "ByeAI blocked AI on this page" notice.
 const NOTICE_LIMIT = 500;
+
+// ByeAI Community list: a public list of AI channels, downloaded once a day.
+const COMMUNITY_URL = 'https://oma.lanetti.fi/api/byeai/community/v1/list';
+const SUGGEST_URL = 'https://oma.lanetti.fi/api/byeai/community/v1/suggest';
+const COMMUNITY_FILE = 'lists/community.json';
+const COMMUNITY_ALARM = 'byeai-community';
+const COMMUNITY_MAX = 50000;
+// A bit under a day, so the daily alarm never finds the list "still fresh".
+const COMMUNITY_FRESH_MS = 23 * 60 * 60 * 1000;
+const SUGGEST_DAILY_LIMIT = 20;
+const SUGGEST_REASONS = ['labeled', 'tagged', 'manual'];
 
 const CATEGORIES = ['widgets', 'buttons', 'labeled'];
 // Switches in the popup. Counts still use the finer CATEGORIES.
@@ -30,6 +41,7 @@ const SYNC_DEFAULTS = {
   allowedHosts: [],
   mediaAllowedHosts: [],
   showNotices: true,
+  communityEnabled: true,
 };
 const LOCAL_DEFAULTS = {
   totalBlocked: 0,
@@ -562,7 +574,156 @@ async function removeAllowedHost(hostname) {
   return toggleAllowSite(hostname, false);
 }
 
+// --- ByeAI Community list and hidden channels ---
+
+async function communityWanted() {
+  const s = await getSettings();
+  return Boolean(s.enabled && s.features.labeled && s.communityEnabled);
+}
+
+// Keep only what we use, in the shape the content script expects.
+function cleanCommunity(data) {
+  if (!data || typeof data !== 'object' || !Array.isArray(data.channels)) return null;
+  const channels = [];
+  for (const c of data.channels) {
+    if (c?.p !== 'youtube') continue;
+    const id = globalThis.byeaiHiddenChannels.normId(c.id);
+    if (!id) continue;
+    channels.push({ p: 'youtube', id, n: typeof c.n === 'string' ? c.n.slice(0, 100) : '' });
+    if (channels.length >= COMMUNITY_MAX) break;
+  }
+  return {
+    version: Number.isFinite(data.version) ? data.version : 0,
+    updatedAt: typeof data.updatedAt === 'string' ? data.updatedAt : '',
+    channels,
+  };
+}
+
+// The list bundled with the extension, used until the first download.
+async function readCommunity() {
+  const { community } = await chrome.storage.local.get({ community: null });
+  if (community) return community;
+  let bundled = null;
+  try {
+    bundled = cleanCommunity(await (await fetch(chrome.runtime.getURL(COMMUNITY_FILE))).json());
+  } catch {
+    // ignore
+  }
+  const seed = { ...(bundled || { version: 0, updatedAt: '', channels: [] }), etag: '', fetchedAt: 0 };
+  await chrome.storage.local.set({ community: seed });
+  return seed;
+}
+
+// A plain GET: no cookies, no user data. Any error keeps the old list.
+async function downloadCommunity(force) {
+  if (!(await communityWanted())) return 'off';
+  const current = await readCommunity();
+  if (!force && Date.now() - (current.fetchedAt || 0) < COMMUNITY_FRESH_MS) return 'fresh';
+  try {
+    const headers = current.etag ? { 'If-None-Match': current.etag } : {};
+    const res = await fetch(COMMUNITY_URL, {
+      credentials: 'omit',
+      cache: 'no-store',
+      referrerPolicy: 'no-referrer',
+      headers,
+    });
+    if (res.status === 304) {
+      await chrome.storage.local.set({ community: { ...current, fetchedAt: Date.now() } });
+      return 'same';
+    }
+    if (!res.ok) return 'error';
+    const list = cleanCommunity(await res.json());
+    if (!list) return 'error';
+    await chrome.storage.local.set({
+      community: { ...list, etag: res.headers.get('ETag') || '', fetchedAt: Date.now() },
+    });
+    return 'updated';
+  } catch {
+    return 'error';
+  }
+}
+
+let communityQueue = Promise.resolve();
+function refreshCommunity(force = false) {
+  const run = communityQueue.then(() => downloadCommunity(force));
+  communityQueue = run.catch(() => {});
+  return run.catch(() => 'error');
+}
+
+// Daily alarm while the list is in use. Off: no alarm, no downloads.
+async function syncCommunity({ force = false } = {}) {
+  if (!(await communityWanted())) {
+    await chrome.alarms.clear(COMMUNITY_ALARM);
+    return;
+  }
+  if (!(await chrome.alarms.get(COMMUNITY_ALARM))) {
+    await chrome.alarms.create(COMMUNITY_ALARM, { delayInMinutes: 24 * 60, periodInMinutes: 24 * 60 });
+  }
+  await refreshCommunity(force);
+}
+
+// Only when you click "Suggest as AI channel". Channel id, name and reason, nothing else.
+async function suggestChannel(message) {
+  const id = globalThis.byeaiHiddenChannels.normId(message.id);
+  if (!id) return { ok: false };
+  const day = new Date().toISOString().slice(0, 10);
+  const { suggestCount } = await chrome.storage.local.get({ suggestCount: { day: '', count: 0 } });
+  const count = suggestCount.day === day ? suggestCount.count : 0;
+  if (count >= SUGGEST_DAILY_LIMIT) return { ok: false, limit: true };
+  await chrome.storage.local.set({ suggestCount: { day, count: count + 1 } });
+  const body = {
+    p: 'youtube',
+    id,
+    n: String(message.n || '').slice(0, 100),
+    why: SUGGEST_REASONS.includes(message.why) ? message.why : 'manual',
+    v: chrome.runtime.getManifest().version,
+  };
+  try {
+    const res = await fetch(SUGGEST_URL, {
+      method: 'POST',
+      credentials: 'omit',
+      cache: 'no-store',
+      referrerPolicy: 'no-referrer',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(body),
+    });
+    return { ok: res.ok };
+  } catch {
+    return { ok: false };
+  }
+}
+
+// Hidden channels: one writer, so two tabs never overwrite each other.
+let hiddenQueue = Promise.resolve();
+function editHidden(fn) {
+  const store = globalThis.byeaiHiddenChannels;
+  const run = hiddenQueue.then(async () => store.write(fn(await store.read())));
+  hiddenQueue = run.catch(() => {});
+  return run;
+}
+
+function hideChannel(channel) {
+  const entry = globalThis.byeaiHiddenChannels.clean(channel);
+  if (!entry) return Promise.resolve();
+  const ids = new Set([entry.id, entry.a].filter(Boolean));
+  return editHidden((list) => [...list.filter((c) => !ids.has(c.id) && !ids.has(c.a)), entry]);
+}
+
+function unhideChannel(ids) {
+  const set = new Set((Array.isArray(ids) ? ids : [ids]).map(globalThis.byeaiHiddenChannels.normId).filter(Boolean));
+  return editHidden((list) => list.filter((c) => !set.has(c.id) && !set.has(c.a)));
+}
+
+chrome.alarms.onAlarm.addListener((alarm) => {
+  if (alarm.name === COMMUNITY_ALARM) refreshCommunity();
+});
+
+chrome.runtime.onStartup.addListener(() => {
+  syncCommunity().catch(() => {});
+});
+
 chrome.runtime.onInstalled.addListener(async (details) => {
+  syncCommunity({ force: true }).catch(() => {});
   await migrateToSync();
   const settings = await getSettings();
   await syncRulesetEnabled(settings);
@@ -655,6 +816,14 @@ chrome.runtime.onMessage.addListener((message, sender, sendResponse) => {
         if (typeof tabId !== 'number' || sender.frameId !== 0) return { show: false };
         return noticeReady(tabId, bareHost(sender.url || sender.tab.url || ''));
       }
+      case 'HIDE_CHANNEL':
+        await hideChannel(message.channel);
+        return { ok: true };
+      case 'UNHIDE_CHANNEL':
+        await unhideChannel(message.ids);
+        return { ok: true };
+      case 'SUGGEST_CHANNEL':
+        return suggestChannel(message);
       case 'COSMETIC_BLOCK': {
         const tabId = sender.tab?.id;
         if (typeof tabId === 'number') {
@@ -676,6 +845,7 @@ chrome.storage.onChanged.addListener(async (changes, area) => {
   if (area !== 'sync') return;
   if (changes.enabled || changes.features) await syncRulesetEnabled(await getSettings());
   if (changes.enabled || changes.features || changes.allowedHosts) await syncDynamicRules();
+  if (changes.enabled || changes.features || changes.communityEnabled) await syncCommunity();
 });
 
 migrateToSync().then(getSettings).then(async (settings) => {

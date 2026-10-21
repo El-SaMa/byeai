@@ -49,7 +49,7 @@
   "featureWidgets": { "message": "ШІ-асистенти" },
   "featureWidgetsDesc": { "message": "Чат-боти, відповіді ШІ, Grok, Gemini, Copilot" },
   "featureLabeled": { "message": "ШІ-відео та зображення" },
-  "featureLabeledDesc": { "message": "Розмиває те, що сайти позначають як ШІ або тегом #aiart" },
+  "featureLabeledDesc": { "message": "Розмиває те, що сайти позначають як ШІ або тегом #aiart, а також канали з ByeAI Community" },
   "coverTagged": {
     "message": "Тег $TAG$\nНатисніть, щоб показати",
     "placeholders": {"tag": {"content": "$1", "example": "#aiart"}}
@@ -134,5 +134,24 @@
   "optionsFooterVersion": {
     "message": "ByeAI v$VERSION$",
     "placeholders": {"version": {"content": "$1", "example": "1.0.3"}}
-  }
+  },
+  "channelHide": { "message": "Сховати канал" },
+  "channelUnhide": { "message": "Показати канал" },
+  "channelHidden": {
+    "message": "Канал $NAME$ сховано",
+    "placeholders": {"name": {"content": "$1", "example": "Slop Studio"}}
+  },
+  "channelUndo": { "message": "Скасувати" },
+  "channelSuggest": { "message": "Запропонувати як ШІ-канал" },
+  "channelSuggestSent": { "message": "Дякуємо, пропозицію надіслано" },
+  "channelSuggestFailed": { "message": "Не вдалося надіслати, спробуйте пізніше" },
+  "coverCommunity": { "message": "У списку ByeAI Community\nНатисніть, щоб показати" },
+  "optionsHiddenHeading": { "message": "Сховані канали" },
+  "optionsHiddenIntro": { "message": "Канали YouTube, які ви сховали. Їхні відео ніде не з’являються на YouTube." },
+  "optionsHiddenEmpty": { "message": "Схованих каналів поки немає. Наведіть курсор на відео на YouTube і натисніть кнопку в його куті." },
+  "optionsUnhideBtn": { "message": "Показати" },
+  "optionsCommunityHeading": { "message": "ByeAI Community" },
+  "optionsCommunityLabel": { "message": "Використовувати список ByeAI Community" },
+  "optionsCommunityText": { "message": "Список ШІ-каналів, про які повідомили користувачі ByeAI. Завантажується раз на день. Про вас нічого не надсилається." },
+  "optionsPermissionsAlarmsHtml": { "message": "<strong>alarms</strong>: завантажувати список ByeAI Community раз на день" }
 }

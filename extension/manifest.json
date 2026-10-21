@@ -2,7 +2,7 @@
   "manifest_version": 3,
   "name": "__MSG_appName__",
   "short_name": "__MSG_appShortName__",
-  "version": "1.2.2",
+  "version": "1.3.0",
   "default_locale": "en",
   "description": "__MSG_appDescription__",
   "minimum_chrome_version": "109",
@@ -24,6 +24,7 @@
     "service_worker": "background/service-worker.js"
   },
   "permissions": [
+    "alarms",
     "declarativeNetRequest",
     "declarativeNetRequestFeedback",
     "storage",
@@ -55,7 +56,14 @@
   "content_scripts": [
     {
       "matches": ["http://*/*", "https://*/*"],
-      "js": ["shared/ai-apps.js", "content/byeai-flag.js", "content/ai-content.js", "content/notice.js"],
+      "js": [
+        "shared/ai-apps.js",
+        "shared/hidden-channels.js",
+        "content/byeai-flag.js",
+        "content/channels.js",
+        "content/ai-content.js",
+        "content/notice.js"
+      ],
       "css": ["content/google-search.css", "content/content.css"],
       "run_at": "document_start"
     },

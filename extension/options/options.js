@@ -5,6 +5,10 @@ const resetStatsBtn = document.getElementById('resetStatsBtn');
 const privacyLink = document.getElementById('privacyLink');
 const footerVersion = document.getElementById('footerVersion');
 const showNotices = document.getElementById('showNotices');
+const hiddenList = document.getElementById('hiddenList');
+const emptyHidden = document.getElementById('emptyHidden');
+const communityEnabled = document.getElementById('communityEnabled');
+const hiddenStore = window.byeaiHiddenChannels;
 
 const t = (key, args) =>
   (window.byeaiI18n && window.byeaiI18n.msg(key, args)) || '';
@@ -18,7 +22,7 @@ try {
   // ignore
 }
 
-function addRow(host, note, buttonText, onClick) {
+function addRow(host, note, buttonText, onClick, list = allowedList) {
   const li = document.createElement('li');
   const span = document.createElement('span');
   span.textContent = host;
@@ -39,18 +43,26 @@ function addRow(host, note, buttonText, onClick) {
 
   li.appendChild(span);
   li.appendChild(btn);
-  allowedList.appendChild(li);
+  list.appendChild(li);
 }
 
 async function load() {
   const [synced, local] = await Promise.all([
-    chrome.storage.sync.get({ allowedHosts: [], mediaAllowedHosts: [], showNotices: true }),
+    chrome.storage.sync.get({
+      allowedHosts: [],
+      mediaAllowedHosts: [],
+      showNotices: true,
+      communityEnabled: true,
+      ...Object.fromEntries(hiddenStore.KEYS.map((k) => [k, []])),
+    }),
     chrome.storage.local.get({ totalBlocked: 0 }),
   ]);
 
   totalBlockedEl.textContent = String(local.totalBlocked);
   showNotices.checked = synced.showNotices !== false;
+  communityEnabled.checked = synced.communityEnabled !== false;
   allowedList.innerHTML = '';
+  hiddenList.innerHTML = '';
 
   const empty = !synced.allowedHosts.length && !synced.mediaAllowedHosts.length;
   emptyAllowed.classList.toggle('hidden', !empty);
@@ -66,15 +78,35 @@ async function load() {
       chrome.runtime.sendMessage({ type: 'TOGGLE_MEDIA_SITE', hostname: host, allow: false })
     );
   });
+
+  // Newest first.
+  const hidden = hiddenStore.join(synced).reverse();
+  emptyHidden.classList.toggle('hidden', hidden.length > 0);
+  hidden.forEach((channel) => {
+    const note = channel.n !== channel.id ? channel.id : '';
+    addRow(
+      channel.n,
+      note,
+      t('optionsUnhideBtn') || 'Unhide',
+      () => chrome.runtime.sendMessage({ type: 'UNHIDE_CHANNEL', ids: [channel.id, channel.a].filter(Boolean) }),
+      hiddenList
+    );
+  });
 }
 
 // Lists can change from another device.
 chrome.storage.onChanged.addListener((changes, area) => {
-  if (area === 'sync' && (changes.allowedHosts || changes.mediaAllowedHosts || changes.showNotices)) load();
+  if (area !== 'sync') return;
+  const keys = Object.keys(changes);
+  if (keys.some((k) => hiddenStore.isKey(k) || ['allowedHosts', 'mediaAllowedHosts', 'showNotices', 'communityEnabled'].includes(k))) load();
 });
 
 showNotices.addEventListener('change', () => {
   chrome.storage.sync.set({ showNotices: showNotices.checked });
+});
+
+communityEnabled.addEventListener('change', () => {
+  chrome.storage.sync.set({ communityEnabled: communityEnabled.checked });
 });
 
 resetStatsBtn.addEventListener('click', async () => {

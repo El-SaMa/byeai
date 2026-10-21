@@ -49,7 +49,7 @@
   "featureWidgets": { "message": "MI-asszisztensek" },
   "featureWidgetsDesc": { "message": "Chatbotok, MI-válaszok, Grok, Gemini, Copilot" },
   "featureLabeled": { "message": "MI-videók és -képek" },
-  "featureLabeledDesc": { "message": "Elmossa, amit az oldalak MI-nek jelölnek vagy #aiart címkével látnak el" },
+  "featureLabeledDesc": { "message": "Elmossa, amit az oldalak MI-nek jelölnek vagy #aiart címkével látnak el, és a ByeAI Community csatornáit" },
   "coverTagged": {
     "message": "Címke: $TAG$\nKattints a megjelenítéshez",
     "placeholders": {"tag": {"content": "$1", "example": "#aiart"}}
@@ -134,5 +134,24 @@
   "optionsFooterVersion": {
     "message": "ByeAI v$VERSION$",
     "placeholders": {"version": {"content": "$1", "example": "1.0.3"}}
-  }
+  },
+  "channelHide": { "message": "Csatorna elrejtése" },
+  "channelUnhide": { "message": "Csatorna megjelenítése" },
+  "channelHidden": {
+    "message": "Elrejtve: $NAME$",
+    "placeholders": {"name": {"content": "$1", "example": "Slop Studio"}}
+  },
+  "channelUndo": { "message": "Visszavonás" },
+  "channelSuggest": { "message": "Javaslás MI-csatornaként" },
+  "channelSuggestSent": { "message": "Köszönjük, a javaslatot elküldtük" },
+  "channelSuggestFailed": { "message": "Nem sikerült elküldeni, próbáld később" },
+  "coverCommunity": { "message": "A ByeAI Community listáján\nKattints a megjelenítéshez" },
+  "optionsHiddenHeading": { "message": "Elrejtett csatornák" },
+  "optionsHiddenIntro": { "message": "Az általad elrejtett YouTube-csatornák. A videóik sehol sem jelennek meg a YouTube-on." },
+  "optionsHiddenEmpty": { "message": "Még nincs elrejtett csatorna. Vidd az egeret egy YouTube-videó fölé, és használd a sarkában lévő gombot." },
+  "optionsUnhideBtn": { "message": "Megjelenítés" },
+  "optionsCommunityHeading": { "message": "ByeAI Community" },
+  "optionsCommunityLabel": { "message": "A ByeAI Community lista használata" },
+  "optionsCommunityText": { "message": "A ByeAI-felhasználók által jelentett MI-csatornák listája, naponta egyszer töltődik le. Rólad semmit nem küldünk el." },
+  "optionsPermissionsAlarmsHtml": { "message": "<strong>alarms</strong>: a ByeAI Community lista napi egyszeri letöltése" }
 }

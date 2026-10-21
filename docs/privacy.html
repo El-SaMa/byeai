@@ -82,7 +82,7 @@
     <section class="lang-section active" id="lang-en" lang="en">
       <header>
         <h1>ByeAI Privacy Policy</h1>
-        <p class="muted">Effective date: October 21, 2026 (version 1.2.2)</p>
+        <p class="muted">Effective date: October 21, 2026 (version 1.3.0)</p>
         <p class="muted">Extension: ByeAI: Block AI on the Web</p>
       </header>
 
@@ -93,6 +93,8 @@
           <li>We do <strong>not</strong> upload or store your page text, images, audio, or video. AI label checks run on your device.</li>
           <li>We do <strong>not</strong> send your browsing history to our servers.</li>
           <li>Your settings are kept in Chrome storage. If you use Chrome sync, Google syncs them to your other devices. We never receive them.</li>
+          <li>Once a day ByeAI downloads the public ByeAI Community list of AI channels from oma.lanetti.fi. It is a plain download that carries no data about you.</li>
+          <li>A channel suggestion is sent only when you click <strong>Suggest as AI channel</strong>. It is anonymous.</li>
         </ul>
       </div>
 
@@ -116,10 +118,26 @@
         <li>Chrome declarativeNetRequest rules to block AI widget scripts, embeds, and AI API calls</li>
         <li>Lightweight page rules to hide known AI widget shells and AI buttons if they still appear</li>
         <li>On-device checks for AI labels that sites already show, such as "AI info" or "Altered or synthetic content", and clear AI hashtags such as #aiart. Matching posts and videos are blurred on screen.</li>
+        <li>On YouTube, a list of channels you chose to hide, and the ByeAI Community list of AI channels reported by ByeAI users. Videos from hidden channels are removed from view, and videos from channels in the Community list are blurred.</li>
       </ul>
       <p>
         ByeAI does <strong>not</strong> run AI models or guess whether content was made by AI. It only reacts
-        to labels and tags already on the page. It does <strong>not</strong> upload page content anywhere.
+        to labels and tags already on the page and to the channel lists above. It does <strong>not</strong> upload page content anywhere.
+      </p>
+      <p>
+        <strong>ByeAI Community list.</strong> Once a day ByeAI downloads the public list from
+        <code>oma.lanetti.fi</code>. This is a plain download, the same for everyone: no cookies, no account,
+        no data about you or the pages you visit. You can turn it off in the settings under
+        <strong>Use the ByeAI Community list</strong>. When it is off, nothing is downloaded.
+      </p>
+      <p>
+        <strong>Suggestions.</strong> After you hide a YouTube channel you can click
+        <strong>Suggest as AI channel</strong>. Only then does ByeAI send a suggestion to
+        <code>oma.lanetti.fi</code>. It contains only the channel id and name, the reason (whether YouTube
+        labeled that channel's video as AI, an AI tag was seen, or you chose it yourself) and the ByeAI
+        version. Suggestions are anonymous: Lanetti does not store your IP address, only a hash that changes
+        every day, used to count how many different people suggested a channel. ByeAI sends at most 20
+        suggestions a day.
       </p>
       <p>
         The <strong>Report</strong> link in the popup opens a prefilled GitHub issue with the page address
@@ -128,7 +146,7 @@
 
       <h2>3. Information we collect</h2>
       <p><strong>We do not collect personal information from you.</strong></p>
-      <p>ByeAI does not require an account and does not operate backend servers that receive your browsing data.</p>
+      <p>ByeAI does not require an account and does not operate backend servers that receive your browsing data. The only thing that reaches us is a channel suggestion you choose to send (see section 2).</p>
 
       <h2>4. Information stored by the extension</h2>
       <p>Your settings are saved with Chrome's own storage sync. If Chrome sync is on, Google stores them with your Chrome profile and copies them to your other devices. If it is off, they stay on this device. We never receive them:</p>
@@ -137,6 +155,8 @@
         <li>A list of websites where you chose to allow AI</li>
         <li>A list of websites where you chose to show AI videos and images</li>
         <li>Whether ByeAI shows its small "blocked AI on this page" notice</li>
+        <li>YouTube channels you chose to hide (up to 500 channel ids and names)</li>
+        <li>Whether the ByeAI Community list is used</li>
       </ul>
       <p>These are kept on this device only:</p>
       <ul>
@@ -145,6 +165,8 @@
         <li>Minor UI preferences, such as whether a help tip was dismissed</li>
         <li>The names of up to 500 websites (for example shop.example.com) where ByeAI already showed its notice, so it shows only once per site</li>
         <li>AI apps you allowed once, for that tab only. Cleared when you leave the site, close the tab or close Chrome</li>
+        <li>The latest copy of the ByeAI Community list and when it was downloaded</li>
+        <li>How many suggestions were sent today, to keep to the daily limit</li>
       </ul>
       <p>
         This data stays in your browser profile. We cannot access it remotely unless you choose to share
@@ -170,6 +192,7 @@
         <li><strong>declarativeNetRequestFeedback</strong>: show accurate blocked counts in the popup.</li>
         <li><strong>storage</strong>: save your settings and allowed sites (synced through Chrome sync if you use it), and counters on this device.</li>
         <li><strong>webNavigation</strong>: switch Google searches to Web results so AI Overviews do not load.</li>
+        <li><strong>alarms</strong>: download the ByeAI Community list once a day.</li>
       </ul>
       <p>
         Chrome may show a notice that the extension can read and change data on websites you visit. That
@@ -180,7 +203,9 @@
       <h2>7. Third parties</h2>
       <p>
         ByeAI does not include third party analytics, advertising SDKs, social trackers, or remote AI
-        detection services. The extension itself does not call out to third party servers in normal use.
+        detection services. Apart from the daily ByeAI Community list download and suggestions you choose to
+        send, both to <code>oma.lanetti.fi</code> (run by Lanetti for ByeAI), the extension does not call out to
+        other servers in normal use.
       </p>
       <p>
         <strong>Optional support link.</strong> The popup and settings pages include an optional
@@ -190,11 +215,6 @@
         (<a href="https://stripe.com/privacy" target="_blank" rel="noopener noreferrer">stripe.com/privacy</a>).
         The extension does not see, store, or transmit your payment details. Donations are voluntary and
         the extension's blocking features work the same whether you donate or not.
-      </p>
-      <p>
-        If we add optional remote filter list updates in a future version, those updates would fetch rule
-        definitions only. They would not include your personal data. This policy will be updated before any
-        such feature ships.
       </p>
       <p>
         Your use of Chrome and the Chrome Web Store is also subject to Google's policies.
@@ -209,8 +229,9 @@
       <h2>9. Data retention and deletion</h2>
       <p>
         Data stored by ByeAI remains on your device until you remove it by uninstalling the extension,
-        clearing extension storage, resetting counters in settings, or removing allowed sites from the
-        options page.
+        clearing extension storage, resetting counters in settings, or removing allowed sites and hidden
+        channels from the options page. Suggestions you sent are kept by Lanetti to build the Community list.
+        They contain no personal data.
       </p>
 
       <h2>10. Your choices</h2>
@@ -218,6 +239,8 @@
         <li>Turn ByeAI on or off from the popup</li>
         <li>Allow AI on a specific site while keeping protection elsewhere</li>
         <li>Remove allowed sites from the options page</li>
+        <li>Unhide YouTube channels from the options page</li>
+        <li>Turn off the ByeAI Community list in settings</li>
         <li>Reset the total blocked counter in settings</li>
         <li>Uninstall the extension to remove all locally stored ByeAI data</li>
       </ul>
@@ -256,7 +279,7 @@
     <section class="lang-section" id="lang-fi" lang="fi">
       <header>
         <h1>ByeAI – Tietosuojaseloste</h1>
-        <p class="muted">Voimassa: 21.10.2026 (versio 1.2.2)</p>
+        <p class="muted">Voimassa: 21.10.2026 (versio 1.3.0)</p>
         <p class="muted">Laajennus: ByeAI: Estä tekoäly verkossa</p>
       </header>
 
@@ -267,6 +290,8 @@
           <li><strong>Emme</strong> lähetä tai tallenna sivun tekstiä, kuvia, ääntä tai videota. Tekoälymerkinnät tarkistetaan laitteellasi.</li>
           <li><strong>Emme</strong> lähetä selaushistoriaasi palvelimillemme.</li>
           <li>Asetuksesi tallennetaan Chromen tallennustilaan. Jos käytät Chromen synkronointia, Google synkronoi ne muille laitteillesi. Me emme saa niitä.</li>
+          <li>Kerran päivässä ByeAI lataa julkisen ByeAI Community -listan tekoälykanavista osoitteesta oma.lanetti.fi. Se on pelkkä lataus, eikä siinä lähetetä mitään tietoja sinusta.</li>
+          <li>Kanavaehdotus lähetetään vain, kun painat <strong>Ehdota tekoälykanavaksi</strong>. Se on nimetön.</li>
         </ul>
       </div>
 
@@ -291,10 +316,25 @@
         <li>Chromen declarativeNetRequest-sääntöjä estääkseen tekoäly-widgettien skriptejä, upotuksia ja tekoäly-API-kutsuja</li>
         <li>Kevyitä sivusääntöjä piilottaakseen tunnettujen tekoäly-widgettien runkoja ja tekoälypainikkeita, jos ne silti ilmestyvät</li>
         <li>Laitteella tehtäviä tarkistuksia sivustojen omista tekoälymerkinnöistä, kuten "AI info" tai "Altered or synthetic content", sekä selvistä tekoälytunnisteista, kuten #aiart. Osuvat julkaisut ja videot sumennetaan näytöllä.</li>
+        <li>YouTubessa listaa kanavista, jotka olet piilottanut, sekä ByeAI Community -listaa, jossa on ByeAI-käyttäjien ilmoittamia tekoälykanavia. Piilotettujen kanavien videot poistetaan näkyvistä ja Community-listan kanavien videot sumennetaan.</li>
       </ul>
       <p>
         ByeAI <strong>ei</strong> käytä tekoälymalleja eikä arvaa, onko sisältö tekoälyn tekemää. Se reagoi vain
-        sivulla jo oleviin merkintöihin ja tunnisteisiin. Se <strong>ei</strong> lähetä sivun sisältöä minnekään.
+        sivulla jo oleviin merkintöihin ja tunnisteisiin sekä yllä mainittuihin kanavalistoihin. Se <strong>ei</strong> lähetä sivun sisältöä minnekään.
+      </p>
+      <p>
+        <strong>ByeAI Community -lista.</strong> Kerran päivässä ByeAI lataa julkisen listan osoitteesta
+        <code>oma.lanetti.fi</code>. Se on pelkkä lataus, joka on kaikille sama: ei evästeitä, ei tiliä eikä
+        mitään tietoja sinusta tai vierailemistasi sivuista. Voit kytkeä sen pois asetuksista kohdasta
+        <strong>Käytä ByeAI Community -listaa</strong>. Kun se on pois, mitään ei ladata.
+      </p>
+      <p>
+        <strong>Ehdotukset.</strong> Kun olet piilottanut YouTube-kanavan, voit painaa
+        <strong>Ehdota tekoälykanavaksi</strong>. Vasta silloin ByeAI lähettää ehdotuksen osoitteeseen
+        <code>oma.lanetti.fi</code>. Siinä on vain kanavan tunnus ja nimi, syy (merkitsikö YouTube kanavan
+        videon tekoälyksi, näkyikö tekoälytunniste vai valitsitko kanavan itse) ja ByeAI:n versio.
+        Ehdotukset ovat nimettömiä: Lanetti ei tallenna IP-osoitettasi, vain päivittäin vaihtuvan tiivisteen,
+        jolla lasketaan, moniko eri ihminen on ehdottanut kanavaa. ByeAI lähettää enintään 20 ehdotusta päivässä.
       </p>
       <p>
         Ponnahdusikkunan <strong>Ilmoita</strong>-linkki avaa valmiiksi täytetyn GitHub-ilmoituksen, jossa on sivun
@@ -303,7 +343,7 @@
 
       <h2>3. Mitä tietoja keräämme</h2>
       <p><strong>Emme kerää sinusta henkilötietoja.</strong></p>
-      <p>ByeAI ei vaadi tilin luomista eikä käytä taustapalvelimia, jotka vastaanottaisivat selaustietojasi.</p>
+      <p>ByeAI ei vaadi tilin luomista eikä käytä taustapalvelimia, jotka vastaanottaisivat selaustietojasi. Meille päätyy vain kanavaehdotus, jonka itse päätät lähettää (katso kohta 2).</p>
 
       <h2>4. Laajennuksen tallentamat tiedot</h2>
       <p>Asetuksesi tallennetaan Chromen omalla synkronoinnilla. Jos Chromen synkronointi on päällä, Google säilyttää ne Chrome-profiilisi mukana ja kopioi ne muille laitteillesi. Jos se on pois, ne pysyvät tällä laitteella. Me emme saa niitä:</p>
@@ -312,6 +352,8 @@
         <li>Lista sivustoista, joilla olet sallinut tekoälyn</li>
         <li>Lista sivustoista, joilla olet valinnut näyttää tekoälyvideot ja -kuvat</li>
         <li>Näyttääkö ByeAI pienen ”esti tekoälyn tällä sivulla” -ilmoituksen</li>
+        <li>YouTube-kanavat, jotka olet piilottanut (enintään 500 kanavan tunnusta ja nimeä)</li>
+        <li>Onko ByeAI Community -lista käytössä</li>
       </ul>
       <p>Nämä pysyvät vain tällä laitteella:</p>
       <ul>
@@ -320,6 +362,8 @@
         <li>Pieniä käyttöliittymäasetuksia, kuten onko ohjevinkki ohitettu</li>
         <li>Enintään 500 sivuston nimet (esimerkiksi shop.example.com), joilla ByeAI on jo näyttänyt ilmoituksensa, jotta se näkyy vain kerran sivustoa kohden</li>
         <li>Kerran sallitut tekoälysovellukset, vain kyseisessä välilehdessä. Tieto poistuu, kun poistut sivustolta, suljet välilehden tai suljet Chromen</li>
+        <li>Viimeisin ByeAI Community -lista ja sen latausaika</li>
+        <li>Tänään lähetettyjen ehdotusten määrä päivärajaa varten</li>
       </ul>
       <p>
         Nämä tiedot pysyvät selainprofiilissasi. Emme pääse niihin etänä, ellet itse jaa tietoa meille
@@ -345,6 +389,7 @@
         <li><strong>declarativeNetRequestFeedback</strong>: näyttää tarkat estetyt määrät popupissa.</li>
         <li><strong>storage</strong>: tallentaa asetuksesi ja sallitut sivustot (synkronoidaan Chromen synkronoinnilla, jos käytät sitä) sekä laskurit tälle laitteelle.</li>
         <li><strong>webNavigation</strong>: vaihtaa Google-haut Verkko-tuloksiin, jotta tekoälykatsaukset eivät lataudu.</li>
+        <li><strong>alarms</strong>: lataa ByeAI Community -listan kerran päivässä.</li>
       </ul>
       <p>
         Chrome saattaa näyttää ilmoituksen, että laajennus voi lukea ja muuttaa tietoja vierailemillasi
@@ -355,8 +400,10 @@
       <h2>7. Kolmannet osapuolet</h2>
       <p>
         ByeAI ei sisällä kolmansien osapuolten analytiikkaa, mainos-SDK:itä, sosiaalisen median
-        seurantatyökaluja eikä etänä toimivia tekoälyntunnistuspalveluita. Laajennus itse ei ota
-        normaalikäytössä yhteyttä kolmansien osapuolten palvelimiin.
+        seurantatyökaluja eikä etänä toimivia tekoälyntunnistuspalveluita. Päivittäistä ByeAI Community
+        -listan latausta ja itse lähettämiäsi ehdotuksia lukuun ottamatta, jotka molemmat menevät osoitteeseen
+        <code>oma.lanetti.fi</code> (Lanetti ylläpitää sitä ByeAI:lle), laajennus ei ota normaalikäytössä
+        yhteyttä muihin palvelimiin.
       </p>
       <p>
         <strong>Vapaaehtoinen tukilinkki.</strong> Popupissa ja asetussivulla on vapaaehtoinen
@@ -366,11 +413,6 @@
         (<a href="https://stripe.com/privacy" target="_blank" rel="noopener noreferrer">stripe.com/privacy</a>).
         Laajennus ei näe, tallenna eikä välitä maksutietojasi. Lahjoitukset ovat vapaaehtoisia, ja
         laajennuksen estotoiminnot toimivat samalla tavalla riippumatta siitä, lahjoitatko vai et.
-      </p>
-      <p>
-        Jos lisäämme tulevassa versiossa vapaaehtoisia etäsuodatinpäivityksiä, päivitykset hakisivat
-        ainoastaan sääntömäärityksiä. Niihin ei sisältyisi henkilötietojasi. Tämä seloste päivitetään
-        ennen tällaisen ominaisuuden julkaisua.
       </p>
       <p>
         Chromen ja Chrome Web Storen käyttöön sovelletaan myös Googlen omia käytäntöjä.
@@ -386,7 +428,8 @@
       <p>
         ByeAI:n tallentamat tiedot säilyvät laitteellasi, kunnes poistat ne poistamalla laajennuksen,
         tyhjentämällä laajennuksen tallennustilan, nollaamalla laskurit asetuksissa tai poistamalla
-        sallittuja sivustoja asetussivulta.
+        sallittuja sivustoja ja piilotettuja kanavia asetussivulta. Lähettämäsi ehdotukset Lanetti säilyttää
+        Community-listan kokoamista varten. Niissä ei ole henkilötietoja.
       </p>
 
       <h2>10. Sinun valintasi</h2>
@@ -394,6 +437,8 @@
         <li>Kytke ByeAI päälle tai pois popupista</li>
         <li>Salli tekoäly tietyllä sivustolla pitäen suojan muualla</li>
         <li>Poista sallittuja sivustoja asetussivulta</li>
+        <li>Palauta piilotetut YouTube-kanavat näkyviin asetussivulta</li>
+        <li>Kytke ByeAI Community -lista pois asetuksista</li>
         <li>Nollaa estettyjen kokonaislaskuri asetuksissa</li>
         <li>Poista laajennus poistaaksesi kaikki paikallisesti tallennetut ByeAI-tiedot</li>
       </ul>

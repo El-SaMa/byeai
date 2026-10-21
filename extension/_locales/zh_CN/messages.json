@@ -49,7 +49,7 @@
   "featureWidgets": { "message": "AI 助手" },
   "featureWidgetsDesc": { "message": "聊天机器人、AI 回答、Grok、Gemini、Copilot" },
   "featureLabeled": { "message": "AI 视频和图片" },
-  "featureLabeledDesc": { "message": "模糊网站标为 AI 或带 #aiart 标签的内容" },
+  "featureLabeledDesc": { "message": "模糊网站标为 AI 或带 #aiart 标签的内容，以及 ByeAI Community 列表中的频道" },
   "coverTagged": {
     "message": "标签 $TAG$\n点击查看",
     "placeholders": {"tag": {"content": "$1", "example": "#aiart"}}
@@ -134,5 +134,24 @@
   "optionsFooterVersion": {
     "message": "ByeAI v$VERSION$",
     "placeholders": {"version": {"content": "$1", "example": "1.0.3"}}
-  }
+  },
+  "channelHide": { "message": "隐藏频道" },
+  "channelUnhide": { "message": "显示频道" },
+  "channelHidden": {
+    "message": "已隐藏 $NAME$",
+    "placeholders": {"name": {"content": "$1", "example": "Slop Studio"}}
+  },
+  "channelUndo": { "message": "撤销" },
+  "channelSuggest": { "message": "建议列为 AI 频道" },
+  "channelSuggestSent": { "message": "谢谢，建议已发送" },
+  "channelSuggestFailed": { "message": "发送失败，请稍后再试" },
+  "coverCommunity": { "message": "在 ByeAI Community 列表中\n点击查看" },
+  "optionsHiddenHeading": { "message": "已隐藏的频道" },
+  "optionsHiddenIntro": { "message": "你隐藏的 YouTube 频道。它们的视频不会出现在 YouTube 的任何地方。" },
+  "optionsHiddenEmpty": { "message": "还没有隐藏的频道。将鼠标悬停在 YouTube 视频上，然后使用角落里的按钮。" },
+  "optionsUnhideBtn": { "message": "取消隐藏" },
+  "optionsCommunityHeading": { "message": "ByeAI Community" },
+  "optionsCommunityLabel": { "message": "使用 ByeAI Community 列表" },
+  "optionsCommunityText": { "message": "由 ByeAI 用户举报的 AI 频道列表，每天下载一次。不会发送任何关于你的信息。" },
+  "optionsPermissionsAlarmsHtml": { "message": "<strong>alarms</strong>：每天下载一次 ByeAI Community 列表" }
 }

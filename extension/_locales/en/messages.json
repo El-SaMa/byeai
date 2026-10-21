@@ -71,7 +71,7 @@
   "featureWidgets": { "message": "AI assistants" },
   "featureWidgetsDesc": { "message": "Chatbots, AI answers, Grok, Gemini, Copilot" },
   "featureLabeled": { "message": "AI videos and images" },
-  "featureLabeledDesc": { "message": "Blurs what sites label as AI or tag #aiart" },
+  "featureLabeledDesc": { "message": "Blurs what sites label as AI or tag #aiart, plus ByeAI Community channels" },
   "coverTagged": {
     "message": "Tagged $TAG$\nClick to show",
     "placeholders": { "tag": { "content": "$1", "example": "#aiart" } }
@@ -157,5 +157,24 @@
   "optionsFooterVersion": {
     "message": "ByeAI v$VERSION$",
     "placeholders": { "version": { "content": "$1", "example": "1.0.3" } }
-  }
+  },
+  "channelHide": { "message": "Hide channel" },
+  "channelUnhide": { "message": "Unhide channel" },
+  "channelHidden": {
+    "message": "Hidden $NAME$",
+    "placeholders": { "name": { "content": "$1", "example": "Slop Studio" } }
+  },
+  "channelUndo": { "message": "Undo" },
+  "channelSuggest": { "message": "Suggest as AI channel" },
+  "channelSuggestSent": { "message": "Thanks, suggestion sent" },
+  "channelSuggestFailed": { "message": "Could not send, try later" },
+  "coverCommunity": { "message": "In the ByeAI Community list\nClick to show" },
+  "optionsHiddenHeading": { "message": "Hidden channels" },
+  "optionsHiddenIntro": { "message": "YouTube channels you hid. Their videos stay out of sight everywhere on YouTube." },
+  "optionsHiddenEmpty": { "message": "No hidden channels yet. Point at a YouTube video and use the button in its corner." },
+  "optionsUnhideBtn": { "message": "Unhide" },
+  "optionsCommunityHeading": { "message": "ByeAI Community" },
+  "optionsCommunityLabel": { "message": "Use the ByeAI Community list" },
+  "optionsCommunityText": { "message": "A list of AI channels reported by ByeAI users, downloaded once a day. Nothing about you is sent." },
+  "optionsPermissionsAlarmsHtml": { "message": "<strong>alarms</strong>: download the ByeAI Community list once a day" }
 }

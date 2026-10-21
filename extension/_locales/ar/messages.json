@@ -49,7 +49,7 @@
   "featureWidgets": { "message": "مساعدو الذكاء الاصطناعي" },
   "featureWidgetsDesc": { "message": "روبوتات الدردشة، إجابات AI، Grok، Gemini، Copilot" },
   "featureLabeled": { "message": "فيديوهات وصور الذكاء الاصطناعي" },
-  "featureLabeledDesc": { "message": "يموّه ما تصنّفه المواقع كذكاء اصطناعي أو يحمل وسم ⁦#aiart⁩" },
+  "featureLabeledDesc": { "message": "يموّه ما تصنّفه المواقع كذكاء اصطناعي أو يحمل وسم ⁦#aiart⁩، وقنوات قائمة ByeAI Community" },
   "coverTagged": {
     "message": "الوسم $TAG$\nانقر للعرض",
     "placeholders": {"tag": {"content": "$1", "example": "#aiart"}}
@@ -134,5 +134,24 @@
   "optionsFooterVersion": {
     "message": "ByeAI v$VERSION$",
     "placeholders": {"version": {"content": "$1", "example": "1.0.3"}}
-  }
+  },
+  "channelHide": { "message": "إخفاء القناة" },
+  "channelUnhide": { "message": "إظهار القناة" },
+  "channelHidden": {
+    "message": "تم إخفاء $NAME$",
+    "placeholders": {"name": {"content": "$1", "example": "Slop Studio"}}
+  },
+  "channelUndo": { "message": "تراجع" },
+  "channelSuggest": { "message": "اقتراح كقناة ذكاء اصطناعي" },
+  "channelSuggestSent": { "message": "شكرًا، تم إرسال الاقتراح" },
+  "channelSuggestFailed": { "message": "تعذّر الإرسال، حاول لاحقًا" },
+  "coverCommunity": { "message": "ضمن قائمة ByeAI Community\nانقر للعرض" },
+  "optionsHiddenHeading": { "message": "القنوات المخفية" },
+  "optionsHiddenIntro": { "message": "قنوات YouTube التي أخفيتها. لن تظهر فيديوهاتها في أي مكان على YouTube." },
+  "optionsHiddenEmpty": { "message": "لا توجد قنوات مخفية بعد. مرّر المؤشر فوق فيديو على YouTube واستخدم الزر في زاويته." },
+  "optionsUnhideBtn": { "message": "إظهار" },
+  "optionsCommunityHeading": { "message": "ByeAI Community" },
+  "optionsCommunityLabel": { "message": "استخدام قائمة ByeAI Community" },
+  "optionsCommunityText": { "message": "قائمة بقنوات الذكاء الاصطناعي التي أبلغ عنها مستخدمو ByeAI، تُنزَّل مرة يوميًا. لا يُرسَل أي شيء عنك." },
+  "optionsPermissionsAlarmsHtml": { "message": "<strong>alarms</strong>: تنزيل قائمة ByeAI Community مرة يوميًا" }
 }

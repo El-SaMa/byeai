@@ -13,6 +13,9 @@ export const PAGES = {
   'https://www.youtube.com/': 'youtube-feed.html',
   'https://www.youtube.com/watch?v=test': 'youtube-watch.html',
   'https://www.youtube.com/watch?v=plain': 'youtube-watch-plain.html',
+  'https://www.youtube.com/feed/channels': 'youtube-channels.html',
+  'https://www.youtube.com/results?search_query=cats': 'youtube-search.html',
+  'https://www.youtube.com/watch?v=dream': 'youtube-watch-channel.html',
   'https://x.com/home': 'x.html',
   'https://www.instagram.com/': 'instagram.html',
   'https://www.tiktok.com/foryou': 'tiktok.html',
@@ -31,6 +34,29 @@ const SCRIPTS = {
   'https://chatgpt.com/widget.js': 'window.__chatgptWidget = true;',
 };
 
+// Fake ByeAI Community API on oma.lanetti.fi. Tests change it and read
+// what the extension sent.
+export const EMPTY_LIST = { version: 0, updatedAt: '2026-10-21T00:00:00Z', channels: [] };
+function communityApi() {
+  return { list: EMPTY_LIST, etag: '"v0"', status: 200, suggestStatus: 202, listRequests: [], suggests: [] };
+}
+
+async function serveCommunity(api, route) {
+  const req = route.request();
+  const url = new URL(req.url());
+  if (url.pathname === '/api/byeai/community/v1/list') {
+    api.listRequests.push({ method: req.method(), headers: await req.allHeaders() });
+    if (api.status !== 200) return route.fulfill({ status: api.status, body: 'oops' });
+    if (req.headers()['if-none-match'] === api.etag) return route.fulfill({ status: 304, headers: { ETag: api.etag } });
+    return route.fulfill({ status: 200, contentType: 'application/json', headers: { ETag: api.etag }, body: JSON.stringify(api.list) });
+  }
+  if (url.pathname === '/api/byeai/community/v1/suggest') {
+    api.suggests.push({ method: req.method(), headers: await req.allHeaders(), body: req.postData() });
+    return route.fulfill({ status: api.suggestStatus, contentType: 'application/json', body: '{"ok":true}' });
+  }
+  return route.fulfill({ status: 404, body: '' });
+}
+
 export async function launch() {
   const context = await chromium.launchPersistentContext('', {
     channel: 'chromium',
@@ -38,8 +64,10 @@ export async function launch() {
     args: [`--disable-extensions-except=${extensionPath}`, `--load-extension=${extensionPath}`],
   });
 
+  const oma = communityApi();
   await context.route(/^https?:\/\//, async (route) => {
     const url = route.request().url();
+    if (new URL(url).hostname === 'oma.lanetti.fi') return serveCommunity(oma, route);
     if (new URL(url).hostname === 'widget.intercom.io') {
       return route.fulfill({ contentType: 'text/javascript', body: 'window.__intercom = true;' });
     }
@@ -63,10 +91,11 @@ export async function launch() {
     || (await context.waitForEvent('page', { timeout: 3000 }).catch(() => null));
   await welcome?.close();
 
-  return { context, worker, extensionId };
+  return { context, worker, extensionId, oma };
 }
 
-const SYNC_KEYS = ['enabled', 'features', 'allowedHosts', 'mediaAllowedHosts', 'showNotices'];
+const HIDDEN_KEYS = ['hiddenChannels', ...Array.from({ length: 9 }, (_, i) => `hiddenChannels${i + 1}`)];
+const SYNC_KEYS = ['enabled', 'features', 'allowedHosts', 'mediaAllowedHosts', 'showNotices', 'communityEnabled', ...HIDDEN_KEYS];
 
 // Same split as the extension: settings in sync, counters in local.
 export async function setStorage(worker, data) {
@@ -88,7 +117,11 @@ export async function resetStorage(worker) {
     mediaAllowedHosts: [],
     features: { widgets: true, labeled: true },
     showNotices: true,
+    communityEnabled: true,
+    community: { ...EMPTY_LIST, etag: '', fetchedAt: Date.now() },
+    suggestCount: { day: '', count: 0 },
   });
+  await worker.evaluate((keys) => chrome.storage.sync.remove(keys), HIDDEN_KEYS);
 }
 
 export async function open(context, url) {
@@ -103,3 +136,45 @@ export const isHidden = (page, selector) =>
   page.$eval(selector, (el) => getComputedStyle(el).display === 'none');
 
 export const coverOf = (page, selector) => page.$eval(selector, (el) => el.dataset.byeaiCover || '');
+
+// Closed shadow roots (notice, toast) are out of reach for page scripts and
+// Playwright selectors. DevTools still sees them, so read them through CDP.
+export async function readShadow(page, hostName) {
+  const cdp = await page.context().newCDPSession(page);
+  try {
+    const { root } = await cdp.send('DOM.getDocument', { depth: -1, pierce: true });
+    const find = (node, pred) => {
+      if (pred(node)) return node;
+      for (const child of [...(node.children || []), ...(node.shadowRoots || [])]) {
+        const hit = find(child, pred);
+        if (hit) return hit;
+      }
+      return null;
+    };
+    const host = find(root, (n) => n.nodeName === hostName.toUpperCase());
+    if (!host) return null;
+    const shadow = host.shadowRoots?.[0];
+    const texts = [];
+    const buttons = {};
+    const walk = (n, button) => {
+      const inButton = n.nodeName === 'BUTTON' ? n : button;
+      if (n.nodeType === 3 && n.nodeValue.trim()) {
+        texts.push(n.nodeValue.trim());
+        if (inButton) buttons[n.nodeValue.trim()] = inButton.backendNodeId;
+      }
+      [...(n.children || [])].forEach((c) => walk(c, inButton));
+    };
+    walk(shadow, null);
+    return { mode: shadow.shadowRootType, texts, buttons };
+  } finally {
+    await cdp.detach();
+  }
+}
+
+export async function clickNode(page, backendNodeId) {
+  const cdp = await page.context().newCDPSession(page);
+  const { model } = await cdp.send('DOM.getBoxModel', { backendNodeId });
+  await cdp.detach();
+  const [x1, y1, , , x3, y3] = model.content;
+  await page.mouse.click((x1 + x3) / 2, (y1 + y3) / 2);
+}

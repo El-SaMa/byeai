@@ -49,7 +49,7 @@
   "featureWidgets": { "message": "YZ asistanları" },
   "featureWidgetsDesc": { "message": "Sohbet botları, YZ yanıtları, Grok, Gemini, Copilot" },
   "featureLabeled": { "message": "YZ videoları ve görselleri" },
-  "featureLabeledDesc": { "message": "Sitelerin YZ diye işaretlediklerini veya #aiart etiketlilerini bulanıklaştırır" },
+  "featureLabeledDesc": { "message": "Sitelerin YZ diye işaretlediklerini, #aiart etiketlilerini ve ByeAI Community kanallarını bulanıklaştırır" },
   "coverTagged": {
     "message": "$TAG$ etiketli\nGöstermek için tıklayın",
     "placeholders": {"tag": {"content": "$1", "example": "#aiart"}}
@@ -134,5 +134,24 @@
   "optionsFooterVersion": {
     "message": "ByeAI v$VERSION$",
     "placeholders": {"version": {"content": "$1", "example": "1.0.3"}}
-  }
+  },
+  "channelHide": { "message": "Kanalı gizle" },
+  "channelUnhide": { "message": "Kanalı göster" },
+  "channelHidden": {
+    "message": "$NAME$ gizlendi",
+    "placeholders": {"name": {"content": "$1", "example": "Slop Studio"}}
+  },
+  "channelUndo": { "message": "Geri al" },
+  "channelSuggest": { "message": "YZ kanalı olarak öner" },
+  "channelSuggestSent": { "message": "Teşekkürler, öneri gönderildi" },
+  "channelSuggestFailed": { "message": "Gönderilemedi, daha sonra tekrar deneyin" },
+  "coverCommunity": { "message": "ByeAI Community listesinde\nGöstermek için tıklayın" },
+  "optionsHiddenHeading": { "message": "Gizlenen kanallar" },
+  "optionsHiddenIntro": { "message": "Gizlediğiniz YouTube kanalları. Videoları YouTube'un hiçbir yerinde görünmez." },
+  "optionsHiddenEmpty": { "message": "Henüz gizlenen kanal yok. Bir YouTube videosunun üzerine gelin ve köşesindeki düğmeyi kullanın." },
+  "optionsUnhideBtn": { "message": "Göster" },
+  "optionsCommunityHeading": { "message": "ByeAI Community" },
+  "optionsCommunityLabel": { "message": "ByeAI Community listesini kullan" },
+  "optionsCommunityText": { "message": "ByeAI kullanıcılarının bildirdiği YZ kanallarının listesi, günde bir kez indirilir. Sizinle ilgili hiçbir şey gönderilmez." },
+  "optionsPermissionsAlarmsHtml": { "message": "<strong>alarms</strong>: ByeAI Community listesini günde bir kez indirmek" }
 }

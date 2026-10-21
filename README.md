@@ -17,9 +17,11 @@ Like an ad blocker, but for AI.
 | Switch | What it does |
 | --- | --- |
 | AI assistants | Blocks chat widgets and copilots at the network level, hides Google AI Overviews, Bing Copilot, DuckDuckGo and Brave AI answers, Amazon's AI review summary, and AI buttons like Grok, Meta AI, Gemini, Copilot, Rufus and "Help me write" |
-| AI videos and images | Blurs posts and videos that YouTube, TikTok, Instagram, Facebook, Threads, Pinterest and LinkedIn label as AI, or that carry clear AI tags like #aiart or #midjourney. Click to show one |
+| AI videos and images | Blurs posts and videos that YouTube, TikTok, Instagram, Facebook, Threads, Pinterest and LinkedIn label as AI, or that carry clear AI tags like #aiart or #midjourney, and YouTube channels in the ByeAI Community list. Click to show one. On YouTube you can also hide a whole channel |
 
 AI apps you open yourself, like ChatGPT, Claude or Gemini, show a ByeAI page instead of loading, with **Allow this site** and **Allow once** buttons. The first time ByeAI blocks AI on a site, a small notice in the corner says so (turn it off in settings).
+
+YouTube only labels some AI videos, so AI channels slip through. Point at a video and click the small **Hide channel** button in the corner of its thumbnail (or **Hide channel** next to the channel name on a video page): every video from that channel disappears. The note that pops up has **Undo** and **Suggest as AI channel**. Suggestions build the **ByeAI Community list**, a shared list of AI channels that ByeAI downloads once a day and blurs for everyone who has it on. Hidden channels and the Community switch live in the settings.
 
 Any site can be allowed with one click, or you can show AI videos on just that site. Settings follow you to your other computers through Chrome sync.
 
@@ -42,19 +44,27 @@ The script checks every key, placeholder and store length limit. Native speakers
 - **Network rules** ([`extension/rules`](extension/rules)): `declarativeNetRequest` blocks known AI widget scripts and API hosts before they run.
 - **Site labels**: platforms already mark AI content ("AI info", "Made with AI", "Altered or synthetic content"). ByeAI looks for those exact labels and covers the post or video they belong to. A sentence that only mentions AI is ignored.
 - **Tags**: a short list of tags that almost always mean AI media. Broad tags like `#ai` are left out on purpose so news about AI stays visible.
+- **ByeAI Community list**: YouTube channels that ByeAI users suggested as AI. Downloaded once a day from `oma.lanetti.fi` ([`extension/lists/community.json`](extension/lists/community.json) is the empty fallback until the first download). Turn it off in settings.
+- **Hidden channels**: channels you hid yourself. They win over everything else and are removed, not blurred.
 
-No AI models, no guessing, no remote lists. Covers say why they are there.
+No AI models, no guessing. Covers say why they are there.
 
 ## Privacy
 
-Everything runs locally. ByeAI makes no network requests of its own and has no analytics. Settings live in `chrome.storage.sync` (Chrome's own sync, never our servers), counters and the list of sites that already showed the notice (up to 500) in `chrome.storage.local`, and "Allow once" in `chrome.storage.session` for that tab only. Full policy: [privacy](https://el-sama.github.io/byeai/privacy.html).
+Everything runs locally and there are no analytics. ByeAI makes two kinds of requests of its own, both to `oma.lanetti.fi`:
+
+- Once a day it downloads the public ByeAI Community list. A plain GET with no cookies and no data about you. Off in settings means no download.
+- Only when you click **Suggest as AI channel**, it sends the channel id, name, the reason (`labeled`, `tagged` or `manual`) and the ByeAI version. Suggestions are anonymous: Lanetti stores no IP address, only a hash that rotates daily to count distinct people. At most 20 a day.
+
+Settings and hidden channels (up to 500) live in `chrome.storage.sync` (Chrome's own sync, never our servers). Counters, the Community list and the list of sites that already showed the notice (up to 500) are in `chrome.storage.local`, and "Allow once" in `chrome.storage.session` for that tab only. Full policy: [privacy](https://el-sama.github.io/byeai/privacy.html).
 
 | Permission | Why |
 | --- | --- |
 | `declarativeNetRequest` | Block AI scripts and API calls |
 | `declarativeNetRequestFeedback` | Count what was blocked on the current tab |
-| `storage` | Save your switches and allowed sites, synced by Chrome |
+| `storage` | Save your switches, allowed sites and hidden channels, synced by Chrome |
 | `webNavigation` | Switch Google searches to Web results so AI Overviews never load |
+| `alarms` | Download the ByeAI Community list once a day |
 | Access to all sites | AI widgets can appear on any site |
 
 ## Verify a release

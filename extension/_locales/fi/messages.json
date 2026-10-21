@@ -71,7 +71,7 @@
   "featureWidgets": { "message": "Tekoälyavustajat" },
   "featureWidgetsDesc": { "message": "Chatbotit, tekoälyvastaukset, Grok, Gemini, Copilot" },
   "featureLabeled": { "message": "Tekoälyvideot ja -kuvat" },
-  "featureLabeledDesc": { "message": "Sumentaa tekoälyksi merkityt ja #aiart-tyyppiset" },
+  "featureLabeledDesc": { "message": "Sumentaa tekoälyksi merkityt ja #aiart-tyyppiset sekä ByeAI Communityn kanavat" },
   "coverTagged": {
     "message": "Tunniste $TAG$\nNäytä klikkaamalla",
     "placeholders": { "tag": { "content": "$1", "example": "#aiart" } }
@@ -157,5 +157,24 @@
   "optionsFooterVersion": {
     "message": "ByeAI v$VERSION$",
     "placeholders": { "version": { "content": "$1", "example": "1.0.3" } }
-  }
+  },
+  "channelHide": { "message": "Piilota kanava" },
+  "channelUnhide": { "message": "Näytä kanava" },
+  "channelHidden": {
+    "message": "Piilotettu: $NAME$",
+    "placeholders": { "name": { "content": "$1", "example": "Slop Studio" } }
+  },
+  "channelUndo": { "message": "Kumoa" },
+  "channelSuggest": { "message": "Ehdota tekoälykanavaksi" },
+  "channelSuggestSent": { "message": "Kiitos, ehdotus lähetetty" },
+  "channelSuggestFailed": { "message": "Lähetys ei onnistunut, yritä myöhemmin" },
+  "coverCommunity": { "message": "ByeAI Community -listalla\nNäytä klikkaamalla" },
+  "optionsHiddenHeading": { "message": "Piilotetut kanavat" },
+  "optionsHiddenIntro": { "message": "YouTube-kanavat, jotka olet piilottanut. Niiden videot eivät näy missään YouTubessa." },
+  "optionsHiddenEmpty": { "message": "Ei piilotettuja kanavia vielä. Vie hiiri YouTube-videon päälle ja paina kulman painiketta." },
+  "optionsUnhideBtn": { "message": "Näytä taas" },
+  "optionsCommunityHeading": { "message": "ByeAI Community" },
+  "optionsCommunityLabel": { "message": "Käytä ByeAI Community -listaa" },
+  "optionsCommunityText": { "message": "ByeAI-käyttäjien ilmoittamat tekoälykanavat, ladataan kerran päivässä. Sinusta ei lähetetä mitään." },
+  "optionsPermissionsAlarmsHtml": { "message": "<strong>alarms</strong>: lataa ByeAI Community -listan kerran päivässä" }
 }

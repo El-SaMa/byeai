@@ -49,7 +49,7 @@
   "featureWidgets": { "message": "AI-assistenten" },
   "featureWidgetsDesc": { "message": "Chatbots, AI-antwoorden, Grok, Gemini, Copilot" },
   "featureLabeled": { "message": "AI-video's en -afbeeldingen" },
-  "featureLabeledDesc": { "message": "Vervaagt wat sites als AI markeren of taggen met #aiart" },
+  "featureLabeledDesc": { "message": "Vervaagt wat sites als AI markeren of taggen met #aiart, plus kanalen uit ByeAI Community" },
   "coverTagged": {
     "message": "Getagd met $TAG$\nKlik om te tonen",
     "placeholders": {"tag": {"content": "$1", "example": "#aiart"}}
@@ -134,5 +134,24 @@
   "optionsFooterVersion": {
     "message": "ByeAI v$VERSION$",
     "placeholders": {"version": {"content": "$1", "example": "1.0.3"}}
-  }
+  },
+  "channelHide": { "message": "Kanaal verbergen" },
+  "channelUnhide": { "message": "Kanaal tonen" },
+  "channelHidden": {
+    "message": "$NAME$ verborgen",
+    "placeholders": {"name": {"content": "$1", "example": "Slop Studio"}}
+  },
+  "channelUndo": { "message": "Ongedaan maken" },
+  "channelSuggest": { "message": "Voorstellen als AI-kanaal" },
+  "channelSuggestSent": { "message": "Bedankt, voorstel verstuurd" },
+  "channelSuggestFailed": { "message": "Versturen mislukt, probeer het later" },
+  "coverCommunity": { "message": "Op de ByeAI Community-lijst\nKlik om te tonen" },
+  "optionsHiddenHeading": { "message": "Verborgen kanalen" },
+  "optionsHiddenIntro": { "message": "YouTube-kanalen die je hebt verborgen. Hun video's zie je nergens meer op YouTube." },
+  "optionsHiddenEmpty": { "message": "Nog geen verborgen kanalen. Wijs een YouTube-video aan en gebruik de knop in de hoek." },
+  "optionsUnhideBtn": { "message": "Weer tonen" },
+  "optionsCommunityHeading": { "message": "ByeAI Community" },
+  "optionsCommunityLabel": { "message": "De ByeAI Community-lijst gebruiken" },
+  "optionsCommunityText": { "message": "Een lijst met AI-kanalen die ByeAI-gebruikers hebben gemeld, één keer per dag gedownload. Er wordt niets over jou verstuurd." },
+  "optionsPermissionsAlarmsHtml": { "message": "<strong>alarms</strong>: de ByeAI Community-lijst één keer per dag downloaden" }
 }

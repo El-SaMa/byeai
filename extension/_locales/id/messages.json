@@ -49,7 +49,7 @@
   "featureWidgets": { "message": "Asisten AI" },
   "featureWidgetsDesc": { "message": "Chatbot, jawaban AI, Grok, Gemini, Copilot" },
   "featureLabeled": { "message": "Video dan gambar AI" },
-  "featureLabeledDesc": { "message": "Memburamkan yang ditandai situs sebagai AI atau diberi tag #aiart" },
+  "featureLabeledDesc": { "message": "Memburamkan yang ditandai situs sebagai AI atau diberi tag #aiart, serta kanal ByeAI Community" },
   "coverTagged": {
     "message": "Tag $TAG$\nKlik untuk melihat",
     "placeholders": {"tag": {"content": "$1", "example": "#aiart"}}
@@ -134,5 +134,24 @@
   "optionsFooterVersion": {
     "message": "ByeAI v$VERSION$",
     "placeholders": {"version": {"content": "$1", "example": "1.0.3"}}
-  }
+  },
+  "channelHide": { "message": "Sembunyikan kanal" },
+  "channelUnhide": { "message": "Tampilkan kanal" },
+  "channelHidden": {
+    "message": "$NAME$ disembunyikan",
+    "placeholders": {"name": {"content": "$1", "example": "Slop Studio"}}
+  },
+  "channelUndo": { "message": "Urungkan" },
+  "channelSuggest": { "message": "Sarankan sebagai kanal AI" },
+  "channelSuggestSent": { "message": "Terima kasih, saran terkirim" },
+  "channelSuggestFailed": { "message": "Gagal mengirim, coba lagi nanti" },
+  "coverCommunity": { "message": "Ada di daftar ByeAI Community\nKlik untuk melihat" },
+  "optionsHiddenHeading": { "message": "Kanal tersembunyi" },
+  "optionsHiddenIntro": { "message": "Kanal YouTube yang Anda sembunyikan. Videonya tidak muncul di mana pun di YouTube." },
+  "optionsHiddenEmpty": { "message": "Belum ada kanal tersembunyi. Arahkan kursor ke video YouTube dan pakai tombol di sudutnya." },
+  "optionsUnhideBtn": { "message": "Tampilkan" },
+  "optionsCommunityHeading": { "message": "ByeAI Community" },
+  "optionsCommunityLabel": { "message": "Gunakan daftar ByeAI Community" },
+  "optionsCommunityText": { "message": "Daftar kanal AI yang dilaporkan pengguna ByeAI, diunduh sekali sehari. Tidak ada data tentang Anda yang dikirim." },
+  "optionsPermissionsAlarmsHtml": { "message": "<strong>alarms</strong>: mengunduh daftar ByeAI Community sekali sehari" }
 }

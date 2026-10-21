@@ -1,5 +1,15 @@
 # Changelog
 
+## 1.3.0 (2026-10-21)
+
+- Hide channel on YouTube: point at a video and click the button in the corner of its thumbnail, or use Hide channel on a video page. Every video from that channel disappears
+- The note after hiding has Undo and Suggest as AI channel
+- ByeAI Community list: AI channels reported by ByeAI users, downloaded once a day and blurred like labeled videos
+- New settings: Hidden channels, with Unhide, and a switch for the ByeAI Community list
+- Both are part of the "AI videos and images" switch
+- Suggestions are sent only when you click Suggest, with just the channel and the reason. Nothing about you
+- Asks for the "alarms" permission, used for the daily list download
+
 ## 1.2.2 (2026-10-21)
 
 - AI apps like ChatGPT now show a ByeAI page instead of hanging, with one click to allow them

@@ -33,6 +33,24 @@
         <p class="empty hidden" id="emptyAllowed" data-i18n="optionsAllowedEmpty">No allowed sites yet.</p>
       </section>
 
+      <section class="panel" id="hidden-channels">
+        <h2 data-i18n="optionsHiddenHeading">Hidden channels</h2>
+        <p class="muted" data-i18n="optionsHiddenIntro">YouTube channels you hid. Their videos stay out of sight everywhere on YouTube.</p>
+        <ul class="host-list" id="hiddenList"></ul>
+        <p class="empty hidden" id="emptyHidden" data-i18n="optionsHiddenEmpty">No hidden channels yet. Point at a YouTube video and use the button in its corner.</p>
+      </section>
+
+      <section class="panel" id="community">
+        <h2 data-i18n="optionsCommunityHeading">ByeAI Community</h2>
+        <label class="check-row" for="communityEnabled">
+          <input type="checkbox" id="communityEnabled" checked />
+          <span>
+            <strong data-i18n="optionsCommunityLabel">Use the ByeAI Community list</strong>
+            <span class="muted" data-i18n="optionsCommunityText">A list of AI channels reported by ByeAI users, downloaded once a day. Nothing about you is sent.</span>
+          </span>
+        </label>
+      </section>
+
       <section class="panel">
         <h2 data-i18n="optionsNoticesHeading">Notices</h2>
         <label class="check-row" for="showNotices">
@@ -78,6 +96,7 @@
         <ul class="plain-list">
           <li data-i18n="optionsPermissionsDnrHtml"><strong>declarativeNetRequest</strong>: block known AI widget and API URLs</li>
           <li data-i18n="optionsPermissionsStorageHtml"><strong>storage</strong>: save your settings and allowed sites</li>
+          <li data-i18n="optionsPermissionsAlarmsHtml"><strong>alarms</strong>: download the ByeAI Community list once a day</li>
           <li data-i18n="optionsPermissionsNavHtml"><strong>webNavigation</strong>: switch Google searches to Web results</li>
         </ul>
       </section>
@@ -106,6 +125,7 @@
       </footer>
     </main>
     <script src="../shared/i18n.js"></script>
+    <script src="../shared/hidden-channels.js"></script>
     <script src="options.js"></script>
   </body>
 </html>

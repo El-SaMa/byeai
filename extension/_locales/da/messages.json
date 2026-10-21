@@ -49,7 +49,7 @@
   "featureWidgets": { "message": "AI-assistenter" },
   "featureWidgetsDesc": { "message": "Chatbots, AI-svar, Grok, Gemini, Copilot" },
   "featureLabeled": { "message": "AI-videoer og -billeder" },
-  "featureLabeledDesc": { "message": "Slører det, websteder mærker som AI eller tagger #aiart" },
+  "featureLabeledDesc": { "message": "Slører det, websteder mærker som AI eller tagger #aiart, og kanaler fra ByeAI Community" },
   "coverTagged": {
     "message": "Tagget $TAG$\nKlik for at vise",
     "placeholders": {"tag": {"content": "$1", "example": "#aiart"}}
@@ -134,5 +134,24 @@
   "optionsFooterVersion": {
     "message": "ByeAI v$VERSION$",
     "placeholders": {"version": {"content": "$1", "example": "1.0.3"}}
-  }
+  },
+  "channelHide": { "message": "Skjul kanal" },
+  "channelUnhide": { "message": "Vis kanal" },
+  "channelHidden": {
+    "message": "Skjulte $NAME$",
+    "placeholders": {"name": {"content": "$1", "example": "Slop Studio"}}
+  },
+  "channelUndo": { "message": "Fortryd" },
+  "channelSuggest": { "message": "Foreslå som AI-kanal" },
+  "channelSuggestSent": { "message": "Tak, forslaget er sendt" },
+  "channelSuggestFailed": { "message": "Kunne ikke sende, prøv igen senere" },
+  "coverCommunity": { "message": "På ByeAI Community-listen\nKlik for at vise" },
+  "optionsHiddenHeading": { "message": "Skjulte kanaler" },
+  "optionsHiddenIntro": { "message": "YouTube-kanaler, du har skjult. Deres videoer vises ingen steder på YouTube." },
+  "optionsHiddenEmpty": { "message": "Ingen skjulte kanaler endnu. Peg på en YouTube-video, og brug knappen i hjørnet." },
+  "optionsUnhideBtn": { "message": "Vis igen" },
+  "optionsCommunityHeading": { "message": "ByeAI Community" },
+  "optionsCommunityLabel": { "message": "Brug ByeAI Community-listen" },
+  "optionsCommunityText": { "message": "En liste over AI-kanaler, som ByeAI-brugere har meldt, hentet én gang om dagen. Intet om dig bliver sendt." },
+  "optionsPermissionsAlarmsHtml": { "message": "<strong>alarms</strong>: henter ByeAI Community-listen én gang om dagen" }
 }

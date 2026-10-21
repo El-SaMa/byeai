@@ -49,7 +49,7 @@
   "featureWidgets": { "message": "Asistenți AI" },
   "featureWidgetsDesc": { "message": "Chatboți, răspunsuri AI, Grok, Gemini, Copilot" },
   "featureLabeled": { "message": "Videoclipuri și imagini AI" },
-  "featureLabeledDesc": { "message": "Estompează ce marchează site-urile ca AI sau cu #aiart" },
+  "featureLabeledDesc": { "message": "Estompează ce marchează site-urile ca AI sau cu #aiart, plus canalele din ByeAI Community" },
   "coverTagged": {
     "message": "Etichetă $TAG$\nApasă pentru a vedea",
     "placeholders": {"tag": {"content": "$1", "example": "#aiart"}}
@@ -134,5 +134,24 @@
   "optionsFooterVersion": {
     "message": "ByeAI v$VERSION$",
     "placeholders": {"version": {"content": "$1", "example": "1.0.3"}}
-  }
+  },
+  "channelHide": { "message": "Ascunde canalul" },
+  "channelUnhide": { "message": "Afișează canalul" },
+  "channelHidden": {
+    "message": "Ai ascuns $NAME$",
+    "placeholders": {"name": {"content": "$1", "example": "Slop Studio"}}
+  },
+  "channelUndo": { "message": "Anulează" },
+  "channelSuggest": { "message": "Sugerează ca un canal AI" },
+  "channelSuggestSent": { "message": "Mulțumim, sugestia a fost trimisă" },
+  "channelSuggestFailed": { "message": "Nu s-a putut trimite, încearcă mai târziu" },
+  "coverCommunity": { "message": "În lista ByeAI Community\nApasă pentru a vedea" },
+  "optionsHiddenHeading": { "message": "Canale ascunse" },
+  "optionsHiddenIntro": { "message": "Canalele YouTube pe care le-ai ascuns. Videoclipurile lor nu mai apar nicăieri pe YouTube." },
+  "optionsHiddenEmpty": { "message": "Încă nu ai canale ascunse. Du cursorul peste un videoclip YouTube și folosește butonul din colț." },
+  "optionsUnhideBtn": { "message": "Afișează" },
+  "optionsCommunityHeading": { "message": "ByeAI Community" },
+  "optionsCommunityLabel": { "message": "Folosește lista ByeAI Community" },
+  "optionsCommunityText": { "message": "O listă de canale AI raportate de utilizatorii ByeAI, descărcată o dată pe zi. Nu se trimite nimic despre tine." },
+  "optionsPermissionsAlarmsHtml": { "message": "<strong>alarms</strong>: descarcă lista ByeAI Community o dată pe zi" }
 }

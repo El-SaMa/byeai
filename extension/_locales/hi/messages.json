@@ -49,7 +49,7 @@
   "featureWidgets": { "message": "AI असिस्टेंट" },
   "featureWidgetsDesc": { "message": "चैटबॉट, AI जवाब, Grok, Gemini, Copilot" },
   "featureLabeled": { "message": "AI वीडियो और तस्वीरें" },
-  "featureLabeledDesc": { "message": "जिन्हें साइटें AI बताती हैं या #aiart टैग करती हैं, उन्हें धुंधला करता है" },
+  "featureLabeledDesc": { "message": "जिन्हें साइटें AI बताती हैं या #aiart टैग करती हैं, और ByeAI Community के चैनलों को धुंधला करता है" },
   "coverTagged": {
     "message": "टैग $TAG$\nदेखने के लिए क्लिक करें",
     "placeholders": {"tag": {"content": "$1", "example": "#aiart"}}
@@ -134,5 +134,24 @@
   "optionsFooterVersion": {
     "message": "ByeAI v$VERSION$",
     "placeholders": {"version": {"content": "$1", "example": "1.0.3"}}
-  }
+  },
+  "channelHide": { "message": "चैनल छिपाएं" },
+  "channelUnhide": { "message": "चैनल दिखाएं" },
+  "channelHidden": {
+    "message": "$NAME$ छिपाया गया",
+    "placeholders": {"name": {"content": "$1", "example": "Slop Studio"}}
+  },
+  "channelUndo": { "message": "पहले जैसा करें" },
+  "channelSuggest": { "message": "AI चैनल के रूप में सुझाएं" },
+  "channelSuggestSent": { "message": "धन्यवाद, सुझाव भेज दिया गया" },
+  "channelSuggestFailed": { "message": "भेजा नहीं जा सका, बाद में कोशिश करें" },
+  "coverCommunity": { "message": "ByeAI Community सूची में है\nदेखने के लिए क्लिक करें" },
+  "optionsHiddenHeading": { "message": "छिपाए गए चैनल" },
+  "optionsHiddenIntro": { "message": "आपके छिपाए गए YouTube चैनल। इनके वीडियो YouTube पर कहीं नहीं दिखते।" },
+  "optionsHiddenEmpty": { "message": "अभी कोई छिपा चैनल नहीं है। किसी YouTube वीडियो पर पॉइंटर ले जाएं और उसके कोने का बटन दबाएं।" },
+  "optionsUnhideBtn": { "message": "दिखाएं" },
+  "optionsCommunityHeading": { "message": "ByeAI Community" },
+  "optionsCommunityLabel": { "message": "ByeAI Community सूची का उपयोग करें" },
+  "optionsCommunityText": { "message": "ByeAI उपयोगकर्ताओं द्वारा बताए गए AI चैनलों की सूची, दिन में एक बार डाउनलोड होती है। आपके बारे में कुछ नहीं भेजा जाता।" },
+  "optionsPermissionsAlarmsHtml": { "message": "<strong>alarms</strong>: ByeAI Community सूची दिन में एक बार डाउनलोड करना" }
 }
