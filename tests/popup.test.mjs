@@ -111,3 +111,24 @@ test('popup offers "show AI videos" only where something was blurred', async () 
   assert.match(await popup.textContent('#mediaSiteBtn'), /Blur AI videos on youtube\.com again/);
   await yt.close();
 });
+
+test('blocking a site again reloads its tab; allowing offers the reload bar', async () => {
+  const page = await ctx.context.newPage();
+  await page.goto('https://blog.example.com/post');
+  const popup = await popupFor('https://blog.example.com/*');
+  await popup.evaluate(() => {
+    window.__reloads = [];
+    chrome.tabs.reload = (id) => window.__reloads.push(id);
+  });
+
+  await popup.click('#allowBtn');
+  await popup.waitForTimeout(200);
+  let seen = await popup.evaluate(() => ({ reloads: window.__reloads.length, bar: !document.getElementById('reloadBanner').classList.contains('hidden') }));
+  assert.deepEqual(seen, { reloads: 0, bar: true });
+
+  await popup.click('#allowBtn');
+  await popup.waitForTimeout(200);
+  seen = await popup.evaluate(() => ({ reloads: window.__reloads.length, bar: !document.getElementById('reloadBanner').classList.contains('hidden') }));
+  assert.deepEqual(seen, { reloads: 1, bar: false });
+  await page.close();
+});

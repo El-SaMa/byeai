@@ -168,14 +168,15 @@ allowBtn.addEventListener('click', async () => {
   });
   render(state);
 
-  if (aiApp) {
-    // Already loaded when allowed. Blocked again: reload so the ByeAI page shows.
-    if (!allow && typeof activeTabId === 'number') chrome.tabs.reload(activeTabId);
+  if (!allow) {
+    // Blocked again: reload so the block applies at once (the ByeAI page for AI apps).
+    if (typeof activeTabId === 'number') chrome.tabs.reload(activeTabId);
     reloadBanner.classList.add('hidden');
-  } else if (allow) {
-    reloadBanner.classList.remove('hidden');
+  } else if (aiApp) {
+    // AI apps are already loaded when allowed.
+    reloadBanner.classList.add('hidden');
   } else {
-    reloadBanner.classList.add('hidden');
+    reloadBanner.classList.remove('hidden');
   }
 });
 
