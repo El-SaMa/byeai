@@ -52,6 +52,8 @@
       'ytd-rich-item-renderer',
       'ytd-video-renderer',
       'ytd-compact-video-renderer',
+      'ytd-playlist-panel-video-renderer',
+      'ytd-playlist-panel-video-renderer',
       'ytd-grid-video-renderer',
       'ytd-reel-item-renderer',
       'ytd-reel-video-renderer',

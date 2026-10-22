@@ -45,11 +45,14 @@
     'ytd-rich-item-renderer',
     'ytd-video-renderer',
     'ytd-compact-video-renderer',
+    'ytd-playlist-panel-video-renderer',
+    'ytd-playlist-panel-video-renderer',
     'ytd-grid-video-renderer',
     'ytd-reel-item-renderer',
     'ytm-shorts-lockup-view-model',
     'yt-lockup-view-model',
   ].join(',');
+  const PANEL_ITEM = 'ytd-playlist-panel-video-renderer';
   const LINKS = 'a[href^="/@"], a[href^="/channel/"], a[href*="youtube.com/@"], a[href*="youtube.com/channel/"]';
   const THUMBS = 'ytd-thumbnail, yt-thumbnail-view-model, a#thumbnail, img';
   const OWNER = 'ytd-watch-metadata #owner, ytd-video-owner-renderer';
@@ -60,6 +63,9 @@
   let shownIds = new Set();
   let community = new Set();
   let communityOn = true;
+  // Channel name -> ids, from your hidden/shown channels and the Community list.
+  // Mix and playlist panels show only the channel name, no channel link.
+  const names = { hidden: new Map(), shown: new Map(), community: new Map() };
   // Channel id -> 'labeled' | 'tagged', when ai-content.js saw an AI label or tag.
   const seen = new Map();
   const listeners = [];
@@ -97,9 +103,35 @@
       const text = (a.textContent || '').replace(/\s+/g, ' ').trim();
       if (!name && text) name = text;
     }
-    if (!ids.length) return null;
+    if (!ids.length) return byName(el);
     ids.sort((x, y) => (y[0] === '@') - (x[0] === '@'));
     return { id: ids[0], ids, n: (name || ids[0]).slice(0, 60) };
+  }
+
+  const nameKey = (text) => (text || '').replace(/\s+/g, ' ').trim().toLowerCase();
+
+  function nameMap(list) {
+    const map = new Map();
+    for (const c of list) {
+      const key = nameKey(c?.n);
+      if (!key) continue;
+      const ids = map.get(key) || [];
+      [c.id, c.a].map((id) => store.normId(id)).filter(Boolean).forEach((id) => ids.includes(id) || ids.push(id));
+      map.set(key, ids);
+    }
+    return map;
+  }
+
+  // Panel items without a channel link: match the byline text to a known channel name.
+  function byName(el) {
+    if (!el.matches?.(PANEL_ITEM)) return null;
+    const n = (el.querySelector('#byline')?.textContent || '').replace(/\s+/g, ' ').trim();
+    const key = nameKey(n);
+    if (!key) return null;
+    const ids = [...new Set([names.hidden, names.shown, names.community].flatMap((m) => m.get(key) || []))];
+    if (!ids.length) return null;
+    ids.sort((x, y) => (y[0] === '@') - (x[0] === '@'));
+    return { id: ids[0], ids, n: n.slice(0, 60) };
   }
 
   const isWatch = () => location.pathname === '/watch';
@@ -125,6 +157,7 @@
       .read()
       .then((list) => {
         hiddenIds = idsOf(list);
+        names.hidden = nameMap(list);
         changed();
       })
       .catch(() => {});
@@ -135,6 +168,7 @@
       .read()
       .then((list) => {
         shownIds = idsOf(list);
+        names.shown = nameMap(list);
         changed();
       })
       .catch(() => {});
@@ -145,7 +179,9 @@
       .then(([synced, local]) => {
         communityOn = synced.communityEnabled !== false;
         const channels = Array.isArray(local.community?.channels) ? local.community.channels : [];
-        community = new Set(channels.filter((c) => c?.p === 'youtube').map((c) => store.normId(c.id)).filter(Boolean));
+        const youtube = channels.filter((c) => c?.p === 'youtube');
+        community = new Set(youtube.map((c) => store.normId(c.id)).filter(Boolean));
+        names.community = nameMap(youtube);
         changed();
       })
       .catch(() => {});

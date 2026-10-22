@@ -203,6 +203,9 @@ test('Community list channels get the community cover, click reveals', async () 
 
   const watch = await open(ctx.context, WATCH);
   assert.equal(await coverOf(watch, '#movie_player'), 'community');
+  // Mix / playlist panel items carry only the channel name, no link.
+  assert.equal(await coverOf(watch, '#m1'), 'community');
+  assert.equal(await coverOf(watch, '#m2'), '');
 });
 
 test('hidden channels win over the Community list', async () => {
