@@ -150,6 +150,14 @@
   "optionsHiddenIntro": { "message": "Canales de YouTube que has ocultado. Sus vídeos no aparecen en ningún lugar de YouTube." },
   "optionsHiddenEmpty": { "message": "Aún no hay canales ocultos. Pasa el ratón sobre un vídeo de YouTube y usa el botón de su esquina." },
   "optionsUnhideBtn": { "message": "Mostrar" },
+  "channelNotAi": { "message": "No es IA, mostrar este canal" },
+  "channelShown": {
+    "message": "Mostrando $NAME$. Gracias, lo revisaremos.",
+    "placeholders": {"name": {"content": "$1", "example": "Slop Studio"}}
+  },
+  "optionsShownHeading": { "message": "Canales que elegiste mostrar" },
+  "optionsShownIntro": { "message": "Canales de la lista de la Comunidad que marcaste como no IA. Sus vídeos no se difuminan." },
+  "optionsShownEmpty": { "message": "Ninguno todavía. En un vídeo difuminado de la Comunidad, usa «No es IA, mostrar este canal»." },
   "optionsCommunityHeading": { "message": "ByeAI Community" },
   "optionsCommunityLabel": { "message": "Usar la lista de ByeAI Community" },
   "optionsCommunityText": { "message": "Una lista de canales de IA que reportan los usuarios de ByeAI, se descarga una vez al día. No se envía nada sobre ti." },

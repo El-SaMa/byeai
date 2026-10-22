@@ -150,6 +150,14 @@
   "optionsHiddenIntro": { "message": "Kanal YouTube yang Anda sembunyikan. Videonya tidak muncul di mana pun di YouTube." },
   "optionsHiddenEmpty": { "message": "Belum ada kanal tersembunyi. Arahkan kursor ke video YouTube dan pakai tombol di sudutnya." },
   "optionsUnhideBtn": { "message": "Tampilkan" },
+  "channelNotAi": { "message": "Bukan AI, tampilkan kanal ini" },
+  "channelShown": {
+    "message": "Menampilkan $NAME$. Terima kasih, kami akan meninjaunya.",
+    "placeholders": {"name": {"content": "$1", "example": "Slop Studio"}}
+  },
+  "optionsShownHeading": { "message": "Kanal yang kamu pilih untuk ditampilkan" },
+  "optionsShownIntro": { "message": "Kanal dari daftar Komunitas yang kamu tandai bukan AI. Videonya tidak diburamkan." },
+  "optionsShownEmpty": { "message": "Belum ada. Pada video Komunitas yang buram, gunakan Bukan AI, tampilkan kanal ini." },
   "optionsCommunityHeading": { "message": "ByeAI Community" },
   "optionsCommunityLabel": { "message": "Gunakan daftar ByeAI Community" },
   "optionsCommunityText": { "message": "Daftar kanal AI yang dilaporkan pengguna ByeAI, diunduh sekali sehari. Tidak ada data tentang Anda yang dikirim." },

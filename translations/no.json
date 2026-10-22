@@ -132,5 +132,10 @@
   "optionsPermissionsAlarmsHtml": "<strong>alarms</strong>: laste ned ByeAI Community-listen én gang om dagen",
   "optionsAutoShareLabel": "Hjelp fellesskapet automatisk",
   "optionsAutoShareText": "Når YouTube selv merker en video som KI, sender ByeAI bare navnet på kanalen til Community-listen, anonymt.",
-  "optionsAutoShareCount": "Kanaler delt automatisk: $COUNT$"
+  "optionsAutoShareCount": "Kanaler delt automatisk: $COUNT$",
+  "channelNotAi": "Ikke KI, vis kanalen",
+  "channelShown": "Viser $NAME$. Takk, vi går gjennom det.",
+  "optionsShownHeading": "Kanaler du valgte å vise",
+  "optionsShownIntro": "Kanaler fra Community-listen som du har merket som ikke KI. Videoene deres blir ikke uskarpe.",
+  "optionsShownEmpty": "Ingen ennå. Bruk Ikke KI, vis kanalen på en uskarp Community-video."
 }

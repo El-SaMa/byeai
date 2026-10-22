@@ -150,6 +150,14 @@
   "optionsHiddenIntro": { "message": "你隐藏的 YouTube 频道。它们的视频不会出现在 YouTube 的任何地方。" },
   "optionsHiddenEmpty": { "message": "还没有隐藏的频道。将鼠标悬停在 YouTube 视频上，然后使用角落里的按钮。" },
   "optionsUnhideBtn": { "message": "取消隐藏" },
+  "channelNotAi": { "message": "不是 AI，显示此频道" },
+  "channelShown": {
+    "message": "正在显示 $NAME$。谢谢，我们会审核。",
+    "placeholders": {"name": {"content": "$1", "example": "Slop Studio"}}
+  },
+  "optionsShownHeading": { "message": "你选择显示的频道" },
+  "optionsShownIntro": { "message": "社区列表中被你标记为非 AI 的频道。它们的视频不会被模糊。" },
+  "optionsShownEmpty": { "message": "暂无。在被模糊的社区视频上点击“不是 AI，显示此频道”。" },
   "optionsCommunityHeading": { "message": "ByeAI Community" },
   "optionsCommunityLabel": { "message": "使用 ByeAI Community 列表" },
   "optionsCommunityText": { "message": "由 ByeAI 用户举报的 AI 频道列表，每天下载一次。不会发送任何关于你的信息。" },

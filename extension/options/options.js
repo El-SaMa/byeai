@@ -11,7 +11,10 @@ const communityEnabled = document.getElementById('communityEnabled');
 const autoShare = document.getElementById('communityAutoShare');
 const autoShareRow = document.getElementById('autoShareRow');
 const autoShareCount = document.getElementById('autoShareCount');
+const shownList = document.getElementById('shownList');
+const emptyShown = document.getElementById('emptyShown');
 const hiddenStore = window.byeaiHiddenChannels;
+const shownStore = window.byeaiShownChannels;
 
 const t = (key, args) =>
   (window.byeaiI18n && window.byeaiI18n.msg(key, args)) || '';
@@ -59,7 +62,7 @@ async function load() {
       communityAutoShare: false,
       enabled: true,
       features: { labeled: true },
-      ...Object.fromEntries(hiddenStore.KEYS.map((k) => [k, []])),
+      ...Object.fromEntries([...hiddenStore.KEYS, ...shownStore.KEYS].map((k) => [k, []])),
     }),
     chrome.storage.local.get({ totalBlocked: 0, autoSharedCount: 0 }),
   ]);
@@ -76,6 +79,7 @@ async function load() {
   autoShareCount.textContent = t('optionsAutoShareCount', [count]) || `Channels shared automatically: ${count}`;
   allowedList.innerHTML = '';
   hiddenList.innerHTML = '';
+  shownList.innerHTML = '';
 
   const empty = !synced.allowedHosts.length && !synced.mediaAllowedHosts.length;
   emptyAllowed.classList.toggle('hidden', !empty);
@@ -105,6 +109,20 @@ async function load() {
       hiddenList
     );
   });
+
+  // "Not AI, show this channel". Newest first.
+  const shown = shownStore.join(synced).reverse();
+  emptyShown.classList.toggle('hidden', shown.length > 0);
+  shown.forEach((channel) => {
+    const note = channel.n !== channel.id ? channel.id : '';
+    addRow(
+      channel.n,
+      note,
+      t('optionsMediaBlurBtn') || 'Blur again',
+      () => chrome.runtime.sendMessage({ type: 'UNSHOW_CHANNEL', ids: [channel.id, channel.a].filter(Boolean) }),
+      shownList
+    );
+  });
 }
 
 // Lists can change from another device.
@@ -113,7 +131,7 @@ chrome.storage.onChanged.addListener((changes, area) => {
   const keys = Object.keys(changes);
   if (area === 'local' && changes.autoSharedCount) load();
   if (area !== 'sync') return;
-  if (keys.some((k) => hiddenStore.isKey(k) || WATCHED.includes(k))) load();
+  if (keys.some((k) => hiddenStore.isKey(k) || shownStore.isKey(k) || WATCHED.includes(k))) load();
 });
 
 showNotices.addEventListener('change', () => {

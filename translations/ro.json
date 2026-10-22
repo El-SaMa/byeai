@@ -132,5 +132,10 @@
   "optionsPermissionsAlarmsHtml": "<strong>alarms</strong>: descarcă lista ByeAI Community o dată pe zi",
   "optionsAutoShareLabel": "Ajută comunitatea automat",
   "optionsAutoShareText": "Când YouTube însuși marchează un videoclip ca AI, ByeAI trimite anonim doar numele canalului în lista Community.",
-  "optionsAutoShareCount": "Canale trimise automat: $COUNT$"
+  "optionsAutoShareCount": "Canale trimise automat: $COUNT$",
+  "channelNotAi": "Nu e IA, arată acest canal",
+  "channelShown": "Se afișează $NAME$. Mulțumim, vom verifica.",
+  "optionsShownHeading": "Canale pe care ai ales să le afișezi",
+  "optionsShownIntro": "Canale din lista Comunității pe care le-ai marcat ca nefiind IA. Videoclipurile lor nu sunt estompate.",
+  "optionsShownEmpty": "Încă niciunul. Pe un videoclip estompat din Comunitate, folosește „Nu e IA, arată acest canal”."
 }

@@ -150,6 +150,14 @@
   "optionsHiddenIntro": { "message": "आपके छिपाए गए YouTube चैनल। इनके वीडियो YouTube पर कहीं नहीं दिखते।" },
   "optionsHiddenEmpty": { "message": "अभी कोई छिपा चैनल नहीं है। किसी YouTube वीडियो पर पॉइंटर ले जाएं और उसके कोने का बटन दबाएं।" },
   "optionsUnhideBtn": { "message": "दिखाएं" },
+  "channelNotAi": { "message": "यह AI नहीं है, चैनल दिखाएँ" },
+  "channelShown": {
+    "message": "$NAME$ दिखाया जा रहा है। धन्यवाद, हम इसकी जाँच करेंगे।",
+    "placeholders": {"name": {"content": "$1", "example": "Slop Studio"}}
+  },
+  "optionsShownHeading": { "message": "वे चैनल जिन्हें आपने दिखाने के लिए चुना" },
+  "optionsShownIntro": { "message": "कम्युनिटी सूची के वे चैनल जिन्हें आपने AI नहीं बताया। उनके वीडियो धुँधले नहीं किए जाते।" },
+  "optionsShownEmpty": { "message": "अभी कोई नहीं। धुँधले कम्युनिटी वीडियो पर \"यह AI नहीं है, चैनल दिखाएँ\" दबाएँ।" },
   "optionsCommunityHeading": { "message": "ByeAI Community" },
   "optionsCommunityLabel": { "message": "ByeAI Community सूची का उपयोग करें" },
   "optionsCommunityText": { "message": "ByeAI उपयोगकर्ताओं द्वारा बताए गए AI चैनलों की सूची, दिन में एक बार डाउनलोड होती है। आपके बारे में कुछ नहीं भेजा जाता।" },

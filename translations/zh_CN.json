@@ -132,5 +132,10 @@
   "optionsPermissionsAlarmsHtml": "<strong>alarms</strong>：每天下载一次 ByeAI Community 列表",
   "optionsAutoShareLabel": "自动帮助社区",
   "optionsAutoShareText": "当 YouTube 自己将某个视频标记为 AI 时，ByeAI 只会匿名将该频道的名称发送到 Community 列表。",
-  "optionsAutoShareCount": "已自动分享的频道：$COUNT$"
+  "optionsAutoShareCount": "已自动分享的频道：$COUNT$",
+  "channelNotAi": "不是 AI，显示此频道",
+  "channelShown": "正在显示 $NAME$。谢谢，我们会审核。",
+  "optionsShownHeading": "你选择显示的频道",
+  "optionsShownIntro": "社区列表中被你标记为非 AI 的频道。它们的视频不会被模糊。",
+  "optionsShownEmpty": "暂无。在被模糊的社区视频上点击“不是 AI，显示此频道”。"
 }

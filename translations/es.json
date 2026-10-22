@@ -132,5 +132,10 @@
   "optionsPermissionsAlarmsHtml": "<strong>alarms</strong>: descargar la lista de ByeAI Community una vez al día",
   "optionsAutoShareLabel": "Ayudar a la comunidad automáticamente",
   "optionsAutoShareText": "Cuando YouTube marca un vídeo como IA, ByeAI envía solo el nombre de ese canal a la lista Community, de forma anónima.",
-  "optionsAutoShareCount": "Canales compartidos automáticamente: $COUNT$"
+  "optionsAutoShareCount": "Canales compartidos automáticamente: $COUNT$",
+  "channelNotAi": "No es IA, mostrar este canal",
+  "channelShown": "Mostrando $NAME$. Gracias, lo revisaremos.",
+  "optionsShownHeading": "Canales que elegiste mostrar",
+  "optionsShownIntro": "Canales de la lista de la Comunidad que marcaste como no IA. Sus vídeos no se difuminan.",
+  "optionsShownEmpty": "Ninguno todavía. En un vídeo difuminado de la Comunidad, usa «No es IA, mostrar este canal»."
 }

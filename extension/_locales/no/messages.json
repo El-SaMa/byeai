@@ -150,6 +150,14 @@
   "optionsHiddenIntro": { "message": "YouTube-kanaler du har skjult. Videoene deres vises ikke noe sted på YouTube." },
   "optionsHiddenEmpty": { "message": "Ingen skjulte kanaler ennå. Pek på en YouTube-video og bruk knappen i hjørnet." },
   "optionsUnhideBtn": { "message": "Vis igjen" },
+  "channelNotAi": { "message": "Ikke KI, vis kanalen" },
+  "channelShown": {
+    "message": "Viser $NAME$. Takk, vi går gjennom det.",
+    "placeholders": {"name": {"content": "$1", "example": "Slop Studio"}}
+  },
+  "optionsShownHeading": { "message": "Kanaler du valgte å vise" },
+  "optionsShownIntro": { "message": "Kanaler fra Community-listen som du har merket som ikke KI. Videoene deres blir ikke uskarpe." },
+  "optionsShownEmpty": { "message": "Ingen ennå. Bruk Ikke KI, vis kanalen på en uskarp Community-video." },
   "optionsCommunityHeading": { "message": "ByeAI Community" },
   "optionsCommunityLabel": { "message": "Bruk ByeAI Community-listen" },
   "optionsCommunityText": { "message": "En liste over KI-kanaler meldt inn av ByeAI-brukere, lastet ned én gang om dagen. Ingenting om deg blir sendt." },

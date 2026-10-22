@@ -150,6 +150,14 @@
   "optionsHiddenIntro": { "message": "非表示にしたYouTubeチャンネルです。動画はYouTubeのどこにも表示されません。" },
   "optionsHiddenEmpty": { "message": "非表示のチャンネルはまだありません。YouTubeの動画にポインターを合わせ、隅のボタンを使ってください。" },
   "optionsUnhideBtn": { "message": "表示する" },
+  "channelNotAi": { "message": "AIではない、このチャンネルを表示" },
+  "channelShown": {
+    "message": "「$NAME$」を表示します。ご報告ありがとうございます。確認します。",
+    "placeholders": {"name": {"content": "$1", "example": "Slop Studio"}}
+  },
+  "optionsShownHeading": { "message": "表示するように選んだチャンネル" },
+  "optionsShownIntro": { "message": "コミュニティリストのうち、AIではないと指定したチャンネルです。動画はぼかされません。" },
+  "optionsShownEmpty": { "message": "まだありません。ぼかされたコミュニティの動画で「AIではない、このチャンネルを表示」を押してください。" },
   "optionsCommunityHeading": { "message": "ByeAI Community" },
   "optionsCommunityLabel": { "message": "ByeAI Community リストを使う" },
   "optionsCommunityText": { "message": "ByeAIのユーザーが報告したAIチャンネルのリストで、1日1回ダウンロードされます。あなたに関する情報は送信されません。" },

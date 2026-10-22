@@ -150,6 +150,14 @@
   "optionsHiddenIntro": { "message": "کانال‌های YouTube که پنهان کرده‌اید. ویدیوهایشان هیچ‌جای YouTube نشان داده نمی‌شود." },
   "optionsHiddenEmpty": { "message": "هنوز کانال پنهانی ندارید. نشانگر را روی یک ویدیوی YouTube ببرید و از دکمهٔ گوشهٔ آن استفاده کنید." },
   "optionsUnhideBtn": { "message": "نمایش" },
+  "channelNotAi": { "message": "هوش مصنوعی نیست، این کانال را نشان بده" },
+  "channelShown": {
+    "message": "نمایش $NAME$. ممنون، بررسی می‌کنیم.",
+    "placeholders": {"name": {"content": "$1", "example": "Slop Studio"}}
+  },
+  "optionsShownHeading": { "message": "کانال‌هایی که نمایش‌شان را انتخاب کردید" },
+  "optionsShownIntro": { "message": "کانال‌هایی از فهرست جامعه که آن‌ها را هوش مصنوعی ندانستید. ویدیوهایشان محو نمی‌شود." },
+  "optionsShownEmpty": { "message": "هنوز موردی نیست. روی ویدیوی محوشدهٔ جامعه، «هوش مصنوعی نیست، این کانال را نشان بده» را بزنید." },
   "optionsCommunityHeading": { "message": "ByeAI Community" },
   "optionsCommunityLabel": { "message": "استفاده از فهرست ByeAI Community" },
   "optionsCommunityText": { "message": "فهرستی از کانال‌های هوش مصنوعی که کاربران ByeAI گزارش داده‌اند، روزی یک بار دریافت می‌شود. هیچ چیزی دربارهٔ شما ارسال نمی‌شود." },

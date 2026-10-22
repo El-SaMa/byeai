@@ -150,6 +150,14 @@
   "optionsHiddenIntro": { "message": "Κανάλια YouTube που κρύψατε. Τα βίντεό τους δεν εμφανίζονται πουθενά στο YouTube." },
   "optionsHiddenEmpty": { "message": "Δεν υπάρχουν ακόμη κρυφά κανάλια. Περάστε τον δείκτη πάνω από ένα βίντεο στο YouTube και πατήστε το κουμπί στη γωνία του." },
   "optionsUnhideBtn": { "message": "Εμφάνιση" },
+  "channelNotAi": { "message": "Δεν είναι AI, εμφάνιση καναλιού" },
+  "channelShown": {
+    "message": "Εμφάνιση: $NAME$. Ευχαριστούμε, θα το ελέγξουμε.",
+    "placeholders": {"name": {"content": "$1", "example": "Slop Studio"}}
+  },
+  "optionsShownHeading": { "message": "Κανάλια που επιλέξατε να εμφανίζονται" },
+  "optionsShownIntro": { "message": "Κανάλια από τη λίστα της Κοινότητας που σημειώσατε ως μη AI. Τα βίντεό τους δεν θολώνουν." },
+  "optionsShownEmpty": { "message": "Κανένα ακόμη. Σε ένα θολωμένο βίντεο της Κοινότητας πατήστε «Δεν είναι AI, εμφάνιση καναλιού»." },
   "optionsCommunityHeading": { "message": "ByeAI Community" },
   "optionsCommunityLabel": { "message": "Χρήση της λίστας ByeAI Community" },
   "optionsCommunityText": { "message": "Λίστα καναλιών AI που ανέφεραν χρήστες του ByeAI, λαμβάνεται μία φορά την ημέρα. Δεν στέλνεται τίποτα για εσάς." },

@@ -132,5 +132,10 @@
   "optionsPermissionsAlarmsHtml": "<strong>alarms</strong> : télécharger la liste ByeAI Community une fois par jour",
   "optionsAutoShareLabel": "Aider la communauté automatiquement",
   "optionsAutoShareText": "Quand YouTube indique lui-même qu’une vidéo est de l’IA, ByeAI envoie seulement le nom de la chaîne à la liste Community, de façon anonyme.",
-  "optionsAutoShareCount": "Chaînes partagées automatiquement : $COUNT$"
+  "optionsAutoShareCount": "Chaînes partagées automatiquement : $COUNT$",
+  "channelNotAi": "Pas de l'IA, afficher cette chaîne",
+  "channelShown": "Affichage de $NAME$. Merci, nous allons examiner ça.",
+  "optionsShownHeading": "Chaînes que vous avez choisi d'afficher",
+  "optionsShownIntro": "Chaînes de la liste de la Communauté que vous avez marquées comme n'étant pas de l'IA. Leurs vidéos ne sont pas floutées.",
+  "optionsShownEmpty": "Aucune pour l'instant. Sur une vidéo floutée de la Communauté, utilisez « Pas de l'IA, afficher cette chaîne »."
 }

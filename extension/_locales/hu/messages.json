@@ -150,6 +150,14 @@
   "optionsHiddenIntro": { "message": "Az általad elrejtett YouTube-csatornák. A videóik sehol sem jelennek meg a YouTube-on." },
   "optionsHiddenEmpty": { "message": "Még nincs elrejtett csatorna. Vidd az egeret egy YouTube-videó fölé, és használd a sarkában lévő gombot." },
   "optionsUnhideBtn": { "message": "Megjelenítés" },
+  "channelNotAi": { "message": "Nem MI, csatorna megjelenítése" },
+  "channelShown": {
+    "message": "$NAME$ megjelenítve. Köszönjük, átnézzük.",
+    "placeholders": {"name": {"content": "$1", "example": "Slop Studio"}}
+  },
+  "optionsShownHeading": { "message": "Általad megjelenített csatornák" },
+  "optionsShownIntro": { "message": "A Közösségi lista azon csatornái, amelyeket nem MI-ként jelöltél meg. A videóik nincsenek elmosva." },
+  "optionsShownEmpty": { "message": "Még nincs ilyen. Egy elmosott közösségi videón használd a „Nem MI, csatorna megjelenítése” gombot." },
   "optionsCommunityHeading": { "message": "ByeAI Community" },
   "optionsCommunityLabel": { "message": "A ByeAI Community lista használata" },
   "optionsCommunityText": { "message": "A ByeAI-felhasználók által jelentett MI-csatornák listája, naponta egyszer töltődik le. Rólad semmit nem küldünk el." },

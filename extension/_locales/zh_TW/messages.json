@@ -150,6 +150,14 @@
   "optionsHiddenIntro": { "message": "你隱藏的 YouTube 頻道。它們的影片不會出現在 YouTube 的任何地方。" },
   "optionsHiddenEmpty": { "message": "還沒有隱藏的頻道。將滑鼠移到 YouTube 影片上，然後使用角落的按鈕。" },
   "optionsUnhideBtn": { "message": "取消隱藏" },
+  "channelNotAi": { "message": "不是 AI，顯示此頻道" },
+  "channelShown": {
+    "message": "正在顯示 $NAME$。謝謝，我們會審核。",
+    "placeholders": {"name": {"content": "$1", "example": "Slop Studio"}}
+  },
+  "optionsShownHeading": { "message": "你選擇顯示的頻道" },
+  "optionsShownIntro": { "message": "社群清單中被你標記為非 AI 的頻道。它們的影片不會被模糊。" },
+  "optionsShownEmpty": { "message": "尚無。在被模糊的社群影片上點選「不是 AI，顯示此頻道」。" },
   "optionsCommunityHeading": { "message": "ByeAI Community" },
   "optionsCommunityLabel": { "message": "使用 ByeAI Community 清單" },
   "optionsCommunityText": { "message": "由 ByeAI 使用者回報的 AI 頻道清單，每天下載一次。不會傳送任何關於你的資訊。" },

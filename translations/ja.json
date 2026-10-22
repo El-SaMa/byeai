@@ -132,5 +132,10 @@
   "optionsPermissionsAlarmsHtml": "<strong>alarms</strong>：ByeAI Community リストを1日1回ダウンロードします",
   "optionsAutoShareLabel": "Communityに自動で協力する",
   "optionsAutoShareText": "YouTube自身が動画にAIラベルを付けたとき、ByeAIはそのチャンネル名だけを匿名でCommunityリストに送ります。",
-  "optionsAutoShareCount": "自動で共有したチャンネル：$COUNT$"
+  "optionsAutoShareCount": "自動で共有したチャンネル：$COUNT$",
+  "channelNotAi": "AIではない、このチャンネルを表示",
+  "channelShown": "「$NAME$」を表示します。ご報告ありがとうございます。確認します。",
+  "optionsShownHeading": "表示するように選んだチャンネル",
+  "optionsShownIntro": "コミュニティリストのうち、AIではないと指定したチャンネルです。動画はぼかされません。",
+  "optionsShownEmpty": "まだありません。ぼかされたコミュニティの動画で「AIではない、このチャンネルを表示」を押してください。"
 }

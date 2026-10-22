@@ -150,6 +150,14 @@
   "optionsHiddenIntro": { "message": "YouTube-kanalen die je hebt verborgen. Hun video's zie je nergens meer op YouTube." },
   "optionsHiddenEmpty": { "message": "Nog geen verborgen kanalen. Wijs een YouTube-video aan en gebruik de knop in de hoek." },
   "optionsUnhideBtn": { "message": "Weer tonen" },
+  "channelNotAi": { "message": "Geen AI, toon dit kanaal" },
+  "channelShown": {
+    "message": "$NAME$ wordt getoond. Bedankt, we bekijken het.",
+    "placeholders": {"name": {"content": "$1", "example": "Slop Studio"}}
+  },
+  "optionsShownHeading": { "message": "Kanalen die je wilt tonen" },
+  "optionsShownIntro": { "message": "Kanalen uit de communitylijst die je als geen AI hebt gemarkeerd. Hun video's worden niet vervaagd." },
+  "optionsShownEmpty": { "message": "Nog geen. Gebruik bij een vervaagde communityvideo Geen AI, toon dit kanaal." },
   "optionsCommunityHeading": { "message": "ByeAI Community" },
   "optionsCommunityLabel": { "message": "De ByeAI Community-lijst gebruiken" },
   "optionsCommunityText": { "message": "Een lijst met AI-kanalen die ByeAI-gebruikers hebben gemeld, één keer per dag gedownload. Er wordt niets over jou verstuurd." },

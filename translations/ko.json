@@ -132,5 +132,10 @@
   "optionsPermissionsAlarmsHtml": "<strong>alarms</strong>: 하루에 한 번 ByeAI Community 목록 내려받기",
   "optionsAutoShareLabel": "Community에 자동으로 기여",
   "optionsAutoShareText": "YouTube가 직접 동영상에 AI 라벨을 붙이면 ByeAI가 해당 채널 이름만 익명으로 Community 목록에 보냅니다.",
-  "optionsAutoShareCount": "자동으로 공유한 채널: $COUNT$"
+  "optionsAutoShareCount": "자동으로 공유한 채널: $COUNT$",
+  "channelNotAi": "AI 아님, 이 채널 표시",
+  "channelShown": "$NAME$ 채널을 표시합니다. 알려 주셔서 감사합니다. 검토하겠습니다.",
+  "optionsShownHeading": "표시하기로 한 채널",
+  "optionsShownIntro": "커뮤니티 목록에 있지만 AI가 아니라고 표시한 채널입니다. 이 채널의 동영상은 흐리게 처리되지 않습니다.",
+  "optionsShownEmpty": "아직 없습니다. 흐리게 처리된 커뮤니티 동영상에서 'AI 아님, 이 채널 표시'를 누르세요."
 }

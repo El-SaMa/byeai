@@ -132,5 +132,10 @@
   "optionsPermissionsAlarmsHtml": "<strong>alarms</strong>: mengunduh daftar ByeAI Community sekali sehari",
   "optionsAutoShareLabel": "Bantu Community secara otomatis",
   "optionsAutoShareText": "Saat YouTube sendiri melabeli video sebagai AI, ByeAI hanya mengirim nama kanal itu ke daftar Community, secara anonim.",
-  "optionsAutoShareCount": "Kanal yang dibagikan otomatis: $COUNT$"
+  "optionsAutoShareCount": "Kanal yang dibagikan otomatis: $COUNT$",
+  "channelNotAi": "Bukan AI, tampilkan kanal ini",
+  "channelShown": "Menampilkan $NAME$. Terima kasih, kami akan meninjaunya.",
+  "optionsShownHeading": "Kanal yang kamu pilih untuk ditampilkan",
+  "optionsShownIntro": "Kanal dari daftar Komunitas yang kamu tandai bukan AI. Videonya tidak diburamkan.",
+  "optionsShownEmpty": "Belum ada. Pada video Komunitas yang buram, gunakan Bukan AI, tampilkan kanal ini."
 }

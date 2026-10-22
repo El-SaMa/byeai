@@ -10,6 +10,7 @@
 - Suggestions are sent only when you click Suggest, with just the channel and the reason. Nothing about you
 - Asks for the "alarms" permission, used for the daily list download
 - Help the Community automatically (off by default): when YouTube itself labels a video as AI, ByeAI sends just that channel to the Community list, once per channel per 30 days
+- Not AI, show this channel: a button on Community covers shows that channel again everywhere, lists it under "Channels you chose to show", and with the Community list on sends the channel and the reason "not AI", nothing about you
 
 ## 1.2.2 (2026-10-21)
 

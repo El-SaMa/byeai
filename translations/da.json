@@ -132,5 +132,10 @@
   "optionsPermissionsAlarmsHtml": "<strong>alarms</strong>: henter ByeAI Community-listen én gang om dagen",
   "optionsAutoShareLabel": "Hjælp fællesskabet automatisk",
   "optionsAutoShareText": "Når YouTube selv markerer en video som AI, sender ByeAI kun kanalens navn til Community-listen, anonymt.",
-  "optionsAutoShareCount": "Kanaler delt automatisk: $COUNT$"
+  "optionsAutoShareCount": "Kanaler delt automatisk: $COUNT$",
+  "channelNotAi": "Ikke AI, vis kanalen",
+  "channelShown": "Viser $NAME$. Tak, vi gennemgår det.",
+  "optionsShownHeading": "Kanaler, du valgte at vise",
+  "optionsShownIntro": "Kanaler fra Community-listen, som du har markeret som ikke AI. Deres videoer bliver ikke sløret.",
+  "optionsShownEmpty": "Ingen endnu. Brug Ikke AI, vis kanalen på en sløret Community-video."
 }

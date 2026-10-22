@@ -150,6 +150,14 @@
   "optionsHiddenIntro": { "message": "Kanały YouTube, które ukryłeś. Ich filmy nie pojawiają się nigdzie na YouTube." },
   "optionsHiddenEmpty": { "message": "Brak ukrytych kanałów. Najedź na film w YouTube i użyj przycisku w jego rogu." },
   "optionsUnhideBtn": { "message": "Pokaż" },
+  "channelNotAi": { "message": "To nie AI, pokaż ten kanał" },
+  "channelShown": {
+    "message": "Pokazuję: $NAME$. Dzięki, sprawdzimy to.",
+    "placeholders": {"name": {"content": "$1", "example": "Slop Studio"}}
+  },
+  "optionsShownHeading": { "message": "Kanały, które chcesz widzieć" },
+  "optionsShownIntro": { "message": "Kanały z listy Społeczności, które oznaczyłeś jako nie-AI. Ich filmy nie są rozmywane." },
+  "optionsShownEmpty": { "message": "Na razie brak. Przy rozmytym filmie Społeczności użyj „To nie AI, pokaż ten kanał”." },
   "optionsCommunityHeading": { "message": "ByeAI Community" },
   "optionsCommunityLabel": { "message": "Używaj listy ByeAI Community" },
   "optionsCommunityText": { "message": "Lista kanałów AI zgłoszonych przez użytkowników ByeAI, pobierana raz dziennie. Nic o Tobie nie jest wysyłane." },

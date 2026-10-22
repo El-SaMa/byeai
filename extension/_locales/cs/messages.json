@@ -150,6 +150,14 @@
   "optionsHiddenIntro": { "message": "Kanály na YouTube, které jste skryli. Jejich videa se na YouTube nikde nezobrazí." },
   "optionsHiddenEmpty": { "message": "Zatím žádné skryté kanály. Najeďte myší na video na YouTube a použijte tlačítko v jeho rohu." },
   "optionsUnhideBtn": { "message": "Zobrazit" },
+  "channelNotAi": { "message": "Není to AI, zobrazit kanál" },
+  "channelShown": {
+    "message": "Zobrazuji kanál $NAME$. Díky, podíváme se na to.",
+    "placeholders": {"name": {"content": "$1", "example": "Slop Studio"}}
+  },
+  "optionsShownHeading": { "message": "Kanály, které jste se rozhodli zobrazit" },
+  "optionsShownIntro": { "message": "Kanály ze seznamu Komunity, které jste označili jako ne-AI. Jejich videa se nerozmazávají." },
+  "optionsShownEmpty": { "message": "Zatím žádné. U rozmazaného videa z Komunity použijte „Není to AI, zobrazit kanál“." },
   "optionsCommunityHeading": { "message": "ByeAI Community" },
   "optionsCommunityLabel": { "message": "Používat seznam ByeAI Community" },
   "optionsCommunityText": { "message": "Seznam AI kanálů nahlášených uživateli ByeAI, stahuje se jednou denně. Nic o vás se neodesílá." },

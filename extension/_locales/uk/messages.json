@@ -150,6 +150,14 @@
   "optionsHiddenIntro": { "message": "Канали YouTube, які ви сховали. Їхні відео ніде не з’являються на YouTube." },
   "optionsHiddenEmpty": { "message": "Схованих каналів поки немає. Наведіть курсор на відео на YouTube і натисніть кнопку в його куті." },
   "optionsUnhideBtn": { "message": "Показати" },
+  "channelNotAi": { "message": "Це не ШІ, показувати канал" },
+  "channelShown": {
+    "message": "Показуємо: $NAME$. Дякуємо, ми перевіримо.",
+    "placeholders": {"name": {"content": "$1", "example": "Slop Studio"}}
+  },
+  "optionsShownHeading": { "message": "Канали, які ви вирішили показувати" },
+  "optionsShownIntro": { "message": "Канали зі списку спільноти, які ви позначили як не ШІ. Їхні відео не розмиваються." },
+  "optionsShownEmpty": { "message": "Поки порожньо. На розмитому відео спільноти натисніть «Це не ШІ, показувати канал»." },
   "optionsCommunityHeading": { "message": "ByeAI Community" },
   "optionsCommunityLabel": { "message": "Використовувати список ByeAI Community" },
   "optionsCommunityText": { "message": "Список ШІ-каналів, про які повідомили користувачі ByeAI. Завантажується раз на день. Про вас нічого не надсилається." },

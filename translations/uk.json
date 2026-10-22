@@ -132,5 +132,10 @@
   "optionsPermissionsAlarmsHtml": "<strong>alarms</strong>: завантажувати список ByeAI Community раз на день",
   "optionsAutoShareLabel": "Допомагати спільноті автоматично",
   "optionsAutoShareText": "Коли YouTube сам позначає відео як ШІ, ByeAI анонімно надсилає до списку Community лише назву каналу.",
-  "optionsAutoShareCount": "Каналів надіслано автоматично: $COUNT$"
+  "optionsAutoShareCount": "Каналів надіслано автоматично: $COUNT$",
+  "channelNotAi": "Це не ШІ, показувати канал",
+  "channelShown": "Показуємо: $NAME$. Дякуємо, ми перевіримо.",
+  "optionsShownHeading": "Канали, які ви вирішили показувати",
+  "optionsShownIntro": "Канали зі списку спільноти, які ви позначили як не ШІ. Їхні відео не розмиваються.",
+  "optionsShownEmpty": "Поки порожньо. На розмитому відео спільноти натисніть «Це не ШІ, показувати канал»."
 }

@@ -23,8 +23,8 @@ const COMMUNITY_MAX = 50000;
 // A bit under a day, so the daily alarm never finds the list "still fresh".
 const COMMUNITY_FRESH_MS = 23 * 60 * 60 * 1000;
 const SUGGEST_DAILY_LIMIT = 20;
-const SUGGEST_REASONS = ['labeled', 'tagged', 'manual'];
-// "Help the Community automatically": once per channel per 30 days.
+const SUGGEST_REASONS = ['labeled', 'tagged', 'manual', 'not_ai'];
+// "Help the Community automatically" and "Not AI": once per channel per 30 days.
 const AUTO_SHARE_MS = 30 * 24 * 60 * 60 * 1000;
 const AUTO_SHARE_MAX = 1000;
 
@@ -666,7 +666,8 @@ async function syncCommunity({ force = false } = {}) {
   await refreshCommunity(force);
 }
 
-// Only when you click "Suggest as AI channel". Channel id, name and reason, nothing else.
+// Only when you click "Suggest as AI channel" or "Not AI", or by "Help the Community
+// automatically". Channel id, name and reason, nothing else.
 async function suggestChannel(message) {
   const id = globalThis.byeaiHiddenChannels.normId(message.id);
   if (!id) return { ok: false };
@@ -713,33 +714,53 @@ async function autoShare(message, sender) {
   const community = await readCommunity();
   if (community.channels.some((c) => ids.includes(c.id))) return { ok: false, listed: true };
 
-  const now = Date.now();
-  const { autoShared } = await chrome.storage.local.get({ autoShared: {} });
-  if (ids.some((id) => now - (autoShared[id] || 0) < AUTO_SHARE_MS)) return { ok: false, recent: true };
-
-  const result = await suggestChannel({ id: ids[0], n: message.n, why: 'labeled' });
-  if (result.limit) return result;
-  // Remember the try even when it failed, so a broken server is not hit on every visit.
-  ids.forEach((id) => {
-    autoShared[id] = now;
-  });
-  const kept = Object.entries(autoShared)
-    .filter(([, at]) => now - at < AUTO_SHARE_MS)
-    .sort((a, b) => a[1] - b[1])
-    .slice(-AUTO_SHARE_MAX);
-  const { autoSharedCount } = await chrome.storage.local.get({ autoSharedCount: 0 });
-  await chrome.storage.local.set({
-    autoShared: Object.fromEntries(kept),
-    autoSharedCount: autoSharedCount + (result.ok ? 1 : 0),
-  });
+  const result = await suggestOnce('autoShared', ids, message.n, 'labeled');
+  if (result.ok) {
+    const { autoSharedCount } = await chrome.storage.local.get({ autoSharedCount: 0 });
+    await chrome.storage.local.set({ autoSharedCount: autoSharedCount + 1 });
+  }
   return result;
 }
 
+// Sends a suggestion at most once per channel per 30 days. `key` is the
+// local storage map of channel id -> last try.
+async function suggestOnce(key, ids, n, why) {
+  const now = Date.now();
+  const { [key]: sent } = await chrome.storage.local.get({ [key]: {} });
+  if (ids.some((id) => now - (sent[id] || 0) < AUTO_SHARE_MS)) return { ok: false, recent: true };
+
+  const result = await suggestChannel({ id: ids[0], n, why });
+  if (result.limit) return result;
+  // Remember the try even when it failed, so a broken server is not hit on every visit.
+  ids.forEach((id) => {
+    sent[id] = now;
+  });
+  const kept = Object.entries(sent)
+    .filter(([, at]) => now - at < AUTO_SHARE_MS)
+    .sort((a, b) => a[1] - b[1])
+    .slice(-AUTO_SHARE_MAX);
+  await chrome.storage.local.set({ [key]: Object.fromEntries(kept) });
+  return result;
+}
+
+// "Not AI, show this channel" on a Community cover: the channel goes on
+// your own shown list. With the Community list on, one anonymous report
+// (channel id, name, "not_ai") tells Lanetti to review that list entry.
+async function notAi(message) {
+  const entry = await showChannel(message.channel);
+  if (!entry) return { ok: false };
+  if (!(await communityWanted())) return { ok: false, off: true };
+  const ids = [entry.id, entry.a].filter(Boolean);
+  const community = await readCommunity();
+  if (!community.channels.some((c) => ids.includes(c.id))) return { ok: false, listed: false };
+  return suggestOnce('notAiSent', ids, entry.n, 'not_ai');
+}
+
 // One at a time, so two tabs never send the same channel twice.
-let autoShareQueue = Promise.resolve();
-function queueAutoShare(message, sender) {
-  const run = autoShareQueue.then(() => autoShare(message, sender));
-  autoShareQueue = run.catch(() => {});
+let shareQueue = Promise.resolve();
+function queueShare(fn) {
+  const run = shareQueue.then(fn);
+  shareQueue = run.catch(() => {});
   return run.catch(() => ({ ok: false }));
 }
 
@@ -762,6 +783,28 @@ function hideChannel(channel) {
 function unhideChannel(ids) {
   const set = new Set((Array.isArray(ids) ? ids : [ids]).map(globalThis.byeaiHiddenChannels.normId).filter(Boolean));
   return editHidden((list) => list.filter((c) => !set.has(c.id) && !set.has(c.a)));
+}
+
+// Shown channels ("Not AI, show this channel"): same rules, own list.
+let shownQueue = Promise.resolve();
+function editShown(fn) {
+  const store = globalThis.byeaiShownChannels;
+  const run = shownQueue.then(async () => store.write(fn(await store.read())));
+  shownQueue = run.catch(() => {});
+  return run;
+}
+
+async function showChannel(channel) {
+  const entry = globalThis.byeaiShownChannels.clean(channel);
+  if (!entry) return null;
+  const ids = new Set([entry.id, entry.a].filter(Boolean));
+  await editShown((list) => [...list.filter((c) => !ids.has(c.id) && !ids.has(c.a)), entry]);
+  return entry;
+}
+
+function unshowChannel(ids) {
+  const set = new Set((Array.isArray(ids) ? ids : [ids]).map(globalThis.byeaiShownChannels.normId).filter(Boolean));
+  return editShown((list) => list.filter((c) => !set.has(c.id) && !set.has(c.a)));
 }
 
 chrome.alarms.onAlarm.addListener((alarm) => {
@@ -875,7 +918,12 @@ chrome.runtime.onMessage.addListener((message, sender, sendResponse) => {
       case 'SUGGEST_CHANNEL':
         return suggestChannel(message);
       case 'AUTO_SHARE_CHANNEL':
-        return queueAutoShare(message, sender);
+        return queueShare(() => autoShare(message, sender));
+      case 'NOT_AI_CHANNEL':
+        return queueShare(() => notAi(message));
+      case 'UNSHOW_CHANNEL':
+        await unshowChannel(message.ids);
+        return { ok: true };
       case 'COSMETIC_BLOCK': {
         const tabId = sender.tab?.id;
         if (typeof tabId === 'number') {

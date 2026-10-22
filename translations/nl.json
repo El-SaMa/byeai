@@ -132,5 +132,10 @@
   "optionsPermissionsAlarmsHtml": "<strong>alarms</strong>: de ByeAI Community-lijst één keer per dag downloaden",
   "optionsAutoShareLabel": "De community automatisch helpen",
   "optionsAutoShareText": "Als YouTube zelf een video als AI labelt, stuurt ByeAI alleen de naam van dat kanaal anoniem naar de Community-lijst.",
-  "optionsAutoShareCount": "Automatisch gedeelde kanalen: $COUNT$"
+  "optionsAutoShareCount": "Automatisch gedeelde kanalen: $COUNT$",
+  "channelNotAi": "Geen AI, toon dit kanaal",
+  "channelShown": "$NAME$ wordt getoond. Bedankt, we bekijken het.",
+  "optionsShownHeading": "Kanalen die je wilt tonen",
+  "optionsShownIntro": "Kanalen uit de communitylijst die je als geen AI hebt gemarkeerd. Hun video's worden niet vervaagd.",
+  "optionsShownEmpty": "Nog geen. Gebruik bij een vervaagde communityvideo Geen AI, toon dit kanaal."
 }

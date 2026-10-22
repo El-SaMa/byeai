@@ -150,6 +150,14 @@
   "optionsHiddenIntro": { "message": "Canalele YouTube pe care le-ai ascuns. Videoclipurile lor nu mai apar nicăieri pe YouTube." },
   "optionsHiddenEmpty": { "message": "Încă nu ai canale ascunse. Du cursorul peste un videoclip YouTube și folosește butonul din colț." },
   "optionsUnhideBtn": { "message": "Afișează" },
+  "channelNotAi": { "message": "Nu e IA, arată acest canal" },
+  "channelShown": {
+    "message": "Se afișează $NAME$. Mulțumim, vom verifica.",
+    "placeholders": {"name": {"content": "$1", "example": "Slop Studio"}}
+  },
+  "optionsShownHeading": { "message": "Canale pe care ai ales să le afișezi" },
+  "optionsShownIntro": { "message": "Canale din lista Comunității pe care le-ai marcat ca nefiind IA. Videoclipurile lor nu sunt estompate." },
+  "optionsShownEmpty": { "message": "Încă niciunul. Pe un videoclip estompat din Comunitate, folosește „Nu e IA, arată acest canal”." },
   "optionsCommunityHeading": { "message": "ByeAI Community" },
   "optionsCommunityLabel": { "message": "Folosește lista ByeAI Community" },
   "optionsCommunityText": { "message": "O listă de canale AI raportate de utilizatorii ByeAI, descărcată o dată pe zi. Nu se trimite nimic despre tine." },

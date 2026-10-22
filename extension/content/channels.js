@@ -9,13 +9,16 @@
  *   <html> that we move over the tile you point at.
  * - Community list: downloaded by the service worker. ai-content.js covers
  *   those channels with the usual blur, through byeai.channels below.
+ * - Shown channels: "Not AI, show this channel" on a Community cover. Those
+ *   channels no longer count as Community channels. Hide channel still wins.
  */
 (function () {
   'use strict';
 
   const byeai = globalThis.byeai;
   const store = globalThis.byeaiHiddenChannels;
-  if (!byeai || !store || !/(^|\.)youtube\.com$/.test(byeai.host) || window.top !== window) return;
+  const shownStore = globalThis.byeaiShownChannels;
+  if (!byeai || !store || !shownStore || !/(^|\.)youtube\.com$/.test(byeai.host) || window.top !== window) return;
 
   const msg = (key, fallback, args) => {
     try {
@@ -41,6 +44,7 @@
   const FOCUSABLE = 'a[href], button, input, select, textarea, [tabindex]:not([tabindex="-1"])';
 
   let hiddenIds = new Set();
+  let shownIds = new Set();
   let community = new Set();
   let communityOn = true;
   // Channel id -> 'labeled' | 'tagged', when ai-content.js saw an AI label or tag.
@@ -88,7 +92,9 @@
   const isWatch = () => location.pathname === '/watch';
   const watchChannel = () => (isWatch() ? channelIn(document.querySelector(OWNER)) : null);
   const isHidden = (info) => Boolean(info && info.ids.some((id) => hiddenIds.has(id)));
-  const isCommunity = (info) => Boolean(communityOn && info && info.ids.some((id) => community.has(id)));
+  const isShown = (info) => Boolean(info && info.ids.some((id) => shownIds.has(id)));
+  const isCommunity = (info) =>
+    Boolean(communityOn && info && info.ids.some((id) => community.has(id)) && !isShown(info));
 
   function entryFor(info) {
     const entry = { id: info.id, n: info.n };
@@ -99,13 +105,26 @@
 
   // ------------------------------------------------------------- storage
 
-  function setHidden(list) {
-    hiddenIds = new Set(list.flatMap((c) => (c.a ? [c.id, c.a] : [c.id])));
-    changed();
-  }
+  const idsOf = (list) => new Set(list.flatMap((c) => (c.a ? [c.id, c.a] : [c.id])));
 
   function loadHidden() {
-    store.read().then(setHidden).catch(() => {});
+    store
+      .read()
+      .then((list) => {
+        hiddenIds = idsOf(list);
+        changed();
+      })
+      .catch(() => {});
+  }
+
+  function loadShown() {
+    shownStore
+      .read()
+      .then((list) => {
+        shownIds = idsOf(list);
+        changed();
+      })
+      .catch(() => {});
   }
 
   function loadCommunity() {
@@ -122,6 +141,7 @@
   chrome.storage.onChanged.addListener((changes, area) => {
     const keys = Object.keys(changes);
     if (area === 'sync' && keys.some(store.isKey)) loadHidden();
+    if (area === 'sync' && keys.some(shownStore.isKey)) loadShown();
     if ((area === 'sync' && changes.communityEnabled) || (area === 'local' && changes.community)) loadCommunity();
   });
 
@@ -155,6 +175,7 @@
     mark(document.body);
     if (current && (current.tile.hasAttribute(ATTR) || !byeai.state.labeled)) hideButton();
     placeWatchButton();
+    checkNotAi();
     listeners.forEach((fn) => {
       try {
         fn();
@@ -168,13 +189,29 @@
     hiddenIds = new Set([...hiddenIds, ...info.ids]);
     changed();
     chrome.runtime.sendMessage({ type: 'HIDE_CHANNEL', channel: entryFor(info) }).catch(() => {});
-    showToast(info);
+    showHideToast(info);
   }
 
   function unhide(info) {
     info.ids.forEach((id) => hiddenIds.delete(id));
     changed();
     chrome.runtime.sendMessage({ type: 'UNHIDE_CHANNEL', ids: info.ids }).catch(() => {});
+  }
+
+  // "Not AI, show this channel": every Community cover of the channel goes
+  // at once. The worker saves it and, with the Community list on, sends
+  // one anonymous "not_ai" report.
+  function show(info) {
+    shownIds = new Set([...shownIds, ...info.ids]);
+    changed();
+    chrome.runtime.sendMessage({ type: 'NOT_AI_CHANNEL', channel: entryFor(info) }).catch(() => {});
+    showToast(msg('channelShown', `Showing ${info.n}. Thanks, we'll review it.`, [info.n]), () => unshow(info));
+  }
+
+  function unshow(info) {
+    info.ids.forEach((id) => shownIds.delete(id));
+    changed();
+    chrome.runtime.sendMessage({ type: 'UNSHOW_CHANNEL', ids: info.ids }).catch(() => {});
   }
 
   // ------------------------------------------------------- overlay button
@@ -299,6 +336,11 @@
       focusables(tile).pop()?.focus();
       return;
     }
+    const notAiHere = notAiFor(tile);
+    if (notAiHere) {
+      notAiHere.button.focus();
+      return;
+    }
     const next = focusables(document.body).find(
       (el) => !tile.contains(el) && tile.compareDocumentPosition(el) & Node.DOCUMENT_POSITION_FOLLOWING
     );
@@ -309,12 +351,14 @@
   document.addEventListener(
     'keydown',
     (event) => {
-      if (event.key !== 'Tab' || event.shiftKey || !current || !tileButton) return;
+      if (event.key !== 'Tab' || event.shiftKey) return;
       const active = document.activeElement;
-      if (active && current.tile.contains(active) && focusables(current.tile).pop() === active) {
-        event.preventDefault();
-        tileButton.button.focus();
-      }
+      const tile = current?.tile || notAiCurrent?.card;
+      if (!active || !tile || !tile.contains(active) || focusables(tile).pop() !== active) return;
+      const target = current && tileButton ? tileButton : notAiFor(tile);
+      if (!target) return;
+      event.preventDefault();
+      target.button.focus();
     },
     true
   );
@@ -322,10 +366,11 @@
   document.addEventListener(
     'pointerover',
     (event) => {
-      if (tileButton && event.target === tileButton.host) return;
+      if (event.target === tileButton?.host || event.target === notAiButton?.host) return;
       const tile = outerTile(event.target);
       if (!tile) hideButton();
       else if (tile !== current?.tile) showButton(tile);
+      trackNotAi(event.target);
     },
     true
   );
@@ -333,18 +378,110 @@
   document.addEventListener(
     'focusin',
     (event) => {
-      if (tileButton && event.target === tileButton.host) return;
+      if (event.target === tileButton?.host || event.target === notAiButton?.host) return;
       const tile = outerTile(event.target);
       if (tile) showButton(tile);
       else hideButton();
+      trackNotAi(event.target);
     },
     true
   );
 
   window.addEventListener('resize', () => {
     hideButton();
+    hideNotAi();
     placeWatchButton();
   });
+
+  // ------------------------------------------------- "Not AI" on covers
+
+  // A pill under the "Click to show" note of a Community cover. Like the
+  // hide button it lives under <html>, outside YouTube's trees.
+  const NOT_AI_CSS = `
+    :host { all: initial; }
+    button {
+      font: 600 12px/16px "Segoe UI", system-ui, -apple-system, sans-serif; color: #0f172a;
+      background: #ffffff; border: 0; border-radius: 14px; padding: 6px 12px; margin: 0;
+      cursor: pointer; white-space: nowrap; box-shadow: 0 1px 4px rgba(0, 0, 0, 0.35);
+    }
+    button:hover { background: #ccfbf1; }
+    button:focus-visible { outline: 2px solid #ffffff; outline-offset: 0; box-shadow: 0 0 0 4px #0f766e; }
+  `;
+  const COMMUNITY_COVER = '[data-byeai-cover="community"]';
+
+  let notAiButton = null;
+  let notAiCurrent = null;
+
+  const coverInfo = (card) => (card.id === 'movie_player' ? watchChannel() : channelIn(card));
+
+  function showNotAi(card) {
+    const info = byeai.state.labeled ? coverInfo(card) : null;
+    if (!isCommunity(info)) return hideNotAi();
+    const r = card.getBoundingClientRect();
+    if (!r.width || !r.height) return hideNotAi();
+    if (!notAiButton) {
+      notAiButton = overlay('byeai-not-ai', NOT_AI_CSS, () => notAiCurrent && show(notAiCurrent.info));
+      notAiButton.button.addEventListener('keydown', onNotAiKey);
+    }
+    notAiCurrent = { card, info };
+    const text = msg('channelNotAi', 'Not AI, show this channel');
+    notAiButton.button.textContent = text;
+    notAiButton.button.setAttribute('aria-label', `${text}: ${info.n}`);
+    notAiButton.button.dir = msg('@@bidi_dir', 'ltr');
+    notAiButton.set('display', 'block');
+    const size = notAiButton.host.getBoundingClientRect();
+    // Centered, just below the cover's note.
+    const left = Math.max(r.left, r.left + (r.width - size.width) / 2);
+    const top = Math.max(r.top + 4, Math.min(r.top + r.height / 2 + 26, r.bottom - size.height - 8));
+    notAiButton.set('left', `${Math.round(left + window.scrollX)}px`);
+    notAiButton.set('top', `${Math.round(top + window.scrollY)}px`);
+  }
+
+  function hideNotAi() {
+    notAiCurrent = null;
+    notAiButton?.set('display', 'none');
+  }
+
+  // The cover went away (revealed, recycled tile, channel shown or hidden).
+  function checkNotAi() {
+    if (!notAiCurrent) return;
+    const { card } = notAiCurrent;
+    if (!card.isConnected || !card.matches(COMMUNITY_COVER) || !isCommunity(coverInfo(card))) hideNotAi();
+  }
+
+  function trackNotAi(target) {
+    const card = target instanceof Element ? target.closest(COMMUNITY_COVER) : null;
+    if (!card) hideNotAi();
+    else if (card !== notAiCurrent?.card) showNotAi(card);
+  }
+
+  const notAiFor = (tile) => (notAiCurrent && notAiButton && notAiCurrent.card === tile ? notAiButton : null);
+
+  // Keyboard: comes after the hide button (or the cover's last control),
+  // then moves on to whatever comes after the cover.
+  function onNotAiKey(event) {
+    if (!notAiCurrent) return;
+    const card = notAiCurrent.card;
+    if (event.key === 'Escape') {
+      const back = focusables(card).pop();
+      hideNotAi();
+      back?.focus();
+      return;
+    }
+    if (event.key !== 'Tab') return;
+    event.preventDefault();
+    if (event.shiftKey) {
+      if (current?.tile === card && tileButton) tileButton.button.focus();
+      else focusables(card).pop()?.focus();
+      return;
+    }
+    const next = focusables(document.body).find(
+      (el) => !card.contains(el) && card.compareDocumentPosition(el) & Node.DOCUMENT_POSITION_FOLLOWING
+    );
+    hideNotAi();
+    hideButton();
+    next?.focus();
+  }
 
   // ------------------------------------------------------ watch page button
 
@@ -428,7 +565,13 @@
     return 'manual';
   }
 
-  function showToast(info) {
+  function showHideToast(info) {
+    // Already in the list: nothing to suggest.
+    showToast(msg('channelHidden', `Hidden ${info.n}`, [info.n]), () => unhide(info), isCommunity(info) ? null : info);
+  }
+
+  // A note in the corner with Undo, plus Suggest after hiding a channel.
+  function showToast(message, onUndo, suggestInfo = null) {
     toast?.remove(true);
 
     const el = document.createElement('byeai-toast');
@@ -449,7 +592,7 @@
 
     const text = document.createElement('span');
     text.className = 'text';
-    text.textContent = msg('channelHidden', `Hidden ${info.n}`, [info.n]);
+    text.textContent = message;
 
     const close = document.createElement('button');
     close.type = 'button';
@@ -466,9 +609,8 @@
     undo.textContent = msg('channelUndo', 'Undo');
     actions.append(undo);
 
-    // Already in the list: nothing to suggest.
     let suggest = null;
-    if (!isCommunity(info)) {
+    if (suggestInfo) {
       suggest = document.createElement('button');
       suggest.type = 'button';
       suggest.className = 'suggest';
@@ -502,7 +644,7 @@
     close.addEventListener('click', () => remove());
 
     undo.addEventListener('click', () => {
-      unhide(info);
+      onUndo();
       remove();
     });
 
@@ -510,7 +652,7 @@
       suggest.disabled = true;
       undo.disabled = true;
       const reply = await chrome.runtime
-        .sendMessage({ type: 'SUGGEST_CHANNEL', id: info.id, n: info.n, why: why(info) })
+        .sendMessage({ type: 'SUGGEST_CHANNEL', id: suggestInfo.id, n: suggestInfo.n, why: why(suggestInfo) })
         .catch(() => null);
       text.textContent = reply?.ok
         ? msg('channelSuggestSent', 'Thanks, suggestion sent')
@@ -535,6 +677,7 @@
     if (roots.length > 40) mark(document.body);
     else roots.forEach((r) => r.isConnected && mark(r));
     placeWatchButton();
+    checkNotAi();
   }
 
   function schedule(root) {
@@ -551,11 +694,12 @@
         if (m.type === 'attributes') schedule(m.target);
         else m.addedNodes.forEach((n) => schedule(n.nodeType === 1 ? n : n.parentElement));
       }
-    }).observe(document.body, { childList: true, subtree: true, attributes: true, attributeFilter: ['href'] });
+    }).observe(document.body, { childList: true, subtree: true, attributes: true, attributeFilter: ['href', 'data-byeai-cover'] });
   }
 
   document.addEventListener('yt-navigate-finish', () => {
     hideButton();
+    hideNotAi();
     schedule(document.body);
   });
 
@@ -564,6 +708,7 @@
     of: channelIn,
     watch: watchChannel,
     hidden: isHidden,
+    shown: isShown,
     community: isCommunity,
     noteAi(info, kind) {
       if (!info) return;
@@ -578,6 +723,7 @@
 
   byeai.onChange(() => changed());
   loadHidden();
+  loadShown();
   loadCommunity();
 
   if (document.readyState === 'loading') {

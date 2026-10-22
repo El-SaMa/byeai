@@ -150,6 +150,14 @@
   "optionsHiddenIntro": { "message": "Gizlediğiniz YouTube kanalları. Videoları YouTube'un hiçbir yerinde görünmez." },
   "optionsHiddenEmpty": { "message": "Henüz gizlenen kanal yok. Bir YouTube videosunun üzerine gelin ve köşesindeki düğmeyi kullanın." },
   "optionsUnhideBtn": { "message": "Göster" },
+  "channelNotAi": { "message": "Yapay zeka değil, kanalı göster" },
+  "channelShown": {
+    "message": "$NAME$ gösteriliyor. Teşekkürler, inceleyeceğiz.",
+    "placeholders": {"name": {"content": "$1", "example": "Slop Studio"}}
+  },
+  "optionsShownHeading": { "message": "Göstermeyi seçtiğin kanallar" },
+  "optionsShownIntro": { "message": "Topluluk listesinde olup yapay zeka olmadığını işaretlediğin kanallar. Videoları bulanıklaştırılmaz." },
+  "optionsShownEmpty": { "message": "Henüz yok. Bulanık bir Topluluk videosunda Yapay zeka değil, kanalı göster düğmesini kullan." },
   "optionsCommunityHeading": { "message": "ByeAI Community" },
   "optionsCommunityLabel": { "message": "ByeAI Community listesini kullan" },
   "optionsCommunityText": { "message": "ByeAI kullanıcılarının bildirdiği YZ kanallarının listesi, günde bir kez indirilir. Sizinle ilgili hiçbir şey gönderilmez." },

@@ -132,5 +132,10 @@
   "optionsPermissionsAlarmsHtml": "<strong>alarms</strong>: hämta ByeAI Community-listan en gång om dagen",
   "optionsAutoShareLabel": "Hjälp communityn automatiskt",
   "optionsAutoShareText": "När YouTube själv märker en video som AI skickar ByeAI bara kanalens namn till Community-listan, anonymt.",
-  "optionsAutoShareCount": "Kanaler som delats automatiskt: $COUNT$"
+  "optionsAutoShareCount": "Kanaler som delats automatiskt: $COUNT$",
+  "channelNotAi": "Inte AI, visa kanalen",
+  "channelShown": "Visar $NAME$. Tack, vi går igenom det.",
+  "optionsShownHeading": "Kanaler du valde att visa",
+  "optionsShownIntro": "Kanaler från Community-listan som du har markerat som inte AI. Deras videor suddas inte ut.",
+  "optionsShownEmpty": "Inga ännu. Använd Inte AI, visa kanalen på en suddig Community-video."
 }

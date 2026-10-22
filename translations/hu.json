@@ -132,5 +132,10 @@
   "optionsPermissionsAlarmsHtml": "<strong>alarms</strong>: a ByeAI Community lista napi egyszeri letöltése",
   "optionsAutoShareLabel": "A közösség automatikus segítése",
   "optionsAutoShareText": "Ha maga a YouTube jelöl meg egy videót MI-ként, a ByeAI névtelenül csak a csatorna nevét küldi el a Community listának.",
-  "optionsAutoShareCount": "Automatikusan megosztott csatornák: $COUNT$"
+  "optionsAutoShareCount": "Automatikusan megosztott csatornák: $COUNT$",
+  "channelNotAi": "Nem MI, csatorna megjelenítése",
+  "channelShown": "$NAME$ megjelenítve. Köszönjük, átnézzük.",
+  "optionsShownHeading": "Általad megjelenített csatornák",
+  "optionsShownIntro": "A Közösségi lista azon csatornái, amelyeket nem MI-ként jelöltél meg. A videóik nincsenek elmosva.",
+  "optionsShownEmpty": "Még nincs ilyen. Egy elmosott közösségi videón használd a „Nem MI, csatorna megjelenítése” gombot."
 }

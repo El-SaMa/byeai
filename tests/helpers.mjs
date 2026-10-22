@@ -98,7 +98,8 @@ export async function launch() {
 }
 
 const HIDDEN_KEYS = ['hiddenChannels', ...Array.from({ length: 9 }, (_, i) => `hiddenChannels${i + 1}`)];
-const SYNC_KEYS = ['enabled', 'features', 'allowedHosts', 'mediaAllowedHosts', 'showNotices', 'communityEnabled', 'communityAutoShare', ...HIDDEN_KEYS];
+const SHOWN_KEYS = ['shownChannels', 'shownChannels1', 'shownChannels2'];
+const SYNC_KEYS = ['enabled', 'features', 'allowedHosts', 'mediaAllowedHosts', 'showNotices', 'communityEnabled', 'communityAutoShare', ...HIDDEN_KEYS, ...SHOWN_KEYS];
 
 // Same split as the extension: settings in sync, counters in local.
 export async function setStorage(worker, data) {
@@ -125,9 +126,10 @@ export async function resetStorage(worker) {
     community: { ...EMPTY_LIST, etag: '', fetchedAt: Date.now() },
     suggestCount: { day: '', count: 0 },
     autoShared: {},
+    notAiSent: {},
     autoSharedCount: 0,
   });
-  await worker.evaluate((keys) => chrome.storage.sync.remove(keys), HIDDEN_KEYS);
+  await worker.evaluate((keys) => chrome.storage.sync.remove(keys), [...HIDDEN_KEYS, ...SHOWN_KEYS]);
 }
 
 export async function open(context, url) {

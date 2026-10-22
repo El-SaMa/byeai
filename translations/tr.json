@@ -132,5 +132,10 @@
   "optionsPermissionsAlarmsHtml": "<strong>alarms</strong>: ByeAI Community listesini günde bir kez indirmek",
   "optionsAutoShareLabel": "Topluluğa otomatik yardım et",
   "optionsAutoShareText": "YouTube bir videoyu kendisi YZ olarak etiketlediğinde ByeAI, Community listesine anonim olarak yalnızca kanalın adını gönderir.",
-  "optionsAutoShareCount": "Otomatik paylaşılan kanallar: $COUNT$"
+  "optionsAutoShareCount": "Otomatik paylaşılan kanallar: $COUNT$",
+  "channelNotAi": "Yapay zeka değil, kanalı göster",
+  "channelShown": "$NAME$ gösteriliyor. Teşekkürler, inceleyeceğiz.",
+  "optionsShownHeading": "Göstermeyi seçtiğin kanallar",
+  "optionsShownIntro": "Topluluk listesinde olup yapay zeka olmadığını işaretlediğin kanallar. Videoları bulanıklaştırılmaz.",
+  "optionsShownEmpty": "Henüz yok. Bulanık bir Topluluk videosunda Yapay zeka değil, kanalı göster düğmesini kullan."
 }

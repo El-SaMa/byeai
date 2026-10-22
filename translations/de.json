@@ -132,5 +132,10 @@
   "optionsPermissionsAlarmsHtml": "<strong>alarms</strong>: lädt die ByeAI-Community-Liste einmal am Tag",
   "optionsAutoShareLabel": "Der Community automatisch helfen",
   "optionsAutoShareText": "Wenn YouTube selbst ein Video als KI kennzeichnet, sendet ByeAI nur den Namen des Kanals an die Community-Liste, anonym.",
-  "optionsAutoShareCount": "Automatisch geteilte Kanäle: $COUNT$"
+  "optionsAutoShareCount": "Automatisch geteilte Kanäle: $COUNT$",
+  "channelNotAi": "Keine KI, Kanal anzeigen",
+  "channelShown": "$NAME$ wird angezeigt. Danke, wir prüfen das.",
+  "optionsShownHeading": "Kanäle, die du anzeigen lässt",
+  "optionsShownIntro": "Kanäle aus der Community-Liste, die du als keine KI markiert hast. Ihre Videos werden nicht unscharf gemacht.",
+  "optionsShownEmpty": "Noch keine. Nutze bei einem unscharfen Community-Video „Keine KI, Kanal anzeigen“."
 }

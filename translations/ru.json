@@ -132,5 +132,10 @@
   "optionsPermissionsAlarmsHtml": "<strong>alarms</strong>: загружать список ByeAI Community раз в день",
   "optionsAutoShareLabel": "Помогать сообществу автоматически",
   "optionsAutoShareText": "Когда YouTube сам помечает видео как ИИ, ByeAI анонимно отправляет в список Community только название канала.",
-  "optionsAutoShareCount": "Каналов отправлено автоматически: $COUNT$"
+  "optionsAutoShareCount": "Каналов отправлено автоматически: $COUNT$",
+  "channelNotAi": "Это не ИИ, показывать канал",
+  "channelShown": "Показываем: $NAME$. Спасибо, мы проверим.",
+  "optionsShownHeading": "Каналы, которые вы решили показывать",
+  "optionsShownIntro": "Каналы из списка сообщества, которые вы отметили как не ИИ. Их видео не размываются.",
+  "optionsShownEmpty": "Пока пусто. На размытом видео сообщества нажмите «Это не ИИ, показывать канал»."
 }

@@ -132,5 +132,10 @@
   "optionsPermissionsAlarmsHtml": "<strong>alarms</strong>: stahovat seznam ByeAI Community jednou denně",
   "optionsAutoShareLabel": "Pomáhat komunitě automaticky",
   "optionsAutoShareText": "Když YouTube sám označí video jako AI, ByeAI anonymně pošle do seznamu Community jen název kanálu.",
-  "optionsAutoShareCount": "Automaticky sdílené kanály: $COUNT$"
+  "optionsAutoShareCount": "Automaticky sdílené kanály: $COUNT$",
+  "channelNotAi": "Není to AI, zobrazit kanál",
+  "channelShown": "Zobrazuji kanál $NAME$. Díky, podíváme se na to.",
+  "optionsShownHeading": "Kanály, které jste se rozhodli zobrazit",
+  "optionsShownIntro": "Kanály ze seznamu Komunity, které jste označili jako ne-AI. Jejich videa se nerozmazávají.",
+  "optionsShownEmpty": "Zatím žádné. U rozmazaného videa z Komunity použijte „Není to AI, zobrazit kanál“."
 }

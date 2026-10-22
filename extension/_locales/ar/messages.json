@@ -150,6 +150,14 @@
   "optionsHiddenIntro": { "message": "قنوات YouTube التي أخفيتها. لن تظهر فيديوهاتها في أي مكان على YouTube." },
   "optionsHiddenEmpty": { "message": "لا توجد قنوات مخفية بعد. مرّر المؤشر فوق فيديو على YouTube واستخدم الزر في زاويته." },
   "optionsUnhideBtn": { "message": "إظهار" },
+  "channelNotAi": { "message": "ليس ذكاءً اصطناعيًا، أظهر هذه القناة" },
+  "channelShown": {
+    "message": "يتم عرض $NAME$. شكرًا، سنراجع الأمر.",
+    "placeholders": {"name": {"content": "$1", "example": "Slop Studio"}}
+  },
+  "optionsShownHeading": { "message": "القنوات التي اخترت إظهارها" },
+  "optionsShownIntro": { "message": "قنوات من قائمة المجتمع حددتها على أنها ليست ذكاءً اصطناعيًا. لا تُحجب فيديوهاتها." },
+  "optionsShownEmpty": { "message": "لا شيء بعد. في فيديو مجتمع محجوب، استخدم «ليس ذكاءً اصطناعيًا، أظهر هذه القناة»." },
   "optionsCommunityHeading": { "message": "ByeAI Community" },
   "optionsCommunityLabel": { "message": "استخدام قائمة ByeAI Community" },
   "optionsCommunityText": { "message": "قائمة بقنوات الذكاء الاصطناعي التي أبلغ عنها مستخدمو ByeAI، تُنزَّل مرة يوميًا. لا يُرسَل أي شيء عنك." },

@@ -150,6 +150,14 @@
   "optionsHiddenIntro": { "message": "Каналы YouTube, которые вы скрыли. Их видео нигде не появляются на YouTube." },
   "optionsHiddenEmpty": { "message": "Скрытых каналов пока нет. Наведите курсор на видео на YouTube и нажмите кнопку в его углу." },
   "optionsUnhideBtn": { "message": "Показать" },
+  "channelNotAi": { "message": "Это не ИИ, показывать канал" },
+  "channelShown": {
+    "message": "Показываем: $NAME$. Спасибо, мы проверим.",
+    "placeholders": {"name": {"content": "$1", "example": "Slop Studio"}}
+  },
+  "optionsShownHeading": { "message": "Каналы, которые вы решили показывать" },
+  "optionsShownIntro": { "message": "Каналы из списка сообщества, которые вы отметили как не ИИ. Их видео не размываются." },
+  "optionsShownEmpty": { "message": "Пока пусто. На размытом видео сообщества нажмите «Это не ИИ, показывать канал»." },
   "optionsCommunityHeading": { "message": "ByeAI Community" },
   "optionsCommunityLabel": { "message": "Использовать список ByeAI Community" },
   "optionsCommunityText": { "message": "Список ИИ-каналов, о которых сообщили пользователи ByeAI. Загружается раз в день. О вас ничего не отправляется." },

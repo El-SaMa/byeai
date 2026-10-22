@@ -173,6 +173,14 @@
   "optionsHiddenIntro": { "message": "YouTube channels you hid. Their videos stay out of sight everywhere on YouTube." },
   "optionsHiddenEmpty": { "message": "No hidden channels yet. Point at a YouTube video and use the button in its corner." },
   "optionsUnhideBtn": { "message": "Unhide" },
+  "channelNotAi": { "message": "Not AI, show this channel" },
+  "channelShown": {
+    "message": "Showing $NAME$. Thanks, we'll review it.",
+    "placeholders": { "name": { "content": "$1", "example": "Slop Studio" } }
+  },
+  "optionsShownHeading": { "message": "Channels you chose to show" },
+  "optionsShownIntro": { "message": "Channels from the Community list that you marked as not AI. Their videos are not blurred." },
+  "optionsShownEmpty": { "message": "None yet. On a blurred Community video, use Not AI, show this channel." },
   "optionsCommunityHeading": { "message": "ByeAI Community" },
   "optionsCommunityLabel": { "message": "Use the ByeAI Community list" },
   "optionsCommunityText": { "message": "A list of AI channels reported by ByeAI users, downloaded once a day. Nothing about you is sent." },

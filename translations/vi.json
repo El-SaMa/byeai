@@ -132,5 +132,10 @@
   "optionsPermissionsAlarmsHtml": "<strong>alarms</strong>: tải danh sách ByeAI Community mỗi ngày một lần",
   "optionsAutoShareLabel": "Tự động giúp Community",
   "optionsAutoShareText": "Khi chính YouTube gắn nhãn AI cho một video, ByeAI chỉ gửi tên kênh đó vào danh sách Community, ẩn danh.",
-  "optionsAutoShareCount": "Kênh đã tự động chia sẻ: $COUNT$"
+  "optionsAutoShareCount": "Kênh đã tự động chia sẻ: $COUNT$",
+  "channelNotAi": "Không phải AI, hiện kênh này",
+  "channelShown": "Đang hiện $NAME$. Cảm ơn, chúng tôi sẽ xem xét.",
+  "optionsShownHeading": "Các kênh bạn chọn hiện",
+  "optionsShownIntro": "Các kênh trong danh sách Cộng đồng mà bạn đã đánh dấu là không phải AI. Video của họ không bị làm mờ.",
+  "optionsShownEmpty": "Chưa có kênh nào. Trên video Cộng đồng bị làm mờ, hãy dùng nút Không phải AI, hiện kênh này."
 }

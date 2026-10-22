@@ -150,6 +150,14 @@
   "optionsHiddenIntro": { "message": "ช่อง YouTube ที่คุณซ่อนไว้ วิดีโอของช่องเหล่านี้จะไม่แสดงที่ใดบน YouTube" },
   "optionsHiddenEmpty": { "message": "ยังไม่มีช่องที่ซ่อนไว้ ชี้เมาส์ที่วิดีโอ YouTube แล้วใช้ปุ่มที่มุมของวิดีโอ" },
   "optionsUnhideBtn": { "message": "แสดง" },
+  "channelNotAi": { "message": "ไม่ใช่ AI แสดงช่องนี้" },
+  "channelShown": {
+    "message": "กำลังแสดง $NAME$ ขอบคุณ เราจะตรวจสอบ",
+    "placeholders": {"name": {"content": "$1", "example": "Slop Studio"}}
+  },
+  "optionsShownHeading": { "message": "ช่องที่คุณเลือกให้แสดง" },
+  "optionsShownIntro": { "message": "ช่องจากรายชื่อชุมชนที่คุณระบุว่าไม่ใช่ AI วิดีโอของช่องเหล่านี้จะไม่ถูกเบลอ" },
+  "optionsShownEmpty": { "message": "ยังไม่มี ที่วิดีโอชุมชนที่ถูกเบลอ ให้กด ไม่ใช่ AI แสดงช่องนี้" },
   "optionsCommunityHeading": { "message": "ByeAI Community" },
   "optionsCommunityLabel": { "message": "ใช้รายการ ByeAI Community" },
   "optionsCommunityText": { "message": "รายการช่อง AI ที่ผู้ใช้ ByeAI รายงาน ดาวน์โหลดวันละครั้ง ไม่มีการส่งข้อมูลใดๆ เกี่ยวกับคุณ" },

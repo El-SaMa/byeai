@@ -475,7 +475,9 @@ html[data-byeai-labeled="1"] [data-byeai-cover="community"]::after {
     if (info?.kind !== 'labeled' || !info.source?.isConnected) return;
     if (info.source.closest('ytd-comments, #comments, yt-live-chat-renderer')) return;
     const channel = channels.watch();
-    if (!channel || channels.community(channel) || channel.ids.some((id) => told.has(id))) return;
+    // Listed channels are known already. Ones you marked "Not AI" are your call.
+    if (!channel || channels.community(channel) || channels.shown(channel)) return;
+    if (channel.ids.some((id) => told.has(id))) return;
     channel.ids.forEach((id) => told.add(id));
     chrome.runtime
       .sendMessage({ type: 'AUTO_SHARE_CHANNEL', id: channel.id, ids: channel.ids, n: channel.n })

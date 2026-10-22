@@ -132,5 +132,10 @@
   "optionsPermissionsAlarmsHtml": "<strong>alarms</strong>: دریافت فهرست ByeAI Community روزی یک بار",
   "optionsAutoShareLabel": "کمک خودکار به جامعه",
   "optionsAutoShareText": "وقتی خود YouTube ویدیویی را هوش مصنوعی برچسب بزند، ByeAI فقط نام آن کانال را به‌صورت ناشناس به فهرست Community می‌فرستد.",
-  "optionsAutoShareCount": "کانال‌های هم‌رسانی‌شده به‌صورت خودکار: $COUNT$"
+  "optionsAutoShareCount": "کانال‌های هم‌رسانی‌شده به‌صورت خودکار: $COUNT$",
+  "channelNotAi": "هوش مصنوعی نیست، این کانال را نشان بده",
+  "channelShown": "نمایش $NAME$. ممنون، بررسی می‌کنیم.",
+  "optionsShownHeading": "کانال‌هایی که نمایش‌شان را انتخاب کردید",
+  "optionsShownIntro": "کانال‌هایی از فهرست جامعه که آن‌ها را هوش مصنوعی ندانستید. ویدیوهایشان محو نمی‌شود.",
+  "optionsShownEmpty": "هنوز موردی نیست. روی ویدیوی محوشدهٔ جامعه، «هوش مصنوعی نیست، این کانال را نشان بده» را بزنید."
 }

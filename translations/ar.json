@@ -132,5 +132,10 @@
   "optionsPermissionsAlarmsHtml": "<strong>alarms</strong>: تنزيل قائمة ByeAI Community مرة يوميًا",
   "optionsAutoShareLabel": "ساعد المجتمع تلقائيًا",
   "optionsAutoShareText": "عندما يضع YouTube نفسه علامة الذكاء الاصطناعي على فيديو، يرسل ByeAI اسم تلك القناة فقط إلى قائمة Community، دون الكشف عن هويتك.",
-  "optionsAutoShareCount": "القنوات المُشارَكة تلقائيًا: $COUNT$"
+  "optionsAutoShareCount": "القنوات المُشارَكة تلقائيًا: $COUNT$",
+  "channelNotAi": "ليس ذكاءً اصطناعيًا، أظهر هذه القناة",
+  "channelShown": "يتم عرض $NAME$. شكرًا، سنراجع الأمر.",
+  "optionsShownHeading": "القنوات التي اخترت إظهارها",
+  "optionsShownIntro": "قنوات من قائمة المجتمع حددتها على أنها ليست ذكاءً اصطناعيًا. لا تُحجب فيديوهاتها.",
+  "optionsShownEmpty": "لا شيء بعد. في فيديو مجتمع محجوب، استخدم «ليس ذكاءً اصطناعيًا، أظهر هذه القناة»."
 }

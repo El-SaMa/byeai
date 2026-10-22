@@ -132,5 +132,10 @@
   "optionsPermissionsAlarmsHtml": "<strong>alarms</strong>: pobieranie listy ByeAI Community raz dziennie",
   "optionsAutoShareLabel": "Pomagaj społeczności automatycznie",
   "optionsAutoShareText": "Gdy sam YouTube oznaczy film jako AI, ByeAI anonimowo wyśle do listy Community tylko nazwę tego kanału.",
-  "optionsAutoShareCount": "Kanały udostępnione automatycznie: $COUNT$"
+  "optionsAutoShareCount": "Kanały udostępnione automatycznie: $COUNT$",
+  "channelNotAi": "To nie AI, pokaż ten kanał",
+  "channelShown": "Pokazuję: $NAME$. Dzięki, sprawdzimy to.",
+  "optionsShownHeading": "Kanały, które chcesz widzieć",
+  "optionsShownIntro": "Kanały z listy Społeczności, które oznaczyłeś jako nie-AI. Ich filmy nie są rozmywane.",
+  "optionsShownEmpty": "Na razie brak. Przy rozmytym filmie Społeczności użyj „To nie AI, pokaż ten kanał”."
 }

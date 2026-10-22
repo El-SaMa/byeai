@@ -173,6 +173,14 @@
   "optionsHiddenIntro": { "message": "YouTube-kanavat, jotka olet piilottanut. Niiden videot eivät näy missään YouTubessa." },
   "optionsHiddenEmpty": { "message": "Ei piilotettuja kanavia vielä. Vie hiiri YouTube-videon päälle ja paina kulman painiketta." },
   "optionsUnhideBtn": { "message": "Näytä taas" },
+  "channelNotAi": { "message": "Ei tekoälyä, näytä kanava" },
+  "channelShown": {
+    "message": "Näytetään $NAME$. Kiitos, tarkistamme asian.",
+    "placeholders": { "name": { "content": "$1", "example": "Slop Studio" } }
+  },
+  "optionsShownHeading": { "message": "Kanavat, jotka päätit näyttää" },
+  "optionsShownIntro": { "message": "Yhteisön listan kanavat, jotka merkitsit ei-tekoälyksi. Niiden videoita ei sumenneta." },
+  "optionsShownEmpty": { "message": "Ei vielä yhtään. Paina sumennetussa Yhteisö-videossa Ei tekoälyä, näytä kanava." },
   "optionsCommunityHeading": { "message": "ByeAI Community" },
   "optionsCommunityLabel": { "message": "Käytä ByeAI Community -listaa" },
   "optionsCommunityText": { "message": "ByeAI-käyttäjien ilmoittamat tekoälykanavat, ladataan kerran päivässä. Sinusta ei lähetetä mitään." },

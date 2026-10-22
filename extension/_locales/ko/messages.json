@@ -150,6 +150,14 @@
   "optionsHiddenIntro": { "message": "숨긴 YouTube 채널입니다. 이 채널의 동영상은 YouTube 어디에서도 보이지 않습니다." },
   "optionsHiddenEmpty": { "message": "아직 숨긴 채널이 없습니다. YouTube 동영상 위에 포인터를 올리고 모서리의 버튼을 누르세요." },
   "optionsUnhideBtn": { "message": "표시" },
+  "channelNotAi": { "message": "AI 아님, 이 채널 표시" },
+  "channelShown": {
+    "message": "$NAME$ 채널을 표시합니다. 알려 주셔서 감사합니다. 검토하겠습니다.",
+    "placeholders": {"name": {"content": "$1", "example": "Slop Studio"}}
+  },
+  "optionsShownHeading": { "message": "표시하기로 한 채널" },
+  "optionsShownIntro": { "message": "커뮤니티 목록에 있지만 AI가 아니라고 표시한 채널입니다. 이 채널의 동영상은 흐리게 처리되지 않습니다." },
+  "optionsShownEmpty": { "message": "아직 없습니다. 흐리게 처리된 커뮤니티 동영상에서 'AI 아님, 이 채널 표시'를 누르세요." },
   "optionsCommunityHeading": { "message": "ByeAI Community" },
   "optionsCommunityLabel": { "message": "ByeAI Community 목록 사용" },
   "optionsCommunityText": { "message": "ByeAI 사용자들이 신고한 AI 채널 목록으로, 하루에 한 번 내려받습니다. 사용자에 관한 정보는 보내지 않습니다." },

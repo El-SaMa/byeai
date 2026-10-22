@@ -132,5 +132,10 @@
   "optionsPermissionsAlarmsHtml": "<strong>alarms</strong>: λήψη της λίστας ByeAI Community μία φορά την ημέρα",
   "optionsAutoShareLabel": "Αυτόματη βοήθεια στην κοινότητα",
   "optionsAutoShareText": "Όταν το ίδιο το YouTube επισημαίνει ένα βίντεο ως AI, το ByeAI στέλνει μόνο το όνομα του καναλιού στη λίστα Community, ανώνυμα.",
-  "optionsAutoShareCount": "Κανάλια που κοινοποιήθηκαν αυτόματα: $COUNT$"
+  "optionsAutoShareCount": "Κανάλια που κοινοποιήθηκαν αυτόματα: $COUNT$",
+  "channelNotAi": "Δεν είναι AI, εμφάνιση καναλιού",
+  "channelShown": "Εμφάνιση: $NAME$. Ευχαριστούμε, θα το ελέγξουμε.",
+  "optionsShownHeading": "Κανάλια που επιλέξατε να εμφανίζονται",
+  "optionsShownIntro": "Κανάλια από τη λίστα της Κοινότητας που σημειώσατε ως μη AI. Τα βίντεό τους δεν θολώνουν.",
+  "optionsShownEmpty": "Κανένα ακόμη. Σε ένα θολωμένο βίντεο της Κοινότητας πατήστε «Δεν είναι AI, εμφάνιση καναλιού»."
 }
