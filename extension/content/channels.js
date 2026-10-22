@@ -285,18 +285,18 @@
   const WATCH_CSS = `
     :host { all: initial; }
     button {
-      --bg: #f2f2f2; --text: #0f0f0f; --hover: #e5e5e5; --focus: #0f766e;
-      font: 500 13px/18px Roboto, "Segoe UI", system-ui, sans-serif; color: var(--text);
+      --bg: #0f766e; --text: #ffffff; --hover: #115e59; --focus: #0f766e;
+      font: 600 13px/18px Roboto, "Segoe UI", system-ui, sans-serif; color: var(--text);
       background: var(--bg); border: 0; border-radius: 16px; padding: 7px 12px; margin: 0;
       cursor: pointer; white-space: nowrap;
     }
     button:hover { background: var(--hover); }
     button:focus-visible { outline: 2px solid var(--focus); outline-offset: 2px; }
     @media (prefers-color-scheme: dark) {
-      button { --bg: #272727; --text: #f1f1f1; --hover: #3f3f3f; --focus: #5eead4; }
+      button { --bg: #2dd4bf; --text: #042f2e; --hover: #5eead4; --focus: #5eead4; }
     }
-    :host([data-theme="dark"]) button { --bg: #272727; --text: #f1f1f1; --hover: #3f3f3f; --focus: #5eead4; }
-    :host([data-theme="light"]) button { --bg: #f2f2f2; --text: #0f0f0f; --hover: #e5e5e5; --focus: #0f766e; }
+    :host([data-theme="dark"]) button { --bg: #2dd4bf; --text: #042f2e; --hover: #5eead4; --focus: #5eead4; }
+    :host([data-theme="light"]) button { --bg: #0f766e; --text: #ffffff; --hover: #115e59; --focus: #0f766e; }
   `;
 
   // An element under <html>, out of YouTube's trees, holding one button.
