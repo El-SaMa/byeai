@@ -9,6 +9,16 @@
 (function () {
   'use strict';
 
+  // After the extension reloads or updates, scripts left in open tabs lose
+  // the extension and chrome.runtime calls throw. Those tabs just go quiet.
+  const send = (message) => {
+    try {
+      return chrome.runtime.sendMessage(message).catch(() => undefined);
+    } catch (_) {
+      return Promise.resolve(undefined);
+    }
+  };
+
   if (window.top !== window) return;
 
   const host = location.hostname.replace(/^www\./, '');
@@ -70,7 +80,11 @@
 
     const icon = document.createElement('img');
     icon.alt = '';
-    icon.src = chrome.runtime.getURL('assets/icons/icon48.png');
+    try {
+      icon.src = chrome.runtime.getURL('assets/icons/icon48.png');
+    } catch (_) {
+      // Orphaned after an extension reload: no icon.
+    }
     icon.addEventListener('error', () => icon.remove());
 
     const text = document.createElement('span');
@@ -119,7 +133,7 @@
       }
       sticky = true;
       pause();
-      await chrome.runtime.sendMessage({ type: 'TOGGLE_ALLOW_SITE', hostname: host, allow: true }).catch(() => {});
+      await send({ type: 'TOGGLE_ALLOW_SITE', hostname: host, allow: true }).catch(() => {});
       text.textContent = msg('noticeAllowed', 'AI allowed on this site.');
       action.textContent = msg('noticeReload', 'Reload');
       action.removeAttribute('aria-label');
@@ -147,8 +161,7 @@
   // Blocks can happen before this script listens. Ask once the page is parsed.
   const ask = () => {
     if (shown) return;
-    chrome.runtime
-      .sendMessage({ type: 'NOTICE_READY' })
+    send({ type: 'NOTICE_READY' })
       .then((reply) => {
         if (reply?.show) show();
       })

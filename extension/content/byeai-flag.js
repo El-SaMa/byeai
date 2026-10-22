@@ -14,6 +14,16 @@
 (function () {
   'use strict';
 
+  // After the extension reloads or updates, scripts left in open tabs lose
+  // the extension and chrome.runtime calls throw. Those tabs just go quiet.
+  const send = (message) => {
+    try {
+      return chrome.runtime.sendMessage(message).catch(() => undefined);
+    } catch (_) {
+      return Promise.resolve(undefined);
+    }
+  };
+
   const FEATURE_DEFAULTS = { widgets: true, labeled: true };
   const HIDE_PROPS = ['display', 'visibility', 'pointer-events', 'height', 'overflow'];
   const host = location.hostname.replace(/^www\./, '');
@@ -79,7 +89,7 @@
       if (state.ready) fn(state);
     },
     report(category, key) {
-      chrome.runtime.sendMessage({ type: 'COSMETIC_BLOCK', category, key }).catch(() => {});
+      send({ type: 'COSMETIC_BLOCK', category, key }).catch(() => {});
     },
   };
 

@@ -15,6 +15,16 @@
 (function () {
   'use strict';
 
+  // After the extension reloads or updates, scripts left in open tabs lose
+  // the extension and chrome.runtime calls throw. Those tabs just go quiet.
+  const send = (message) => {
+    try {
+      return chrome.runtime.sendMessage(message).catch(() => undefined);
+    } catch (_) {
+      return Promise.resolve(undefined);
+    }
+  };
+
   const byeai = globalThis.byeai;
   const store = globalThis.byeaiHiddenChannels;
   const shownStore = globalThis.byeaiShownChannels;
@@ -188,14 +198,14 @@
   function hide(info) {
     hiddenIds = new Set([...hiddenIds, ...info.ids]);
     changed();
-    chrome.runtime.sendMessage({ type: 'HIDE_CHANNEL', channel: entryFor(info) }).catch(() => {});
+    send({ type: 'HIDE_CHANNEL', channel: entryFor(info) }).catch(() => {});
     showHideToast(info);
   }
 
   function unhide(info) {
     info.ids.forEach((id) => hiddenIds.delete(id));
     changed();
-    chrome.runtime.sendMessage({ type: 'UNHIDE_CHANNEL', ids: info.ids }).catch(() => {});
+    send({ type: 'UNHIDE_CHANNEL', ids: info.ids }).catch(() => {});
   }
 
   // "Not AI, show this channel": every Community cover of the channel goes
@@ -204,14 +214,14 @@
   function show(info) {
     shownIds = new Set([...shownIds, ...info.ids]);
     changed();
-    chrome.runtime.sendMessage({ type: 'NOT_AI_CHANNEL', channel: entryFor(info) }).catch(() => {});
+    send({ type: 'NOT_AI_CHANNEL', channel: entryFor(info) }).catch(() => {});
     showToast(msg('channelShown', `Showing ${info.n}. Thanks, we'll review it.`, [info.n]), () => unshow(info));
   }
 
   function unshow(info) {
     info.ids.forEach((id) => shownIds.delete(id));
     changed();
-    chrome.runtime.sendMessage({ type: 'UNSHOW_CHANNEL', ids: info.ids }).catch(() => {});
+    send({ type: 'UNSHOW_CHANNEL', ids: info.ids }).catch(() => {});
   }
 
   // ------------------------------------------------------- overlay button
@@ -587,7 +597,11 @@
 
     const icon = document.createElement('img');
     icon.alt = '';
-    icon.src = chrome.runtime.getURL('assets/icons/icon48.png');
+    try {
+      icon.src = chrome.runtime.getURL('assets/icons/icon48.png');
+    } catch (_) {
+      // Orphaned after an extension reload: no icon.
+    }
     icon.addEventListener('error', () => icon.remove());
 
     const text = document.createElement('span');
@@ -651,8 +665,7 @@
     suggest?.addEventListener('click', async () => {
       suggest.disabled = true;
       undo.disabled = true;
-      const reply = await chrome.runtime
-        .sendMessage({ type: 'SUGGEST_CHANNEL', id: suggestInfo.id, n: suggestInfo.n, why: why(suggestInfo) })
+      const reply = await send({ type: 'SUGGEST_CHANNEL', id: suggestInfo.id, n: suggestInfo.n, why: why(suggestInfo) })
         .catch(() => null);
       text.textContent = reply?.ok
         ? msg('channelSuggestSent', 'Thanks, suggestion sent')

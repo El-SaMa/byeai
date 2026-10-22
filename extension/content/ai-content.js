@@ -479,9 +479,13 @@ html[data-byeai-labeled="1"] [data-byeai-cover="community"]::after {
     if (!channel || channels.community(channel) || channels.shown(channel)) return;
     if (channel.ids.some((id) => told.has(id))) return;
     channel.ids.forEach((id) => told.add(id));
-    chrome.runtime
-      .sendMessage({ type: 'AUTO_SHARE_CHANNEL', id: channel.id, ids: channel.ids, n: channel.n })
-      .catch(() => {});
+    try {
+      chrome.runtime
+        .sendMessage({ type: 'AUTO_SHARE_CHANNEL', id: channel.id, ids: channel.ids, n: channel.n })
+        .catch(() => {});
+    } catch (_) {
+      // The extension was reloaded; this tab's script is orphaned.
+    }
   }
 
   // Cards get recycled by infinite feeds and SPA navigation. Drop covers
