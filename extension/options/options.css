@@ -210,3 +210,22 @@ body {
   padding-inline-start: 30px;
   font-size: 13px;
 }
+
+.btn-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.import-result:empty {
+  display: none;
+}
+
+.import-result {
+  padding-inline-start: 0;
+}
+
+.sends-line {
+  margin: 10px 0;
+  font-size: 14px;
+}

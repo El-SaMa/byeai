@@ -144,5 +144,21 @@
   "coverShow": "显示视频",
   "coverShowShort": "显示",
   "coverNotAi": "不是 AI",
-  "coverNextVideo": "下一个视频"
+  "coverNextVideo": "下一个视频",
+  "actionTitlePaused": "ByeAI 已暂停",
+  "popupStatusPaused": "已暂停",
+  "popupPauseHour": "暂停 1 小时",
+  "popupPauseTomorrow": "暂停到明天",
+  "popupResume": "立即恢复",
+  "popupPausedUntil": "已暂停至 $TIME$",
+  "popupWrong": "此页面好像有问题",
+  "popupSendsTitle": "ByeAI 会发送什么",
+  "sendsText": "不会发送任何浏览信息。每天只下载一次公开的 Community 列表。只有在你点击“建议”或“不是 AI”（或开启自动共享）时，才会发送该频道的名称和 ID。",
+  "optionsBackupHeading": "导出和导入",
+  "optionsBackupIntro": "把允许的网站、已隐藏的频道和开关保存到一个文件里，也可以在这里加载这样的文件。不包含计数器。",
+  "optionsExportBtn": "导出设置",
+  "optionsImportBtn": "导入设置",
+  "optionsExportDone": "设置文件已保存。",
+  "optionsImportBad": "这不是 ByeAI 的设置文件，未做任何更改。",
+  "optionsImportDone": "已导入：新增或更改 $ADDED$ 项，跳过 $SKIPPED$ 项（已存在或无效）。"
 }

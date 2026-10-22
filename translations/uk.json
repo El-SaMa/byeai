@@ -144,5 +144,21 @@
   "coverShow": "Показати відео",
   "coverShowShort": "Показати",
   "coverNotAi": "Це не ШІ",
-  "coverNextVideo": "Наступне відео"
+  "coverNextVideo": "Наступне відео",
+  "actionTitlePaused": "ByeAI призупинено",
+  "popupStatusPaused": "Пауза",
+  "popupPauseHour": "Пауза на 1 годину",
+  "popupPauseTomorrow": "Пауза до завтра",
+  "popupResume": "Відновити зараз",
+  "popupPausedUntil": "Пауза до $TIME$",
+  "popupWrong": "Щось не так на цій сторінці",
+  "popupSendsTitle": "Що надсилає ByeAI",
+  "sendsText": "Нічого про те, що ви переглядаєте. Раз на день розширення завантажує відкритий список Community. Лише коли ви натискаєте «Запропонувати» або «Це не ШІ» (чи вмикаєте автоматичне надсилання), воно надсилає назву й ідентифікатор цього каналу.",
+  "optionsBackupHeading": "Експорт та імпорт",
+  "optionsBackupIntro": "Збережіть дозволені сайти, сховані канали та перемикачі в один файл або завантажте такий файл тут. Лічильники не входять.",
+  "optionsExportBtn": "Експортувати налаштування",
+  "optionsImportBtn": "Імпортувати налаштування",
+  "optionsExportDone": "Файл налаштувань збережено.",
+  "optionsImportBad": "Це не файл налаштувань ByeAI. Нічого не змінено.",
+  "optionsImportDone": "Імпортовано: додано або змінено $ADDED$, пропущено $SKIPPED$ (вже були або недійсні)."
 }

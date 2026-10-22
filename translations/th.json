@@ -144,5 +144,21 @@
   "coverShow": "แสดงวิดีโอ",
   "coverShowShort": "แสดง",
   "coverNotAi": "ไม่ใช่ AI",
-  "coverNextVideo": "วิดีโอถัดไป"
+  "coverNextVideo": "วิดีโอถัดไป",
+  "actionTitlePaused": "ByeAI หยุดชั่วคราว",
+  "popupStatusPaused": "หยุดชั่วคราว",
+  "popupPauseHour": "หยุดชั่วคราว 1 ชั่วโมง",
+  "popupPauseTomorrow": "หยุดชั่วคราวจนถึงพรุ่งนี้",
+  "popupResume": "เริ่มต่อทันที",
+  "popupPausedUntil": "หยุดชั่วคราวจนถึง $TIME$",
+  "popupWrong": "หน้านี้ดูเหมือนมีอะไรผิดปกติ",
+  "popupSendsTitle": "ByeAI ส่งอะไรบ้าง",
+  "sendsText": "ไม่ส่งอะไรเกี่ยวกับการท่องเว็บของคุณ วันละครั้งจะดาวน์โหลดรายการ Community สาธารณะ เฉพาะเมื่อคุณกดเสนอหรือไม่ใช่ AI (หรือเปิดการแชร์อัตโนมัติ) เท่านั้นจึงจะส่งชื่อและ id ของช่องนั้น",
+  "optionsBackupHeading": "ส่งออกและนำเข้า",
+  "optionsBackupIntro": "บันทึกเว็บไซต์ที่อนุญาต ช่องที่ซ่อนไว้ และสวิตช์ของคุณไว้ในไฟล์เดียว หรือโหลดไฟล์แบบนั้นที่นี่ ตัวนับไม่รวมอยู่ด้วย",
+  "optionsExportBtn": "ส่งออกการตั้งค่า",
+  "optionsImportBtn": "นำเข้าการตั้งค่า",
+  "optionsExportDone": "บันทึกไฟล์การตั้งค่าแล้ว",
+  "optionsImportBad": "นี่ไม่ใช่ไฟล์การตั้งค่าของ ByeAI ไม่มีอะไรเปลี่ยนแปลง",
+  "optionsImportDone": "นำเข้าแล้ว: เพิ่มหรือเปลี่ยน $ADDED$ รายการ ข้าม $SKIPPED$ รายการ (มีอยู่แล้วหรือไม่ถูกต้อง)"
 }

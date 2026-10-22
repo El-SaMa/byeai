@@ -174,5 +174,27 @@
   "optionsAutoShareCount": {
     "message": "Kanaler delt automatisk: $COUNT$",
     "placeholders": {"count": {"content": "$1", "example": "3"}}
+  },
+  "actionTitlePaused": { "message": "ByeAI er sat på pause" },
+  "popupStatusPaused": { "message": "På pause" },
+  "popupPauseHour": { "message": "Pause i 1 time" },
+  "popupPauseTomorrow": { "message": "Pause til i morgen" },
+  "popupResume": { "message": "Genoptag nu" },
+  "popupPausedUntil": {
+    "message": "På pause til $TIME$",
+    "placeholders": {"time": {"content": "$1", "example": "17:30"}}
+  },
+  "popupWrong": { "message": "Noget ser forkert ud på denne side" },
+  "popupSendsTitle": { "message": "Hvad ByeAI sender" },
+  "sendsText": { "message": "Intet om din browsing. Én gang om dagen henter den den offentlige Community-liste. Kun når du trykker på Foreslå eller Ikke AI (eller slår automatisk deling til), sender den den kanals navn og id." },
+  "optionsBackupHeading": { "message": "Eksport og import" },
+  "optionsBackupIntro": { "message": "Gem dine tilladte websteder, skjulte kanaler og indstillinger i én fil, eller indlæs en sådan fil her. Tællere er ikke med." },
+  "optionsExportBtn": { "message": "Eksportér indstillinger" },
+  "optionsImportBtn": { "message": "Importér indstillinger" },
+  "optionsExportDone": { "message": "Indstillingsfilen er gemt." },
+  "optionsImportBad": { "message": "Det er ikke en ByeAI-indstillingsfil. Der blev ikke ændret noget." },
+  "optionsImportDone": {
+    "message": "Importeret: $ADDED$ tilføjet eller ændret, $SKIPPED$ sprunget over (fandtes allerede eller er ugyldig).",
+    "placeholders": {"added": {"content": "$1", "example": "12"}, "skipped": {"content": "$2", "example": "3"}}
   }
 }

@@ -174,5 +174,27 @@
   "optionsAutoShareCount": {
     "message": "Canales compartidos automáticamente: $COUNT$",
     "placeholders": {"count": {"content": "$1", "example": "3"}}
+  },
+  "actionTitlePaused": { "message": "ByeAI está en pausa" },
+  "popupStatusPaused": { "message": "En pausa" },
+  "popupPauseHour": { "message": "Pausar durante 1 hora" },
+  "popupPauseTomorrow": { "message": "Pausar hasta mañana" },
+  "popupResume": { "message": "Reanudar ahora" },
+  "popupPausedUntil": {
+    "message": "En pausa hasta $TIME$",
+    "placeholders": {"time": {"content": "$1", "example": "17:30"}}
+  },
+  "popupWrong": { "message": "Algo no va bien en esta página" },
+  "popupSendsTitle": { "message": "Qué envía ByeAI" },
+  "sendsText": { "message": "Nada sobre tu navegación. Una vez al día descarga la lista pública de Community. Solo cuando pulsas Sugerir o No es IA (o activas el uso compartido automático) envía el nombre y el id de ese canal." },
+  "optionsBackupHeading": { "message": "Exportar e importar" },
+  "optionsBackupIntro": { "message": "Guarda tus sitios permitidos, canales ocultos y ajustes en un solo archivo, o carga aquí un archivo así. Los contadores no se incluyen." },
+  "optionsExportBtn": { "message": "Exportar ajustes" },
+  "optionsImportBtn": { "message": "Importar ajustes" },
+  "optionsExportDone": { "message": "Archivo de ajustes guardado." },
+  "optionsImportBad": { "message": "Este no es un archivo de ajustes de ByeAI. No se cambió nada." },
+  "optionsImportDone": {
+    "message": "Importado: $ADDED$ añadidos o cambiados, $SKIPPED$ omitidos (ya estaban o no son válidos).",
+    "placeholders": {"added": {"content": "$1", "example": "12"}, "skipped": {"content": "$2", "example": "3"}}
   }
 }

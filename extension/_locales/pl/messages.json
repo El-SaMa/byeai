@@ -174,5 +174,27 @@
   "optionsAutoShareCount": {
     "message": "Kanały udostępnione automatycznie: $COUNT$",
     "placeholders": {"count": {"content": "$1", "example": "3"}}
+  },
+  "actionTitlePaused": { "message": "ByeAI jest wstrzymany" },
+  "popupStatusPaused": { "message": "Wstrzymano" },
+  "popupPauseHour": { "message": "Wstrzymaj na 1 godzinę" },
+  "popupPauseTomorrow": { "message": "Wstrzymaj do jutra" },
+  "popupResume": { "message": "Wznów teraz" },
+  "popupPausedUntil": {
+    "message": "Wstrzymano do $TIME$",
+    "placeholders": {"time": {"content": "$1", "example": "17:30"}}
+  },
+  "popupWrong": { "message": "Coś jest nie tak na tej stronie" },
+  "popupSendsTitle": { "message": "Co wysyła ByeAI" },
+  "sendsText": { "message": "Nic o tym, co przeglądasz. Raz dziennie pobiera publiczną listę Community. Tylko gdy klikniesz Zaproponuj lub To nie AI (albo włączysz automatyczne udostępnianie), wysyła nazwę i identyfikator danego kanału." },
+  "optionsBackupHeading": { "message": "Eksport i import" },
+  "optionsBackupIntro": { "message": "Zapisz dozwolone witryny, ukryte kanały i przełączniki w jednym pliku albo wczytaj tu taki plik. Liczniki nie są uwzględniane." },
+  "optionsExportBtn": { "message": "Eksportuj ustawienia" },
+  "optionsImportBtn": { "message": "Importuj ustawienia" },
+  "optionsExportDone": { "message": "Plik z ustawieniami zapisany." },
+  "optionsImportBad": { "message": "To nie jest plik ustawień ByeAI. Nic nie zmieniono." },
+  "optionsImportDone": {
+    "message": "Zaimportowano: $ADDED$ dodanych lub zmienionych, $SKIPPED$ pominiętych (już były lub są nieprawidłowe).",
+    "placeholders": {"added": {"content": "$1", "example": "12"}, "skipped": {"content": "$2", "example": "3"}}
   }
 }

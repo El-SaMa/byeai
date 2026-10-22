@@ -174,5 +174,27 @@
   "optionsAutoShareCount": {
     "message": "ช่องที่แชร์โดยอัตโนมัติ: $COUNT$",
     "placeholders": {"count": {"content": "$1", "example": "3"}}
+  },
+  "actionTitlePaused": { "message": "ByeAI หยุดชั่วคราว" },
+  "popupStatusPaused": { "message": "หยุดชั่วคราว" },
+  "popupPauseHour": { "message": "หยุดชั่วคราว 1 ชั่วโมง" },
+  "popupPauseTomorrow": { "message": "หยุดชั่วคราวจนถึงพรุ่งนี้" },
+  "popupResume": { "message": "เริ่มต่อทันที" },
+  "popupPausedUntil": {
+    "message": "หยุดชั่วคราวจนถึง $TIME$",
+    "placeholders": {"time": {"content": "$1", "example": "17:30"}}
+  },
+  "popupWrong": { "message": "หน้านี้ดูเหมือนมีอะไรผิดปกติ" },
+  "popupSendsTitle": { "message": "ByeAI ส่งอะไรบ้าง" },
+  "sendsText": { "message": "ไม่ส่งอะไรเกี่ยวกับการท่องเว็บของคุณ วันละครั้งจะดาวน์โหลดรายการ Community สาธารณะ เฉพาะเมื่อคุณกดเสนอหรือไม่ใช่ AI (หรือเปิดการแชร์อัตโนมัติ) เท่านั้นจึงจะส่งชื่อและ id ของช่องนั้น" },
+  "optionsBackupHeading": { "message": "ส่งออกและนำเข้า" },
+  "optionsBackupIntro": { "message": "บันทึกเว็บไซต์ที่อนุญาต ช่องที่ซ่อนไว้ และสวิตช์ของคุณไว้ในไฟล์เดียว หรือโหลดไฟล์แบบนั้นที่นี่ ตัวนับไม่รวมอยู่ด้วย" },
+  "optionsExportBtn": { "message": "ส่งออกการตั้งค่า" },
+  "optionsImportBtn": { "message": "นำเข้าการตั้งค่า" },
+  "optionsExportDone": { "message": "บันทึกไฟล์การตั้งค่าแล้ว" },
+  "optionsImportBad": { "message": "นี่ไม่ใช่ไฟล์การตั้งค่าของ ByeAI ไม่มีอะไรเปลี่ยนแปลง" },
+  "optionsImportDone": {
+    "message": "นำเข้าแล้ว: เพิ่มหรือเปลี่ยน $ADDED$ รายการ ข้าม $SKIPPED$ รายการ (มีอยู่แล้วหรือไม่ถูกต้อง)",
+    "placeholders": {"added": {"content": "$1", "example": "12"}, "skipped": {"content": "$2", "example": "3"}}
   }
 }

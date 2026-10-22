@@ -1,5 +1,19 @@
 # Changelog
 
+## 1.4.0 (2026-10-22)
+
+- Google: searches for calculator, currency and unit converter, dictionary, weather, time, sports scores and stock charts keep Google's normal page. The Web view dropped those answer boxes. Only the AI parts are hidden there
+- Google: AI Mode (udm=50) is sent to the Web view and its tab and buttons are hidden, in every language. Images, News, Shopping, Videos and Maps tabs are never rewritten. Works on every google.* domain
+- Google: hiding an AI box also hides the empty space around it
+- Bing: the Copilot answer, its follow-up box, its AI notice and the AI Mode tab are hidden (2026 markup)
+- DuckDuckGo: Search Assist, its toolbar pill and the Duck.ai chat box are hidden (2026 markup)
+- Pause for 1 hour or until tomorrow in the popup, with Resume now. The icon shows II while paused. It ends by itself, also after a browser restart
+- Export and import in settings: allowed sites, AI-video sites, hidden and shown channels and switches in one JSON file, no counters. Import checks the file, skips duplicates and invalid entries, and never pushes out what you already have
+- What ByeAI sends: a short box in the popup and in the privacy section of settings
+- Something looks wrong on this page: one click in the popup opens the Site broken form for this host, without any query string
+- New live check script (scripts/live-check.mjs) for real search pages. Not part of the test suite
+- No new permissions
+
 ## 1.3.0 (2026-10-21)
 
 - Hide channel on YouTube: point at a video and click the button in the corner of its thumbnail, or use Hide channel on a video page. Every video from that channel disappears

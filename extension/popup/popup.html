@@ -99,6 +99,15 @@
       </ul>
     </section>
 
+    <section class="pause-box" id="pauseBox" aria-labelledby="pauseNote">
+      <p class="pause-note hidden" id="pauseNote" role="status"></p>
+      <div class="pause-actions" id="pauseActions">
+        <button type="button" class="pause-btn" id="pauseHourBtn" data-i18n="popupPauseHour">Pause for 1 hour</button>
+        <button type="button" class="pause-btn" id="pauseTomorrowBtn" data-i18n="popupPauseTomorrow">Pause until tomorrow</button>
+      </div>
+      <button type="button" class="pause-btn pause-resume hidden" id="resumeBtn" data-i18n="popupResume">Resume now</button>
+    </section>
+
     <p class="trust-line">
       <svg width="12" height="12" viewBox="0 0 16 16" aria-hidden="true"><path fill="currentColor" d="M8 1 2.5 3v4.6c0 3.4 2.3 6.2 5.5 7.4 3.2-1.2 5.5-4 5.5-7.4V3L8 1Zm-1 10L4.5 8.5l1-1L7 9l3.5-3.5 1 1L7 11Z"/></svg>
       <span data-i18n="popupTrust">Works on your device. We never see what you browse.</span>
@@ -124,8 +133,17 @@
       <button type="button" class="tip-btn" data-i18n-attr="data-tip:popupAllowTip,aria-label:popupAllowAria" data-tip="Lets this website use AI. Other sites stay protected." aria-label="About allow on this site">?</button>
     </div>
 
+    <p class="wrong-row">
+      <button type="button" class="wrong-link" id="wrongBtn" data-i18n="popupWrong">Something looks wrong on this page</button>
+    </p>
+
+    <details class="sends-box" id="sendsBox">
+      <summary data-i18n="popupSendsTitle">What ByeAI sends</summary>
+      <p data-i18n="sendsText">Nothing about your browsing. Once a day it downloads the public Community list. Only when you press Suggest or Not AI (or turn on automatic sharing) it sends that channel's name and id.</p>
+    </details>
+
     <footer class="footer">
-      <span id="footerVersion">v1.3.0</span>
+      <span id="footerVersion">v1.4.0</span>
       <div class="footer-links">
         <a href="#" id="reportLink" data-i18n="popupReport" data-i18n-attr="title:popupReportTitle" title="Report AI that ByeAI missed">Report</a>
         <span class="footer-sep" aria-hidden="true">·</span>

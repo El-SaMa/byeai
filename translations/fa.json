@@ -144,5 +144,21 @@
   "coverShow": "نمایش ویدیو",
   "coverShowShort": "نمایش",
   "coverNotAi": "هوش مصنوعی نیست",
-  "coverNextVideo": "ویدیوی بعدی"
+  "coverNextVideo": "ویدیوی بعدی",
+  "actionTitlePaused": "ByeAI متوقف شده است",
+  "popupStatusPaused": "متوقف",
+  "popupPauseHour": "توقف به مدت ۱ ساعت",
+  "popupPauseTomorrow": "توقف تا فردا",
+  "popupResume": "ادامه دادن",
+  "popupPausedUntil": "متوقف تا $TIME$",
+  "popupWrong": "در این صفحه چیزی درست به نظر نمی‌رسد",
+  "popupSendsTitle": "ByeAI چه چیزی می‌فرستد",
+  "sendsText": "هیچ چیز درباره‌ی مرور شما. روزی یک بار فهرست عمومی Community را دانلود می‌کند. فقط وقتی «پیشنهاد» یا «هوش مصنوعی نیست» را بزنید (یا اشتراک خودکار را روشن کنید) نام و شناسه‌ی همان کانال را می‌فرستد.",
+  "optionsBackupHeading": "برون‌بری و درون‌ریزی",
+  "optionsBackupIntro": "سایت‌های مجاز، کانال‌های پنهان و کلیدها را در یک فایل ذخیره کنید، یا چنین فایلی را اینجا بارگذاری کنید. شمارنده‌ها شامل نمی‌شوند.",
+  "optionsExportBtn": "برون‌بری تنظیمات",
+  "optionsImportBtn": "درون‌ریزی تنظیمات",
+  "optionsExportDone": "فایل تنظیمات ذخیره شد.",
+  "optionsImportBad": "این فایل تنظیمات ByeAI نیست. چیزی تغییر نکرد.",
+  "optionsImportDone": "درون‌ریزی شد: $ADDED$ افزوده یا تغییر داده شد، $SKIPPED$ رد شد (از قبل وجود داشت یا معتبر نبود)."
 }

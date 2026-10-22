@@ -174,5 +174,27 @@
   "optionsAutoShareCount": {
     "message": "کانال‌های هم‌رسانی‌شده به‌صورت خودکار: $COUNT$",
     "placeholders": {"count": {"content": "$1", "example": "3"}}
+  },
+  "actionTitlePaused": { "message": "ByeAI متوقف شده است" },
+  "popupStatusPaused": { "message": "متوقف" },
+  "popupPauseHour": { "message": "توقف به مدت ۱ ساعت" },
+  "popupPauseTomorrow": { "message": "توقف تا فردا" },
+  "popupResume": { "message": "ادامه دادن" },
+  "popupPausedUntil": {
+    "message": "متوقف تا $TIME$",
+    "placeholders": {"time": {"content": "$1", "example": "17:30"}}
+  },
+  "popupWrong": { "message": "در این صفحه چیزی درست به نظر نمی‌رسد" },
+  "popupSendsTitle": { "message": "ByeAI چه چیزی می‌فرستد" },
+  "sendsText": { "message": "هیچ چیز درباره‌ی مرور شما. روزی یک بار فهرست عمومی Community را دانلود می‌کند. فقط وقتی «پیشنهاد» یا «هوش مصنوعی نیست» را بزنید (یا اشتراک خودکار را روشن کنید) نام و شناسه‌ی همان کانال را می‌فرستد." },
+  "optionsBackupHeading": { "message": "برون‌بری و درون‌ریزی" },
+  "optionsBackupIntro": { "message": "سایت‌های مجاز، کانال‌های پنهان و کلیدها را در یک فایل ذخیره کنید، یا چنین فایلی را اینجا بارگذاری کنید. شمارنده‌ها شامل نمی‌شوند." },
+  "optionsExportBtn": { "message": "برون‌بری تنظیمات" },
+  "optionsImportBtn": { "message": "درون‌ریزی تنظیمات" },
+  "optionsExportDone": { "message": "فایل تنظیمات ذخیره شد." },
+  "optionsImportBad": { "message": "این فایل تنظیمات ByeAI نیست. چیزی تغییر نکرد." },
+  "optionsImportDone": {
+    "message": "درون‌ریزی شد: $ADDED$ افزوده یا تغییر داده شد، $SKIPPED$ رد شد (از قبل وجود داشت یا معتبر نبود).",
+    "placeholders": {"added": {"content": "$1", "example": "12"}, "skipped": {"content": "$2", "example": "3"}}
   }
 }

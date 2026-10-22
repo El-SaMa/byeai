@@ -174,5 +174,27 @@
   "optionsAutoShareCount": {
     "message": "Canale trimise automat: $COUNT$",
     "placeholders": {"count": {"content": "$1", "example": "3"}}
+  },
+  "actionTitlePaused": { "message": "ByeAI este în pauză" },
+  "popupStatusPaused": { "message": "În pauză" },
+  "popupPauseHour": { "message": "Pauză de 1 oră" },
+  "popupPauseTomorrow": { "message": "Pauză până mâine" },
+  "popupResume": { "message": "Reia acum" },
+  "popupPausedUntil": {
+    "message": "În pauză până la $TIME$",
+    "placeholders": {"time": {"content": "$1", "example": "17:30"}}
+  },
+  "popupWrong": { "message": "Ceva pare să nu fie în regulă pe această pagină" },
+  "popupSendsTitle": { "message": "Ce trimite ByeAI" },
+  "sendsText": { "message": "Nimic despre navigarea ta. O dată pe zi descarcă lista publică Community. Doar când apeși Sugerează sau Nu e IA (sau activezi partajarea automată) trimite numele și id-ul canalului respectiv." },
+  "optionsBackupHeading": { "message": "Export și import" },
+  "optionsBackupIntro": { "message": "Salvează site-urile permise, canalele ascunse și comutatoarele într-un singur fișier sau încarcă aici un astfel de fișier. Contoarele nu sunt incluse." },
+  "optionsExportBtn": { "message": "Exportă setările" },
+  "optionsImportBtn": { "message": "Importă setările" },
+  "optionsExportDone": { "message": "Fișierul cu setări a fost salvat." },
+  "optionsImportBad": { "message": "Acesta nu este un fișier de setări ByeAI. Nu s-a schimbat nimic." },
+  "optionsImportDone": {
+    "message": "Importat: $ADDED$ adăugate sau modificate, $SKIPPED$ omise (existau deja sau nu sunt valide).",
+    "placeholders": {"added": {"content": "$1", "example": "12"}, "skipped": {"content": "$2", "example": "3"}}
   }
 }

@@ -174,5 +174,27 @@
   "optionsAutoShareCount": {
     "message": "القنوات المُشارَكة تلقائيًا: $COUNT$",
     "placeholders": {"count": {"content": "$1", "example": "3"}}
+  },
+  "actionTitlePaused": { "message": "ByeAI متوقف مؤقتًا" },
+  "popupStatusPaused": { "message": "متوقف مؤقتًا" },
+  "popupPauseHour": { "message": "إيقاف مؤقت لمدة ساعة" },
+  "popupPauseTomorrow": { "message": "إيقاف مؤقت حتى الغد" },
+  "popupResume": { "message": "استئناف الآن" },
+  "popupPausedUntil": {
+    "message": "متوقف مؤقتًا حتى $TIME$",
+    "placeholders": {"time": {"content": "$1", "example": "17:30"}}
+  },
+  "popupWrong": { "message": "يبدو أن هناك خللًا في هذه الصفحة" },
+  "popupSendsTitle": { "message": "ما الذي يرسله ByeAI" },
+  "sendsText": { "message": "لا شيء عن تصفحك. مرة في اليوم ينزّل قائمة Community العامة. فقط عندما تضغط على «اقتراح» أو «ليس ذكاءً اصطناعيًا» (أو تفعّل المشاركة التلقائية) يرسل اسم تلك القناة ومعرّفها." },
+  "optionsBackupHeading": { "message": "التصدير والاستيراد" },
+  "optionsBackupIntro": { "message": "احفظ المواقع المسموح بها والقنوات المخفية والإعدادات في ملف واحد، أو حمّل هنا ملفًا كهذا. العدّادات غير مشمولة." },
+  "optionsExportBtn": { "message": "تصدير الإعدادات" },
+  "optionsImportBtn": { "message": "استيراد الإعدادات" },
+  "optionsExportDone": { "message": "تم حفظ ملف الإعدادات." },
+  "optionsImportBad": { "message": "هذا ليس ملف إعدادات ByeAI. لم يتم تغيير أي شيء." },
+  "optionsImportDone": {
+    "message": "تم الاستيراد: $ADDED$ مضاف أو معدّل، $SKIPPED$ تم تخطيه (موجود مسبقًا أو غير صالح).",
+    "placeholders": {"added": {"content": "$1", "example": "12"}, "skipped": {"content": "$2", "example": "3"}}
   }
 }

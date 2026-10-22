@@ -144,5 +144,21 @@
   "coverShow": "Mostrar vídeo",
   "coverShowShort": "Mostrar",
   "coverNotAi": "No es IA",
-  "coverNextVideo": "Siguiente vídeo"
+  "coverNextVideo": "Siguiente vídeo",
+  "actionTitlePaused": "ByeAI está en pausa",
+  "popupStatusPaused": "En pausa",
+  "popupPauseHour": "Pausar durante 1 hora",
+  "popupPauseTomorrow": "Pausar hasta mañana",
+  "popupResume": "Reanudar ahora",
+  "popupPausedUntil": "En pausa hasta $TIME$",
+  "popupWrong": "Algo no va bien en esta página",
+  "popupSendsTitle": "Qué envía ByeAI",
+  "sendsText": "Nada sobre tu navegación. Una vez al día descarga la lista pública de Community. Solo cuando pulsas Sugerir o No es IA (o activas el uso compartido automático) envía el nombre y el id de ese canal.",
+  "optionsBackupHeading": "Exportar e importar",
+  "optionsBackupIntro": "Guarda tus sitios permitidos, canales ocultos y ajustes en un solo archivo, o carga aquí un archivo así. Los contadores no se incluyen.",
+  "optionsExportBtn": "Exportar ajustes",
+  "optionsImportBtn": "Importar ajustes",
+  "optionsExportDone": "Archivo de ajustes guardado.",
+  "optionsImportBad": "Este no es un archivo de ajustes de ByeAI. No se cambió nada.",
+  "optionsImportDone": "Importado: $ADDED$ añadidos o cambiados, $SKIPPED$ omitidos (ya estaban o no son válidos)."
 }

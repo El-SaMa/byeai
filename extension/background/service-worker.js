@@ -1,4 +1,4 @@
-importScripts('../shared/ai-apps.js', '../shared/hidden-channels.js');
+importScripts('../shared/ai-apps.js', '../shared/hidden-channels.js', '../shared/google-queries.js');
 
 const RULESET_ID = 'core_network';
 const GOOGLE_RULESET_ID = 'google_search';
@@ -33,6 +33,12 @@ const CATEGORIES = ['widgets', 'buttons', 'labeled'];
 const FEATURES = ['widgets', 'labeled'];
 const FEATURE_DEFAULTS = { widgets: true, labeled: true };
 
+// Pause / snooze: the same as the global switch, plus a time it switches back on.
+const PAUSE_ALARM = 'byeai-resume';
+const HOUR_MS = 60 * 60 * 1000;
+const BADGE_COLOR = '#0f766e';
+const BADGE_PAUSED_COLOR = '#64748b';
+
 /** @type {Map<number, { page: number, seen: Set<string>, cats: Record<string, number> }>} */
 const tabStats = new Map();
 
@@ -46,6 +52,8 @@ const SYNC_DEFAULTS = {
   showNotices: true,
   communityEnabled: true,
   communityAutoShare: false,
+  // 0 = not paused. Otherwise ByeAI is off until this time (ms since 1970).
+  pausedUntil: 0,
 };
 const LOCAL_DEFAULTS = {
   totalBlocked: 0,
@@ -131,7 +139,8 @@ async function syncRulesetEnabled(settings) {
   }
 }
 
-const GOOGLE_HOST = /^(\w+\.)?google\.[\w.]+$/;
+// google.com, google.fi, google.co.uk, google.com.au ... with or without www.
+const GOOGLE_HOST = /^(www\.)?google\.[a-z]{2,}(\.[a-z]{2,})?$/;
 
 function isGoogleSearchUrl(urlString) {
   try {
@@ -198,7 +207,7 @@ function syncDynamicRules() {
   return rulesQueue;
 }
 
-async function updateActionTitle(tabId, hostname, pageCount, enabled, isAllowed) {
+async function updateActionTitle(tabId, hostname, pageCount, enabled, isAllowed, paused = false) {
   const t = (key, args) => {
     try {
       return chrome.i18n.getMessage(key, args || []) || '';
@@ -209,7 +218,9 @@ async function updateActionTitle(tabId, hostname, pageCount, enabled, isAllowed)
 
   let title;
 
-  if (!enabled) {
+  if (paused) {
+    title = t('actionTitlePaused') || 'ByeAI is paused';
+  } else if (!enabled) {
     title = t('actionTitleOff') || 'ByeAI is off';
   } else if (isAllowed) {
     title = t('actionTitleAllowed', [hostname]) || `ByeAI: AI allowed on ${hostname}`;
@@ -243,13 +254,17 @@ async function refreshTabUi(tabId) {
   }
 
   const isAllowed = settings.allowedHosts.includes(hostname);
-  await updateActionTitle(tabId, hostname, stat.page, settings.enabled, isAllowed);
-  await updateBadge(tabId, settings.enabled && !isAllowed ? stat.page : 0);
+  const paused = isPaused(settings);
+  await updateActionTitle(tabId, hostname, stat.page, settings.enabled, isAllowed, paused);
+  await updateBadge(tabId, settings.enabled && !isAllowed ? stat.page : 0, paused);
 }
 
-async function updateBadge(tabId, count) {
+async function updateBadge(tabId, count, paused = false) {
   try {
-    await chrome.action.setBadgeText({ tabId, text: count > 0 ? (count > 99 ? '99+' : String(count)) : '' });
+    // Paused shows "II" on a grey badge, on every tab.
+    let text = count > 0 ? (count > 99 ? '99+' : String(count)) : '';
+    if (paused) text = 'II';
+    await chrome.action.setBadgeText({ tabId, text });
   } catch {
     // tab closed
   }
@@ -473,6 +488,8 @@ async function getPopupState(tabId) {
     isAllowedOnce: Boolean(hostname && (await getOnceHosts())[tabId] === hostname),
     isMediaAllowed: Boolean(hostname && settings.mediaAllowedHosts.includes(hostname)),
     allowedHosts: settings.allowedHosts,
+    paused: isPaused(settings),
+    pausedUntil: isPaused(settings) ? settings.pausedUntil : 0,
   };
 }
 
@@ -510,8 +527,10 @@ async function unforceWebModeOnAllowedGoogleTabs(allowedHosts) {
   }
 }
 
-async function toggleEnabled(enabled) {
-  await saveSettings({ enabled });
+async function toggleEnabled(enabled, pausedUntil = 0) {
+  await saveSettings({ enabled, pausedUntil });
+  await syncPauseAlarm(pausedUntil);
+  await syncBadgeColor(pausedUntil > Date.now());
   await syncRulesetEnabled(await getSettings());
   const tabs = await chrome.tabs.query({});
   for (const tab of tabs) {
@@ -520,6 +539,57 @@ async function toggleEnabled(enabled) {
     }
   }
   await broadcastSettingsChanged();
+}
+
+// --- Pause / snooze ---
+
+function isPaused(settings) {
+  return !settings.enabled && settings.pausedUntil > Date.now();
+}
+
+// 'hour': one hour. 'tomorrow': the start of the next day, local time. Close to
+// midnight that would be a blink, so it then means the day after.
+function pauseEnd(mode, now = Date.now()) {
+  if (mode === 'hour') return now + HOUR_MS;
+  const next = new Date(now);
+  next.setHours(24, 0, 0, 0);
+  return next.getTime() - now < 2 * HOUR_MS ? next.getTime() + 24 * HOUR_MS : next.getTime();
+}
+
+async function pauseFor(mode) {
+  if (mode !== 'hour' && mode !== 'tomorrow') return;
+  await toggleEnabled(false, pauseEnd(mode));
+}
+
+async function syncPauseAlarm(pausedUntil) {
+  if (pausedUntil > Date.now()) await chrome.alarms.create(PAUSE_ALARM, { when: pausedUntil });
+  else await chrome.alarms.clear(PAUSE_ALARM);
+}
+
+async function syncBadgeColor(paused) {
+  try {
+    await chrome.action.setBadgeBackgroundColor({ color: paused ? BADGE_PAUSED_COLOR : BADGE_COLOR });
+  } catch {
+    // ignore
+  }
+}
+
+// Runs when the worker starts, on the alarm and when the pause time changes
+// (also from another device). A pause that ran out while the browser was
+// closed ends here.
+async function checkPause() {
+  const settings = await getSettings();
+  if (!settings.pausedUntil) {
+    await chrome.alarms.clear(PAUSE_ALARM);
+    return;
+  }
+  if (settings.pausedUntil <= Date.now()) {
+    if (!settings.enabled) await toggleEnabled(true);
+    else await saveSettings({ pausedUntil: 0 });
+    return;
+  }
+  await syncPauseAlarm(settings.pausedUntil);
+  await syncBadgeColor(true);
 }
 
 async function setFeature(name, on) {
@@ -807,11 +877,153 @@ function unshowChannel(ids) {
   return editShown((list) => list.filter((c) => !set.has(c.id) && !set.has(c.a)));
 }
 
+// --- Export / import of your settings ---
+
+const EXPORT_FORMAT = 1;
+const EXPORT_MAX_BYTES = 1024 * 1024;
+const HOST_LIST_BYTES = 7000;
+const HOST_PATTERN = /^[a-z0-9]([a-z0-9-]*[a-z0-9])?(\.[a-z0-9]([a-z0-9-]*[a-z0-9])?)+$/;
+const SWITCHES = ['enabled', 'showNotices', 'communityEnabled', 'communityAutoShare'];
+
+// Settings only: no counters, no Community list, no history.
+async function exportSettings() {
+  const s = await getSettings();
+  return {
+    app: 'byeai',
+    format: EXPORT_FORMAT,
+    version: chrome.runtime.getManifest().version,
+    exportedAt: new Date().toISOString(),
+    // A pause is not a setting: export "on".
+    switches: {
+      enabled: isPaused(s) ? true : s.enabled,
+      showNotices: s.showNotices,
+      communityEnabled: s.communityEnabled,
+      communityAutoShare: s.communityAutoShare,
+      features: s.features,
+    },
+    allowedHosts: s.allowedHosts,
+    mediaAllowedHosts: s.mediaAllowedHosts,
+    hiddenChannels: await globalThis.byeaiHiddenChannels.read(),
+    shownChannels: await globalThis.byeaiShownChannels.read(),
+  };
+}
+
+function cleanHost(raw) {
+  const host = String(raw || '').trim().toLowerCase().replace(/^www\./, '');
+  return host.length <= 253 && HOST_PATTERN.test(host) ? host : '';
+}
+
+// Adds hosts to the end of `current`, as many as fit in one sync item.
+function mergeHosts(current, incoming) {
+  const out = [...current];
+  const known = new Set(out);
+  let added = 0;
+  let skipped = 0;
+  for (const raw of incoming) {
+    const host = cleanHost(raw);
+    if (!host || known.has(host) || JSON.stringify([...out, host]).length > HOST_LIST_BYTES) {
+      skipped += 1;
+      continue;
+    }
+    out.push(host);
+    known.add(host);
+    added += 1;
+  }
+  return { list: out, added, skipped };
+}
+
+// New channels go on the end. What is already there is never pushed out by an
+// import: only as many new ones as the list (count and sync size) still holds.
+function mergeChannels(store, current, incoming) {
+  const known = new Set(current.flatMap((c) => [c.id, c.a].filter(Boolean)));
+  const fresh = [];
+  let skipped = 0;
+  for (const raw of incoming) {
+    const entry = store.clean(raw);
+    const ids = entry ? [entry.id, entry.a].filter(Boolean) : [];
+    if (!entry || ids.some((id) => known.has(id))) {
+      skipped += 1;
+      continue;
+    }
+    ids.forEach((id) => known.add(id));
+    fresh.push(entry);
+  }
+  const fits = (n) => store.split([...current, ...fresh.slice(0, n)]).flat().length === current.length + n;
+  let lo = 0;
+  let hi = Math.min(fresh.length, Math.max(0, store.MAX - current.length));
+  while (lo < hi) {
+    const mid = Math.ceil((lo + hi) / 2);
+    if (fits(mid)) lo = mid;
+    else hi = mid - 1;
+  }
+  skipped += fresh.length - lo;
+  return { list: [...current, ...fresh.slice(0, lo)], added: lo, skipped };
+}
+
+async function importSettings(data) {
+  const bad = { ok: false, error: 'format' };
+  if (!data || typeof data !== 'object' || Array.isArray(data)) return bad;
+  if (data.app !== 'byeai' || !Number.isInteger(data.format) || data.format < 1 || data.format > EXPORT_FORMAT) return bad;
+  const hasList = (k) => Array.isArray(data[k]);
+  const hasSwitches = data.switches && typeof data.switches === 'object' && !Array.isArray(data.switches);
+  if (!['allowedHosts', 'mediaAllowedHosts', 'hiddenChannels', 'shownChannels'].some(hasList) && !hasSwitches) return bad;
+
+  const result = { ok: true, added: 0, skipped: 0, switches: 0 };
+  const settings = await getSettings();
+
+  for (const key of ['allowedHosts', 'mediaAllowedHosts']) {
+    if (!hasList(key)) continue;
+    const merged = mergeHosts(settings[key], data[key].slice(0, 5000));
+    result.added += merged.added;
+    result.skipped += merged.skipped;
+    if (merged.added) await saveSettings({ [key]: merged.list });
+  }
+  await syncDynamicRules();
+
+  const lists = [
+    ['hiddenChannels', globalThis.byeaiHiddenChannels, editHidden],
+    ['shownChannels', globalThis.byeaiShownChannels, editShown],
+  ];
+  for (const [key, store, edit] of lists) {
+    if (!hasList(key)) continue;
+    let counts = { added: 0, skipped: 0 };
+    await edit((current) => {
+      counts = mergeChannels(store, current, data[key].slice(0, 5000));
+      return counts.list;
+    });
+    result.added += counts.added;
+    result.skipped += counts.skipped;
+  }
+
+  if (hasSwitches) {
+    const next = {};
+    for (const key of SWITCHES) {
+      if (typeof data.switches[key] === 'boolean') next[key] = data.switches[key];
+    }
+    if (data.switches.features && typeof data.switches.features === 'object') {
+      const features = { ...settings.features };
+      for (const name of FEATURES) {
+        if (typeof data.switches.features[name] === 'boolean') features[name] = data.switches.features[name];
+      }
+      next.features = features;
+    }
+    // A pause ends on its own; do not fight it.
+    if (isPaused(settings)) delete next.enabled;
+    for (const [key, value] of Object.entries(next)) {
+      if (JSON.stringify(value) !== JSON.stringify(settings[key])) result.switches += 1;
+    }
+    if (Object.keys(next).length) await saveSettings(next);
+  }
+  return result;
+}
+
 chrome.alarms.onAlarm.addListener((alarm) => {
   if (alarm.name === COMMUNITY_ALARM) refreshCommunity();
+  if (alarm.name === PAUSE_ALARM) checkPause().catch(() => {});
 });
 
 chrome.runtime.onStartup.addListener(() => {
+  checkPause().catch(() => {});
   syncCommunity().catch(() => {});
 });
 
@@ -853,7 +1065,13 @@ chrome.webNavigation.onBeforeNavigate.addListener(async (details) => {
   if (!isGoogleSearchUrl(details.url)) return;
 
   const url = new URL(details.url);
-  if (url.searchParams.has('udm')) return;
+  // Images, News, Shopping, Videos (tbm=...) and the other tabs (udm=2, 7, 12 ...)
+  // are not AI and stay exactly as they are. AI Mode (udm=50) becomes Web.
+  if (url.searchParams.has('tbm')) return;
+  if (url.searchParams.has('udm') && url.searchParams.get('udm') !== '50') return;
+  // The Web view also drops Google's answer boxes (calculator, converter, dictionary,
+  // weather, scores). Those searches keep the normal page; its AI is hidden by the page script.
+  if (!url.searchParams.has('udm') && globalThis.byeaiWantsAnswerBox(url.searchParams.get('q'))) return;
 
   const settings = await getSettings();
   if (!settings.enabled || !settings.features.widgets) return;
@@ -884,6 +1102,17 @@ chrome.runtime.onMessage.addListener((message, sender, sendResponse) => {
       case 'SET_ENABLED':
         await toggleEnabled(message.enabled);
         return getPopupState(message.tabId);
+      case 'PAUSE':
+        await pauseFor(message.mode);
+        return getPopupState(message.tabId);
+      case 'RESUME':
+        await toggleEnabled(true);
+        return getPopupState(message.tabId);
+      case 'EXPORT_SETTINGS':
+        return exportSettings();
+      case 'IMPORT_SETTINGS':
+        if (JSON.stringify(message.data ?? null).length > EXPORT_MAX_BYTES) return { ok: false, error: 'format' };
+        return importSettings(message.data);
       case 'TOGGLE_ALLOW_SITE':
         await toggleAllowSite(message.hostname, message.allow);
         return getPopupState(message.tabId);
@@ -946,10 +1175,12 @@ chrome.storage.onChanged.addListener(async (changes, area) => {
   if (changes.enabled || changes.features) await syncRulesetEnabled(await getSettings());
   if (changes.enabled || changes.features || changes.allowedHosts) await syncDynamicRules();
   if (changes.enabled || changes.features || changes.communityEnabled) await syncCommunity();
+  if (changes.pausedUntil) await checkPause();
 });
 
 migrateToSync().then(getSettings).then(async (settings) => {
   await syncRulesetEnabled(settings);
-  chrome.action.setBadgeBackgroundColor({ color: '#0f766e' }).catch(() => {});
+  chrome.action.setBadgeBackgroundColor({ color: BADGE_COLOR }).catch(() => {});
   await syncDynamicRules();
+  await checkPause();
 });

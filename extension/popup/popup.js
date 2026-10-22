@@ -20,6 +20,12 @@ const reportLink = document.getElementById('reportLink');
 const featureCard = document.querySelector('.feature-card');
 const featureRows = document.querySelectorAll('.feature');
 const mediaSiteBtn = document.getElementById('mediaSiteBtn');
+const pauseBox = document.getElementById('pauseBox');
+const pauseNote = document.getElementById('pauseNote');
+const pauseHourBtn = document.getElementById('pauseHourBtn');
+const pauseTomorrowBtn = document.getElementById('pauseTomorrowBtn');
+const resumeBtn = document.getElementById('resumeBtn');
+const wrongBtn = document.getElementById('wrongBtn');
 
 const REPORT_URL = 'https://github.com/El-SaMa/byeai/issues/new';
 
@@ -44,9 +50,12 @@ async function getActiveTab() {
 }
 
 function renderStatusPill(state) {
-  statusPill.classList.remove('is-off', 'is-allowed');
+  statusPill.classList.remove('is-off', 'is-allowed', 'is-paused');
 
-  if (!state.enabled) {
+  if (state.paused) {
+    statusPill.textContent = t('popupStatusPaused') || 'Paused';
+    statusPill.classList.add('is-paused');
+  } else if (!state.enabled) {
     statusPill.textContent = t('popupStatusOff') || 'Off';
     statusPill.classList.add('is-off');
   } else if (state.isAiApp && state.isAllowedOnce && !state.isAllowed) {
@@ -63,6 +72,36 @@ function renderStatusPill(state) {
   }
 }
 
+// "17:30" today, "Fri 00:00" later. Uses the browser language.
+function formatPauseEnd(until) {
+  const at = new Date(until);
+  const sameDay = at.toDateString() === new Date().toDateString();
+  let lang;
+  try {
+    lang = chrome.i18n.getUILanguage();
+  } catch (_) {
+    lang = undefined;
+  }
+  const options = sameDay ? { hour: '2-digit', minute: '2-digit' } : { weekday: 'short', hour: '2-digit', minute: '2-digit' };
+  try {
+    return at.toLocaleString(lang, options);
+  } catch (_) {
+    return at.toLocaleString(undefined, options);
+  }
+}
+
+function renderPause(state) {
+  const paused = Boolean(state.paused);
+  // Off by hand: nothing to pause. Paused: show when it ends and Resume.
+  pauseBox.hidden = !state.enabled && !paused;
+  pauseBox.classList.toggle('is-paused', paused);
+  pauseNote.classList.toggle('hidden', !paused);
+  resumeBtn.classList.toggle('hidden', !paused);
+  pauseNote.textContent = paused
+    ? t('popupPausedUntil', [formatPauseEnd(state.pausedUntil)]) || `Paused until ${formatPauseEnd(state.pausedUntil)}`
+    : '';
+}
+
 function render(state) {
   const hasSite = Boolean(state.hostname);
   siteNameEl.textContent = hasSite
@@ -72,6 +111,7 @@ function render(state) {
   pageCountEl.textContent = String(state.pageBlocked);
   totalCountEl.textContent = String(state.totalBlocked);
   renderStatusPill(state);
+  renderPause(state);
   renderFeatures(state);
 
   if (state.isAiApp) {
@@ -155,6 +195,21 @@ enabledToggle.addEventListener('change', async () => {
   render(state);
 });
 
+async function pause(mode) {
+  state = await chrome.runtime.sendMessage({ type: 'PAUSE', mode, tabId: activeTabId });
+  render(state);
+  resumeBtn.focus();
+}
+
+pauseHourBtn.addEventListener('click', () => pause('hour'));
+pauseTomorrowBtn.addEventListener('click', () => pause('tomorrow'));
+
+resumeBtn.addEventListener('click', async () => {
+  state = await chrome.runtime.sendMessage({ type: 'RESUME', tabId: activeTabId });
+  render(state);
+  pauseHourBtn.focus();
+});
+
 allowBtn.addEventListener('click', async () => {
   if (!state?.hostname) return;
 
@@ -204,8 +259,8 @@ mediaSiteBtn.addEventListener('click', async () => {
 });
 
 // Only opens a prefilled GitHub issue. Nothing is sent unless you submit it.
-reportLink.addEventListener('click', (event) => {
-  event.preventDefault();
+// `template` is a form in .github/ISSUE_TEMPLATE.
+function openReport(template, title) {
   // Origin and path only: query strings can carry tokens and issues are public.
   let where = '';
   try {
@@ -215,12 +270,21 @@ reportLink.addEventListener('click', (event) => {
     // not a web page
   }
   const url = new URL(REPORT_URL);
-  // Prefills the "Missed AI" issue form (.github/ISSUE_TEMPLATE/missed-ai.yml).
-  url.searchParams.set('template', 'missed-ai.yml');
-  url.searchParams.set('title', `Missed AI on ${state?.hostname || 'a site'}`);
+  url.searchParams.set('template', template);
+  url.searchParams.set('title', title);
   url.searchParams.set('page', where);
   url.searchParams.set('version', chrome.runtime.getManifest().version);
   chrome.tabs.create({ url: url.toString() });
+}
+
+reportLink.addEventListener('click', (event) => {
+  event.preventDefault();
+  openReport('missed-ai.yml', `Missed AI on ${state?.hostname || 'a site'}`);
+});
+
+// Something normal got hidden or stopped working: the "Site broken" form.
+wrongBtn.addEventListener('click', () => {
+  openReport('broke-site.yml', `Site broken: ${state?.hostname || 'a site'}`);
 });
 
 reloadBtn.addEventListener('click', async () => {

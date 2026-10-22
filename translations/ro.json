@@ -144,5 +144,21 @@
   "coverShow": "Arată videoclipul",
   "coverShowShort": "Arată",
   "coverNotAi": "Nu e IA",
-  "coverNextVideo": "Următorul videoclip"
+  "coverNextVideo": "Următorul videoclip",
+  "actionTitlePaused": "ByeAI este în pauză",
+  "popupStatusPaused": "În pauză",
+  "popupPauseHour": "Pauză de 1 oră",
+  "popupPauseTomorrow": "Pauză până mâine",
+  "popupResume": "Reia acum",
+  "popupPausedUntil": "În pauză până la $TIME$",
+  "popupWrong": "Ceva pare să nu fie în regulă pe această pagină",
+  "popupSendsTitle": "Ce trimite ByeAI",
+  "sendsText": "Nimic despre navigarea ta. O dată pe zi descarcă lista publică Community. Doar când apeși Sugerează sau Nu e IA (sau activezi partajarea automată) trimite numele și id-ul canalului respectiv.",
+  "optionsBackupHeading": "Export și import",
+  "optionsBackupIntro": "Salvează site-urile permise, canalele ascunse și comutatoarele într-un singur fișier sau încarcă aici un astfel de fișier. Contoarele nu sunt incluse.",
+  "optionsExportBtn": "Exportă setările",
+  "optionsImportBtn": "Importă setările",
+  "optionsExportDone": "Fișierul cu setări a fost salvat.",
+  "optionsImportBad": "Acesta nu este un fișier de setări ByeAI. Nu s-a schimbat nimic.",
+  "optionsImportDone": "Importat: $ADDED$ adăugate sau modificate, $SKIPPED$ omise (existau deja sau nu sunt valide)."
 }

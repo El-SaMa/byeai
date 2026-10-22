@@ -144,5 +144,21 @@
   "coverShow": "Vis video",
   "coverShowShort": "Vis",
   "coverNotAi": "Ikke KI",
-  "coverNextVideo": "Neste video"
+  "coverNextVideo": "Neste video",
+  "actionTitlePaused": "ByeAI er satt på pause",
+  "popupStatusPaused": "På pause",
+  "popupPauseHour": "Pause i 1 time",
+  "popupPauseTomorrow": "Pause til i morgen",
+  "popupResume": "Fortsett nå",
+  "popupPausedUntil": "På pause til $TIME$",
+  "popupWrong": "Noe ser feil ut på denne siden",
+  "popupSendsTitle": "Hva ByeAI sender",
+  "sendsText": "Ingenting om nettleseren din. Én gang om dagen laster den ned den offentlige Community-listen. Bare når du trykker på Foreslå eller Ikke KI (eller slår på automatisk deling), sender den kanalens navn og id.",
+  "optionsBackupHeading": "Eksport og import",
+  "optionsBackupIntro": "Lagre tillatte nettsteder, skjulte kanaler og innstillinger i én fil, eller last inn en slik fil her. Tellere er ikke med.",
+  "optionsExportBtn": "Eksporter innstillinger",
+  "optionsImportBtn": "Importer innstillinger",
+  "optionsExportDone": "Innstillingsfilen er lagret.",
+  "optionsImportBad": "Dette er ikke en ByeAI-innstillingsfil. Ingenting ble endret.",
+  "optionsImportDone": "Importert: $ADDED$ lagt til eller endret, $SKIPPED$ hoppet over (fantes fra før eller ugyldig)."
 }

@@ -197,5 +197,27 @@
   "optionsAutoShareCount": {
     "message": "Channels shared automatically: $COUNT$",
     "placeholders": { "count": { "content": "$1", "example": "3" } }
+  },
+  "actionTitlePaused": { "message": "ByeAI is paused" },
+  "popupStatusPaused": { "message": "Paused" },
+  "popupPauseHour": { "message": "Pause for 1 hour" },
+  "popupPauseTomorrow": { "message": "Pause until tomorrow" },
+  "popupResume": { "message": "Resume now" },
+  "popupPausedUntil": {
+    "message": "Paused until $TIME$",
+    "placeholders": {"time": {"content": "$1", "example": "17:30"}}
+  },
+  "popupWrong": { "message": "Something looks wrong on this page" },
+  "popupSendsTitle": { "message": "What ByeAI sends" },
+  "sendsText": { "message": "Nothing about your browsing. Once a day it downloads the public Community list. Only when you press Suggest or Not AI (or turn on automatic sharing) it sends that channel's name and id." },
+  "optionsBackupHeading": { "message": "Export and import" },
+  "optionsBackupIntro": { "message": "Save your allowed sites, hidden channels and switches in one file, or load such a file here. Counters are not included." },
+  "optionsExportBtn": { "message": "Export settings" },
+  "optionsImportBtn": { "message": "Import settings" },
+  "optionsExportDone": { "message": "Settings file saved." },
+  "optionsImportBad": { "message": "This is not a ByeAI settings file. Nothing was changed." },
+  "optionsImportDone": {
+    "message": "Imported: $ADDED$ added or changed, $SKIPPED$ skipped (already there or not valid).",
+    "placeholders": {"added": {"content": "$1", "example": "12"}, "skipped": {"content": "$2", "example": "3"}}
   }
 }

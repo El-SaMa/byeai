@@ -144,5 +144,21 @@
   "coverShow": "영상 보기",
   "coverShowShort": "보기",
   "coverNotAi": "AI 아님",
-  "coverNextVideo": "다음 영상"
+  "coverNextVideo": "다음 영상",
+  "actionTitlePaused": "ByeAI 일시중지됨",
+  "popupStatusPaused": "일시중지",
+  "popupPauseHour": "1시간 동안 일시중지",
+  "popupPauseTomorrow": "내일까지 일시중지",
+  "popupResume": "지금 다시 시작",
+  "popupPausedUntil": "$TIME$까지 일시중지",
+  "popupWrong": "이 페이지에 문제가 있어 보여요",
+  "popupSendsTitle": "ByeAI가 보내는 정보",
+  "sendsText": "탐색 기록은 아무것도 보내지 않습니다. 하루에 한 번 공개 Community 목록을 내려받을 뿐입니다. 제안 또는 AI 아님을 누르거나 자동 공유를 켠 경우에만 해당 채널의 이름과 ID를 보냅니다.",
+  "optionsBackupHeading": "내보내기 및 가져오기",
+  "optionsBackupIntro": "허용한 사이트, 숨긴 채널, 스위치를 파일 하나에 저장하거나, 그런 파일을 여기서 불러올 수 있습니다. 카운터는 포함되지 않습니다.",
+  "optionsExportBtn": "설정 내보내기",
+  "optionsImportBtn": "설정 가져오기",
+  "optionsExportDone": "설정 파일을 저장했습니다.",
+  "optionsImportBad": "ByeAI 설정 파일이 아닙니다. 아무것도 변경되지 않았습니다.",
+  "optionsImportDone": "가져오기 완료: $ADDED$개 추가 또는 변경, $SKIPPED$개 건너뜀(이미 있거나 올바르지 않음)."
 }

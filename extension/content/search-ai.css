@@ -24,7 +24,22 @@ html[data-byeai-active="1"] .b_genConvBubble,
 html[data-byeai-active="1"] [class*="GenerativeSearch"],
 html[data-byeai-active="1"] [data-tag="ChatPanel" i],
 html[data-byeai-active="1"] [aria-label*="Copilot" i],
-html[data-byeai-active="1"] a[href*="/chat" i][href*="bing.com" i] {
+html[data-byeai-active="1"] a[href*="/chat" i][href*="bing.com" i],
+/* Copilot answer, its follow-up box and chips, and the AI Mode tab (2026 markup) */
+html[data-byeai-active="1"] #b_copilot_search_container,
+html[data-byeai-active="1"] #b_copilot_search,
+html[data-byeai-active="1"] [id^="b_copilot"],
+html[data-byeai-active="1"] [class*="b_copilot"],
+html[data-byeai-active="1"] #b-scopeListItem-copilotsearch,
+html[data-byeai-active="1"] #b-scopeListItem-conv,
+html[data-byeai-active="1"] li:has(> a[href*="/copilotsearch"]),
+html[data-byeai-active="1"] a[href*="/copilotsearch"],
+/* The Copilot answer card itself, its AI notice and feedback buttons */
+html[data-byeai-active="1"] li.b_ans:has(#copans_container),
+html[data-byeai-active="1"] #copans_container,
+html[data-byeai-active="1"] [data-feed*="GenAI" i],
+html[data-byeai-active="1"] [data-scenario*="TuringGen" i],
+html[data-byeai-active="1"] .gs_aidisc {
   display: none !important;
   visibility: hidden !important;
   pointer-events: none !important;
@@ -44,7 +59,14 @@ html[data-byeai-active="1"] .module--instant-answer.module--ai,
 html[data-byeai-active="1"] [class*="DuckAssist"],
 html[data-byeai-active="1"] [class*="duckchat" i],
 html[data-byeai-active="1"] a[href*="duck.ai"],
-html[data-byeai-active="1"] a[href*="ia=chat"] {
+html[data-byeai-active="1"] a[href*="ia=chat"],
+/* Search Assist: the answer in the results, the toolbar pill and the Duck.ai chat box (2026 markup) */
+html[data-byeai-active="1"] li:has([data-testid^="duckassist"]),
+html[data-byeai-active="1"] li:has([data-assist-icon-trigger]),
+html[data-byeai-active="1"] [data-testid^="duckassist"],
+html[data-byeai-active="1"] [data-assist-icon-trigger],
+html[data-byeai-active="1"] form[action*="ia=chat"],
+html[data-byeai-active="1"] button[aria-label*="Duck.ai" i] {
   display: none !important;
   visibility: hidden !important;
   pointer-events: none !important;

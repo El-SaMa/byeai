@@ -144,5 +144,21 @@
   "coverShow": "Afficher la vidéo",
   "coverShowShort": "Afficher",
   "coverNotAi": "Pas de l’IA",
-  "coverNextVideo": "Vidéo suivante"
+  "coverNextVideo": "Vidéo suivante",
+  "actionTitlePaused": "ByeAI est en pause",
+  "popupStatusPaused": "En pause",
+  "popupPauseHour": "Pause d’1 heure",
+  "popupPauseTomorrow": "Pause jusqu’à demain",
+  "popupResume": "Reprendre maintenant",
+  "popupPausedUntil": "En pause jusqu’à $TIME$",
+  "popupWrong": "Quelque chose ne va pas sur cette page",
+  "popupSendsTitle": "Ce que ByeAI envoie",
+  "sendsText": "Rien sur votre navigation. Une fois par jour, il télécharge la liste publique Community. Seulement quand vous appuyez sur Suggérer ou Pas de l’IA (ou activez le partage automatique), il envoie le nom et l’identifiant de cette chaîne.",
+  "optionsBackupHeading": "Exporter et importer",
+  "optionsBackupIntro": "Enregistrez vos sites autorisés, chaînes masquées et réglages dans un seul fichier, ou chargez ici un tel fichier. Les compteurs ne sont pas inclus.",
+  "optionsExportBtn": "Exporter les réglages",
+  "optionsImportBtn": "Importer les réglages",
+  "optionsExportDone": "Fichier de réglages enregistré.",
+  "optionsImportBad": "Ce n’est pas un fichier de réglages ByeAI. Rien n’a été modifié.",
+  "optionsImportDone": "Importé : $ADDED$ ajoutés ou modifiés, $SKIPPED$ ignorés (déjà présents ou non valides)."
 }

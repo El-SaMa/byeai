@@ -144,5 +144,21 @@
   "coverShow": "顯示影片",
   "coverShowShort": "顯示",
   "coverNotAi": "不是 AI",
-  "coverNextVideo": "下一部影片"
+  "coverNextVideo": "下一部影片",
+  "actionTitlePaused": "ByeAI 已暫停",
+  "popupStatusPaused": "已暫停",
+  "popupPauseHour": "暫停 1 小時",
+  "popupPauseTomorrow": "暫停到明天",
+  "popupResume": "立即恢復",
+  "popupPausedUntil": "已暫停至 $TIME$",
+  "popupWrong": "這個頁面似乎有問題",
+  "popupSendsTitle": "ByeAI 會傳送什麼",
+  "sendsText": "不會傳送任何瀏覽資訊。每天只下載一次公開的 Community 清單。只有在你按下「建議」或「不是 AI」（或開啟自動分享）時，才會傳送該頻道的名稱和 ID。",
+  "optionsBackupHeading": "匯出和匯入",
+  "optionsBackupIntro": "把允許的網站、已隱藏的頻道和開關儲存到一個檔案裡，也可以在這裡載入這樣的檔案。不包含計數器。",
+  "optionsExportBtn": "匯出設定",
+  "optionsImportBtn": "匯入設定",
+  "optionsExportDone": "設定檔已儲存。",
+  "optionsImportBad": "這不是 ByeAI 的設定檔，未做任何變更。",
+  "optionsImportDone": "已匯入：新增或變更 $ADDED$ 項，略過 $SKIPPED$ 項（已存在或無效）。"
 }

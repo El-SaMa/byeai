@@ -13,6 +13,11 @@ const autoShareRow = document.getElementById('autoShareRow');
 const autoShareCount = document.getElementById('autoShareCount');
 const shownList = document.getElementById('shownList');
 const emptyShown = document.getElementById('emptyShown');
+const exportBtn = document.getElementById('exportBtn');
+const importBtn = document.getElementById('importBtn');
+const importFile = document.getElementById('importFile');
+const importResult = document.getElementById('importResult');
+const IMPORT_MAX_BYTES = 1024 * 1024;
 const hiddenStore = window.byeaiHiddenChannels;
 const shownStore = window.byeaiShownChannels;
 
@@ -152,5 +157,44 @@ resetStatsBtn.addEventListener('click', async () => {
   await chrome.storage.local.set({ totalBlocked: 0 });
   load();
 });
+
+exportBtn.addEventListener('click', async () => {
+  const data = await chrome.runtime.sendMessage({ type: 'EXPORT_SETTINGS' });
+  const blob = new Blob([`${JSON.stringify(data, null, 2)}\n`], { type: 'application/json' });
+  const link = document.createElement('a');
+  link.href = URL.createObjectURL(blob);
+  link.download = `byeai-settings-${new Date().toISOString().slice(0, 10)}.json`;
+  document.body.appendChild(link);
+  link.click();
+  link.remove();
+  setTimeout(() => URL.revokeObjectURL(link.href), 1000);
+  importResult.textContent = t('optionsExportDone') || 'Settings file saved.';
+});
+
+importBtn.addEventListener('click', () => importFile.click());
+
+importFile.addEventListener('change', async () => {
+  const file = importFile.files[0];
+  importFile.value = '';
+  if (!file) return;
+  const bad = () => {
+    importResult.textContent = t('optionsImportBad') || 'This is not a ByeAI settings file. Nothing was changed.';
+  };
+  if (file.size > IMPORT_MAX_BYTES) return bad();
+  let data;
+  try {
+    data = JSON.parse(await file.text());
+  } catch (_) {
+    return bad();
+  }
+  const reply = await chrome.runtime.sendMessage({ type: 'IMPORT_SETTINGS', data });
+  if (!reply?.ok) return bad();
+  const added = String(reply.added + reply.switches);
+  const skipped = String(reply.skipped);
+  importResult.textContent =
+    t('optionsImportDone', [added, skipped]) || `Imported: ${added} added or changed, ${skipped} skipped.`;
+  load();
+});
+
 
 load();

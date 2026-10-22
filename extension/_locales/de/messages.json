@@ -174,5 +174,27 @@
   "optionsAutoShareCount": {
     "message": "Automatisch geteilte Kanäle: $COUNT$",
     "placeholders": {"count": {"content": "$1", "example": "3"}}
+  },
+  "actionTitlePaused": { "message": "ByeAI ist pausiert" },
+  "popupStatusPaused": { "message": "Pausiert" },
+  "popupPauseHour": { "message": "Für 1 Stunde pausieren" },
+  "popupPauseTomorrow": { "message": "Bis morgen pausieren" },
+  "popupResume": { "message": "Jetzt fortsetzen" },
+  "popupPausedUntil": {
+    "message": "Pausiert bis $TIME$",
+    "placeholders": {"time": {"content": "$1", "example": "17:30"}}
+  },
+  "popupWrong": { "message": "Auf dieser Seite stimmt etwas nicht" },
+  "popupSendsTitle": { "message": "Was ByeAI sendet" },
+  "sendsText": { "message": "Nichts über dein Surfen. Einmal am Tag lädt es die öffentliche Community-Liste herunter. Nur wenn du auf Vorschlagen oder Keine KI klickst (oder das automatische Teilen einschaltest), sendet es Namen und ID dieses Kanals." },
+  "optionsBackupHeading": { "message": "Export und Import" },
+  "optionsBackupIntro": { "message": "Speichere deine erlaubten Websites, ausgeblendeten Kanäle und Schalter in einer Datei oder lade hier eine solche Datei. Zähler sind nicht enthalten." },
+  "optionsExportBtn": { "message": "Einstellungen exportieren" },
+  "optionsImportBtn": { "message": "Einstellungen importieren" },
+  "optionsExportDone": { "message": "Einstellungsdatei gespeichert." },
+  "optionsImportBad": { "message": "Das ist keine ByeAI-Einstellungsdatei. Es wurde nichts geändert." },
+  "optionsImportDone": {
+    "message": "Importiert: $ADDED$ hinzugefügt oder geändert, $SKIPPED$ übersprungen (schon vorhanden oder ungültig).",
+    "placeholders": {"added": {"content": "$1", "example": "12"}, "skipped": {"content": "$2", "example": "3"}}
   }
 }

@@ -174,5 +174,27 @@
   "optionsAutoShareCount": {
     "message": "Κανάλια που κοινοποιήθηκαν αυτόματα: $COUNT$",
     "placeholders": {"count": {"content": "$1", "example": "3"}}
+  },
+  "actionTitlePaused": { "message": "Το ByeAI είναι σε παύση" },
+  "popupStatusPaused": { "message": "Σε παύση" },
+  "popupPauseHour": { "message": "Παύση για 1 ώρα" },
+  "popupPauseTomorrow": { "message": "Παύση έως αύριο" },
+  "popupResume": { "message": "Συνέχεια τώρα" },
+  "popupPausedUntil": {
+    "message": "Σε παύση έως $TIME$",
+    "placeholders": {"time": {"content": "$1", "example": "17:30"}}
+  },
+  "popupWrong": { "message": "Κάτι δεν πάει καλά σε αυτή τη σελίδα" },
+  "popupSendsTitle": { "message": "Τι στέλνει το ByeAI" },
+  "sendsText": { "message": "Τίποτα για την περιήγησή σας. Μία φορά την ημέρα κατεβάζει τη δημόσια λίστα Community. Μόνο όταν πατήσετε Πρόταση ή Δεν είναι AI (ή ενεργοποιήσετε την αυτόματη κοινοποίηση) στέλνει το όνομα και το id του συγκεκριμένου καναλιού." },
+  "optionsBackupHeading": { "message": "Εξαγωγή και εισαγωγή" },
+  "optionsBackupIntro": { "message": "Αποθηκεύστε τους επιτρεπόμενους ιστότοπους, τα κρυφά κανάλια και τους διακόπτες σε ένα αρχείο ή φορτώστε εδώ ένα τέτοιο αρχείο. Οι μετρητές δεν περιλαμβάνονται." },
+  "optionsExportBtn": { "message": "Εξαγωγή ρυθμίσεων" },
+  "optionsImportBtn": { "message": "Εισαγωγή ρυθμίσεων" },
+  "optionsExportDone": { "message": "Το αρχείο ρυθμίσεων αποθηκεύτηκε." },
+  "optionsImportBad": { "message": "Αυτό δεν είναι αρχείο ρυθμίσεων του ByeAI. Δεν άλλαξε τίποτα." },
+  "optionsImportDone": {
+    "message": "Εισαγωγή: $ADDED$ προστέθηκαν ή άλλαξαν, $SKIPPED$ παραλείφθηκαν (υπήρχαν ήδη ή δεν είναι έγκυρα).",
+    "placeholders": {"added": {"content": "$1", "example": "12"}, "skipped": {"content": "$2", "example": "3"}}
   }
 }

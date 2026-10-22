@@ -174,5 +174,27 @@
   "optionsAutoShareCount": {
     "message": "Automatikusan megosztott csatornák: $COUNT$",
     "placeholders": {"count": {"content": "$1", "example": "3"}}
+  },
+  "actionTitlePaused": { "message": "A ByeAI szünetel" },
+  "popupStatusPaused": { "message": "Szünetel" },
+  "popupPauseHour": { "message": "Szünet 1 órára" },
+  "popupPauseTomorrow": { "message": "Szünet holnapig" },
+  "popupResume": { "message": "Folytatás most" },
+  "popupPausedUntil": {
+    "message": "Szünetel eddig: $TIME$",
+    "placeholders": {"time": {"content": "$1", "example": "17:30"}}
+  },
+  "popupWrong": { "message": "Valami nincs rendben ezen az oldalon" },
+  "popupSendsTitle": { "message": "Mit küld a ByeAI" },
+  "sendsText": { "message": "Semmit a böngészésedről. Naponta egyszer letölti a nyilvános Community listát. Csak akkor küldi el az adott csatorna nevét és azonosítóját, ha a Javaslás vagy a Nem MI gombra kattintasz (vagy bekapcsolod az automatikus megosztást)." },
+  "optionsBackupHeading": { "message": "Exportálás és importálás" },
+  "optionsBackupIntro": { "message": "Mentsd el az engedélyezett webhelyeket, az elrejtett csatornákat és a kapcsolókat egyetlen fájlba, vagy tölts be ide egy ilyen fájlt. A számlálók nem szerepelnek benne." },
+  "optionsExportBtn": { "message": "Beállítások exportálása" },
+  "optionsImportBtn": { "message": "Beállítások importálása" },
+  "optionsExportDone": { "message": "A beállításfájl elmentve." },
+  "optionsImportBad": { "message": "Ez nem ByeAI beállításfájl. Nem változott semmi." },
+  "optionsImportDone": {
+    "message": "Importálva: $ADDED$ hozzáadva vagy módosítva, $SKIPPED$ kihagyva (már megvolt vagy érvénytelen).",
+    "placeholders": {"added": {"content": "$1", "example": "12"}, "skipped": {"content": "$2", "example": "3"}}
   }
 }

@@ -144,5 +144,21 @@
   "coverShow": "Visa video",
   "coverShowShort": "Visa",
   "coverNotAi": "Inte AI",
-  "coverNextVideo": "Nästa video"
+  "coverNextVideo": "Nästa video",
+  "actionTitlePaused": "ByeAI är pausat",
+  "popupStatusPaused": "Pausat",
+  "popupPauseHour": "Pausa i 1 timme",
+  "popupPauseTomorrow": "Pausa till i morgon",
+  "popupResume": "Återuppta nu",
+  "popupPausedUntil": "Pausat till $TIME$",
+  "popupWrong": "Något ser fel ut på den här sidan",
+  "popupSendsTitle": "Vad ByeAI skickar",
+  "sendsText": "Ingenting om din surfning. En gång om dagen hämtar den den publika Community-listan. Bara när du trycker på Föreslå eller Inte AI (eller slår på automatisk delning) skickar den kanalens namn och id.",
+  "optionsBackupHeading": "Export och import",
+  "optionsBackupIntro": "Spara dina tillåtna webbplatser, dolda kanaler och inställningar i en fil, eller läs in en sådan fil här. Räknare ingår inte.",
+  "optionsExportBtn": "Exportera inställningar",
+  "optionsImportBtn": "Importera inställningar",
+  "optionsExportDone": "Inställningsfilen sparades.",
+  "optionsImportBad": "Det här är inte en ByeAI-inställningsfil. Inget ändrades.",
+  "optionsImportDone": "Importerat: $ADDED$ tillagda eller ändrade, $SKIPPED$ hoppades över (fanns redan eller ogiltiga)."
 }

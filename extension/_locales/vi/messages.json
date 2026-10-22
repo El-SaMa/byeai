@@ -174,5 +174,27 @@
   "optionsAutoShareCount": {
     "message": "Kênh đã tự động chia sẻ: $COUNT$",
     "placeholders": {"count": {"content": "$1", "example": "3"}}
+  },
+  "actionTitlePaused": { "message": "ByeAI đang tạm dừng" },
+  "popupStatusPaused": { "message": "Tạm dừng" },
+  "popupPauseHour": { "message": "Tạm dừng 1 giờ" },
+  "popupPauseTomorrow": { "message": "Tạm dừng đến ngày mai" },
+  "popupResume": { "message": "Tiếp tục ngay" },
+  "popupPausedUntil": {
+    "message": "Tạm dừng đến $TIME$",
+    "placeholders": {"time": {"content": "$1", "example": "17:30"}}
+  },
+  "popupWrong": { "message": "Trang này có vẻ có vấn đề" },
+  "popupSendsTitle": { "message": "ByeAI gửi những gì" },
+  "sendsText": { "message": "Không gửi gì về việc duyệt web của bạn. Mỗi ngày một lần, tiện ích tải danh sách Community công khai. Chỉ khi bạn bấm Đề xuất hoặc Không phải AI (hoặc bật chia sẻ tự động), tiện ích mới gửi tên và id của kênh đó." },
+  "optionsBackupHeading": { "message": "Xuất và nhập" },
+  "optionsBackupIntro": { "message": "Lưu các trang được cho phép, kênh đã ẩn và công tắc của bạn vào một tệp, hoặc tải một tệp như vậy vào đây. Bộ đếm không được bao gồm." },
+  "optionsExportBtn": { "message": "Xuất cài đặt" },
+  "optionsImportBtn": { "message": "Nhập cài đặt" },
+  "optionsExportDone": { "message": "Đã lưu tệp cài đặt." },
+  "optionsImportBad": { "message": "Đây không phải tệp cài đặt của ByeAI. Không có gì thay đổi." },
+  "optionsImportDone": {
+    "message": "Đã nhập: $ADDED$ mục được thêm hoặc thay đổi, $SKIPPED$ mục bị bỏ qua (đã có hoặc không hợp lệ).",
+    "placeholders": {"added": {"content": "$1", "example": "12"}, "skipped": {"content": "$2", "example": "3"}}
   }
 }

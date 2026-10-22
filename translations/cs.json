@@ -144,5 +144,21 @@
   "coverShow": "Zobrazit video",
   "coverShowShort": "Zobrazit",
   "coverNotAi": "Není to AI",
-  "coverNextVideo": "Další video"
+  "coverNextVideo": "Další video",
+  "actionTitlePaused": "ByeAI je pozastaveno",
+  "popupStatusPaused": "Pozastaveno",
+  "popupPauseHour": "Pozastavit na 1 hodinu",
+  "popupPauseTomorrow": "Pozastavit do zítřka",
+  "popupResume": "Pokračovat hned",
+  "popupPausedUntil": "Pozastaveno do $TIME$",
+  "popupWrong": "Na této stránce něco nevypadá správně",
+  "popupSendsTitle": "Co ByeAI odesílá",
+  "sendsText": "Nic o vašem prohlížení. Jednou denně stáhne veřejný seznam Community. Jen když kliknete na Navrhnout nebo Není to AI (nebo zapnete automatické sdílení), odešle jméno a ID daného kanálu.",
+  "optionsBackupHeading": "Export a import",
+  "optionsBackupIntro": "Uložte povolené weby, skryté kanály a přepínače do jednoho souboru, nebo takový soubor načtěte sem. Počítadla se nezahrnují.",
+  "optionsExportBtn": "Exportovat nastavení",
+  "optionsImportBtn": "Importovat nastavení",
+  "optionsExportDone": "Soubor s nastavením byl uložen.",
+  "optionsImportBad": "Toto není soubor s nastavením ByeAI. Nic se nezměnilo.",
+  "optionsImportDone": "Importováno: $ADDED$ přidáno nebo změněno, $SKIPPED$ přeskočeno (už existuje nebo je neplatné)."
 }

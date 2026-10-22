@@ -174,5 +174,27 @@
   "optionsAutoShareCount": {
     "message": "Kanal yang dibagikan otomatis: $COUNT$",
     "placeholders": {"count": {"content": "$1", "example": "3"}}
+  },
+  "actionTitlePaused": { "message": "ByeAI dijeda" },
+  "popupStatusPaused": { "message": "Dijeda" },
+  "popupPauseHour": { "message": "Jeda 1 jam" },
+  "popupPauseTomorrow": { "message": "Jeda sampai besok" },
+  "popupResume": { "message": "Lanjutkan sekarang" },
+  "popupPausedUntil": {
+    "message": "Dijeda sampai $TIME$",
+    "placeholders": {"time": {"content": "$1", "example": "17:30"}}
+  },
+  "popupWrong": { "message": "Ada yang tampak salah di halaman ini" },
+  "popupSendsTitle": { "message": "Apa yang dikirim ByeAI" },
+  "sendsText": { "message": "Tidak ada tentang penjelajahan Anda. Sekali sehari ByeAI mengunduh daftar Community yang bersifat publik. Hanya saat Anda menekan Sarankan atau Bukan AI (atau mengaktifkan berbagi otomatis), ByeAI mengirim nama dan id kanal itu." },
+  "optionsBackupHeading": { "message": "Ekspor dan impor" },
+  "optionsBackupIntro": { "message": "Simpan situs yang diizinkan, kanal tersembunyi, dan pengaturan Anda dalam satu berkas, atau muat berkas semacam itu di sini. Penghitung tidak disertakan." },
+  "optionsExportBtn": { "message": "Ekspor pengaturan" },
+  "optionsImportBtn": { "message": "Impor pengaturan" },
+  "optionsExportDone": { "message": "Berkas pengaturan disimpan." },
+  "optionsImportBad": { "message": "Ini bukan berkas pengaturan ByeAI. Tidak ada yang diubah." },
+  "optionsImportDone": {
+    "message": "Diimpor: $ADDED$ ditambahkan atau diubah, $SKIPPED$ dilewati (sudah ada atau tidak valid).",
+    "placeholders": {"added": {"content": "$1", "example": "12"}, "skipped": {"content": "$2", "example": "3"}}
   }
 }

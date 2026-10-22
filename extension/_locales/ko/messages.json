@@ -174,5 +174,27 @@
   "optionsAutoShareCount": {
     "message": "자동으로 공유한 채널: $COUNT$",
     "placeholders": {"count": {"content": "$1", "example": "3"}}
+  },
+  "actionTitlePaused": { "message": "ByeAI 일시중지됨" },
+  "popupStatusPaused": { "message": "일시중지" },
+  "popupPauseHour": { "message": "1시간 동안 일시중지" },
+  "popupPauseTomorrow": { "message": "내일까지 일시중지" },
+  "popupResume": { "message": "지금 다시 시작" },
+  "popupPausedUntil": {
+    "message": "$TIME$까지 일시중지",
+    "placeholders": {"time": {"content": "$1", "example": "17:30"}}
+  },
+  "popupWrong": { "message": "이 페이지에 문제가 있어 보여요" },
+  "popupSendsTitle": { "message": "ByeAI가 보내는 정보" },
+  "sendsText": { "message": "탐색 기록은 아무것도 보내지 않습니다. 하루에 한 번 공개 Community 목록을 내려받을 뿐입니다. 제안 또는 AI 아님을 누르거나 자동 공유를 켠 경우에만 해당 채널의 이름과 ID를 보냅니다." },
+  "optionsBackupHeading": { "message": "내보내기 및 가져오기" },
+  "optionsBackupIntro": { "message": "허용한 사이트, 숨긴 채널, 스위치를 파일 하나에 저장하거나, 그런 파일을 여기서 불러올 수 있습니다. 카운터는 포함되지 않습니다." },
+  "optionsExportBtn": { "message": "설정 내보내기" },
+  "optionsImportBtn": { "message": "설정 가져오기" },
+  "optionsExportDone": { "message": "설정 파일을 저장했습니다." },
+  "optionsImportBad": { "message": "ByeAI 설정 파일이 아닙니다. 아무것도 변경되지 않았습니다." },
+  "optionsImportDone": {
+    "message": "가져오기 완료: $ADDED$개 추가 또는 변경, $SKIPPED$개 건너뜀(이미 있거나 올바르지 않음).",
+    "placeholders": {"added": {"content": "$1", "example": "12"}, "skipped": {"content": "$2", "example": "3"}}
   }
 }

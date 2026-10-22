@@ -197,5 +197,27 @@
   "optionsAutoShareCount": {
     "message": "Automaattisesti jaetut kanavat: $COUNT$",
     "placeholders": { "count": { "content": "$1", "example": "3" } }
+  },
+  "actionTitlePaused": { "message": "ByeAI on tauolla" },
+  "popupStatusPaused": { "message": "Tauolla" },
+  "popupPauseHour": { "message": "Tauko 1 tunniksi" },
+  "popupPauseTomorrow": { "message": "Tauko huomiseen asti" },
+  "popupResume": { "message": "Jatka nyt" },
+  "popupPausedUntil": {
+    "message": "Tauolla $TIME$ asti",
+    "placeholders": {"time": {"content": "$1", "example": "17:30"}}
+  },
+  "popupWrong": { "message": "Tällä sivulla on jotain pielessä" },
+  "popupSendsTitle": { "message": "Mitä ByeAI lähettää" },
+  "sendsText": { "message": "Ei mitään selaamisestasi. Kerran päivässä se lataa julkisen Community-listan. Vain kun painat Ehdota tai Ei tekoälyä (tai otat automaattisen jakamisen käyttöön), se lähettää kyseisen kanavan nimen ja tunnuksen." },
+  "optionsBackupHeading": { "message": "Vienti ja tuonti" },
+  "optionsBackupIntro": { "message": "Tallenna sallitut sivustot, piilotetut kanavat ja asetukset yhteen tiedostoon tai lataa sellainen tiedosto tähän. Laskureita ei oteta mukaan." },
+  "optionsExportBtn": { "message": "Vie asetukset" },
+  "optionsImportBtn": { "message": "Tuo asetukset" },
+  "optionsExportDone": { "message": "Asetustiedosto tallennettu." },
+  "optionsImportBad": { "message": "Tämä ei ole ByeAIn asetustiedosto. Mitään ei muutettu." },
+  "optionsImportDone": {
+    "message": "Tuotu: $ADDED$ lisätty tai muutettu, $SKIPPED$ ohitettu (oli jo olemassa tai ei kelvollinen).",
+    "placeholders": {"added": {"content": "$1", "example": "12"}, "skipped": {"content": "$2", "example": "3"}}
   }
 }

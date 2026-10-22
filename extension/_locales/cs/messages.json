@@ -174,5 +174,27 @@
   "optionsAutoShareCount": {
     "message": "Automaticky sdílené kanály: $COUNT$",
     "placeholders": {"count": {"content": "$1", "example": "3"}}
+  },
+  "actionTitlePaused": { "message": "ByeAI je pozastaveno" },
+  "popupStatusPaused": { "message": "Pozastaveno" },
+  "popupPauseHour": { "message": "Pozastavit na 1 hodinu" },
+  "popupPauseTomorrow": { "message": "Pozastavit do zítřka" },
+  "popupResume": { "message": "Pokračovat hned" },
+  "popupPausedUntil": {
+    "message": "Pozastaveno do $TIME$",
+    "placeholders": {"time": {"content": "$1", "example": "17:30"}}
+  },
+  "popupWrong": { "message": "Na této stránce něco nevypadá správně" },
+  "popupSendsTitle": { "message": "Co ByeAI odesílá" },
+  "sendsText": { "message": "Nic o vašem prohlížení. Jednou denně stáhne veřejný seznam Community. Jen když kliknete na Navrhnout nebo Není to AI (nebo zapnete automatické sdílení), odešle jméno a ID daného kanálu." },
+  "optionsBackupHeading": { "message": "Export a import" },
+  "optionsBackupIntro": { "message": "Uložte povolené weby, skryté kanály a přepínače do jednoho souboru, nebo takový soubor načtěte sem. Počítadla se nezahrnují." },
+  "optionsExportBtn": { "message": "Exportovat nastavení" },
+  "optionsImportBtn": { "message": "Importovat nastavení" },
+  "optionsExportDone": { "message": "Soubor s nastavením byl uložen." },
+  "optionsImportBad": { "message": "Toto není soubor s nastavením ByeAI. Nic se nezměnilo." },
+  "optionsImportDone": {
+    "message": "Importováno: $ADDED$ přidáno nebo změněno, $SKIPPED$ přeskočeno (už existuje nebo je neplatné).",
+    "placeholders": {"added": {"content": "$1", "example": "12"}, "skipped": {"content": "$2", "example": "3"}}
   }
 }

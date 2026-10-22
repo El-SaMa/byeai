@@ -144,5 +144,21 @@
   "coverShow": "Videó megjelenítése",
   "coverShowShort": "Mutat",
   "coverNotAi": "Nem MI",
-  "coverNextVideo": "Következő videó"
+  "coverNextVideo": "Következő videó",
+  "actionTitlePaused": "A ByeAI szünetel",
+  "popupStatusPaused": "Szünetel",
+  "popupPauseHour": "Szünet 1 órára",
+  "popupPauseTomorrow": "Szünet holnapig",
+  "popupResume": "Folytatás most",
+  "popupPausedUntil": "Szünetel eddig: $TIME$",
+  "popupWrong": "Valami nincs rendben ezen az oldalon",
+  "popupSendsTitle": "Mit küld a ByeAI",
+  "sendsText": "Semmit a böngészésedről. Naponta egyszer letölti a nyilvános Community listát. Csak akkor küldi el az adott csatorna nevét és azonosítóját, ha a Javaslás vagy a Nem MI gombra kattintasz (vagy bekapcsolod az automatikus megosztást).",
+  "optionsBackupHeading": "Exportálás és importálás",
+  "optionsBackupIntro": "Mentsd el az engedélyezett webhelyeket, az elrejtett csatornákat és a kapcsolókat egyetlen fájlba, vagy tölts be ide egy ilyen fájlt. A számlálók nem szerepelnek benne.",
+  "optionsExportBtn": "Beállítások exportálása",
+  "optionsImportBtn": "Beállítások importálása",
+  "optionsExportDone": "A beállításfájl elmentve.",
+  "optionsImportBad": "Ez nem ByeAI beállításfájl. Nem változott semmi.",
+  "optionsImportDone": "Importálva: $ADDED$ hozzáadva vagy módosítva, $SKIPPED$ kihagyva (már megvolt vagy érvénytelen)."
 }

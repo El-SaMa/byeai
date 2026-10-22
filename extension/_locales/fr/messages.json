@@ -174,5 +174,27 @@
   "optionsAutoShareCount": {
     "message": "Chaînes partagées automatiquement : $COUNT$",
     "placeholders": {"count": {"content": "$1", "example": "3"}}
+  },
+  "actionTitlePaused": { "message": "ByeAI est en pause" },
+  "popupStatusPaused": { "message": "En pause" },
+  "popupPauseHour": { "message": "Pause d’1 heure" },
+  "popupPauseTomorrow": { "message": "Pause jusqu’à demain" },
+  "popupResume": { "message": "Reprendre maintenant" },
+  "popupPausedUntil": {
+    "message": "En pause jusqu’à $TIME$",
+    "placeholders": {"time": {"content": "$1", "example": "17:30"}}
+  },
+  "popupWrong": { "message": "Quelque chose ne va pas sur cette page" },
+  "popupSendsTitle": { "message": "Ce que ByeAI envoie" },
+  "sendsText": { "message": "Rien sur votre navigation. Une fois par jour, il télécharge la liste publique Community. Seulement quand vous appuyez sur Suggérer ou Pas de l’IA (ou activez le partage automatique), il envoie le nom et l’identifiant de cette chaîne." },
+  "optionsBackupHeading": { "message": "Exporter et importer" },
+  "optionsBackupIntro": { "message": "Enregistrez vos sites autorisés, chaînes masquées et réglages dans un seul fichier, ou chargez ici un tel fichier. Les compteurs ne sont pas inclus." },
+  "optionsExportBtn": { "message": "Exporter les réglages" },
+  "optionsImportBtn": { "message": "Importer les réglages" },
+  "optionsExportDone": { "message": "Fichier de réglages enregistré." },
+  "optionsImportBad": { "message": "Ce n’est pas un fichier de réglages ByeAI. Rien n’a été modifié." },
+  "optionsImportDone": {
+    "message": "Importé : $ADDED$ ajoutés ou modifiés, $SKIPPED$ ignorés (déjà présents ou non valides).",
+    "placeholders": {"added": {"content": "$1", "example": "12"}, "skipped": {"content": "$2", "example": "3"}}
   }
 }

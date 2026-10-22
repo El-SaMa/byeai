@@ -144,5 +144,21 @@
   "coverShow": "Video anzeigen",
   "coverShowShort": "Anzeigen",
   "coverNotAi": "Keine KI",
-  "coverNextVideo": "Nächstes Video"
+  "coverNextVideo": "Nächstes Video",
+  "actionTitlePaused": "ByeAI ist pausiert",
+  "popupStatusPaused": "Pausiert",
+  "popupPauseHour": "Für 1 Stunde pausieren",
+  "popupPauseTomorrow": "Bis morgen pausieren",
+  "popupResume": "Jetzt fortsetzen",
+  "popupPausedUntil": "Pausiert bis $TIME$",
+  "popupWrong": "Auf dieser Seite stimmt etwas nicht",
+  "popupSendsTitle": "Was ByeAI sendet",
+  "sendsText": "Nichts über dein Surfen. Einmal am Tag lädt es die öffentliche Community-Liste herunter. Nur wenn du auf Vorschlagen oder Keine KI klickst (oder das automatische Teilen einschaltest), sendet es Namen und ID dieses Kanals.",
+  "optionsBackupHeading": "Export und Import",
+  "optionsBackupIntro": "Speichere deine erlaubten Websites, ausgeblendeten Kanäle und Schalter in einer Datei oder lade hier eine solche Datei. Zähler sind nicht enthalten.",
+  "optionsExportBtn": "Einstellungen exportieren",
+  "optionsImportBtn": "Einstellungen importieren",
+  "optionsExportDone": "Einstellungsdatei gespeichert.",
+  "optionsImportBad": "Das ist keine ByeAI-Einstellungsdatei. Es wurde nichts geändert.",
+  "optionsImportDone": "Importiert: $ADDED$ hinzugefügt oder geändert, $SKIPPED$ übersprungen (schon vorhanden oder ungültig)."
 }

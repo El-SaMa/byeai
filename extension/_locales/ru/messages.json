@@ -174,5 +174,27 @@
   "optionsAutoShareCount": {
     "message": "Каналов отправлено автоматически: $COUNT$",
     "placeholders": {"count": {"content": "$1", "example": "3"}}
+  },
+  "actionTitlePaused": { "message": "ByeAI приостановлен" },
+  "popupStatusPaused": { "message": "Пауза" },
+  "popupPauseHour": { "message": "Пауза на 1 час" },
+  "popupPauseTomorrow": { "message": "Пауза до завтра" },
+  "popupResume": { "message": "Возобновить сейчас" },
+  "popupPausedUntil": {
+    "message": "Пауза до $TIME$",
+    "placeholders": {"time": {"content": "$1", "example": "17:30"}}
+  },
+  "popupWrong": { "message": "Что-то не так на этой странице" },
+  "popupSendsTitle": { "message": "Что отправляет ByeAI" },
+  "sendsText": { "message": "Ничего о вашем просмотре. Раз в день расширение скачивает открытый список Community. Только когда вы нажимаете «Предложить» или «Это не ИИ» (или включаете автоматическую отправку), оно отправляет имя и идентификатор этого канала." },
+  "optionsBackupHeading": { "message": "Экспорт и импорт" },
+  "optionsBackupIntro": { "message": "Сохраните разрешённые сайты, скрытые каналы и переключатели в один файл или загрузите такой файл здесь. Счётчики не включаются." },
+  "optionsExportBtn": { "message": "Экспортировать настройки" },
+  "optionsImportBtn": { "message": "Импортировать настройки" },
+  "optionsExportDone": { "message": "Файл настроек сохранён." },
+  "optionsImportBad": { "message": "Это не файл настроек ByeAI. Ничего не изменено." },
+  "optionsImportDone": {
+    "message": "Импортировано: добавлено или изменено $ADDED$, пропущено $SKIPPED$ (уже были или недопустимы).",
+    "placeholders": {"added": {"content": "$1", "example": "12"}, "skipped": {"content": "$2", "example": "3"}}
   }
 }

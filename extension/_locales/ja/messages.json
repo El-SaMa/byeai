@@ -174,5 +174,27 @@
   "optionsAutoShareCount": {
     "message": "自動で共有したチャンネル：$COUNT$",
     "placeholders": {"count": {"content": "$1", "example": "3"}}
+  },
+  "actionTitlePaused": { "message": "ByeAIは一時停止中です" },
+  "popupStatusPaused": { "message": "一時停止中" },
+  "popupPauseHour": { "message": "1時間停止" },
+  "popupPauseTomorrow": { "message": "明日まで停止" },
+  "popupResume": { "message": "今すぐ再開" },
+  "popupPausedUntil": {
+    "message": "$TIME$まで一時停止中",
+    "placeholders": {"time": {"content": "$1", "example": "17:30"}}
+  },
+  "popupWrong": { "message": "このページで何かおかしいとき" },
+  "popupSendsTitle": { "message": "ByeAIが送信する情報" },
+  "sendsText": { "message": "閲覧内容は一切送りません。1日1回、公開のCommunityリストをダウンロードするだけです。「提案」や「AIではない」を押したとき（または自動共有をオンにしたとき）だけ、そのチャンネルの名前とIDを送信します。" },
+  "optionsBackupHeading": { "message": "エクスポートとインポート" },
+  "optionsBackupIntro": { "message": "許可したサイト、非表示のチャンネル、スイッチを1つのファイルに保存できます。そのようなファイルをここで読み込むこともできます。カウンターは含まれません。" },
+  "optionsExportBtn": { "message": "設定をエクスポート" },
+  "optionsImportBtn": { "message": "設定をインポート" },
+  "optionsExportDone": { "message": "設定ファイルを保存しました。" },
+  "optionsImportBad": { "message": "ByeAIの設定ファイルではありません。何も変更されていません。" },
+  "optionsImportDone": {
+    "message": "インポート完了: 追加または変更 $ADDED$ 件、スキップ $SKIPPED$ 件（既にある、または無効）。",
+    "placeholders": {"added": {"content": "$1", "example": "12"}, "skipped": {"content": "$2", "example": "3"}}
   }
 }

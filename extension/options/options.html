@@ -79,6 +79,17 @@
         </label>
       </section>
 
+      <section class="panel" id="backup">
+        <h2 data-i18n="optionsBackupHeading">Export and import</h2>
+        <p class="muted" data-i18n="optionsBackupIntro">Save your allowed sites, hidden channels and switches in one file, or load such a file here. Counters are not included.</p>
+        <div class="btn-row">
+          <button type="button" class="secondary-btn" id="exportBtn" data-i18n="optionsExportBtn">Export settings</button>
+          <button type="button" class="secondary-btn" id="importBtn" data-i18n="optionsImportBtn">Import settings</button>
+          <input type="file" id="importFile" accept=".json,application/json" hidden />
+        </div>
+        <p class="muted count-line import-result" id="importResult" role="status" aria-live="polite"></p>
+      </section>
+
       <section class="panel">
         <h2 data-i18n="optionsStatsHeading">Stats</h2>
         <p><span data-i18n="optionsStatsTotalLabel">Total blocked since install:</span> <strong id="totalBlocked">0</strong></p>
@@ -134,6 +145,7 @@
           ByeAI blocks known AI loaders using a local rule list. Your browsing history is not sent to us.
           Your settings sync through your Chrome account, and stats stay on this device.
         </p>
+        <p class="sends-line"><strong data-i18n="popupSendsTitle">What ByeAI sends</strong><br /><span data-i18n="sendsText">Nothing about your browsing. Once a day it downloads the public Community list. Only when you press Suggest or Not AI (or turn on automatic sharing) it sends that channel's name and id.</span></p>
         <p><a id="privacyLink" href="../privacy/privacy.html" target="_blank" rel="noopener" data-i18n="optionsPrivacyLink">Read the privacy policy</a></p>
       </section>
 

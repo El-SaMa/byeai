@@ -1,6 +1,8 @@
 import { test, before, after } from 'node:test';
 import assert from 'node:assert/strict';
-import { launch, resetStorage } from './helpers.mjs';
+import { readFileSync } from 'node:fs';
+import path from 'node:path';
+import { launch, resetStorage, extensionPath } from './helpers.mjs';
 
 let ctx;
 
@@ -131,4 +133,65 @@ test('blocking a site again reloads its tab; allowing offers the reload bar', as
   seen = await popup.evaluate(() => ({ reloads: window.__reloads.length, bar: !document.getElementById('reloadBanner').classList.contains('hidden') }));
   assert.deepEqual(seen, { reloads: 1, bar: false });
   await page.close();
+});
+
+test('"Something looks wrong" opens the Site broken form for this host, no query string', async () => {
+  const page = await ctx.context.newPage();
+  await page.goto('https://example.com/page?token=secret#frag');
+  const popup = await popupFor('https://example.com/*');
+  const opened = await popup.evaluate(() => {
+    let url = '';
+    chrome.tabs.create = (opts) => {
+      url = opts.url;
+    };
+    document.getElementById('wrongBtn').click();
+    return url;
+  });
+  await page.close();
+  const target = new URL(opened);
+  assert.equal(`${target.host}${target.pathname}`, 'github.com/El-SaMa/byeai/issues/new');
+  assert.equal(target.searchParams.get('template'), 'broke-site.yml');
+  assert.equal(target.searchParams.get('title'), 'Site broken: example.com');
+  assert.equal(target.searchParams.get('page'), 'https://example.com/page');
+  assert.equal(target.searchParams.get('version'), JSON.parse(readFileSync(path.join(extensionPath, 'manifest.json'), 'utf8')).version);
+  assert.doesNotMatch(opened, /secret|frag/);
+});
+
+test('"What ByeAI sends" box: closed by default, opens with the keyboard, same text in Options', async () => {
+  const popup = await ctx.context.newPage();
+  await popup.goto(`chrome-extension://${ctx.extensionId}/popup/popup.html`);
+  await popup.waitForTimeout(300);
+  assert.equal(await popup.$eval('#sendsBox', (el) => el.open), false);
+  assert.equal(await popup.isVisible('#sendsBox p'), false);
+  await popup.focus('#sendsBox summary');
+  await popup.keyboard.press('Enter');
+  assert.equal(await popup.$eval('#sendsBox', (el) => el.open), true);
+  const text = (await popup.textContent('#sendsBox p')).trim();
+  assert.match(text, /^Nothing about your browsing\./);
+  assert.match(text, /Community list/);
+  assert.match(text, /Suggest or Not AI/);
+  assert.match(text, /name and id\.$/);
+  assert.notEqual(await popup.$eval('#sendsBox summary', (el) => getComputedStyle(el).cursor), 'default');
+
+  const options = await ctx.context.newPage();
+  await options.goto(`chrome-extension://${ctx.extensionId}/options/options.html`);
+  await options.waitForTimeout(300);
+  assert.equal((await options.textContent('.sends-line span')).trim(), text);
+  assert.equal((await options.textContent('.sends-line strong')).trim(), 'What ByeAI sends');
+});
+
+test('popup new rows fit in right-to-left languages', async () => {
+  const popup = await ctx.context.newPage();
+  await popup.goto(`chrome-extension://${ctx.extensionId}/popup/popup.html`);
+  await popup.evaluate(() => {
+    document.documentElement.dir = 'rtl';
+    document.getElementById('sendsBox').open = true;
+  });
+  const overflow = await popup.evaluate(() => document.documentElement.scrollWidth > document.documentElement.clientWidth);
+  assert.equal(overflow, false);
+  const box = await popup.$eval('#pauseBox', (el) => {
+    const r = el.getBoundingClientRect();
+    return r.left >= 0 && r.right <= window.innerWidth;
+  });
+  assert.equal(box, true);
 });

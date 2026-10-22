@@ -174,5 +174,27 @@
   "optionsAutoShareCount": {
     "message": "Kanaler delt automatisk: $COUNT$",
     "placeholders": {"count": {"content": "$1", "example": "3"}}
+  },
+  "actionTitlePaused": { "message": "ByeAI er satt på pause" },
+  "popupStatusPaused": { "message": "På pause" },
+  "popupPauseHour": { "message": "Pause i 1 time" },
+  "popupPauseTomorrow": { "message": "Pause til i morgen" },
+  "popupResume": { "message": "Fortsett nå" },
+  "popupPausedUntil": {
+    "message": "På pause til $TIME$",
+    "placeholders": {"time": {"content": "$1", "example": "17:30"}}
+  },
+  "popupWrong": { "message": "Noe ser feil ut på denne siden" },
+  "popupSendsTitle": { "message": "Hva ByeAI sender" },
+  "sendsText": { "message": "Ingenting om nettleseren din. Én gang om dagen laster den ned den offentlige Community-listen. Bare når du trykker på Foreslå eller Ikke KI (eller slår på automatisk deling), sender den kanalens navn og id." },
+  "optionsBackupHeading": { "message": "Eksport og import" },
+  "optionsBackupIntro": { "message": "Lagre tillatte nettsteder, skjulte kanaler og innstillinger i én fil, eller last inn en slik fil her. Tellere er ikke med." },
+  "optionsExportBtn": { "message": "Eksporter innstillinger" },
+  "optionsImportBtn": { "message": "Importer innstillinger" },
+  "optionsExportDone": { "message": "Innstillingsfilen er lagret." },
+  "optionsImportBad": { "message": "Dette er ikke en ByeAI-innstillingsfil. Ingenting ble endret." },
+  "optionsImportDone": {
+    "message": "Importert: $ADDED$ lagt til eller endret, $SKIPPED$ hoppet over (fantes fra før eller ugyldig).",
+    "placeholders": {"added": {"content": "$1", "example": "12"}, "skipped": {"content": "$2", "example": "3"}}
   }
 }

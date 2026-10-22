@@ -144,5 +144,21 @@
   "coverShow": "Video tonen",
   "coverShowShort": "Tonen",
   "coverNotAi": "Geen AI",
-  "coverNextVideo": "Volgende video"
+  "coverNextVideo": "Volgende video",
+  "actionTitlePaused": "ByeAI is gepauzeerd",
+  "popupStatusPaused": "Gepauzeerd",
+  "popupPauseHour": "Pauzeren voor 1 uur",
+  "popupPauseTomorrow": "Pauzeren tot morgen",
+  "popupResume": "Nu hervatten",
+  "popupPausedUntil": "Gepauzeerd tot $TIME$",
+  "popupWrong": "Er lijkt iets mis op deze pagina",
+  "popupSendsTitle": "Wat ByeAI verstuurt",
+  "sendsText": "Niets over je surfgedrag. Eén keer per dag downloadt het de openbare Community-lijst. Alleen wanneer je op Voorstellen of Geen AI klikt (of automatisch delen aanzet), verstuurt het de naam en id van dat kanaal.",
+  "optionsBackupHeading": "Exporteren en importeren",
+  "optionsBackupIntro": "Bewaar je toegestane sites, verborgen kanalen en schakelaars in één bestand, of laad hier zo’n bestand in. Tellers zijn niet inbegrepen.",
+  "optionsExportBtn": "Instellingen exporteren",
+  "optionsImportBtn": "Instellingen importeren",
+  "optionsExportDone": "Instellingenbestand opgeslagen.",
+  "optionsImportBad": "Dit is geen ByeAI-instellingenbestand. Er is niets gewijzigd.",
+  "optionsImportDone": "Geïmporteerd: $ADDED$ toegevoegd of gewijzigd, $SKIPPED$ overgeslagen (al aanwezig of ongeldig)."
 }

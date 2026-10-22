@@ -144,5 +144,21 @@
   "coverShow": "Videoyu göster",
   "coverShowShort": "Göster",
   "coverNotAi": "Yapay zeka değil",
-  "coverNextVideo": "Sonraki video"
+  "coverNextVideo": "Sonraki video",
+  "actionTitlePaused": "ByeAI duraklatıldı",
+  "popupStatusPaused": "Duraklatıldı",
+  "popupPauseHour": "1 saat duraklat",
+  "popupPauseTomorrow": "Yarına kadar duraklat",
+  "popupResume": "Şimdi devam et",
+  "popupPausedUntil": "$TIME$ saatine kadar duraklatıldı",
+  "popupWrong": "Bu sayfada bir şeyler yanlış görünüyor",
+  "popupSendsTitle": "ByeAI ne gönderir",
+  "sendsText": "Gezinmenizle ilgili hiçbir şey. Günde bir kez herkese açık Community listesini indirir. Yalnızca Öner ya da Yapay zeka değil düğmesine bastığınızda (veya otomatik paylaşımı açtığınızda) o kanalın adını ve kimliğini gönderir.",
+  "optionsBackupHeading": "Dışa ve içe aktarma",
+  "optionsBackupIntro": "İzin verilen siteleri, gizlenen kanalları ve anahtarları tek bir dosyaya kaydedin ya da böyle bir dosyayı buraya yükleyin. Sayaçlar dahil değildir.",
+  "optionsExportBtn": "Ayarları dışa aktar",
+  "optionsImportBtn": "Ayarları içe aktar",
+  "optionsExportDone": "Ayar dosyası kaydedildi.",
+  "optionsImportBad": "Bu bir ByeAI ayar dosyası değil. Hiçbir şey değiştirilmedi.",
+  "optionsImportDone": "İçe aktarıldı: $ADDED$ eklendi veya değiştirildi, $SKIPPED$ atlandı (zaten vardı veya geçersiz)."
 }

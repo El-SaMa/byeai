@@ -144,5 +144,21 @@
   "coverShow": "動画を表示",
   "coverShowShort": "表示",
   "coverNotAi": "AIではない",
-  "coverNextVideo": "次の動画"
+  "coverNextVideo": "次の動画",
+  "actionTitlePaused": "ByeAIは一時停止中です",
+  "popupStatusPaused": "一時停止中",
+  "popupPauseHour": "1時間停止",
+  "popupPauseTomorrow": "明日まで停止",
+  "popupResume": "今すぐ再開",
+  "popupPausedUntil": "$TIME$まで一時停止中",
+  "popupWrong": "このページで何かおかしいとき",
+  "popupSendsTitle": "ByeAIが送信する情報",
+  "sendsText": "閲覧内容は一切送りません。1日1回、公開のCommunityリストをダウンロードするだけです。「提案」や「AIではない」を押したとき（または自動共有をオンにしたとき）だけ、そのチャンネルの名前とIDを送信します。",
+  "optionsBackupHeading": "エクスポートとインポート",
+  "optionsBackupIntro": "許可したサイト、非表示のチャンネル、スイッチを1つのファイルに保存できます。そのようなファイルをここで読み込むこともできます。カウンターは含まれません。",
+  "optionsExportBtn": "設定をエクスポート",
+  "optionsImportBtn": "設定をインポート",
+  "optionsExportDone": "設定ファイルを保存しました。",
+  "optionsImportBad": "ByeAIの設定ファイルではありません。何も変更されていません。",
+  "optionsImportDone": "インポート完了: 追加または変更 $ADDED$ 件、スキップ $SKIPPED$ 件（既にある、または無効）。"
 }

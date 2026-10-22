@@ -546,3 +546,99 @@ body {
 [dir="rtl"] .toggle-sm input:checked + .toggle-track::after {
   transform: translateX(-16px);
 }
+
+/* Pause, "something looks wrong", "what ByeAI sends" */
+.pause-box {
+  margin: 10px 16px 0;
+}
+
+.pause-actions {
+  display: flex;
+  gap: 8px;
+}
+
+.pause-btn {
+  flex: 1;
+  padding: 8px 10px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  background: var(--surface);
+  color: var(--text);
+  font: inherit;
+  font-size: 12px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.pause-btn:hover {
+  background: #e5e7eb;
+}
+
+.pause-btn:focus-visible,
+.wrong-link:focus-visible,
+.sends-box summary:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
+}
+
+.pause-resume {
+  width: 100%;
+  border-color: var(--accent-dark);
+  color: var(--accent-dark);
+}
+
+.pause-note {
+  margin-bottom: 8px;
+  padding: 8px 10px;
+  border-radius: var(--radius);
+  background: var(--warn-bg);
+  border: 1px solid var(--warn-border);
+  color: var(--text);
+  font-size: 12px;
+  font-weight: 600;
+}
+
+.is-paused .pause-actions {
+  display: none;
+}
+
+.status-pill.is-paused {
+  background: #e2e8f0;
+  color: #334155;
+}
+
+.wrong-row {
+  margin: 0 16px 8px;
+  text-align: center;
+}
+
+.wrong-link {
+  border: none;
+  background: none;
+  padding: 2px 4px;
+  color: var(--accent-dark);
+  font: inherit;
+  font-size: 12px;
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+.unavailable .wrong-row {
+  display: none;
+}
+
+.sends-box {
+  margin: 0 16px 10px;
+  font-size: 11px;
+  color: var(--muted);
+}
+
+.sends-box summary {
+  cursor: pointer;
+  width: fit-content;
+}
+
+.sends-box p {
+  margin-top: 6px;
+  line-height: 1.45;
+}

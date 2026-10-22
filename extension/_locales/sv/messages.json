@@ -174,5 +174,27 @@
   "optionsAutoShareCount": {
     "message": "Kanaler som delats automatiskt: $COUNT$",
     "placeholders": {"count": {"content": "$1", "example": "3"}}
+  },
+  "actionTitlePaused": { "message": "ByeAI är pausat" },
+  "popupStatusPaused": { "message": "Pausat" },
+  "popupPauseHour": { "message": "Pausa i 1 timme" },
+  "popupPauseTomorrow": { "message": "Pausa till i morgon" },
+  "popupResume": { "message": "Återuppta nu" },
+  "popupPausedUntil": {
+    "message": "Pausat till $TIME$",
+    "placeholders": {"time": {"content": "$1", "example": "17:30"}}
+  },
+  "popupWrong": { "message": "Något ser fel ut på den här sidan" },
+  "popupSendsTitle": { "message": "Vad ByeAI skickar" },
+  "sendsText": { "message": "Ingenting om din surfning. En gång om dagen hämtar den den publika Community-listan. Bara när du trycker på Föreslå eller Inte AI (eller slår på automatisk delning) skickar den kanalens namn och id." },
+  "optionsBackupHeading": { "message": "Export och import" },
+  "optionsBackupIntro": { "message": "Spara dina tillåtna webbplatser, dolda kanaler och inställningar i en fil, eller läs in en sådan fil här. Räknare ingår inte." },
+  "optionsExportBtn": { "message": "Exportera inställningar" },
+  "optionsImportBtn": { "message": "Importera inställningar" },
+  "optionsExportDone": { "message": "Inställningsfilen sparades." },
+  "optionsImportBad": { "message": "Det här är inte en ByeAI-inställningsfil. Inget ändrades." },
+  "optionsImportDone": {
+    "message": "Importerat: $ADDED$ tillagda eller ändrade, $SKIPPED$ hoppades över (fanns redan eller ogiltiga).",
+    "placeholders": {"added": {"content": "$1", "example": "12"}, "skipped": {"content": "$2", "example": "3"}}
   }
 }

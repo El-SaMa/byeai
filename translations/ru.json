@@ -144,5 +144,21 @@
   "coverShow": "Показать видео",
   "coverShowShort": "Показать",
   "coverNotAi": "Это не ИИ",
-  "coverNextVideo": "Следующее видео"
+  "coverNextVideo": "Следующее видео",
+  "actionTitlePaused": "ByeAI приостановлен",
+  "popupStatusPaused": "Пауза",
+  "popupPauseHour": "Пауза на 1 час",
+  "popupPauseTomorrow": "Пауза до завтра",
+  "popupResume": "Возобновить сейчас",
+  "popupPausedUntil": "Пауза до $TIME$",
+  "popupWrong": "Что-то не так на этой странице",
+  "popupSendsTitle": "Что отправляет ByeAI",
+  "sendsText": "Ничего о вашем просмотре. Раз в день расширение скачивает открытый список Community. Только когда вы нажимаете «Предложить» или «Это не ИИ» (или включаете автоматическую отправку), оно отправляет имя и идентификатор этого канала.",
+  "optionsBackupHeading": "Экспорт и импорт",
+  "optionsBackupIntro": "Сохраните разрешённые сайты, скрытые каналы и переключатели в один файл или загрузите такой файл здесь. Счётчики не включаются.",
+  "optionsExportBtn": "Экспортировать настройки",
+  "optionsImportBtn": "Импортировать настройки",
+  "optionsExportDone": "Файл настроек сохранён.",
+  "optionsImportBad": "Это не файл настроек ByeAI. Ничего не изменено.",
+  "optionsImportDone": "Импортировано: добавлено или изменено $ADDED$, пропущено $SKIPPED$ (уже были или недопустимы)."
 }

@@ -174,5 +174,27 @@
   "optionsAutoShareCount": {
     "message": "Automatisch gedeelde kanalen: $COUNT$",
     "placeholders": {"count": {"content": "$1", "example": "3"}}
+  },
+  "actionTitlePaused": { "message": "ByeAI is gepauzeerd" },
+  "popupStatusPaused": { "message": "Gepauzeerd" },
+  "popupPauseHour": { "message": "Pauzeren voor 1 uur" },
+  "popupPauseTomorrow": { "message": "Pauzeren tot morgen" },
+  "popupResume": { "message": "Nu hervatten" },
+  "popupPausedUntil": {
+    "message": "Gepauzeerd tot $TIME$",
+    "placeholders": {"time": {"content": "$1", "example": "17:30"}}
+  },
+  "popupWrong": { "message": "Er lijkt iets mis op deze pagina" },
+  "popupSendsTitle": { "message": "Wat ByeAI verstuurt" },
+  "sendsText": { "message": "Niets over je surfgedrag. Eén keer per dag downloadt het de openbare Community-lijst. Alleen wanneer je op Voorstellen of Geen AI klikt (of automatisch delen aanzet), verstuurt het de naam en id van dat kanaal." },
+  "optionsBackupHeading": { "message": "Exporteren en importeren" },
+  "optionsBackupIntro": { "message": "Bewaar je toegestane sites, verborgen kanalen en schakelaars in één bestand, of laad hier zo’n bestand in. Tellers zijn niet inbegrepen." },
+  "optionsExportBtn": { "message": "Instellingen exporteren" },
+  "optionsImportBtn": { "message": "Instellingen importeren" },
+  "optionsExportDone": { "message": "Instellingenbestand opgeslagen." },
+  "optionsImportBad": { "message": "Dit is geen ByeAI-instellingenbestand. Er is niets gewijzigd." },
+  "optionsImportDone": {
+    "message": "Geïmporteerd: $ADDED$ toegevoegd of gewijzigd, $SKIPPED$ overgeslagen (al aanwezig of ongeldig).",
+    "placeholders": {"added": {"content": "$1", "example": "12"}, "skipped": {"content": "$2", "example": "3"}}
   }
 }

@@ -144,5 +144,21 @@
   "coverShow": "Pokaż film",
   "coverShowShort": "Pokaż",
   "coverNotAi": "To nie AI",
-  "coverNextVideo": "Następny film"
+  "coverNextVideo": "Następny film",
+  "actionTitlePaused": "ByeAI jest wstrzymany",
+  "popupStatusPaused": "Wstrzymano",
+  "popupPauseHour": "Wstrzymaj na 1 godzinę",
+  "popupPauseTomorrow": "Wstrzymaj do jutra",
+  "popupResume": "Wznów teraz",
+  "popupPausedUntil": "Wstrzymano do $TIME$",
+  "popupWrong": "Coś jest nie tak na tej stronie",
+  "popupSendsTitle": "Co wysyła ByeAI",
+  "sendsText": "Nic o tym, co przeglądasz. Raz dziennie pobiera publiczną listę Community. Tylko gdy klikniesz Zaproponuj lub To nie AI (albo włączysz automatyczne udostępnianie), wysyła nazwę i identyfikator danego kanału.",
+  "optionsBackupHeading": "Eksport i import",
+  "optionsBackupIntro": "Zapisz dozwolone witryny, ukryte kanały i przełączniki w jednym pliku albo wczytaj tu taki plik. Liczniki nie są uwzględniane.",
+  "optionsExportBtn": "Eksportuj ustawienia",
+  "optionsImportBtn": "Importuj ustawienia",
+  "optionsExportDone": "Plik z ustawieniami zapisany.",
+  "optionsImportBad": "To nie jest plik ustawień ByeAI. Nic nie zmieniono.",
+  "optionsImportDone": "Zaimportowano: $ADDED$ dodanych lub zmienionych, $SKIPPED$ pominiętych (już były lub są nieprawidłowe)."
 }

@@ -174,5 +174,27 @@
   "optionsAutoShareCount": {
     "message": "Canali condivisi in automatico: $COUNT$",
     "placeholders": {"count": {"content": "$1", "example": "3"}}
+  },
+  "actionTitlePaused": { "message": "ByeAI è in pausa" },
+  "popupStatusPaused": { "message": "In pausa" },
+  "popupPauseHour": { "message": "Pausa di 1 ora" },
+  "popupPauseTomorrow": { "message": "Pausa fino a domani" },
+  "popupResume": { "message": "Riprendi ora" },
+  "popupPausedUntil": {
+    "message": "In pausa fino a $TIME$",
+    "placeholders": {"time": {"content": "$1", "example": "17:30"}}
+  },
+  "popupWrong": { "message": "Qualcosa non va in questa pagina" },
+  "popupSendsTitle": { "message": "Cosa invia ByeAI" },
+  "sendsText": { "message": "Niente sulla tua navigazione. Una volta al giorno scarica la lista pubblica Community. Solo quando premi Suggerisci o Non è IA (o attivi la condivisione automatica) invia il nome e l’id di quel canale." },
+  "optionsBackupHeading": { "message": "Esporta e importa" },
+  "optionsBackupIntro": { "message": "Salva i siti consentiti, i canali nascosti e gli interruttori in un unico file, oppure carica qui un file simile. I contatori non sono inclusi." },
+  "optionsExportBtn": { "message": "Esporta impostazioni" },
+  "optionsImportBtn": { "message": "Importa impostazioni" },
+  "optionsExportDone": { "message": "File delle impostazioni salvato." },
+  "optionsImportBad": { "message": "Questo non è un file di impostazioni di ByeAI. Non è stato modificato nulla." },
+  "optionsImportDone": {
+    "message": "Importato: $ADDED$ aggiunti o modificati, $SKIPPED$ ignorati (già presenti o non validi).",
+    "placeholders": {"added": {"content": "$1", "example": "12"}, "skipped": {"content": "$2", "example": "3"}}
   }
 }

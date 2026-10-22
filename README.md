@@ -23,7 +23,9 @@ AI apps you open yourself, like ChatGPT, Claude or Gemini, show a ByeAI page ins
 
 YouTube only labels some AI videos, so AI channels slip through. Point at a video and click the small **Hide channel** button in the corner of its thumbnail (or **Hide channel** next to the channel name on a video page): every video from that channel disappears. The note that pops up has **Undo** and **Suggest as AI channel**. Suggestions build the **ByeAI Community list**, a shared list of AI channels that ByeAI downloads once a day and blurs for everyone who has it on. Hidden channels and the Community switch live in the settings.
 
-Any site can be allowed with one click, or you can show AI videos on just that site. Settings follow you to your other computers through Chrome sync.
+Any site can be allowed with one click, or you can show AI videos on just that site. Settings follow you to your other computers through Chrome sync. **Pause for 1 hour** or **until tomorrow** in the popup switches ByeAI off and back on by itself. **Export and import** in the settings saves your allowed sites, hidden channels and switches to one JSON file (no counters) and merges such a file back in.
+
+Google: plain searches get the Web view, so no AI Overview or AI Mode loads. Searches for Google's own answer boxes (calculator, currency and unit converter, weather, time, sports scores, stock charts) keep the normal page, because the Web view drops them, and only the AI parts are hidden there. Images, News, Shopping, Videos and Maps are never touched. `node scripts/live-check.mjs` opens real Google, Bing, DuckDuckGo and YouTube pages and prints what is hidden and what is still there.
 
 <p align="center">
   <img src="docs/img/popup.png" width="260" alt="ByeAI popup with two switches">
@@ -54,7 +56,7 @@ No AI models, no guessing. Covers say why they are there.
 Everything runs locally and there are no analytics. ByeAI makes two kinds of requests of its own, both to `oma.lanetti.fi`:
 
 - Once a day it downloads the public ByeAI Community list. A plain GET with no cookies and no data about you. Off in settings means no download.
-- Only when you click **Suggest as AI channel**, it sends the channel id, name, the reason (`labeled`, `tagged` or `manual`) and the ByeAI version. Suggestions are anonymous: Lanetti stores no IP address, only a hash that rotates daily to count distinct people. At most 20 a day.
+- Only when you click **Suggest as AI channel** (or **Not AI** on a Community cover), it sends the channel id, name, the reason (`labeled`, `tagged`, `manual` or `not_ai`) and the ByeAI version. Suggestions are anonymous: Lanetti stores no IP address, only a hash that rotates daily to count distinct people. At most 20 a day.
 - Only if you turn on **Help the Community automatically** (off by default): when YouTube itself labels a video you open as AI, it sends that channel's id and name with reason `labeled`, at most once per channel per 30 days, never for channels already in the list. Nothing about the video.
 
 Settings and hidden channels (up to 500) live in `chrome.storage.sync` (Chrome's own sync, never our servers). Counters, the Community list and the list of sites that already showed the notice (up to 500) are in `chrome.storage.local`, and "Allow once" in `chrome.storage.session` for that tab only. Full policy: [privacy](https://el-sama.github.io/byeai/privacy.html).

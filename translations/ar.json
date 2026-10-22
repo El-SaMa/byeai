@@ -144,5 +144,21 @@
   "coverShow": "عرض الفيديو",
   "coverShowShort": "عرض",
   "coverNotAi": "ليس ذكاءً اصطناعيًا",
-  "coverNextVideo": "الفيديو التالي"
+  "coverNextVideo": "الفيديو التالي",
+  "actionTitlePaused": "ByeAI متوقف مؤقتًا",
+  "popupStatusPaused": "متوقف مؤقتًا",
+  "popupPauseHour": "إيقاف مؤقت لمدة ساعة",
+  "popupPauseTomorrow": "إيقاف مؤقت حتى الغد",
+  "popupResume": "استئناف الآن",
+  "popupPausedUntil": "متوقف مؤقتًا حتى $TIME$",
+  "popupWrong": "يبدو أن هناك خللًا في هذه الصفحة",
+  "popupSendsTitle": "ما الذي يرسله ByeAI",
+  "sendsText": "لا شيء عن تصفحك. مرة في اليوم ينزّل قائمة Community العامة. فقط عندما تضغط على «اقتراح» أو «ليس ذكاءً اصطناعيًا» (أو تفعّل المشاركة التلقائية) يرسل اسم تلك القناة ومعرّفها.",
+  "optionsBackupHeading": "التصدير والاستيراد",
+  "optionsBackupIntro": "احفظ المواقع المسموح بها والقنوات المخفية والإعدادات في ملف واحد، أو حمّل هنا ملفًا كهذا. العدّادات غير مشمولة.",
+  "optionsExportBtn": "تصدير الإعدادات",
+  "optionsImportBtn": "استيراد الإعدادات",
+  "optionsExportDone": "تم حفظ ملف الإعدادات.",
+  "optionsImportBad": "هذا ليس ملف إعدادات ByeAI. لم يتم تغيير أي شيء.",
+  "optionsImportDone": "تم الاستيراد: $ADDED$ مضاف أو معدّل، $SKIPPED$ تم تخطيه (موجود مسبقًا أو غير صالح)."
 }
