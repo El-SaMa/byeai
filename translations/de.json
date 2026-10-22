@@ -43,6 +43,7 @@
   "featureWidgets": "KI-Assistenten",
   "featureWidgetsDesc": "Chatbots, KI-Antworten, Grok, Gemini, Copilot",
   "featureLabeled": "KI-Videos und -Bilder",
+  "badgeBeta": "Beta",
   "featureLabeledDesc": "Verwischt, was Seiten als KI markieren oder mit #aiart taggen, plus Kanäle aus der ByeAI Community",
   "coverTagged": "Getaggt mit $TAG$\nZum Anzeigen klicken",
   "popupTrust": "Läuft auf deinem Gerät. Wir sehen nie, was du ansiehst.",

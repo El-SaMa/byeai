@@ -43,6 +43,7 @@
   "featureWidgets": "AI 어시스턴트",
   "featureWidgetsDesc": "챗봇, AI 답변, Grok, Gemini, Copilot",
   "featureLabeled": "AI 동영상 및 이미지",
+  "badgeBeta": "베타",
   "featureLabeledDesc": "사이트가 AI로 표시했거나 #aiart 태그가 붙은 것과 ByeAI Community 채널을 흐리게",
   "coverTagged": "$TAG$ 태그\n클릭해서 보기",
   "popupTrust": "내 기기에서만 작동합니다. 무엇을 보는지 저희는 절대 볼 수 없습니다.",

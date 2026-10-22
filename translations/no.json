@@ -43,6 +43,7 @@
   "featureWidgets": "KI-assistenter",
   "featureWidgetsDesc": "Chatboter, KI-svar, Grok, Gemini, Copilot",
   "featureLabeled": "KI-videoer og -bilder",
+  "badgeBeta": "Beta",
   "featureLabeledDesc": "Gjør uskarpt det nettsteder merker som KI eller tagger #aiart, og kanaler fra ByeAI Community",
   "coverTagged": "Tagget $TAG$\nKlikk for å vise",
   "popupTrust": "Kjører på enheten din. Vi ser aldri hva du surfer på.",

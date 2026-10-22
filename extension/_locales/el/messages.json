@@ -49,6 +49,7 @@
   "featureWidgets": { "message": "Βοηθοί AI" },
   "featureWidgetsDesc": { "message": "Chatbot, απαντήσεις AI, Grok, Gemini, Copilot" },
   "featureLabeled": { "message": "Βίντεο και εικόνες AI" },
+  "badgeBeta": { "message": "Beta" },
   "featureLabeledDesc": { "message": "Θολώνει ό,τι σημαίνουν οι ιστότοποι ως AI ή με #aiart, και κανάλια της ByeAI Community" },
   "coverTagged": {
     "message": "Ετικέτα $TAG$\nΚάντε κλικ για εμφάνιση",

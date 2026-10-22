@@ -43,6 +43,7 @@
   "featureWidgets": "AI असिस्टेंट",
   "featureWidgetsDesc": "चैटबॉट, AI जवाब, Grok, Gemini, Copilot",
   "featureLabeled": "AI वीडियो और तस्वीरें",
+  "badgeBeta": "बीटा",
   "featureLabeledDesc": "जिन्हें साइटें AI बताती हैं या #aiart टैग करती हैं, और ByeAI Community के चैनलों को धुंधला करता है",
   "coverTagged": "टैग $TAG$\nदेखने के लिए क्लिक करें",
   "popupTrust": "आपके डिवाइस पर चलता है। आप क्या देखते हैं, हम कभी नहीं देखते।",

@@ -49,6 +49,7 @@
   "featureWidgets": { "message": "KI-assistenter" },
   "featureWidgetsDesc": { "message": "Chatboter, KI-svar, Grok, Gemini, Copilot" },
   "featureLabeled": { "message": "KI-videoer og -bilder" },
+  "badgeBeta": { "message": "Beta" },
   "featureLabeledDesc": { "message": "Gjør uskarpt det nettsteder merker som KI eller tagger #aiart, og kanaler fra ByeAI Community" },
   "coverTagged": {
     "message": "Tagget $TAG$\nKlikk for å vise",

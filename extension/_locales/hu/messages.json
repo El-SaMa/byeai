@@ -49,6 +49,7 @@
   "featureWidgets": { "message": "MI-asszisztensek" },
   "featureWidgetsDesc": { "message": "Chatbotok, MI-válaszok, Grok, Gemini, Copilot" },
   "featureLabeled": { "message": "MI-videók és -képek" },
+  "badgeBeta": { "message": "Beta" },
   "featureLabeledDesc": { "message": "Elmossa, amit az oldalak MI-nek jelölnek vagy #aiart címkével látnak el, és a ByeAI Community csatornáit" },
   "coverTagged": {
     "message": "Címke: $TAG$\nKattints a megjelenítéshez",

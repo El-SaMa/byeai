@@ -49,6 +49,7 @@
   "featureWidgets": { "message": "Asistenți AI" },
   "featureWidgetsDesc": { "message": "Chatboți, răspunsuri AI, Grok, Gemini, Copilot" },
   "featureLabeled": { "message": "Videoclipuri și imagini AI" },
+  "badgeBeta": { "message": "Beta" },
   "featureLabeledDesc": { "message": "Estompează ce marchează site-urile ca AI sau cu #aiart, plus canalele din ByeAI Community" },
   "coverTagged": {
     "message": "Etichetă $TAG$\nApasă pentru a vedea",

@@ -49,6 +49,7 @@
   "featureWidgets": { "message": "Assistants IA" },
   "featureWidgetsDesc": { "message": "Chatbots, réponses IA, Grok, Gemini, Copilot" },
   "featureLabeled": { "message": "Vidéos et images IA" },
+  "badgeBeta": { "message": "Beta" },
   "featureLabeledDesc": { "message": "Floute ce que les sites marquent comme IA ou #aiart, et les chaînes de ByeAI Community" },
   "coverTagged": {
     "message": "Tag $TAG$\nCliquez pour afficher",

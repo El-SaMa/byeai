@@ -43,6 +43,7 @@
   "featureWidgets": "MI-asszisztensek",
   "featureWidgetsDesc": "Chatbotok, MI-válaszok, Grok, Gemini, Copilot",
   "featureLabeled": "MI-videók és -képek",
+  "badgeBeta": "Beta",
   "featureLabeledDesc": "Elmossa, amit az oldalak MI-nek jelölnek vagy #aiart címkével látnak el, és a ByeAI Community csatornáit",
   "coverTagged": "Címke: $TAG$\nKattints a megjelenítéshez",
   "popupTrust": "A te eszközödön fut. Soha nem látjuk, mit böngészel.",

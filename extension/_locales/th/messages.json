@@ -49,6 +49,7 @@
   "featureWidgets": { "message": "ผู้ช่วย AI" },
   "featureWidgetsDesc": { "message": "แชตบอต, คำตอบจาก AI, Grok, Gemini, Copilot" },
   "featureLabeled": { "message": "วิดีโอและรูปภาพ AI" },
+  "badgeBeta": { "message": "เบต้า" },
   "featureLabeledDesc": { "message": "เบลอสิ่งที่เว็บติดป้ายว่า AI หรือติดแท็ก #aiart รวมถึงช่องในรายการ ByeAI Community" },
   "coverTagged": {
     "message": "แท็ก $TAG$\nคลิกเพื่อดู",

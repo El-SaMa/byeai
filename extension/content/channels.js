@@ -754,10 +754,15 @@
   window.addEventListener('scroll', queuePlace, { capture: true, passive: true });
   window.addEventListener('resize', queuePlace);
 
-  // Layout moves without events (feeds load, the sidebar reflows).
+  // Layout moves without events (feeds load, the sidebar reflows), and a cover
+  // can land after the last change event: pick up covers that have no panel yet.
   function startPanels() {
     clearInterval(panelTimer);
     panelTimer = setInterval(() => {
+      if (byeai.state.labeled && document.querySelector(`${COVER}[data-byeai-panel]`)) {
+        const missing = [...document.querySelectorAll(`${COVER}[data-byeai-panel]`)].some((card) => !panels.has(card));
+        if (missing) syncPanels();
+      }
       if (!panels.size) return;
       for (const [card, p] of panels) {
         if (!card.isConnected) {

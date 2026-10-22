@@ -43,6 +43,7 @@
   "featureWidgets": "AI 助手",
   "featureWidgetsDesc": "聊天机器人、AI 回答、Grok、Gemini、Copilot",
   "featureLabeled": "AI 视频和图片",
+  "badgeBeta": "测试版",
   "featureLabeledDesc": "模糊网站标为 AI 或带 #aiart 标签的内容，以及 ByeAI Community 列表中的频道",
   "coverTagged": "标签 $TAG$\n点击查看",
   "popupTrust": "在你的设备上运行。我们永远看不到你浏览的内容。",

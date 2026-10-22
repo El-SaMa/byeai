@@ -43,6 +43,7 @@
   "featureWidgets": "AI-assistenten",
   "featureWidgetsDesc": "Chatbots, AI-antwoorden, Grok, Gemini, Copilot",
   "featureLabeled": "AI-video's en -afbeeldingen",
+  "badgeBeta": "Beta",
   "featureLabeledDesc": "Vervaagt wat sites als AI markeren of taggen met #aiart, plus kanalen uit ByeAI Community",
   "coverTagged": "Getagd met $TAG$\nKlik om te tonen",
   "popupTrust": "Werkt op je apparaat. Wij zien nooit wat je bekijkt.",

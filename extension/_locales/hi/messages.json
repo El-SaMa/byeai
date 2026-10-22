@@ -49,6 +49,7 @@
   "featureWidgets": { "message": "AI असिस्टेंट" },
   "featureWidgetsDesc": { "message": "चैटबॉट, AI जवाब, Grok, Gemini, Copilot" },
   "featureLabeled": { "message": "AI वीडियो और तस्वीरें" },
+  "badgeBeta": { "message": "बीटा" },
   "featureLabeledDesc": { "message": "जिन्हें साइटें AI बताती हैं या #aiart टैग करती हैं, और ByeAI Community के चैनलों को धुंधला करता है" },
   "coverTagged": {
     "message": "टैग $TAG$\nदेखने के लिए क्लिक करें",

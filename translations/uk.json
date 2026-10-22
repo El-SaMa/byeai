@@ -43,6 +43,7 @@
   "featureWidgets": "ШІ-асистенти",
   "featureWidgetsDesc": "Чат-боти, відповіді ШІ, Grok, Gemini, Copilot",
   "featureLabeled": "ШІ-відео та зображення",
+  "badgeBeta": "Бета",
   "featureLabeledDesc": "Розмиває те, що сайти позначають як ШІ або тегом #aiart, а також канали з ByeAI Community",
   "coverTagged": "Тег $TAG$\nНатисніть, щоб показати",
   "popupTrust": "Працює на вашому пристрої. Ми не бачимо, що ви переглядаєте.",

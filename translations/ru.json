@@ -43,6 +43,7 @@
   "featureWidgets": "ИИ-ассистенты",
   "featureWidgetsDesc": "Чат-боты, ответы ИИ, Grok, Gemini, Copilot",
   "featureLabeled": "ИИ-видео и картинки",
+  "badgeBeta": "Бета",
   "featureLabeledDesc": "Размывает то, что сайты помечают как ИИ или тегом #aiart, а также каналы из ByeAI Community",
   "coverTagged": "Тег $TAG$\nНажмите, чтобы показать",
   "popupTrust": "Работает на вашем устройстве. Мы не видим, что вы смотрите.",

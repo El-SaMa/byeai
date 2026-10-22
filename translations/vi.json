@@ -43,6 +43,7 @@
   "featureWidgets": "Trợ lý AI",
   "featureWidgetsDesc": "Chatbot, câu trả lời AI, Grok, Gemini, Copilot",
   "featureLabeled": "Video và hình ảnh AI",
+  "badgeBeta": "Beta",
   "featureLabeledDesc": "Làm mờ nội dung trang web gắn nhãn AI hoặc thẻ #aiart, và các kênh trong ByeAI Community",
   "coverTagged": "Thẻ $TAG$\nNhấp để xem",
   "popupTrust": "Chạy trên thiết bị của bạn. Chúng tôi không bao giờ thấy bạn xem gì.",

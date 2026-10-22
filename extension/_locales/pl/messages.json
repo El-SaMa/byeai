@@ -49,6 +49,7 @@
   "featureWidgets": { "message": "Asystenci AI" },
   "featureWidgetsDesc": { "message": "Chatboty, odpowiedzi AI, Grok, Gemini, Copilot" },
   "featureLabeled": { "message": "Filmy i obrazy AI" },
+  "badgeBeta": { "message": "Beta" },
   "featureLabeledDesc": { "message": "Rozmywa to, co strony oznaczają jako AI lub tagiem #aiart, oraz kanały z ByeAI Community" },
   "coverTagged": {
     "message": "Tag $TAG$\nKliknij, aby pokazać",

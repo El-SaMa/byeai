@@ -49,6 +49,7 @@
   "featureWidgets": { "message": "AI-assistenten" },
   "featureWidgetsDesc": { "message": "Chatbots, AI-antwoorden, Grok, Gemini, Copilot" },
   "featureLabeled": { "message": "AI-video's en -afbeeldingen" },
+  "badgeBeta": { "message": "Beta" },
   "featureLabeledDesc": { "message": "Vervaagt wat sites als AI markeren of taggen met #aiart, plus kanalen uit ByeAI Community" },
   "coverTagged": {
     "message": "Getagd met $TAG$\nKlik om te tonen",

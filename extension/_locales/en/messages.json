@@ -71,6 +71,7 @@
   "featureWidgets": { "message": "AI assistants" },
   "featureWidgetsDesc": { "message": "Chatbots, AI answers, Grok, Gemini, Copilot" },
   "featureLabeled": { "message": "AI videos and images" },
+  "badgeBeta": { "message": "Beta", "description": "Small badge: this feature is still in beta." },
   "featureLabeledDesc": { "message": "Blurs what sites label as AI or tag #aiart, plus ByeAI Community channels" },
   "coverTagged": {
     "message": "Tagged $TAG$\nClick to show",

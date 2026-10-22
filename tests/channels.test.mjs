@@ -1,3 +1,4 @@
+import { readFileSync } from 'node:fs';
 import { test, before, after, beforeEach } from 'node:test';
 import assert from 'node:assert/strict';
 import { launch, open, setStorage, resetStorage, isHidden, coverOf, readShadow, clickNode, EMPTY_LIST } from './helpers.mjs';
@@ -280,8 +281,9 @@ test('list download: plain GET, sends If-None-Match, keeps the old list on error
 test('bundled list is used until the first download', async () => {
   await ctx.worker.evaluate(() => chrome.storage.local.remove('community'));
   const list = await ctx.worker.evaluate(() => readCommunity());
-  assert.equal(list.version, 0);
-  assert.deepEqual(list.channels, []);
+  const bundled = JSON.parse(readFileSync(new URL('../extension/lists/community.json', import.meta.url), 'utf8'));
+  assert.equal(list.version, bundled.version);
+  assert.equal(list.channels.length, bundled.channels.length);
   assert.equal(list.fetchedAt, 0);
 });
 

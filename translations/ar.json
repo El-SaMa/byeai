@@ -43,6 +43,7 @@
   "featureWidgets": "مساعدو الذكاء الاصطناعي",
   "featureWidgetsDesc": "روبوتات الدردشة، إجابات AI، Grok، Gemini، Copilot",
   "featureLabeled": "فيديوهات وصور الذكاء الاصطناعي",
+  "badgeBeta": "تجريبي",
   "featureLabeledDesc": "يموّه ما تصنّفه المواقع كذكاء اصطناعي أو يحمل وسم ⁦#aiart⁩، وقنوات قائمة ByeAI Community",
   "coverTagged": "الوسم $TAG$\nانقر للعرض",
   "popupTrust": "يعمل على جهازك. لا نرى أبدًا ما تتصفحه.",

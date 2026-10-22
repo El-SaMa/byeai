@@ -49,6 +49,7 @@
   "featureWidgets": { "message": "ИИ-ассистенты" },
   "featureWidgetsDesc": { "message": "Чат-боты, ответы ИИ, Grok, Gemini, Copilot" },
   "featureLabeled": { "message": "ИИ-видео и картинки" },
+  "badgeBeta": { "message": "Бета" },
   "featureLabeledDesc": { "message": "Размывает то, что сайты помечают как ИИ или тегом #aiart, а также каналы из ByeAI Community" },
   "coverTagged": {
     "message": "Тег $TAG$\nНажмите, чтобы показать",

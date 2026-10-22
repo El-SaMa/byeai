@@ -49,6 +49,7 @@
   "featureWidgets": { "message": "Trợ lý AI" },
   "featureWidgetsDesc": { "message": "Chatbot, câu trả lời AI, Grok, Gemini, Copilot" },
   "featureLabeled": { "message": "Video và hình ảnh AI" },
+  "badgeBeta": { "message": "Beta" },
   "featureLabeledDesc": { "message": "Làm mờ nội dung trang web gắn nhãn AI hoặc thẻ #aiart, và các kênh trong ByeAI Community" },
   "coverTagged": {
     "message": "Thẻ $TAG$\nNhấp để xem",

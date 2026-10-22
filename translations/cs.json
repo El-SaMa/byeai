@@ -43,6 +43,7 @@
   "featureWidgets": "AI asistenti",
   "featureWidgetsDesc": "Chatboti, AI odpovědi, Grok, Gemini, Copilot",
   "featureLabeled": "AI videa a obrázky",
+  "badgeBeta": "Beta",
   "featureLabeledDesc": "Rozmaže, co weby označí jako AI nebo štítkem #aiart, i kanály z ByeAI Community",
   "coverTagged": "Štítek $TAG$\nKlikněte pro zobrazení",
   "popupTrust": "Běží ve vašem zařízení. Nikdy nevidíme, co prohlížíte.",

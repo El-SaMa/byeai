@@ -43,6 +43,7 @@
   "featureWidgets": "YZ asistanları",
   "featureWidgetsDesc": "Sohbet botları, YZ yanıtları, Grok, Gemini, Copilot",
   "featureLabeled": "YZ videoları ve görselleri",
+  "badgeBeta": "Beta",
   "featureLabeledDesc": "Sitelerin YZ diye işaretlediklerini, #aiart etiketlilerini ve ByeAI Community kanallarını bulanıklaştırır",
   "coverTagged": "$TAG$ etiketli\nGöstermek için tıklayın",
   "popupTrust": "Cihazınızda çalışır. Neye göz attığınızı asla görmeyiz.",

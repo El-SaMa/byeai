@@ -49,6 +49,7 @@
   "featureWidgets": { "message": "دستیارهای هوش مصنوعی" },
   "featureWidgetsDesc": { "message": "چت‌بات‌ها، پاسخ‌های AI، Grok، Gemini، Copilot" },
   "featureLabeled": { "message": "ویدیو و تصویر هوش مصنوعی" },
+  "badgeBeta": { "message": "آزمایشی" },
   "featureLabeledDesc": { "message": "آنچه سایت‌ها هوش مصنوعی می‌نامند یا با ⁦#aiart⁩ برچسب می‌زنند، و کانال‌های ByeAI Community را تار می‌کند" },
   "coverTagged": {
     "message": "برچسب $TAG$\nبرای نمایش کلیک کنید",

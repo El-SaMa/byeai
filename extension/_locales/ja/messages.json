@@ -49,6 +49,7 @@
   "featureWidgets": { "message": "AIアシスタント" },
   "featureWidgetsDesc": { "message": "チャットボット、AIの回答、Grok、Gemini、Copilot" },
   "featureLabeled": { "message": "AIの動画と画像" },
+  "badgeBeta": { "message": "ベータ" },
   "featureLabeledDesc": { "message": "サイトがAIと表示したもの、#aiart などのタグ付き、ByeAI Community のチャンネルをぼかします" },
   "coverTagged": {
     "message": "タグ $TAG$\nクリックで表示",

@@ -49,6 +49,7 @@
   "featureWidgets": { "message": "AI-assistenter" },
   "featureWidgetsDesc": { "message": "Chattbottar, AI-svar, Grok, Gemini, Copilot" },
   "featureLabeled": { "message": "AI-videor och bilder" },
+  "badgeBeta": { "message": "Beta" },
   "featureLabeledDesc": { "message": "Suddar det sajter märker som AI eller taggar #aiart, plus kanaler från ByeAI Community" },
   "coverTagged": {
     "message": "Taggad $TAG$\nKlicka för att visa",

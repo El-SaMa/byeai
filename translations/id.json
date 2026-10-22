@@ -43,6 +43,7 @@
   "featureWidgets": "Asisten AI",
   "featureWidgetsDesc": "Chatbot, jawaban AI, Grok, Gemini, Copilot",
   "featureLabeled": "Video dan gambar AI",
+  "badgeBeta": "Beta",
   "featureLabeledDesc": "Memburamkan yang ditandai situs sebagai AI atau diberi tag #aiart, serta kanal ByeAI Community",
   "coverTagged": "Tag $TAG$\nKlik untuk melihat",
   "popupTrust": "Berjalan di perangkatmu. Kami tidak pernah melihat apa yang kamu jelajahi.",

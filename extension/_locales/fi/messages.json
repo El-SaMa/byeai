@@ -71,6 +71,7 @@
   "featureWidgets": { "message": "Tekoälyavustajat" },
   "featureWidgetsDesc": { "message": "Chatbotit, tekoälyvastaukset, Grok, Gemini, Copilot" },
   "featureLabeled": { "message": "Tekoälyvideot ja -kuvat" },
+  "badgeBeta": { "message": "Beta", "description": "Small badge: this feature is still in beta." },
   "featureLabeledDesc": { "message": "Sumentaa tekoälyksi merkityt ja #aiart-tyyppiset sekä ByeAI Communityn kanavat" },
   "coverTagged": {
     "message": "Tunniste $TAG$\nNäytä klikkaamalla",

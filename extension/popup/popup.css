@@ -448,6 +448,23 @@ body {
   font-weight: 600;
 }
 
+.beta-badge {
+  padding: 1px 6px;
+  border-radius: 999px;
+  background: #ccfbf1;
+  color: #115e59;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+}
+
+@media (prefers-color-scheme: dark) {
+  .beta-badge {
+    background: #134e4a;
+    color: #99f6e4;
+  }
+}
+
 .feature-count {
   min-width: 22px;
   padding: 2px 7px;

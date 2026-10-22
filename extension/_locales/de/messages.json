@@ -49,6 +49,7 @@
   "featureWidgets": { "message": "KI-Assistenten" },
   "featureWidgetsDesc": { "message": "Chatbots, KI-Antworten, Grok, Gemini, Copilot" },
   "featureLabeled": { "message": "KI-Videos und -Bilder" },
+  "badgeBeta": { "message": "Beta" },
   "featureLabeledDesc": { "message": "Verwischt, was Seiten als KI markieren oder mit #aiart taggen, plus Kanäle aus der ByeAI Community" },
   "coverTagged": {
     "message": "Getaggt mit $TAG$\nZum Anzeigen klicken",

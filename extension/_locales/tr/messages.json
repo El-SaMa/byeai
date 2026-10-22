@@ -49,6 +49,7 @@
   "featureWidgets": { "message": "YZ asistanları" },
   "featureWidgetsDesc": { "message": "Sohbet botları, YZ yanıtları, Grok, Gemini, Copilot" },
   "featureLabeled": { "message": "YZ videoları ve görselleri" },
+  "badgeBeta": { "message": "Beta" },
   "featureLabeledDesc": { "message": "Sitelerin YZ diye işaretlediklerini, #aiart etiketlilerini ve ByeAI Community kanallarını bulanıklaştırır" },
   "coverTagged": {
     "message": "$TAG$ etiketli\nGöstermek için tıklayın",

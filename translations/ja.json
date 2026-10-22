@@ -43,6 +43,7 @@
   "featureWidgets": "AIアシスタント",
   "featureWidgetsDesc": "チャットボット、AIの回答、Grok、Gemini、Copilot",
   "featureLabeled": "AIの動画と画像",
+  "badgeBeta": "ベータ",
   "featureLabeledDesc": "サイトがAIと表示したもの、#aiart などのタグ付き、ByeAI Community のチャンネルをぼかします",
   "coverTagged": "タグ $TAG$\nクリックで表示",
   "popupTrust": "お使いの端末だけで動作。閲覧内容を私たちが見ることはありません。",

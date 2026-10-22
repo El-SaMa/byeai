@@ -43,6 +43,7 @@
   "featureWidgets": "Assistants IA",
   "featureWidgetsDesc": "Chatbots, réponses IA, Grok, Gemini, Copilot",
   "featureLabeled": "Vidéos et images IA",
+  "badgeBeta": "Beta",
   "featureLabeledDesc": "Floute ce que les sites marquent comme IA ou #aiart, et les chaînes de ByeAI Community",
   "coverTagged": "Tag $TAG$\nCliquez pour afficher",
   "popupTrust": "Fonctionne sur votre appareil. Nous ne voyons jamais ce que vous consultez.",

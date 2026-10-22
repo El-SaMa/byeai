@@ -49,6 +49,7 @@
   "featureWidgets": { "message": "AI 助理" },
   "featureWidgetsDesc": { "message": "聊天機器人、AI 回答、Grok、Gemini、Copilot" },
   "featureLabeled": { "message": "AI 影片和圖片" },
+  "badgeBeta": { "message": "測試版" },
   "featureLabeledDesc": { "message": "模糊網站標示為 AI 或帶有 #aiart 標籤的內容，以及 ByeAI Community 清單中的頻道" },
   "coverTagged": {
     "message": "標籤 $TAG$\n點擊查看",

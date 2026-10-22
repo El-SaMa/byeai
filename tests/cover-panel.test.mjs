@@ -23,14 +23,35 @@ const LIST = {
 const panel = (id) => `byeai-cover-panel[data-card="${id}"]`;
 const btn = (id, act) => `${panel(id)} button[data-act="${act}"]`;
 const ready = (page, id) => page.waitForSelector(panel(id), { state: 'attached' });
+// The panel's buttons once they have settled (same list twice in a row).
 const acts = async (page, id) => {
   await ready(page, id);
-  return page.$eval(panel(id), (h) => [...h.shadowRoot.querySelectorAll('button')].map((b) => b.dataset.act));
+  const read = () => page.$eval(panel(id), (h) => [...h.shadowRoot.querySelectorAll('button')].map((b) => b.dataset.act));
+  let last = await read();
+  for (let i = 0; i < 20; i++) {
+    await page.waitForTimeout(100);
+    const now = await read();
+    if (now.length && now.join() === last.join()) return now;
+    last = now;
+  }
+  return last;
 };
 const text = async (page, id) => {
   await ready(page, id);
   return page.$eval(panel(id), (h) => h.shadowRoot.querySelector('.scrim').textContent);
 };
+// Waits until the panel's text matches, so a panel still filling in does not fail the test.
+async function hasText(page, id, re) {
+  await ready(page, id);
+  await page
+    .waitForFunction(
+      ([sel, src, flags]) => new RegExp(src, flags).test(document.querySelector(sel)?.shadowRoot?.querySelector('.scrim')?.textContent || ''),
+      [panel(id), re.source, re.flags],
+      { timeout: 5000 }
+    )
+    .catch(() => {});
+  return text(page, id);
+}
 const hiddenList = () => ctx.worker.evaluate(() => globalThis.byeaiHiddenChannels.read());
 
 async function useList() {
@@ -56,14 +77,14 @@ beforeEach(async () => {
 test('every cover has a panel with the right title and reason', async () => {
   await useList();
   const feed = await open(ctx.context, FEED);
-  assert.match(await text(feed, 'labeled'), /AI video hidden/);
-  assert.match(await text(feed, 'labeled'), /YouTube labels it as AI/);
-  assert.match(await text(feed, 'tagged'), /Tagged as AI by the creator/);
+  assert.match(await hasText(feed, 'labeled', /AI video hidden/), /AI video hidden/);
+  assert.match(await hasText(feed, 'labeled', /YouTube labels it as AI/), /YouTube labels it as AI/);
+  assert.match(await hasText(feed, 'tagged', /Tagged as AI by the creator/), /Tagged as AI by the creator/);
   assert.equal(await feed.$(panel('plain')), null, 'plain tiles get no panel');
 
   const channels = await open(ctx.context, CHANNELS);
-  assert.match(await text(channels, 'u1'), /On the ByeAI Community list/);
-  assert.match(await text(channels, 'lab'), /YouTube labels it as AI/);
+  assert.match(await hasText(channels, 'u1', /On the ByeAI Community list/), /On the ByeAI Community list/);
+  assert.match(await hasText(channels, 'lab', /YouTube labels it as AI/), /YouTube labels it as AI/);
 });
 
 test('buttons per cover type: Not AI only on Community covers', async () => {
@@ -134,7 +155,7 @@ test('player cover: video paused and kept paused, Show video plays it', async ()
   assert.equal(await page.$eval('video', (v) => v.muted), true, 'sound state untouched');
 
   assert.deepEqual(await acts(page, 'movie_player'), ['show', 'next']);
-  assert.match(await text(page, 'movie_player'), /YouTube labels it as AI/);
+  assert.match(await hasText(page, 'movie_player', /YouTube labels it as AI/), /YouTube labels it as AI/);
   await page.click(btn('movie_player', 'show'));
   await page.waitForTimeout(500);
   assert.equal(await coverOf(page, '#movie_player'), '');
