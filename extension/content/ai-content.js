@@ -14,6 +14,9 @@
 (function () {
   'use strict';
 
+  // Injected while the extension was reloading: it is already gone, so stop.
+  if (!globalThis.chrome?.runtime?.id) return;
+
   const byeai = globalThis.byeai;
   if (!byeai) return;
 

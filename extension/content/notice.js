@@ -9,6 +9,9 @@
 (function () {
   'use strict';
 
+  // Injected while the extension was reloading: it is already gone, so stop.
+  if (!globalThis.chrome?.runtime?.id) return;
+
   // After the extension reloads or updates, scripts left in open tabs lose
   // the extension and chrome.runtime calls throw. Those tabs just go quiet.
   const send = (message) => {
@@ -152,11 +155,15 @@
     }
   }
 
-  chrome.runtime.onMessage.addListener((message, _sender, sendResponse) => {
-    if (message?.type !== 'SHOW_NOTICE' || message.host !== host) return;
-    showWhenReady();
-    sendResponse({ shown: true });
-  });
+  try {
+    chrome.runtime.onMessage.addListener((message, _sender, sendResponse) => {
+      if (message?.type !== 'SHOW_NOTICE' || message.host !== host) return;
+      showWhenReady();
+      sendResponse({ shown: true });
+    });
+  } catch (_) {
+    return;
+  }
 
   // Blocks can happen before this script listens. Ask once the page is parsed.
   const ask = () => {

@@ -1,6 +1,9 @@
 (function () {
   'use strict';
 
+  // Injected while the extension was reloading: it is already gone, so stop.
+  if (!globalThis.chrome?.runtime?.id) return;
+
   const GOOGLE_HOST = /^(\w+\.)?google\.[\w.]+$/;
 
   function isGooglePage() {

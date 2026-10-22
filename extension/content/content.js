@@ -1,6 +1,9 @@
 (function () {
   'use strict';
 
+  // Injected while the extension was reloading: it is already gone, so stop.
+  if (!globalThis.chrome?.runtime?.id) return;
+
   const COSMETIC_SELECTORS = [
     '#intercom-container',
     '#intercom-frame',

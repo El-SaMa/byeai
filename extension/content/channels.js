@@ -15,6 +15,9 @@
 (function () {
   'use strict';
 
+  // Injected while the extension was reloading: it is already gone, so stop.
+  if (!globalThis.chrome?.runtime?.id) return;
+
   // After the extension reloads or updates, scripts left in open tabs lose
   // the extension and chrome.runtime calls throw. Those tabs just go quiet.
   const send = (message) => {
