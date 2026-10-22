@@ -189,15 +189,14 @@ test('a long hidden list stays under the sync size limits', async () => {
   assert.ok(sizes.max < 8192, `chunk of ${sizes.max} bytes`);
 });
 
-test('Community list channels get the community cover, click reveals', async () => {
+test('Community list channels get the community cover, only Show reveals it', async () => {
   await useList(COMMUNITY);
   const page = await open(ctx.context, HOME);
   assert.equal(await coverOf(page, '#u1'), 'community');
   assert.equal(await coverOf(page, '#r1'), '');
-  const note = await page.$eval('#u1', (el) => getComputedStyle(el, '::after').content);
-  assert.match(note, /In the ByeAI Community list/);
+  assert.equal(await page.$eval('#u1', (el) => getComputedStyle(el, '::after').display), 'none');
 
-  await page.click('#u1');
+  await page.click('byeai-cover-panel[data-card="u1"] button[data-act="show"]');
   assert.equal(page.url(), HOME);
   assert.equal(await coverOf(page, '#u1'), '');
 
@@ -313,7 +312,7 @@ test('suggest reason is "labeled" when YouTube labeled the channel as AI, failur
   ctx.oma.suggestStatus = 500;
   const page = await open(ctx.context, HOME);
   assert.equal(await coverOf(page, '#lab'), 'labeled');
-  await page.click('#lab');
+  await page.click('byeai-cover-panel[data-card="lab"] button[data-act="show"]');
   await hideFromTile(page, '#lab');
   const toast = await readShadow(page, 'byeai-toast');
   await clickNode(page, toast.buttons['Suggest as AI channel']);

@@ -121,7 +121,6 @@
   "channelSuggest": "Als KI-Kanal vorschlagen",
   "channelSuggestSent": "Danke, Vorschlag gesendet",
   "channelSuggestFailed": "Senden fehlgeschlagen, bitte später erneut versuchen",
-  "coverCommunity": "Auf der ByeAI-Community-Liste\nZum Anzeigen klicken",
   "optionsHiddenHeading": "Ausgeblendete Kanäle",
   "optionsHiddenIntro": "YouTube-Kanäle, die du ausgeblendet hast. Ihre Videos tauchen nirgends auf YouTube auf.",
   "optionsHiddenEmpty": "Noch keine ausgeblendeten Kanäle. Zeig auf ein YouTube-Video und nutze den Knopf in seiner Ecke.",
@@ -133,9 +132,16 @@
   "optionsAutoShareLabel": "Der Community automatisch helfen",
   "optionsAutoShareText": "Wenn YouTube selbst ein Video als KI kennzeichnet, sendet ByeAI nur den Namen des Kanals an die Community-Liste, anonym.",
   "optionsAutoShareCount": "Automatisch geteilte Kanäle: $COUNT$",
-  "channelNotAi": "Keine KI, Kanal anzeigen",
   "channelShown": "$NAME$ wird angezeigt. Danke, wir prüfen das.",
   "optionsShownHeading": "Kanäle, die du anzeigen lässt",
   "optionsShownIntro": "Kanäle aus der Community-Liste, die du als keine KI markiert hast. Ihre Videos werden nicht unscharf gemacht.",
-  "optionsShownEmpty": "Noch keine. Nutze bei einem unscharfen Community-Video „Keine KI, Kanal anzeigen“."
+  "optionsShownEmpty": "Noch keine. Nutze bei einem unscharfen Community-Video „Keine KI“.",
+  "coverTitle": "KI-Video ausgeblendet",
+  "coverReasonCommunity": "Auf der ByeAI-Community-Liste",
+  "coverReasonLabeled": "YouTube kennzeichnet es als KI",
+  "coverReasonTagged": "Vom Ersteller als KI markiert",
+  "coverShow": "Video anzeigen",
+  "coverShowShort": "Anzeigen",
+  "coverNotAi": "Keine KI",
+  "coverNextVideo": "Nächstes Video"
 }

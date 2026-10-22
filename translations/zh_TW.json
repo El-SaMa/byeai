@@ -121,7 +121,6 @@
   "channelSuggest": "建議列為 AI 頻道",
   "channelSuggestSent": "謝謝，建議已送出",
   "channelSuggestFailed": "無法送出，請稍後再試",
-  "coverCommunity": "在 ByeAI Community 清單中\n點擊查看",
   "optionsHiddenHeading": "已隱藏的頻道",
   "optionsHiddenIntro": "你隱藏的 YouTube 頻道。它們的影片不會出現在 YouTube 的任何地方。",
   "optionsHiddenEmpty": "還沒有隱藏的頻道。將滑鼠移到 YouTube 影片上，然後使用角落的按鈕。",
@@ -133,9 +132,16 @@
   "optionsAutoShareLabel": "自動協助社群",
   "optionsAutoShareText": "當 YouTube 自己將影片標示為 AI 時，ByeAI 只會匿名將該頻道的名稱傳送到 Community 清單。",
   "optionsAutoShareCount": "已自動分享的頻道：$COUNT$",
-  "channelNotAi": "不是 AI，顯示此頻道",
   "channelShown": "正在顯示 $NAME$。謝謝，我們會審核。",
   "optionsShownHeading": "你選擇顯示的頻道",
   "optionsShownIntro": "社群清單中被你標記為非 AI 的頻道。它們的影片不會被模糊。",
-  "optionsShownEmpty": "尚無。在被模糊的社群影片上點選「不是 AI，顯示此頻道」。"
+  "optionsShownEmpty": "尚無。在被模糊的社群影片上點選「不是 AI」。",
+  "coverTitle": "已隱藏 AI 影片",
+  "coverReasonCommunity": "在 ByeAI Community 清單中",
+  "coverReasonLabeled": "YouTube 已標示為 AI",
+  "coverReasonTagged": "創作者已標註為 AI",
+  "coverShow": "顯示影片",
+  "coverShowShort": "顯示",
+  "coverNotAi": "不是 AI",
+  "coverNextVideo": "下一部影片"
 }

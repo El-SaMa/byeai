@@ -121,7 +121,6 @@
   "channelSuggest": "Zaproponuj jako kanał AI",
   "channelSuggestSent": "Dzięki, propozycja wysłana",
   "channelSuggestFailed": "Nie udało się wysłać, spróbuj później",
-  "coverCommunity": "Na liście ByeAI Community\nKliknij, aby pokazać",
   "optionsHiddenHeading": "Ukryte kanały",
   "optionsHiddenIntro": "Kanały YouTube, które ukryłeś. Ich filmy nie pojawiają się nigdzie na YouTube.",
   "optionsHiddenEmpty": "Brak ukrytych kanałów. Najedź na film w YouTube i użyj przycisku w jego rogu.",
@@ -133,9 +132,16 @@
   "optionsAutoShareLabel": "Pomagaj społeczności automatycznie",
   "optionsAutoShareText": "Gdy sam YouTube oznaczy film jako AI, ByeAI anonimowo wyśle do listy Community tylko nazwę tego kanału.",
   "optionsAutoShareCount": "Kanały udostępnione automatycznie: $COUNT$",
-  "channelNotAi": "To nie AI, pokaż ten kanał",
   "channelShown": "Pokazuję: $NAME$. Dzięki, sprawdzimy to.",
   "optionsShownHeading": "Kanały, które chcesz widzieć",
   "optionsShownIntro": "Kanały z listy Społeczności, które oznaczyłeś jako nie-AI. Ich filmy nie są rozmywane.",
-  "optionsShownEmpty": "Na razie brak. Przy rozmytym filmie Społeczności użyj „To nie AI, pokaż ten kanał”."
+  "optionsShownEmpty": "Na razie brak. Przy rozmytym filmie Społeczności użyj „To nie AI”.",
+  "coverTitle": "Film AI ukryty",
+  "coverReasonCommunity": "Na liście ByeAI Community",
+  "coverReasonLabeled": "YouTube oznacza go jako AI",
+  "coverReasonTagged": "Autor oznaczył go jako AI",
+  "coverShow": "Pokaż film",
+  "coverShowShort": "Pokaż",
+  "coverNotAi": "To nie AI",
+  "coverNextVideo": "Następny film"
 }

@@ -1,6 +1,6 @@
 <!doctype html><html><head><style>#movie_player{width:640px;height:360px;display:block}video{width:100%;height:100%}ytd-watch-metadata{display:block}</style></head><body>
 <ytd-watch-flexy>
-  <div id="movie_player"><video muted playsinline></video></div>
+  <div id="movie_player"><video muted playsinline></video><button class="ytp-next-button" aria-label="Next">Next</button></div>
   <div id="below">
     <ytd-watch-metadata>
       <div id="actions"><button aria-label="Ask">Ask</button><button aria-label="Share">Share</button></div>
@@ -16,4 +16,5 @@
   const ctx = c.getContext('2d'); setInterval(() => { ctx.fillStyle = '#' + Math.floor(Math.random()*999); ctx.fillRect(0,0,64,36); }, 50);
   const v = document.querySelector('video'); v.srcObject = c.captureStream(10); v.play().catch(() => {});
 </script>
+<script>window.__next=0;document.querySelector(".ytp-next-button").addEventListener("click",()=>window.__next++);</script>
 </body></html>

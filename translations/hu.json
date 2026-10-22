@@ -121,7 +121,6 @@
   "channelSuggest": "Javaslás MI-csatornaként",
   "channelSuggestSent": "Köszönjük, a javaslatot elküldtük",
   "channelSuggestFailed": "Nem sikerült elküldeni, próbáld később",
-  "coverCommunity": "A ByeAI Community listáján\nKattints a megjelenítéshez",
   "optionsHiddenHeading": "Elrejtett csatornák",
   "optionsHiddenIntro": "Az általad elrejtett YouTube-csatornák. A videóik sehol sem jelennek meg a YouTube-on.",
   "optionsHiddenEmpty": "Még nincs elrejtett csatorna. Vidd az egeret egy YouTube-videó fölé, és használd a sarkában lévő gombot.",
@@ -133,9 +132,16 @@
   "optionsAutoShareLabel": "A közösség automatikus segítése",
   "optionsAutoShareText": "Ha maga a YouTube jelöl meg egy videót MI-ként, a ByeAI névtelenül csak a csatorna nevét küldi el a Community listának.",
   "optionsAutoShareCount": "Automatikusan megosztott csatornák: $COUNT$",
-  "channelNotAi": "Nem MI, csatorna megjelenítése",
   "channelShown": "$NAME$ megjelenítve. Köszönjük, átnézzük.",
   "optionsShownHeading": "Általad megjelenített csatornák",
   "optionsShownIntro": "A Közösségi lista azon csatornái, amelyeket nem MI-ként jelöltél meg. A videóik nincsenek elmosva.",
-  "optionsShownEmpty": "Még nincs ilyen. Egy elmosott közösségi videón használd a „Nem MI, csatorna megjelenítése” gombot."
+  "optionsShownEmpty": "Még nincs ilyen. Egy elmosott közösségi videón használd a „Nem MI” gombot.",
+  "coverTitle": "MI-videó elrejtve",
+  "coverReasonCommunity": "A ByeAI Community listáján",
+  "coverReasonLabeled": "A YouTube MI-nek jelöli",
+  "coverReasonTagged": "A készítő MI-nek jelölte",
+  "coverShow": "Videó megjelenítése",
+  "coverShowShort": "Mutat",
+  "coverNotAi": "Nem MI",
+  "coverNextVideo": "Következő videó"
 }

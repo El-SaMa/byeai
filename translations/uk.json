@@ -121,7 +121,6 @@
   "channelSuggest": "Запропонувати як ШІ-канал",
   "channelSuggestSent": "Дякуємо, пропозицію надіслано",
   "channelSuggestFailed": "Не вдалося надіслати, спробуйте пізніше",
-  "coverCommunity": "У списку ByeAI Community\nНатисніть, щоб показати",
   "optionsHiddenHeading": "Сховані канали",
   "optionsHiddenIntro": "Канали YouTube, які ви сховали. Їхні відео ніде не з’являються на YouTube.",
   "optionsHiddenEmpty": "Схованих каналів поки немає. Наведіть курсор на відео на YouTube і натисніть кнопку в його куті.",
@@ -133,9 +132,16 @@
   "optionsAutoShareLabel": "Допомагати спільноті автоматично",
   "optionsAutoShareText": "Коли YouTube сам позначає відео як ШІ, ByeAI анонімно надсилає до списку Community лише назву каналу.",
   "optionsAutoShareCount": "Каналів надіслано автоматично: $COUNT$",
-  "channelNotAi": "Це не ШІ, показувати канал",
   "channelShown": "Показуємо: $NAME$. Дякуємо, ми перевіримо.",
   "optionsShownHeading": "Канали, які ви вирішили показувати",
   "optionsShownIntro": "Канали зі списку спільноти, які ви позначили як не ШІ. Їхні відео не розмиваються.",
-  "optionsShownEmpty": "Поки порожньо. На розмитому відео спільноти натисніть «Це не ШІ, показувати канал»."
+  "optionsShownEmpty": "Поки порожньо. На розмитому відео спільноти натисніть «Це не ШІ».",
+  "coverTitle": "ШІ-відео приховано",
+  "coverReasonCommunity": "У списку ByeAI Community",
+  "coverReasonLabeled": "YouTube позначає його як ШІ",
+  "coverReasonTagged": "Автор позначив його як ШІ",
+  "coverShow": "Показати відео",
+  "coverShowShort": "Показати",
+  "coverNotAi": "Це не ШІ",
+  "coverNextVideo": "Наступне відео"
 }

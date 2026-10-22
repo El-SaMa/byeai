@@ -121,7 +121,6 @@
   "channelSuggest": "Föreslå som AI-kanal",
   "channelSuggestSent": "Tack, förslaget har skickats",
   "channelSuggestFailed": "Kunde inte skicka, försök igen senare",
-  "coverCommunity": "På ByeAI Community-listan\nKlicka för att visa",
   "optionsHiddenHeading": "Dolda kanaler",
   "optionsHiddenIntro": "YouTube-kanaler du har dolt. Deras videor syns inte någonstans på YouTube.",
   "optionsHiddenEmpty": "Inga dolda kanaler än. Peka på en YouTube-video och använd knappen i hörnet.",
@@ -133,9 +132,16 @@
   "optionsAutoShareLabel": "Hjälp communityn automatiskt",
   "optionsAutoShareText": "När YouTube själv märker en video som AI skickar ByeAI bara kanalens namn till Community-listan, anonymt.",
   "optionsAutoShareCount": "Kanaler som delats automatiskt: $COUNT$",
-  "channelNotAi": "Inte AI, visa kanalen",
   "channelShown": "Visar $NAME$. Tack, vi går igenom det.",
   "optionsShownHeading": "Kanaler du valde att visa",
   "optionsShownIntro": "Kanaler från Community-listan som du har markerat som inte AI. Deras videor suddas inte ut.",
-  "optionsShownEmpty": "Inga ännu. Använd Inte AI, visa kanalen på en suddig Community-video."
+  "optionsShownEmpty": "Inga ännu. Använd Inte AI på en suddig Community-video.",
+  "coverTitle": "AI-video dolt",
+  "coverReasonCommunity": "På ByeAI Community-listan",
+  "coverReasonLabeled": "YouTube märker den som AI",
+  "coverReasonTagged": "Skaparen har märkt den som AI",
+  "coverShow": "Visa video",
+  "coverShowShort": "Visa",
+  "coverNotAi": "Inte AI",
+  "coverNextVideo": "Nästa video"
 }

@@ -121,7 +121,6 @@
   "channelSuggest": "Foreslå som AI-kanal",
   "channelSuggestSent": "Tak, forslaget er sendt",
   "channelSuggestFailed": "Kunne ikke sende, prøv igen senere",
-  "coverCommunity": "På ByeAI Community-listen\nKlik for at vise",
   "optionsHiddenHeading": "Skjulte kanaler",
   "optionsHiddenIntro": "YouTube-kanaler, du har skjult. Deres videoer vises ingen steder på YouTube.",
   "optionsHiddenEmpty": "Ingen skjulte kanaler endnu. Peg på en YouTube-video, og brug knappen i hjørnet.",
@@ -133,9 +132,16 @@
   "optionsAutoShareLabel": "Hjælp fællesskabet automatisk",
   "optionsAutoShareText": "Når YouTube selv markerer en video som AI, sender ByeAI kun kanalens navn til Community-listen, anonymt.",
   "optionsAutoShareCount": "Kanaler delt automatisk: $COUNT$",
-  "channelNotAi": "Ikke AI, vis kanalen",
   "channelShown": "Viser $NAME$. Tak, vi gennemgår det.",
   "optionsShownHeading": "Kanaler, du valgte at vise",
   "optionsShownIntro": "Kanaler fra Community-listen, som du har markeret som ikke AI. Deres videoer bliver ikke sløret.",
-  "optionsShownEmpty": "Ingen endnu. Brug Ikke AI, vis kanalen på en sløret Community-video."
+  "optionsShownEmpty": "Ingen endnu. Brug Ikke AI på en sløret Community-video.",
+  "coverTitle": "AI-video skjult",
+  "coverReasonCommunity": "På ByeAI Community-listen",
+  "coverReasonLabeled": "YouTube mærker den som AI",
+  "coverReasonTagged": "Skaberen har mærket den som AI",
+  "coverShow": "Vis video",
+  "coverShowShort": "Vis",
+  "coverNotAi": "Ikke AI",
+  "coverNextVideo": "Næste video"
 }

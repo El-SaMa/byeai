@@ -121,7 +121,6 @@
   "channelSuggest": "پیشنهاد به‌عنوان کانال هوش مصنوعی",
   "channelSuggestSent": "ممنون، پیشنهاد ارسال شد",
   "channelSuggestFailed": "ارسال نشد، بعداً دوباره امتحان کنید",
-  "coverCommunity": "در فهرست ByeAI Community\nبرای نمایش کلیک کنید",
   "optionsHiddenHeading": "کانال‌های پنهان",
   "optionsHiddenIntro": "کانال‌های YouTube که پنهان کرده‌اید. ویدیوهایشان هیچ‌جای YouTube نشان داده نمی‌شود.",
   "optionsHiddenEmpty": "هنوز کانال پنهانی ندارید. نشانگر را روی یک ویدیوی YouTube ببرید و از دکمهٔ گوشهٔ آن استفاده کنید.",
@@ -133,9 +132,16 @@
   "optionsAutoShareLabel": "کمک خودکار به جامعه",
   "optionsAutoShareText": "وقتی خود YouTube ویدیویی را هوش مصنوعی برچسب بزند، ByeAI فقط نام آن کانال را به‌صورت ناشناس به فهرست Community می‌فرستد.",
   "optionsAutoShareCount": "کانال‌های هم‌رسانی‌شده به‌صورت خودکار: $COUNT$",
-  "channelNotAi": "هوش مصنوعی نیست، این کانال را نشان بده",
   "channelShown": "نمایش $NAME$. ممنون، بررسی می‌کنیم.",
   "optionsShownHeading": "کانال‌هایی که نمایش‌شان را انتخاب کردید",
   "optionsShownIntro": "کانال‌هایی از فهرست جامعه که آن‌ها را هوش مصنوعی ندانستید. ویدیوهایشان محو نمی‌شود.",
-  "optionsShownEmpty": "هنوز موردی نیست. روی ویدیوی محوشدهٔ جامعه، «هوش مصنوعی نیست، این کانال را نشان بده» را بزنید."
+  "optionsShownEmpty": "هنوز موردی نیست. روی ویدیوی محوشدهٔ جامعه، «هوش مصنوعی نیست» را بزنید.",
+  "coverTitle": "ویدیوی هوش مصنوعی پنهان شد",
+  "coverReasonCommunity": "در فهرست ByeAI Community",
+  "coverReasonLabeled": "یوتیوب آن را هوش مصنوعی برچسب زده است",
+  "coverReasonTagged": "سازنده آن را هوش مصنوعی برچسب زده است",
+  "coverShow": "نمایش ویدیو",
+  "coverShowShort": "نمایش",
+  "coverNotAi": "هوش مصنوعی نیست",
+  "coverNextVideo": "ویدیوی بعدی"
 }

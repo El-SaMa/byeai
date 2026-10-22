@@ -8,7 +8,8 @@ let ctx;
 
 const HOME = 'https://www.youtube.com/feed/channels';
 const WATCH = 'https://www.youtube.com/watch?v=dream';
-const BUTTON = 'byeai-not-ai button';
+const panel = (id) => `byeai-cover-panel[data-card="${id}"]`;
+const notAiBtn = (id) => `${panel(id)} button[data-act="notai"]`;
 const LIST = {
   version: 7,
   updatedAt: '2026-10-21T08:00:00Z',
@@ -23,8 +24,8 @@ const sent = () => ctx.oma.suggests.map((s) => JSON.parse(s.body));
 const version = () => ctx.worker.evaluate(() => chrome.runtime.getManifest().version);
 const shownList = () => ctx.worker.evaluate(() => globalThis.byeaiShownChannels.read());
 const today = () => new Date().toISOString().slice(0, 10);
-const visible = async (page) => {
-  const b = await page.$(BUTTON);
+const visible = async (page, id) => {
+  const b = await page.$(notAiBtn(id));
   return Boolean(b) && (await b.isVisible());
 };
 
@@ -35,9 +36,7 @@ async function useList(list = LIST) {
 }
 
 async function clickNotAi(page, selector) {
-  await page.hover(selector);
-  await page.waitForTimeout(150);
-  await page.click(BUTTON);
+  await page.click(notAiBtn(selector.slice(1)));
   await page.waitForTimeout(500);
 }
 
@@ -59,22 +58,14 @@ test('the button is only on Community covers', async () => {
   await useList();
   const page = await open(ctx.context, HOME);
   assert.equal(await coverOf(page, '#lab'), 'labeled');
-  await page.hover('#lab');
-  await page.waitForTimeout(150);
-  assert.equal(await visible(page), false, 'not on a labeled cover');
-  await page.hover('#r1');
-  await page.waitForTimeout(150);
-  assert.equal(await visible(page), false, 'not on a plain tile');
+  assert.equal(await visible(page, 'lab'), false, 'not on a labeled cover');
+  assert.equal(await page.$(panel('lab')) !== null, true, 'but the labeled cover has its panel');
+  assert.equal(await page.$(panel('r1')), null, 'no panel on a plain tile');
 
-  await page.hover('#u1');
-  await page.waitForTimeout(150);
-  assert.equal(await visible(page), true);
-  const button = page.locator(BUTTON);
-  assert.equal(await button.textContent(), 'Not AI, show this channel');
-  assert.match(await button.getAttribute('aria-label'), /Not AI, show this channel: Dream Factory/);
-  await page.mouse.move(0, 0);
-  await page.waitForTimeout(150);
-  assert.equal(await visible(page), false);
+  assert.equal(await visible(page, 'u1'), true);
+  const button = page.locator(notAiBtn('u1'));
+  assert.equal(await button.textContent(), 'Not AI');
+  assert.match(await button.getAttribute('aria-label'), /Not AI: Dream Factory/);
 });
 
 test('click shows every tile of the channel, saves it and survives reload', async () => {
@@ -103,7 +94,8 @@ test('works on a watch page and survives reload', async () => {
   await useList();
   const watch = await open(ctx.context, WATCH);
   assert.equal(await coverOf(watch, '#movie_player'), 'community');
-  await clickNotAi(watch, '#movie_player');
+  await watch.click(notAiBtn('movie_player'));
+  await watch.waitForTimeout(500);
   assert.equal(await coverOf(watch, '#movie_player'), '');
   await watch.reload();
   await watch.waitForTimeout(700);

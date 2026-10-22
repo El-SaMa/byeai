@@ -121,7 +121,6 @@
   "channelSuggest": "AI 채널로 제안",
   "channelSuggestSent": "감사합니다. 제안을 보냈습니다",
   "channelSuggestFailed": "보내지 못했습니다. 나중에 다시 시도하세요",
-  "coverCommunity": "ByeAI Community 목록에 있음\n클릭해서 보기",
   "optionsHiddenHeading": "숨긴 채널",
   "optionsHiddenIntro": "숨긴 YouTube 채널입니다. 이 채널의 동영상은 YouTube 어디에서도 보이지 않습니다.",
   "optionsHiddenEmpty": "아직 숨긴 채널이 없습니다. YouTube 동영상 위에 포인터를 올리고 모서리의 버튼을 누르세요.",
@@ -133,9 +132,16 @@
   "optionsAutoShareLabel": "Community에 자동으로 기여",
   "optionsAutoShareText": "YouTube가 직접 동영상에 AI 라벨을 붙이면 ByeAI가 해당 채널 이름만 익명으로 Community 목록에 보냅니다.",
   "optionsAutoShareCount": "자동으로 공유한 채널: $COUNT$",
-  "channelNotAi": "AI 아님, 이 채널 표시",
   "channelShown": "$NAME$ 채널을 표시합니다. 알려 주셔서 감사합니다. 검토하겠습니다.",
   "optionsShownHeading": "표시하기로 한 채널",
   "optionsShownIntro": "커뮤니티 목록에 있지만 AI가 아니라고 표시한 채널입니다. 이 채널의 동영상은 흐리게 처리되지 않습니다.",
-  "optionsShownEmpty": "아직 없습니다. 흐리게 처리된 커뮤니티 동영상에서 'AI 아님, 이 채널 표시'를 누르세요."
+  "optionsShownEmpty": "아직 없습니다. 흐리게 처리된 커뮤니티 동영상에서 'AI 아님'를 누르세요.",
+  "coverTitle": "AI 영상을 숨겼어요",
+  "coverReasonCommunity": "ByeAI Community 목록에 있음",
+  "coverReasonLabeled": "YouTube가 AI로 표시함",
+  "coverReasonTagged": "제작자가 AI로 태그함",
+  "coverShow": "영상 보기",
+  "coverShowShort": "보기",
+  "coverNotAi": "AI 아님",
+  "coverNextVideo": "다음 영상"
 }

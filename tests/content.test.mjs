@@ -25,11 +25,9 @@ test('YouTube feed: labeled and AI-tagged tiles are covered, others are not', as
   assert.equal(await coverOf(page, '#news'), '', 'a title mentioning "AI info" is not a label');
   assert.equal(await coverOf(page, '#broad'), '', '#ai and "made with AI" are too broad');
 
-  const note = (sel) => page.$eval(sel, (el) => getComputedStyle(el, '::after').content);
-  assert.match(await note('#labeled'), /Labeled as AI by the site/);
-  assert.match(await note('#tagged'), /Tagged #aiart/);
-  assert.doesNotMatch(await note('#glued'), /aiartPixel/i, 'tag is not glued to the next line');
-  assert.match(await note('#glued'), /Tagged #aiart/);
+  // YouTube covers carry the action panel, not the ::after note.
+  assert.equal(await page.$eval('#labeled', (el) => getComputedStyle(el, '::after').display), 'none');
+  assert.equal(await coverOf(page, '#glued'), 'tagged', 'tag is not glued to the next line');
 });
 
 test('turning off AI videos and images removes covers live', async () => {
@@ -56,11 +54,12 @@ test('YouTube watch: player is covered and kept paused, Ask button hidden', asyn
   assert.equal(await isHidden(page, 'button[aria-label="Ask"]'), true);
   assert.equal(await isHidden(page, 'button[aria-label="Share"]'), false);
 
-  await page.click('#movie_player');
+  await page.click('#movie_player', { position: { x: 300, y: 100 }, force: true }).catch(() => {});
+  assert.equal(await coverOf(page, '#movie_player'), 'labeled', 'a click on the cover does not reveal');
+  await page.click('byeai-cover-panel button[data-act="show"]');
+  await page.waitForTimeout(400);
   assert.equal(await coverOf(page, '#movie_player'), '');
-  await page.evaluate(() => document.querySelector('video').play());
-  await page.waitForTimeout(300);
-  assert.equal(await page.$eval('video', (v) => v.paused), false, 'revealed video plays');
+  assert.equal(await page.$eval('video', (v) => v.paused), false, 'Show video resumes playback');
 });
 
 test('YouTube watch: an "AI-generated" filter chip does not cover the player', async () => {

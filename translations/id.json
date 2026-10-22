@@ -121,7 +121,6 @@
   "channelSuggest": "Sarankan sebagai kanal AI",
   "channelSuggestSent": "Terima kasih, saran terkirim",
   "channelSuggestFailed": "Gagal mengirim, coba lagi nanti",
-  "coverCommunity": "Ada di daftar ByeAI Community\nKlik untuk melihat",
   "optionsHiddenHeading": "Kanal tersembunyi",
   "optionsHiddenIntro": "Kanal YouTube yang Anda sembunyikan. Videonya tidak muncul di mana pun di YouTube.",
   "optionsHiddenEmpty": "Belum ada kanal tersembunyi. Arahkan kursor ke video YouTube dan pakai tombol di sudutnya.",
@@ -133,9 +132,16 @@
   "optionsAutoShareLabel": "Bantu Community secara otomatis",
   "optionsAutoShareText": "Saat YouTube sendiri melabeli video sebagai AI, ByeAI hanya mengirim nama kanal itu ke daftar Community, secara anonim.",
   "optionsAutoShareCount": "Kanal yang dibagikan otomatis: $COUNT$",
-  "channelNotAi": "Bukan AI, tampilkan kanal ini",
   "channelShown": "Menampilkan $NAME$. Terima kasih, kami akan meninjaunya.",
   "optionsShownHeading": "Kanal yang kamu pilih untuk ditampilkan",
   "optionsShownIntro": "Kanal dari daftar Komunitas yang kamu tandai bukan AI. Videonya tidak diburamkan.",
-  "optionsShownEmpty": "Belum ada. Pada video Komunitas yang buram, gunakan Bukan AI, tampilkan kanal ini."
+  "optionsShownEmpty": "Belum ada. Pada video Komunitas yang buram, gunakan Bukan AI.",
+  "coverTitle": "Video AI disembunyikan",
+  "coverReasonCommunity": "Ada di daftar ByeAI Community",
+  "coverReasonLabeled": "YouTube menandainya sebagai AI",
+  "coverReasonTagged": "Ditandai sebagai AI oleh pembuatnya",
+  "coverShow": "Tampilkan video",
+  "coverShowShort": "Tampilkan",
+  "coverNotAi": "Bukan AI",
+  "coverNextVideo": "Video berikutnya"
 }

@@ -9,8 +9,10 @@
  *   <html> that we move over the tile you point at.
  * - Community list: downloaded by the service worker. ai-content.js covers
  *   those channels with the usual blur, through byeai.channels below.
- * - Shown channels: "Not AI, show this channel" on a Community cover. Those
- *   channels no longer count as Community channels. Hide channel still wins.
+ * - Shown channels: "Not AI" on a Community cover. Those channels no longer
+ *   count as Community channels. Hide channel still wins.
+ * - Covered videos get one action panel (Show video, Hide channel, Not AI,
+ *   Next video on the player), also an overlay under <html>.
  */
 (function () {
   'use strict';
@@ -224,7 +226,7 @@
     mark(document.body);
     if (current && (current.tile.hasAttribute(ATTR) || !byeai.state.labeled)) hideButton();
     placeWatchButton();
-    checkNotAi();
+    syncPanels();
     listeners.forEach((fn) => {
       try {
         fn();
@@ -336,7 +338,9 @@
   }
 
   function showButton(tile) {
-    const info = byeai.state.labeled && !tile.hasAttribute(ATTR) ? channelIn(tile) : null;
+    // Covered tiles have the panel, with its own Hide channel.
+    const covered = tile.hasAttribute('data-byeai-cover');
+    const info = byeai.state.labeled && !tile.hasAttribute(ATTR) && !covered ? channelIn(tile) : null;
     if (!info) return hideButton();
     if (!tileButton) {
       tileButton = overlay('byeai-hide-channel', BUTTON_CSS, () => current && hide(current.info));
@@ -385,11 +389,6 @@
       focusables(tile).pop()?.focus();
       return;
     }
-    const notAiHere = notAiFor(tile);
-    if (notAiHere) {
-      notAiHere.button.focus();
-      return;
-    }
     const next = focusables(document.body).find(
       (el) => !tile.contains(el) && tile.compareDocumentPosition(el) & Node.DOCUMENT_POSITION_FOLLOWING
     );
@@ -402,12 +401,10 @@
     (event) => {
       if (event.key !== 'Tab' || event.shiftKey) return;
       const active = document.activeElement;
-      const tile = current?.tile || notAiCurrent?.card;
-      if (!active || !tile || !tile.contains(active) || focusables(tile).pop() !== active) return;
-      const target = current && tileButton ? tileButton : notAiFor(tile);
-      if (!target) return;
+      const tile = current?.tile;
+      if (!active || !tile || !tile.contains(active) || focusables(tile).pop() !== active || !tileButton) return;
       event.preventDefault();
-      target.button.focus();
+      tileButton.button.focus();
     },
     true
   );
@@ -415,11 +412,10 @@
   document.addEventListener(
     'pointerover',
     (event) => {
-      if (event.target === tileButton?.host || event.target === notAiButton?.host) return;
+      if (event.target === tileButton?.host) return;
       const tile = outerTile(event.target);
       if (!tile) hideButton();
       else if (tile !== current?.tile) showButton(tile);
-      trackNotAi(event.target);
     },
     true
   );
@@ -427,110 +423,368 @@
   document.addEventListener(
     'focusin',
     (event) => {
-      if (event.target === tileButton?.host || event.target === notAiButton?.host) return;
+      if (event.target === tileButton?.host) return;
       const tile = outerTile(event.target);
       if (tile) showButton(tile);
       else hideButton();
-      trackNotAi(event.target);
     },
     true
   );
 
   window.addEventListener('resize', () => {
     hideButton();
-    hideNotAi();
     placeWatchButton();
   });
 
-  // ------------------------------------------------- "Not AI" on covers
+  // ------------------------------------------------ cover action panels
 
-  // A pill under the "Click to show" note of a Community cover. Like the
-  // hide button it lives under <html>, outside YouTube's trees.
-  const NOT_AI_CSS = `
+  // One panel per covered element: what it is, why, and clear buttons. Like
+  // the hide button it lives under <html>, positioned over the covered
+  // element, and never goes into YouTube's trees. It also blocks clicks
+  // through to the video: nothing reveals unless a button is used.
+  const PANEL_CSS = `
     :host { all: initial; }
+    .scrim {
+      --surface: #ffffff; --text: #0f0f0f; --muted: #4b4b4b; --btn: #f2f2f2; --btn-hover: #e0e0e0;
+      --primary: #0f766e; --primary-text: #ffffff; --primary-hover: #115e59; --focus: #0f766e;
+      position: absolute; inset: 0; box-sizing: border-box; display: flex; align-items: center; justify-content: center;
+      padding: 8px; overflow: hidden; background: rgba(15, 23, 42, 0.55);
+      font: 13px/1.35 Roboto, "Segoe UI", system-ui, -apple-system, sans-serif;
+    }
+    @media (prefers-color-scheme: dark) {
+      .scrim { --surface: #212121; --text: #f1f1f1; --muted: #cfcfcf; --btn: #3a3a3a; --btn-hover: #4d4d4d;
+        --primary: #5eead4; --primary-text: #042f2e; --primary-hover: #99f6e4; --focus: #5eead4; }
+    }
+    :host([data-theme="dark"]) .scrim { --surface: #212121; --text: #f1f1f1; --muted: #cfcfcf; --btn: #3a3a3a; --btn-hover: #4d4d4d;
+      --primary: #5eead4; --primary-text: #042f2e; --primary-hover: #99f6e4; --focus: #5eead4; }
+    :host([data-theme="light"]) .scrim { --surface: #ffffff; --text: #0f0f0f; --muted: #4b4b4b; --btn: #f2f2f2; --btn-hover: #e0e0e0;
+      --primary: #0f766e; --primary-text: #ffffff; --primary-hover: #115e59; --focus: #0f766e; }
+    .panel {
+      box-sizing: border-box; max-width: 100%; max-height: 100%; overflow: hidden; display: flex; flex-direction: column;
+      align-items: center; gap: 6px; padding: 12px 14px; text-align: center; color: var(--text);
+      background: var(--surface); border-radius: 12px; box-shadow: 0 4px 18px rgba(0, 0, 0, 0.35);
+    }
+    .title { font-weight: 700; font-size: 15px; }
+    .reason { color: var(--muted); font-size: 12px; }
+    .actions { display: flex; flex-wrap: wrap; justify-content: center; gap: 6px; margin-top: 4px; }
     button {
-      font: 600 12px/16px "Segoe UI", system-ui, -apple-system, sans-serif; color: #0f172a;
-      background: #ffffff; border: 0; border-radius: 14px; padding: 6px 12px; margin: 0;
-      cursor: pointer; white-space: nowrap; box-shadow: 0 1px 4px rgba(0, 0, 0, 0.35);
+      display: inline-flex; align-items: center; justify-content: center; gap: 6px; min-height: 28px; margin: 0;
+      padding: 5px 12px; border: 0; border-radius: 16px; cursor: pointer; white-space: nowrap;
+      font-family: inherit; font-size: 12px; font-weight: 600; line-height: 16px; color: var(--text); background: var(--btn);
     }
-    button:hover { background: #ccfbf1; }
-    button:focus-visible { outline: 2px solid #ffffff; outline-offset: 0; box-shadow: 0 0 0 4px #0f766e; }
+    button:hover { background: var(--btn-hover); }
+    button.primary { color: var(--primary-text); background: var(--primary); }
+    button.primary:hover { background: var(--primary-hover); }
+    button:focus-visible { outline: 2px solid var(--focus); outline-offset: 2px; }
+    svg { flex: none; }
+    :host([data-size="compact"]) .panel { padding: 8px 10px; gap: 4px; }
+    :host([data-size="compact"]) .title { font-size: 13px; }
+    :host([data-size="mini"]) .scrim { padding: 4px; }
+    :host([data-size="mini"]) .panel { padding: 4px; gap: 0; border-radius: 16px; }
+    :host([data-size="mini"]) .actions { margin: 0; gap: 4px; }
+    :host([data-size="mini"]) button { padding: 4px 10px; }
+    :host([data-size="mini"]) button.icon, :host([data-size="compact"]) button.icon { padding: 4px 7px; }
   `;
-  const COMMUNITY_COVER = '[data-byeai-cover="community"]';
 
-  let notAiButton = null;
-  let notAiCurrent = null;
+  const COVER = '[data-byeai-cover]';
+  const NEXT = '#movie_player .ytp-next-button, .html5-video-player .ytp-next-button';
+  /** @type {Map<Element, object>} */
+  const panels = new Map();
+  let panelTimer = null;
+  let panelFrame = 0;
 
-  const coverInfo = (card) => (card.id === 'movie_player' ? watchChannel() : channelIn(card));
+  const isPlayerCard = (card) => card.id === 'movie_player' || card.matches('ytd-player');
+  const coverInfo = (card) => (isPlayerCard(card) ? watchChannel() : channelIn(card));
 
-  function showNotAi(card) {
-    const info = byeai.state.labeled ? coverInfo(card) : null;
-    if (!isCommunity(info)) return hideNotAi();
-    const r = card.getBoundingClientRect();
-    if (!r.width || !r.height) return hideNotAi();
-    if (!notAiButton) {
-      notAiButton = overlay('byeai-not-ai', NOT_AI_CSS, () => notAiCurrent && show(notAiCurrent.info));
-      notAiButton.button.addEventListener('keydown', onNotAiKey);
+  function nextButton() {
+    const b = document.querySelector(NEXT);
+    return b && b.getClientRects().length ? b : null;
+  }
+
+  // Our own click on YouTube's button must get through the cover's click guard.
+  function goNext() {
+    byeai.passClick = true;
+    try {
+      nextButton()?.click();
+    } finally {
+      byeai.passClick = false;
     }
-    notAiCurrent = { card, info };
-    const text = msg('channelNotAi', 'Not AI, show this channel');
-    notAiButton.button.textContent = text;
-    notAiButton.button.setAttribute('aria-label', `${text}: ${info.n}`);
-    notAiButton.button.dir = msg('@@bidi_dir', 'ltr');
-    notAiButton.set('display', 'block');
-    const size = notAiButton.host.getBoundingClientRect();
-    // Centered, just below the cover's note.
-    const left = Math.max(r.left, r.left + (r.width - size.width) / 2);
-    const top = Math.max(r.top + 4, Math.min(r.top + r.height / 2 + 26, r.bottom - size.height - 8));
-    notAiButton.set('left', `${Math.round(left + window.scrollX)}px`);
-    notAiButton.set('top', `${Math.round(top + window.scrollY)}px`);
   }
 
-  function hideNotAi() {
-    notAiCurrent = null;
-    notAiButton?.set('display', 'none');
-  }
-
-  // The cover went away (revealed, recycled tile, channel shown or hidden).
-  function checkNotAi() {
-    if (!notAiCurrent) return;
-    const { card } = notAiCurrent;
-    if (!card.isConnected || !card.matches(COMMUNITY_COVER) || !isCommunity(coverInfo(card))) hideNotAi();
-  }
-
-  function trackNotAi(target) {
-    const card = target instanceof Element ? target.closest(COMMUNITY_COVER) : null;
-    if (!card) hideNotAi();
-    else if (card !== notAiCurrent?.card) showNotAi(card);
-  }
-
-  const notAiFor = (tile) => (notAiCurrent && notAiButton && notAiCurrent.card === tile ? notAiButton : null);
-
-  // Keyboard: comes after the hide button (or the cover's last control),
-  // then moves on to whatever comes after the cover.
-  function onNotAiKey(event) {
-    if (!notAiCurrent) return;
-    const card = notAiCurrent.card;
-    if (event.key === 'Escape') {
-      const back = focusables(card).pop();
-      hideNotAi();
-      back?.focus();
-      return;
+  function scrollParent(card) {
+    for (let el = card.parentElement; el && el !== document.body; el = el.parentElement) {
+      const cs = getComputedStyle(el);
+      if (/(auto|scroll|hidden|clip)/.test(`${cs.overflowX} ${cs.overflowY}`)) return el;
     }
-    if (event.key !== 'Tab') return;
-    event.preventDefault();
-    if (event.shiftKey) {
-      if (current?.tile === card && tileButton) tileButton.button.focus();
-      else focusables(card).pop()?.focus();
-      return;
+    return null;
+  }
+
+  function sizeOf(card, r) {
+    if (card.matches(PANEL_ITEM) || r.width < 200 || r.height < 100) return 'mini';
+    return r.width < 300 || r.height < 150 ? 'compact' : 'full';
+  }
+
+  function panelButton(act, cls = '', icon = false) {
+    const b = document.createElement('button');
+    b.type = 'button';
+    b.dataset.act = act;
+    if (cls) b.className = cls;
+    if (icon) b.innerHTML = ICON;
+    return b;
+  }
+
+  // Fill the panel for the current size, kind and channel.
+  function render(p) {
+    const { card, info, size } = p;
+    const kind = card.dataset.byeaiCover;
+    const mini = size === 'mini';
+    const box = document.createElement('div');
+    box.className = 'panel';
+    box.setAttribute('role', 'group');
+    const title = msg('coverTitle', 'AI video hidden');
+    box.setAttribute('aria-label', title);
+
+    if (!mini) {
+      const t = document.createElement('div');
+      t.className = 'title';
+      t.textContent = title;
+      box.append(t);
     }
-    const next = focusables(document.body).find(
+    if (size === 'full') {
+      const reason = document.createElement('div');
+      reason.className = 'reason';
+      reason.textContent =
+        kind === 'community'
+          ? msg('coverReasonCommunity', 'On the ByeAI Community list')
+          : kind === 'labeled'
+            ? msg('coverReasonLabeled', 'YouTube labels it as AI')
+            : msg('coverReasonTagged', 'Tagged as AI by the creator');
+      box.append(reason);
+    }
+
+    const actions = document.createElement('div');
+    actions.className = 'actions';
+    const showBtn = panelButton('show', 'primary');
+    showBtn.textContent = mini ? msg('coverShowShort', 'Show') : msg('coverShow', 'Show video');
+    actions.append(showBtn);
+    if (isPlayerCard(card) && p.next) {
+      const next = panelButton('next');
+      next.textContent = msg('coverNextVideo', 'Next video');
+      actions.append(next);
+    }
+    if (info) {
+      const hideText = msg('channelHide', 'Hide channel');
+      const hideBtn = panelButton('hide', size === 'full' ? '' : 'icon', true);
+      if (size === 'full') hideBtn.append(document.createTextNode(hideText));
+      hideBtn.setAttribute('aria-label', `${hideText}: ${info.n}`);
+      hideBtn.title = `${hideText}: ${info.n}`;
+      actions.append(hideBtn);
+      if (!mini && kind === 'community' && isCommunity(info)) {
+        const notAi = panelButton('notai');
+        notAi.textContent = msg('coverNotAi', 'Not AI');
+        notAi.setAttribute('aria-label', `${msg('coverNotAi', 'Not AI')}: ${info.n}`);
+        actions.append(notAi);
+      }
+    }
+    box.append(actions);
+    p.scrim.replaceChildren(box);
+    p.scrim.dir = msg('@@bidi_dir', 'ltr');
+    p.scrim.lang = msg('@@ui_locale', 'en').replace('_', '-');
+  }
+
+  const panelButtons = (p) => [...p.root.querySelectorAll('button')];
+
+  function afterCard(card) {
+    return focusables(document.body).find(
       (el) => !card.contains(el) && card.compareDocumentPosition(el) & Node.DOCUMENT_POSITION_FOLLOWING
     );
-    hideNotAi();
-    hideButton();
-    next?.focus();
   }
+
+  function beforeCard(card) {
+    const inside = focusables(card).pop();
+    if (inside) return inside;
+    return focusables(document.body)
+      .filter((el) => !card.contains(el) && card.compareDocumentPosition(el) & Node.DOCUMENT_POSITION_PRECEDING)
+      .pop();
+  }
+
+  function act(p, name) {
+    const { card } = p;
+    const info = coverInfo(card);
+    if (name === 'show') {
+      const focusBack = p.root.activeElement ? focusables(card)[0] : null;
+      byeai.covers?.reveal(card);
+      syncPanels();
+      focusBack?.focus({ preventScroll: true });
+    } else if (name === 'next') {
+      goNext();
+    } else if (name === 'hide') {
+      if (!info) return;
+      hide(info);
+      if (isPlayerCard(card)) goNext();
+    } else if (name === 'notai') {
+      if (info && isCommunity(info)) show(info);
+    }
+  }
+
+  function createPanel(card) {
+    const host = document.createElement('byeai-cover-panel');
+    const root = host.attachShadow({ mode: 'open' });
+    const style = document.createElement('style');
+    style.textContent = PANEL_CSS;
+    const scrim = document.createElement('div');
+    scrim.className = 'scrim';
+    root.append(style, scrim);
+    const set = (k, v) => host.style.setProperty(k, v, 'important');
+    set('position', 'absolute');
+    set('z-index', '2147483000');
+    set('display', 'none');
+    host.dataset.card = card.id || '';
+    const p = { card, host, root, scrim, set, info: null, size: '', sig: '', next: false, scroller: scrollParent(card) };
+
+    // Keep the page from treating our clicks as clicks on the video.
+    ['pointerdown', 'mousedown', 'pointerup', 'mouseup', 'dblclick', 'auxclick', 'click'].forEach((type) => {
+      host.addEventListener(
+        type,
+        (event) => {
+          event.stopPropagation();
+          if (type === 'pointerdown' || type === 'mousedown') return;
+          event.preventDefault();
+          if (type !== 'click') return;
+          const button = event.composedPath().find((n) => n instanceof HTMLButtonElement);
+          if (button) act(p, button.dataset.act);
+        },
+        true
+      );
+    });
+    host.addEventListener(
+      'keydown',
+      (event) => {
+        event.stopPropagation();
+        if (event.key !== 'Tab') return;
+        const buttons = panelButtons(p);
+        const active = root.activeElement;
+        if (event.shiftKey && active === buttons[0]) {
+          event.preventDefault();
+          beforeCard(card)?.focus();
+        } else if (!event.shiftKey && active === buttons[buttons.length - 1]) {
+          event.preventDefault();
+          afterCard(card)?.focus();
+        }
+      },
+      true
+    );
+    document.documentElement.appendChild(host);
+    return p;
+  }
+
+  // Cover rectangle, cut to the scrolling box it sits in (mix panel list).
+  function visibleRect(p) {
+    const r = p.card.getBoundingClientRect();
+    if (!r.width || !r.height || p.card.hasAttribute(ATTR)) return null;
+    let { left, top, right, bottom } = r;
+    if (p.scroller) {
+      const s = p.scroller.getBoundingClientRect();
+      left = Math.max(left, s.left);
+      top = Math.max(top, s.top);
+      right = Math.min(right, s.right);
+      bottom = Math.min(bottom, s.bottom);
+    }
+    if (right - left < 20 || bottom - top < 20) return null;
+    if (bottom < -window.innerHeight || top > window.innerHeight * 2) return null;
+    return { left, top, width: right - left, height: bottom - top, full: r };
+  }
+
+  function place(p) {
+    const r = visibleRect(p);
+    if (!r) return p.set('display', 'none');
+    const size = sizeOf(p.card, r.full);
+    if (size !== p.size) {
+      p.size = size;
+      p.host.dataset.size = size;
+      render(p);
+    }
+    p.host.dataset.theme = document.documentElement.hasAttribute('dark') ? 'dark' : 'light';
+    p.scrim.style.borderRadius = getComputedStyle(p.card).borderRadius;
+    p.set('left', `${Math.round(r.left + window.scrollX)}px`);
+    p.set('top', `${Math.round(r.top + window.scrollY)}px`);
+    p.set('width', `${Math.round(r.width)}px`);
+    p.set('height', `${Math.round(r.height)}px`);
+    p.set('display', 'block');
+  }
+
+  // Channel and kind can change when YouTube recycles a tile.
+  function refresh(p) {
+    const info = coverInfo(p.card);
+    const next = isPlayerCard(p.card) && Boolean(nextButton());
+    const sig = `${p.card.dataset.byeaiCover}|${info?.id || ''}|${info?.n || ''}|${next}|${isCommunity(info)}`;
+    p.info = info;
+    p.next = next;
+    if (sig !== p.sig) {
+      p.sig = sig;
+      p.size = '';
+    }
+    place(p);
+  }
+
+  function syncPanels() {
+    if (!document.body) return;
+    const covered = byeai.state.labeled ? [...document.querySelectorAll(`${COVER}[data-byeai-panel]`)] : [];
+    for (const [card, p] of panels) {
+      if (covered.includes(card)) continue;
+      p.host.remove();
+      panels.delete(card);
+    }
+    for (const card of covered) {
+      if (!panels.has(card)) panels.set(card, createPanel(card));
+      refresh(panels.get(card));
+    }
+  }
+
+  function placePanels() {
+    panelFrame = 0;
+    panels.forEach((p) => {
+      if (p.card.isConnected) place(p);
+    });
+  }
+
+  const queuePlace = () => {
+    if (panels.size && !panelFrame) panelFrame = requestAnimationFrame(placePanels);
+  };
+  window.addEventListener('scroll', queuePlace, { capture: true, passive: true });
+  window.addEventListener('resize', queuePlace);
+
+  // Layout moves without events (feeds load, the sidebar reflows).
+  function startPanels() {
+    clearInterval(panelTimer);
+    panelTimer = setInterval(() => {
+      if (!panels.size) return;
+      for (const [card, p] of panels) {
+        if (!card.isConnected) {
+          p.host.remove();
+          panels.delete(card);
+        } else if (isPlayerCard(card) && Boolean(nextButton()) !== p.next) {
+          refresh(p);
+        }
+      }
+      queuePlace();
+    }, 400);
+  }
+
+  // Keyboard: Tab from the last control of a covered element lands on its panel.
+  document.addEventListener(
+    'keydown',
+    (event) => {
+      if (event.key !== 'Tab' || event.shiftKey) return;
+      const active = document.activeElement;
+      const card = active instanceof Element ? active.closest(`${COVER}[data-byeai-panel]`) : null;
+      const p = card && panels.get(card);
+      if (!p || focusables(card).pop() !== active || p.host.style.display === 'none') return;
+      event.preventDefault();
+      panelButtons(p)[0]?.focus();
+    },
+    true
+  );
 
   // ------------------------------------------------------ watch page button
 
@@ -729,7 +983,7 @@
     if (roots.length > 40) mark(document.body);
     else roots.forEach((r) => r.isConnected && mark(r));
     placeWatchButton();
-    checkNotAi();
+    syncPanels();
   }
 
   function schedule(root) {
@@ -740,6 +994,7 @@
 
   function start() {
     injectStyle();
+    startPanels();
     changed();
     new MutationObserver((mutations) => {
       for (const m of mutations) {
@@ -751,7 +1006,6 @@
 
   document.addEventListener('yt-navigate-finish', () => {
     hideButton();
-    hideNotAi();
     schedule(document.body);
   });
 

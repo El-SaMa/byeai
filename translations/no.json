@@ -121,7 +121,6 @@
   "channelSuggest": "Foreslå som KI-kanal",
   "channelSuggestSent": "Takk, forslaget er sendt",
   "channelSuggestFailed": "Kunne ikke sende, prøv igjen senere",
-  "coverCommunity": "På ByeAI Community-listen\nKlikk for å vise",
   "optionsHiddenHeading": "Skjulte kanaler",
   "optionsHiddenIntro": "YouTube-kanaler du har skjult. Videoene deres vises ikke noe sted på YouTube.",
   "optionsHiddenEmpty": "Ingen skjulte kanaler ennå. Pek på en YouTube-video og bruk knappen i hjørnet.",
@@ -133,9 +132,16 @@
   "optionsAutoShareLabel": "Hjelp fellesskapet automatisk",
   "optionsAutoShareText": "Når YouTube selv merker en video som KI, sender ByeAI bare navnet på kanalen til Community-listen, anonymt.",
   "optionsAutoShareCount": "Kanaler delt automatisk: $COUNT$",
-  "channelNotAi": "Ikke KI, vis kanalen",
   "channelShown": "Viser $NAME$. Takk, vi går gjennom det.",
   "optionsShownHeading": "Kanaler du valgte å vise",
   "optionsShownIntro": "Kanaler fra Community-listen som du har merket som ikke KI. Videoene deres blir ikke uskarpe.",
-  "optionsShownEmpty": "Ingen ennå. Bruk Ikke KI, vis kanalen på en uskarp Community-video."
+  "optionsShownEmpty": "Ingen ennå. Bruk Ikke KI på en uskarp Community-video.",
+  "coverTitle": "KI-video skjult",
+  "coverReasonCommunity": "På ByeAI Community-listen",
+  "coverReasonLabeled": "YouTube merker den som KI",
+  "coverReasonTagged": "Skaperen har merket den som KI",
+  "coverShow": "Vis video",
+  "coverShowShort": "Vis",
+  "coverNotAi": "Ikke KI",
+  "coverNextVideo": "Neste video"
 }

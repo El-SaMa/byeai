@@ -9,7 +9,8 @@
  *
  * Covering is done with a data attribute + CSS (blur and a ::after notice),
  * so we never insert nodes into React/Lit trees. A click on the cover
- * reveals that one item.
+ * reveals that one item. On YouTube the cover has an action panel instead
+ * (channels.js): only its buttons act, a click on the cover does nothing.
  */
 (function () {
   'use strict';
@@ -205,6 +206,9 @@ html[data-byeai-labeled="1"] [data-byeai-cover="community"] {
   overflow: hidden !important;
   cursor: pointer !important;
 }
+html[data-byeai-labeled="1"] [data-byeai-cover][data-byeai-panel] {
+  cursor: default !important;
+}
 html[data-byeai-labeled="1"] [data-byeai-cover="labeled"] > *,
 html[data-byeai-labeled="1"] [data-byeai-cover="tagged"] > *,
 html[data-byeai-labeled="1"] [data-byeai-cover="community"] > * {
@@ -229,6 +233,9 @@ html[data-byeai-labeled="1"] [data-byeai-cover="community"]::after {
   text-align: center !important;
   white-space: pre-line !important;
   border-radius: inherit !important;
+}
+html[data-byeai-labeled="1"] [data-byeai-cover][data-byeai-panel]::after {
+  display: none !important;
 }`;
 
   function buttonCss() {
@@ -320,9 +327,11 @@ html[data-byeai-labeled="1"] [data-byeai-cover="community"]::after {
 
   function coverNote(kind, tag) {
     if (kind === 'labeled') return msg('coverLabeled', 'Labeled as AI by the site\nClick to show');
-    if (kind === 'community') return msg('coverCommunity', 'In the ByeAI Community list\nClick to show');
     return msg('coverTagged', `Tagged ${tag}\nClick to show`, [tag]);
   }
+
+  // YouTube covers get the action panel from channels.js (top frame only).
+  const panelCovers = site === 'youtube' && Boolean(channels);
 
   function cover(card, kind, source, tag = '') {
     if (!card || card === document.body || card === document.documentElement) return;
@@ -335,9 +344,10 @@ html[data-byeai-labeled="1"] [data-byeai-cover="community"]::after {
 
     covers.set(card, { kind, source, sig });
     coveredList.add(card);
+    if (panelCovers) card.dataset.byeaiPanel = '1';
     card.dataset.byeaiCover = kind;
     // Say why it is covered, so a wrong call at least explains itself.
-    card.dataset.byeaiNote = coverNote(kind, tag);
+    if (!panelCovers) card.dataset.byeaiNote = coverNote(kind, tag);
     if (getComputedStyle(card).position === 'static') {
       card.style.setProperty('position', 'relative');
       card.dataset.byeaiPos = '1';
@@ -351,11 +361,24 @@ html[data-byeai-labeled="1"] [data-byeai-cover="community"]::after {
     covers.delete(card);
     delete card.dataset.byeaiCover;
     delete card.dataset.byeaiNote;
+    delete card.dataset.byeaiPanel;
     if (card.dataset.byeaiPos) {
       card.style.removeProperty('position');
       delete card.dataset.byeaiPos;
     }
   }
+
+  // Show this one item. A covered player was paused on purpose: play it now.
+  function reveal(card) {
+    const info = covers.get(card);
+    revealed.set(card, info?.sig || signature(card.dataset.byeaiCover, null));
+    uncover(card);
+    if (isPlayer(card)) {
+      card.querySelectorAll('video').forEach((v) => v.play().catch(() => {}));
+    }
+  }
+
+  byeai.covers = { reveal };
 
   function pauseMedia(card) {
     card.querySelectorAll('video, audio').forEach((m) => {
@@ -522,13 +545,12 @@ html[data-byeai-labeled="1"] [data-byeai-cover="community"]::after {
     'click',
     (event) => {
       const card = event.target instanceof Element ? event.target.closest('[data-byeai-cover]') : null;
-      if (!card) return;
-      const info = covers.get(card);
+      if (!card || byeai.passClick) return;
       if (!byeai.state.labeled) return;
       event.preventDefault();
       event.stopImmediatePropagation();
-      revealed.set(card, info?.sig || signature(card.dataset.byeaiCover, null));
-      uncover(card);
+      // With an action panel only its buttons reveal, never a stray click.
+      if (!card.dataset.byeaiPanel) reveal(card);
     },
     true
   );

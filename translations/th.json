@@ -121,7 +121,6 @@
   "channelSuggest": "เสนอว่าเป็นช่อง AI",
   "channelSuggestSent": "ขอบคุณ ส่งคำแนะนำแล้ว",
   "channelSuggestFailed": "ส่งไม่สำเร็จ ลองใหม่ภายหลัง",
-  "coverCommunity": "อยู่ในรายการ ByeAI Community\nคลิกเพื่อดู",
   "optionsHiddenHeading": "ช่องที่ซ่อนไว้",
   "optionsHiddenIntro": "ช่อง YouTube ที่คุณซ่อนไว้ วิดีโอของช่องเหล่านี้จะไม่แสดงที่ใดบน YouTube",
   "optionsHiddenEmpty": "ยังไม่มีช่องที่ซ่อนไว้ ชี้เมาส์ที่วิดีโอ YouTube แล้วใช้ปุ่มที่มุมของวิดีโอ",
@@ -133,9 +132,16 @@
   "optionsAutoShareLabel": "ช่วย Community โดยอัตโนมัติ",
   "optionsAutoShareText": "เมื่อ YouTube ติดป้ายวิดีโอว่าเป็น AI เอง ByeAI จะส่งเพียงชื่อช่องนั้นไปยังรายการ Community โดยไม่ระบุตัวตน",
   "optionsAutoShareCount": "ช่องที่แชร์โดยอัตโนมัติ: $COUNT$",
-  "channelNotAi": "ไม่ใช่ AI แสดงช่องนี้",
   "channelShown": "กำลังแสดง $NAME$ ขอบคุณ เราจะตรวจสอบ",
   "optionsShownHeading": "ช่องที่คุณเลือกให้แสดง",
   "optionsShownIntro": "ช่องจากรายชื่อชุมชนที่คุณระบุว่าไม่ใช่ AI วิดีโอของช่องเหล่านี้จะไม่ถูกเบลอ",
-  "optionsShownEmpty": "ยังไม่มี ที่วิดีโอชุมชนที่ถูกเบลอ ให้กด ไม่ใช่ AI แสดงช่องนี้"
+  "optionsShownEmpty": "ยังไม่มี ที่วิดีโอชุมชนที่ถูกเบลอ ให้กด ไม่ใช่ AI",
+  "coverTitle": "ซ่อนวิดีโอ AI แล้ว",
+  "coverReasonCommunity": "อยู่ในรายการ ByeAI Community",
+  "coverReasonLabeled": "YouTube ติดป้ายว่าเป็น AI",
+  "coverReasonTagged": "ผู้สร้างติดแท็กว่าเป็น AI",
+  "coverShow": "แสดงวิดีโอ",
+  "coverShowShort": "แสดง",
+  "coverNotAi": "ไม่ใช่ AI",
+  "coverNextVideo": "วิดีโอถัดไป"
 }

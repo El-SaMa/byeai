@@ -17,7 +17,7 @@ Like an ad blocker, but for AI.
 | Switch | What it does |
 | --- | --- |
 | AI assistants | Blocks chat widgets and copilots at the network level, hides Google AI Overviews, Bing Copilot, DuckDuckGo and Brave AI answers, Amazon's AI review summary, and AI buttons like Grok, Meta AI, Gemini, Copilot, Rufus and "Help me write" |
-| AI videos and images | Blurs posts and videos that YouTube, TikTok, Instagram, Facebook, Threads, Pinterest and LinkedIn label as AI, or that carry clear AI tags like #aiart or #midjourney, and YouTube channels in the ByeAI Community list. Click to show one. On YouTube you can also hide a whole channel |
+| AI videos and images | Blurs posts and videos that YouTube, TikTok, Instagram, Facebook, Threads, Pinterest and LinkedIn label as AI, or that carry clear AI tags like #aiart or #midjourney, and YouTube channels in the ByeAI Community list. On YouTube each cover has buttons to show the video, hide the whole channel, or say it is not AI. Elsewhere, click to show one |
 
 AI apps you open yourself, like ChatGPT, Claude or Gemini, show a ByeAI page instead of loading, with **Allow this site** and **Allow once** buttons. The first time ByeAI blocks AI on a site, a small notice in the corner says so (turn it off in settings).
 

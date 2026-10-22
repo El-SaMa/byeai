@@ -121,7 +121,6 @@
   "channelSuggest": "Đề xuất là kênh AI",
   "channelSuggestSent": "Cảm ơn, đã gửi đề xuất",
   "channelSuggestFailed": "Không gửi được, hãy thử lại sau",
-  "coverCommunity": "Có trong danh sách ByeAI Community\nNhấp để xem",
   "optionsHiddenHeading": "Kênh đã ẩn",
   "optionsHiddenIntro": "Các kênh YouTube bạn đã ẩn. Video của họ sẽ không hiện ở bất kỳ đâu trên YouTube.",
   "optionsHiddenEmpty": "Chưa có kênh nào bị ẩn. Di chuột lên một video YouTube và dùng nút ở góc video.",
@@ -133,9 +132,16 @@
   "optionsAutoShareLabel": "Tự động giúp Community",
   "optionsAutoShareText": "Khi chính YouTube gắn nhãn AI cho một video, ByeAI chỉ gửi tên kênh đó vào danh sách Community, ẩn danh.",
   "optionsAutoShareCount": "Kênh đã tự động chia sẻ: $COUNT$",
-  "channelNotAi": "Không phải AI, hiện kênh này",
   "channelShown": "Đang hiện $NAME$. Cảm ơn, chúng tôi sẽ xem xét.",
   "optionsShownHeading": "Các kênh bạn chọn hiện",
   "optionsShownIntro": "Các kênh trong danh sách Cộng đồng mà bạn đã đánh dấu là không phải AI. Video của họ không bị làm mờ.",
-  "optionsShownEmpty": "Chưa có kênh nào. Trên video Cộng đồng bị làm mờ, hãy dùng nút Không phải AI, hiện kênh này."
+  "optionsShownEmpty": "Chưa có kênh nào. Trên video Cộng đồng bị làm mờ, hãy dùng nút Không phải AI.",
+  "coverTitle": "Đã ẩn video AI",
+  "coverReasonCommunity": "Có trong danh sách ByeAI Community",
+  "coverReasonLabeled": "YouTube gắn nhãn đây là AI",
+  "coverReasonTagged": "Người tạo gắn thẻ là AI",
+  "coverShow": "Hiện video",
+  "coverShowShort": "Hiện",
+  "coverNotAi": "Không phải AI",
+  "coverNextVideo": "Video tiếp theo"
 }

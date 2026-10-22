@@ -121,7 +121,6 @@
   "channelSuggest": "建议列为 AI 频道",
   "channelSuggestSent": "谢谢，建议已发送",
   "channelSuggestFailed": "发送失败，请稍后再试",
-  "coverCommunity": "在 ByeAI Community 列表中\n点击查看",
   "optionsHiddenHeading": "已隐藏的频道",
   "optionsHiddenIntro": "你隐藏的 YouTube 频道。它们的视频不会出现在 YouTube 的任何地方。",
   "optionsHiddenEmpty": "还没有隐藏的频道。将鼠标悬停在 YouTube 视频上，然后使用角落里的按钮。",
@@ -133,9 +132,16 @@
   "optionsAutoShareLabel": "自动帮助社区",
   "optionsAutoShareText": "当 YouTube 自己将某个视频标记为 AI 时，ByeAI 只会匿名将该频道的名称发送到 Community 列表。",
   "optionsAutoShareCount": "已自动分享的频道：$COUNT$",
-  "channelNotAi": "不是 AI，显示此频道",
   "channelShown": "正在显示 $NAME$。谢谢，我们会审核。",
   "optionsShownHeading": "你选择显示的频道",
   "optionsShownIntro": "社区列表中被你标记为非 AI 的频道。它们的视频不会被模糊。",
-  "optionsShownEmpty": "暂无。在被模糊的社区视频上点击“不是 AI，显示此频道”。"
+  "optionsShownEmpty": "暂无。在被模糊的社区视频上点击“不是 AI”。",
+  "coverTitle": "已隐藏 AI 视频",
+  "coverReasonCommunity": "在 ByeAI Community 列表中",
+  "coverReasonLabeled": "YouTube 已标为 AI",
+  "coverReasonTagged": "创作者已标注为 AI",
+  "coverShow": "显示视频",
+  "coverShowShort": "显示",
+  "coverNotAi": "不是 AI",
+  "coverNextVideo": "下一个视频"
 }

@@ -121,7 +121,6 @@
   "channelSuggest": "Sugerir como canal de IA",
   "channelSuggestSent": "Gracias, sugerencia enviada",
   "channelSuggestFailed": "No se pudo enviar, inténtalo más tarde",
-  "coverCommunity": "En la lista de ByeAI Community\nHaz clic para ver",
   "optionsHiddenHeading": "Canales ocultos",
   "optionsHiddenIntro": "Canales de YouTube que has ocultado. Sus vídeos no aparecen en ningún lugar de YouTube.",
   "optionsHiddenEmpty": "Aún no hay canales ocultos. Pasa el ratón sobre un vídeo de YouTube y usa el botón de su esquina.",
@@ -133,9 +132,16 @@
   "optionsAutoShareLabel": "Ayudar a la comunidad automáticamente",
   "optionsAutoShareText": "Cuando YouTube marca un vídeo como IA, ByeAI envía solo el nombre de ese canal a la lista Community, de forma anónima.",
   "optionsAutoShareCount": "Canales compartidos automáticamente: $COUNT$",
-  "channelNotAi": "No es IA, mostrar este canal",
   "channelShown": "Mostrando $NAME$. Gracias, lo revisaremos.",
   "optionsShownHeading": "Canales que elegiste mostrar",
   "optionsShownIntro": "Canales de la lista de la Comunidad que marcaste como no IA. Sus vídeos no se difuminan.",
-  "optionsShownEmpty": "Ninguno todavía. En un vídeo difuminado de la Comunidad, usa «No es IA, mostrar este canal»."
+  "optionsShownEmpty": "Ninguno todavía. En un vídeo difuminado de la Comunidad, usa «No es IA».",
+  "coverTitle": "Vídeo de IA oculto",
+  "coverReasonCommunity": "En la lista de ByeAI Community",
+  "coverReasonLabeled": "YouTube lo marca como IA",
+  "coverReasonTagged": "El creador lo etiquetó como IA",
+  "coverShow": "Mostrar vídeo",
+  "coverShowShort": "Mostrar",
+  "coverNotAi": "No es IA",
+  "coverNextVideo": "Siguiente vídeo"
 }

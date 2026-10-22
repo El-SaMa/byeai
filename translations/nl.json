@@ -121,7 +121,6 @@
   "channelSuggest": "Voorstellen als AI-kanaal",
   "channelSuggestSent": "Bedankt, voorstel verstuurd",
   "channelSuggestFailed": "Versturen mislukt, probeer het later",
-  "coverCommunity": "Op de ByeAI Community-lijst\nKlik om te tonen",
   "optionsHiddenHeading": "Verborgen kanalen",
   "optionsHiddenIntro": "YouTube-kanalen die je hebt verborgen. Hun video's zie je nergens meer op YouTube.",
   "optionsHiddenEmpty": "Nog geen verborgen kanalen. Wijs een YouTube-video aan en gebruik de knop in de hoek.",
@@ -133,9 +132,16 @@
   "optionsAutoShareLabel": "De community automatisch helpen",
   "optionsAutoShareText": "Als YouTube zelf een video als AI labelt, stuurt ByeAI alleen de naam van dat kanaal anoniem naar de Community-lijst.",
   "optionsAutoShareCount": "Automatisch gedeelde kanalen: $COUNT$",
-  "channelNotAi": "Geen AI, toon dit kanaal",
   "channelShown": "$NAME$ wordt getoond. Bedankt, we bekijken het.",
   "optionsShownHeading": "Kanalen die je wilt tonen",
   "optionsShownIntro": "Kanalen uit de communitylijst die je als geen AI hebt gemarkeerd. Hun video's worden niet vervaagd.",
-  "optionsShownEmpty": "Nog geen. Gebruik bij een vervaagde communityvideo Geen AI, toon dit kanaal."
+  "optionsShownEmpty": "Nog geen. Gebruik bij een vervaagde communityvideo Geen AI.",
+  "coverTitle": "AI-video verborgen",
+  "coverReasonCommunity": "Op de ByeAI Community-lijst",
+  "coverReasonLabeled": "YouTube markeert het als AI",
+  "coverReasonTagged": "Door de maker als AI getagd",
+  "coverShow": "Video tonen",
+  "coverShowShort": "Tonen",
+  "coverNotAi": "Geen AI",
+  "coverNextVideo": "Volgende video"
 }

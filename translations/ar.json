@@ -121,7 +121,6 @@
   "channelSuggest": "اقتراح كقناة ذكاء اصطناعي",
   "channelSuggestSent": "شكرًا، تم إرسال الاقتراح",
   "channelSuggestFailed": "تعذّر الإرسال، حاول لاحقًا",
-  "coverCommunity": "ضمن قائمة ByeAI Community\nانقر للعرض",
   "optionsHiddenHeading": "القنوات المخفية",
   "optionsHiddenIntro": "قنوات YouTube التي أخفيتها. لن تظهر فيديوهاتها في أي مكان على YouTube.",
   "optionsHiddenEmpty": "لا توجد قنوات مخفية بعد. مرّر المؤشر فوق فيديو على YouTube واستخدم الزر في زاويته.",
@@ -133,9 +132,16 @@
   "optionsAutoShareLabel": "ساعد المجتمع تلقائيًا",
   "optionsAutoShareText": "عندما يضع YouTube نفسه علامة الذكاء الاصطناعي على فيديو، يرسل ByeAI اسم تلك القناة فقط إلى قائمة Community، دون الكشف عن هويتك.",
   "optionsAutoShareCount": "القنوات المُشارَكة تلقائيًا: $COUNT$",
-  "channelNotAi": "ليس ذكاءً اصطناعيًا، أظهر هذه القناة",
   "channelShown": "يتم عرض $NAME$. شكرًا، سنراجع الأمر.",
   "optionsShownHeading": "القنوات التي اخترت إظهارها",
   "optionsShownIntro": "قنوات من قائمة المجتمع حددتها على أنها ليست ذكاءً اصطناعيًا. لا تُحجب فيديوهاتها.",
-  "optionsShownEmpty": "لا شيء بعد. في فيديو مجتمع محجوب، استخدم «ليس ذكاءً اصطناعيًا، أظهر هذه القناة»."
+  "optionsShownEmpty": "لا شيء بعد. في فيديو مجتمع محجوب، استخدم «ليس ذكاءً اصطناعيًا».",
+  "coverTitle": "تم إخفاء فيديو ذكاء اصطناعي",
+  "coverReasonCommunity": "ضمن قائمة ByeAI Community",
+  "coverReasonLabeled": "يصنّفه YouTube كذكاء اصطناعي",
+  "coverReasonTagged": "وسمه صاحبه كذكاء اصطناعي",
+  "coverShow": "عرض الفيديو",
+  "coverShowShort": "عرض",
+  "coverNotAi": "ليس ذكاءً اصطناعيًا",
+  "coverNextVideo": "الفيديو التالي"
 }

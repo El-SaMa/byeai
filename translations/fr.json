@@ -121,7 +121,6 @@
   "channelSuggest": "Suggérer comme chaîne IA",
   "channelSuggestSent": "Merci, suggestion envoyée",
   "channelSuggestFailed": "Envoi impossible, réessayez plus tard",
-  "coverCommunity": "Dans la liste ByeAI Community\nCliquez pour afficher",
   "optionsHiddenHeading": "Chaînes masquées",
   "optionsHiddenIntro": "Les chaînes YouTube que vous avez masquées. Leurs vidéos n’apparaissent plus nulle part sur YouTube.",
   "optionsHiddenEmpty": "Aucune chaîne masquée pour l’instant. Survolez une vidéo YouTube et utilisez le bouton dans son coin.",
@@ -133,9 +132,16 @@
   "optionsAutoShareLabel": "Aider la communauté automatiquement",
   "optionsAutoShareText": "Quand YouTube indique lui-même qu’une vidéo est de l’IA, ByeAI envoie seulement le nom de la chaîne à la liste Community, de façon anonyme.",
   "optionsAutoShareCount": "Chaînes partagées automatiquement : $COUNT$",
-  "channelNotAi": "Pas de l'IA, afficher cette chaîne",
   "channelShown": "Affichage de $NAME$. Merci, nous allons examiner ça.",
   "optionsShownHeading": "Chaînes que vous avez choisi d'afficher",
   "optionsShownIntro": "Chaînes de la liste de la Communauté que vous avez marquées comme n'étant pas de l'IA. Leurs vidéos ne sont pas floutées.",
-  "optionsShownEmpty": "Aucune pour l'instant. Sur une vidéo floutée de la Communauté, utilisez « Pas de l'IA, afficher cette chaîne »."
+  "optionsShownEmpty": "Aucune pour l'instant. Sur une vidéo floutée de la Communauté, utilisez « Pas de l’IA ».",
+  "coverTitle": "Vidéo IA masquée",
+  "coverReasonCommunity": "Dans la liste ByeAI Community",
+  "coverReasonLabeled": "YouTube la signale comme IA",
+  "coverReasonTagged": "Signalée comme IA par son auteur",
+  "coverShow": "Afficher la vidéo",
+  "coverShowShort": "Afficher",
+  "coverNotAi": "Pas de l’IA",
+  "coverNextVideo": "Vidéo suivante"
 }

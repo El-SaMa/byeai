@@ -121,7 +121,6 @@
   "channelSuggest": "Πρόταση ως κανάλι AI",
   "channelSuggestSent": "Ευχαριστούμε, η πρόταση στάλθηκε",
   "channelSuggestFailed": "Η αποστολή απέτυχε, δοκιμάστε αργότερα",
-  "coverCommunity": "Στη λίστα ByeAI Community\nΚάντε κλικ για εμφάνιση",
   "optionsHiddenHeading": "Κρυφά κανάλια",
   "optionsHiddenIntro": "Κανάλια YouTube που κρύψατε. Τα βίντεό τους δεν εμφανίζονται πουθενά στο YouTube.",
   "optionsHiddenEmpty": "Δεν υπάρχουν ακόμη κρυφά κανάλια. Περάστε τον δείκτη πάνω από ένα βίντεο στο YouTube και πατήστε το κουμπί στη γωνία του.",
@@ -133,9 +132,16 @@
   "optionsAutoShareLabel": "Αυτόματη βοήθεια στην κοινότητα",
   "optionsAutoShareText": "Όταν το ίδιο το YouTube επισημαίνει ένα βίντεο ως AI, το ByeAI στέλνει μόνο το όνομα του καναλιού στη λίστα Community, ανώνυμα.",
   "optionsAutoShareCount": "Κανάλια που κοινοποιήθηκαν αυτόματα: $COUNT$",
-  "channelNotAi": "Δεν είναι AI, εμφάνιση καναλιού",
   "channelShown": "Εμφάνιση: $NAME$. Ευχαριστούμε, θα το ελέγξουμε.",
   "optionsShownHeading": "Κανάλια που επιλέξατε να εμφανίζονται",
   "optionsShownIntro": "Κανάλια από τη λίστα της Κοινότητας που σημειώσατε ως μη AI. Τα βίντεό τους δεν θολώνουν.",
-  "optionsShownEmpty": "Κανένα ακόμη. Σε ένα θολωμένο βίντεο της Κοινότητας πατήστε «Δεν είναι AI, εμφάνιση καναλιού»."
+  "optionsShownEmpty": "Κανένα ακόμη. Σε ένα θολωμένο βίντεο της Κοινότητας πατήστε «Δεν είναι AI».",
+  "coverTitle": "Το βίντεο AI είναι κρυφό",
+  "coverReasonCommunity": "Στη λίστα ByeAI Community",
+  "coverReasonLabeled": "Το YouTube το σημαίνει ως AI",
+  "coverReasonTagged": "Ο δημιουργός το σήμανε ως AI",
+  "coverShow": "Εμφάνιση βίντεο",
+  "coverShowShort": "Εμφάνιση",
+  "coverNotAi": "Δεν είναι AI",
+  "coverNextVideo": "Επόμενο βίντεο"
 }

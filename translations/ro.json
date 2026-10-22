@@ -121,7 +121,6 @@
   "channelSuggest": "Sugerează ca un canal AI",
   "channelSuggestSent": "Mulțumim, sugestia a fost trimisă",
   "channelSuggestFailed": "Nu s-a putut trimite, încearcă mai târziu",
-  "coverCommunity": "În lista ByeAI Community\nApasă pentru a vedea",
   "optionsHiddenHeading": "Canale ascunse",
   "optionsHiddenIntro": "Canalele YouTube pe care le-ai ascuns. Videoclipurile lor nu mai apar nicăieri pe YouTube.",
   "optionsHiddenEmpty": "Încă nu ai canale ascunse. Du cursorul peste un videoclip YouTube și folosește butonul din colț.",
@@ -133,9 +132,16 @@
   "optionsAutoShareLabel": "Ajută comunitatea automat",
   "optionsAutoShareText": "Când YouTube însuși marchează un videoclip ca AI, ByeAI trimite anonim doar numele canalului în lista Community.",
   "optionsAutoShareCount": "Canale trimise automat: $COUNT$",
-  "channelNotAi": "Nu e IA, arată acest canal",
   "channelShown": "Se afișează $NAME$. Mulțumim, vom verifica.",
   "optionsShownHeading": "Canale pe care ai ales să le afișezi",
   "optionsShownIntro": "Canale din lista Comunității pe care le-ai marcat ca nefiind IA. Videoclipurile lor nu sunt estompate.",
-  "optionsShownEmpty": "Încă niciunul. Pe un videoclip estompat din Comunitate, folosește „Nu e IA, arată acest canal”."
+  "optionsShownEmpty": "Încă niciunul. Pe un videoclip estompat din Comunitate, folosește „Nu e IA”.",
+  "coverTitle": "Videoclip IA ascuns",
+  "coverReasonCommunity": "În lista ByeAI Community",
+  "coverReasonLabeled": "YouTube îl marchează ca IA",
+  "coverReasonTagged": "Marcat ca IA de creator",
+  "coverShow": "Arată videoclipul",
+  "coverShowShort": "Arată",
+  "coverNotAi": "Nu e IA",
+  "coverNextVideo": "Următorul videoclip"
 }

@@ -121,7 +121,6 @@
   "channelSuggest": "AIチャンネルとして提案",
   "channelSuggestSent": "ありがとうございます。提案を送信しました",
   "channelSuggestFailed": "送信できませんでした。後でもう一度お試しください",
-  "coverCommunity": "ByeAI Community リストに掲載\nクリックで表示",
   "optionsHiddenHeading": "非表示のチャンネル",
   "optionsHiddenIntro": "非表示にしたYouTubeチャンネルです。動画はYouTubeのどこにも表示されません。",
   "optionsHiddenEmpty": "非表示のチャンネルはまだありません。YouTubeの動画にポインターを合わせ、隅のボタンを使ってください。",
@@ -133,9 +132,16 @@
   "optionsAutoShareLabel": "Communityに自動で協力する",
   "optionsAutoShareText": "YouTube自身が動画にAIラベルを付けたとき、ByeAIはそのチャンネル名だけを匿名でCommunityリストに送ります。",
   "optionsAutoShareCount": "自動で共有したチャンネル：$COUNT$",
-  "channelNotAi": "AIではない、このチャンネルを表示",
   "channelShown": "「$NAME$」を表示します。ご報告ありがとうございます。確認します。",
   "optionsShownHeading": "表示するように選んだチャンネル",
   "optionsShownIntro": "コミュニティリストのうち、AIではないと指定したチャンネルです。動画はぼかされません。",
-  "optionsShownEmpty": "まだありません。ぼかされたコミュニティの動画で「AIではない、このチャンネルを表示」を押してください。"
+  "optionsShownEmpty": "まだありません。ぼかされたコミュニティの動画で「AIではない」を押してください。",
+  "coverTitle": "AI動画を非表示にしました",
+  "coverReasonCommunity": "ByeAI Community リストに掲載",
+  "coverReasonLabeled": "YouTubeがAIと表示しています",
+  "coverReasonTagged": "投稿者がAIとタグ付けしています",
+  "coverShow": "動画を表示",
+  "coverShowShort": "表示",
+  "coverNotAi": "AIではない",
+  "coverNextVideo": "次の動画"
 }
