@@ -57,7 +57,7 @@ const pages = {
   'screenshot-1-videos-1280x800': [1280, 800, `
     <div style="height:100%;display:flex;flex-direction:column;align-items:center;padding-top:44px">
       <div class="name" style="font-size:44px">AI videos get blurred</div>
-      <div class="muted" style="font-size:22px;margin-top:10px">When a site labels a video as AI, ByeAI covers it. Click if you still want to watch.</div>
+      <div class="muted" style="font-size:22px;margin-top:10px">AI videos are covered, with clear buttons: show it, hide the channel, or say it's not AI.</div>
       <img class="shot" src="${youtube}" style="margin-top:34px;height:590px">
     </div>`],
 
@@ -67,8 +67,9 @@ const pages = {
         <div class="name" style="font-size:52px">Two switches.<br>That's it.</div>
         <ul style="list-style:none;margin-top:30px;font-size:23px;line-height:1.45">
           <li style="margin-bottom:18px"><b class="teal">AI assistants</b><br><span class="muted">Chat bots, AI answers and AI buttons</span></li>
-          <li style="margin-bottom:18px"><b class="teal">AI videos and images</b><br><span class="muted">Blurred, with a click to show</span></li>
-          <li><b class="teal">Allow any site</b><br><span class="muted">One click when you do want AI</span></li>
+          <li style="margin-bottom:18px"><b class="teal">AI videos and images</b><br><span class="muted">Blurred, with clear buttons</span></li>
+          <li style="margin-bottom:18px"><b class="teal">Allow any site</b><br><span class="muted">One click when you do want AI</span></li>
+          <li><b class="teal">Pause any time</b><br><span class="muted">For an hour, or until tomorrow</span></li>
         </ul>
       </div>
       <img class="shot" src="${popup}" height="700">
