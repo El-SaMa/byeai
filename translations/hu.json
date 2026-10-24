@@ -122,6 +122,7 @@
   "channelSuggest": "Javaslás MI-csatornaként",
   "channelSuggestSent": "Köszönjük, a javaslatot elküldtük",
   "channelSuggestFailed": "Nem sikerült elküldeni, próbáld később",
+  "syncFull": "Nem mentve: a Chrome szinkronizációs tárhelye megtelt.",
   "optionsHiddenHeading": "Elrejtett csatornák",
   "optionsHiddenIntro": "Az általad elrejtett YouTube-csatornák. A videóik sehol sem jelennek meg a YouTube-on.",
   "optionsHiddenEmpty": "Még nincs elrejtett csatorna. Vidd az egeret egy YouTube-videó fölé, és használd a sarkában lévő gombot.",

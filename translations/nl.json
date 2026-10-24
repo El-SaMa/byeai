@@ -122,6 +122,7 @@
   "channelSuggest": "Voorstellen als AI-kanaal",
   "channelSuggestSent": "Bedankt, voorstel verstuurd",
   "channelSuggestFailed": "Versturen mislukt, probeer het later",
+  "syncFull": "Niet opgeslagen: de synchronisatieopslag van Chrome is vol.",
   "optionsHiddenHeading": "Verborgen kanalen",
   "optionsHiddenIntro": "YouTube-kanalen die je hebt verborgen. Hun video's zie je nergens meer op YouTube.",
   "optionsHiddenEmpty": "Nog geen verborgen kanalen. Wijs een YouTube-video aan en gebruik de knop in de hoek.",

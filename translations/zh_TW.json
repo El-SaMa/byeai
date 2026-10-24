@@ -122,6 +122,7 @@
   "channelSuggest": "建議列為 AI 頻道",
   "channelSuggestSent": "謝謝，建議已送出",
   "channelSuggestFailed": "無法送出，請稍後再試",
+  "syncFull": "未儲存：Chrome 同步儲存空間已滿。",
   "optionsHiddenHeading": "已隱藏的頻道",
   "optionsHiddenIntro": "你隱藏的 YouTube 頻道。它們的影片不會出現在 YouTube 的任何地方。",
   "optionsHiddenEmpty": "還沒有隱藏的頻道。將滑鼠移到 YouTube 影片上，然後使用角落的按鈕。",

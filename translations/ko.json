@@ -122,6 +122,7 @@
   "channelSuggest": "AI 채널로 제안",
   "channelSuggestSent": "감사합니다. 제안을 보냈습니다",
   "channelSuggestFailed": "보내지 못했습니다. 나중에 다시 시도하세요",
+  "syncFull": "저장되지 않았습니다. Chrome 동기화 저장 공간이 가득 찼습니다.",
   "optionsHiddenHeading": "숨긴 채널",
   "optionsHiddenIntro": "숨긴 YouTube 채널입니다. 이 채널의 동영상은 YouTube 어디에서도 보이지 않습니다.",
   "optionsHiddenEmpty": "아직 숨긴 채널이 없습니다. YouTube 동영상 위에 포인터를 올리고 모서리의 버튼을 누르세요.",

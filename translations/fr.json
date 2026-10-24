@@ -122,6 +122,7 @@
   "channelSuggest": "Suggérer comme chaîne IA",
   "channelSuggestSent": "Merci, suggestion envoyée",
   "channelSuggestFailed": "Envoi impossible, réessayez plus tard",
+  "syncFull": "Non enregistré : le stockage de synchronisation de Chrome est plein.",
   "optionsHiddenHeading": "Chaînes masquées",
   "optionsHiddenIntro": "Les chaînes YouTube que vous avez masquées. Leurs vidéos n’apparaissent plus nulle part sur YouTube.",
   "optionsHiddenEmpty": "Aucune chaîne masquée pour l’instant. Survolez une vidéo YouTube et utilisez le bouton dans son coin.",

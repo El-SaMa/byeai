@@ -122,6 +122,7 @@
   "channelSuggest": "เสนอว่าเป็นช่อง AI",
   "channelSuggestSent": "ขอบคุณ ส่งคำแนะนำแล้ว",
   "channelSuggestFailed": "ส่งไม่สำเร็จ ลองใหม่ภายหลัง",
+  "syncFull": "ไม่ได้บันทึก: พื้นที่ซิงค์ของ Chrome เต็ม",
   "optionsHiddenHeading": "ช่องที่ซ่อนไว้",
   "optionsHiddenIntro": "ช่อง YouTube ที่คุณซ่อนไว้ วิดีโอของช่องเหล่านี้จะไม่แสดงที่ใดบน YouTube",
   "optionsHiddenEmpty": "ยังไม่มีช่องที่ซ่อนไว้ ชี้เมาส์ที่วิดีโอ YouTube แล้วใช้ปุ่มที่มุมของวิดีโอ",

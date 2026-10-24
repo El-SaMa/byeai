@@ -122,6 +122,7 @@
   "channelSuggest": "Suggerisci come canale IA",
   "channelSuggestSent": "Grazie, suggerimento inviato",
   "channelSuggestFailed": "Invio non riuscito, riprova più tardi",
+  "syncFull": "Non salvato: lo spazio di sincronizzazione di Chrome è pieno.",
   "optionsHiddenHeading": "Canali nascosti",
   "optionsHiddenIntro": "I canali YouTube che hai nascosto. I loro video non compaiono da nessuna parte su YouTube.",
   "optionsHiddenEmpty": "Nessun canale nascosto per ora. Passa sopra un video di YouTube e usa il pulsante nel suo angolo.",

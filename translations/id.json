@@ -122,6 +122,7 @@
   "channelSuggest": "Sarankan sebagai kanal AI",
   "channelSuggestSent": "Terima kasih, saran terkirim",
   "channelSuggestFailed": "Gagal mengirim, coba lagi nanti",
+  "syncFull": "Tidak tersimpan: penyimpanan sinkronisasi Chrome penuh.",
   "optionsHiddenHeading": "Kanal tersembunyi",
   "optionsHiddenIntro": "Kanal YouTube yang Anda sembunyikan. Videonya tidak muncul di mana pun di YouTube.",
   "optionsHiddenEmpty": "Belum ada kanal tersembunyi. Arahkan kursor ke video YouTube dan pakai tombol di sudutnya.",

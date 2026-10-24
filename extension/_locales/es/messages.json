@@ -154,6 +154,7 @@
   "channelSuggest": { "message": "Sugerir como canal de IA" },
   "channelSuggestSent": { "message": "Gracias, sugerencia enviada" },
   "channelSuggestFailed": { "message": "No se pudo enviar, inténtalo más tarde" },
+  "syncFull": { "message": "No se guardó: el almacenamiento de sincronización de Chrome está lleno." },
   "optionsHiddenHeading": { "message": "Canales ocultos" },
   "optionsHiddenIntro": { "message": "Canales de YouTube que has ocultado. Sus vídeos no aparecen en ningún lugar de YouTube." },
   "optionsHiddenEmpty": { "message": "Aún no hay canales ocultos. Pasa el ratón sobre un vídeo de YouTube y usa el botón de su esquina." },

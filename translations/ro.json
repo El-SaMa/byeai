@@ -122,6 +122,7 @@
   "channelSuggest": "Sugerează ca un canal AI",
   "channelSuggestSent": "Mulțumim, sugestia a fost trimisă",
   "channelSuggestFailed": "Nu s-a putut trimite, încearcă mai târziu",
+  "syncFull": "Nesalvat: spațiul de sincronizare Chrome este plin.",
   "optionsHiddenHeading": "Canale ascunse",
   "optionsHiddenIntro": "Canalele YouTube pe care le-ai ascuns. Videoclipurile lor nu mai apar nicăieri pe YouTube.",
   "optionsHiddenEmpty": "Încă nu ai canale ascunse. Du cursorul peste un videoclip YouTube și folosește butonul din colț.",

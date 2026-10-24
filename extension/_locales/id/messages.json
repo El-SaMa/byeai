@@ -154,6 +154,7 @@
   "channelSuggest": { "message": "Sarankan sebagai kanal AI" },
   "channelSuggestSent": { "message": "Terima kasih, saran terkirim" },
   "channelSuggestFailed": { "message": "Gagal mengirim, coba lagi nanti" },
+  "syncFull": { "message": "Tidak tersimpan: penyimpanan sinkronisasi Chrome penuh." },
   "optionsHiddenHeading": { "message": "Kanal tersembunyi" },
   "optionsHiddenIntro": { "message": "Kanal YouTube yang Anda sembunyikan. Videonya tidak muncul di mana pun di YouTube." },
   "optionsHiddenEmpty": { "message": "Belum ada kanal tersembunyi. Arahkan kursor ke video YouTube dan pakai tombol di sudutnya." },

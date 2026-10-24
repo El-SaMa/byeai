@@ -154,6 +154,7 @@
   "channelSuggest": { "message": "Föreslå som AI-kanal" },
   "channelSuggestSent": { "message": "Tack, förslaget har skickats" },
   "channelSuggestFailed": { "message": "Kunde inte skicka, försök igen senare" },
+  "syncFull": { "message": "Inte sparat: Chromes synkroniseringslagring är full." },
   "optionsHiddenHeading": { "message": "Dolda kanaler" },
   "optionsHiddenIntro": { "message": "YouTube-kanaler du har dolt. Deras videor syns inte någonstans på YouTube." },
   "optionsHiddenEmpty": { "message": "Inga dolda kanaler än. Peka på en YouTube-video och använd knappen i hörnet." },

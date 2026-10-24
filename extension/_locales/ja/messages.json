@@ -154,6 +154,7 @@
   "channelSuggest": { "message": "AIチャンネルとして提案" },
   "channelSuggestSent": { "message": "ありがとうございます。提案を送信しました" },
   "channelSuggestFailed": { "message": "送信できませんでした。後でもう一度お試しください" },
+  "syncFull": { "message": "保存できませんでした。Chrome の同期ストレージがいっぱいです。" },
   "optionsHiddenHeading": { "message": "非表示のチャンネル" },
   "optionsHiddenIntro": { "message": "非表示にしたYouTubeチャンネルです。動画はYouTubeのどこにも表示されません。" },
   "optionsHiddenEmpty": { "message": "非表示のチャンネルはまだありません。YouTubeの動画にポインターを合わせ、隅のボタンを使ってください。" },

@@ -154,6 +154,7 @@
   "channelSuggest": { "message": "اقتراح كقناة ذكاء اصطناعي" },
   "channelSuggestSent": { "message": "شكرًا، تم إرسال الاقتراح" },
   "channelSuggestFailed": { "message": "تعذّر الإرسال، حاول لاحقًا" },
+  "syncFull": { "message": "لم يتم الحفظ: مساحة مزامنة Chrome ممتلئة." },
   "optionsHiddenHeading": { "message": "القنوات المخفية" },
   "optionsHiddenIntro": { "message": "قنوات YouTube التي أخفيتها. لن تظهر فيديوهاتها في أي مكان على YouTube." },
   "optionsHiddenEmpty": { "message": "لا توجد قنوات مخفية بعد. مرّر المؤشر فوق فيديو على YouTube واستخدم الزر في زاويته." },

@@ -122,6 +122,7 @@
   "channelSuggest": "Zaproponuj jako kanał AI",
   "channelSuggestSent": "Dzięki, propozycja wysłana",
   "channelSuggestFailed": "Nie udało się wysłać, spróbuj później",
+  "syncFull": "Nie zapisano: pamięć synchronizacji Chrome jest pełna.",
   "optionsHiddenHeading": "Ukryte kanały",
   "optionsHiddenIntro": "Kanały YouTube, które ukryłeś. Ich filmy nie pojawiają się nigdzie na YouTube.",
   "optionsHiddenEmpty": "Brak ukrytych kanałów. Najedź na film w YouTube i użyj przycisku w jego rogu.",

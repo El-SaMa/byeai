@@ -122,6 +122,7 @@
   "channelSuggest": "Đề xuất là kênh AI",
   "channelSuggestSent": "Cảm ơn, đã gửi đề xuất",
   "channelSuggestFailed": "Không gửi được, hãy thử lại sau",
+  "syncFull": "Chưa lưu: bộ nhớ đồng bộ của Chrome đã đầy.",
   "optionsHiddenHeading": "Kênh đã ẩn",
   "optionsHiddenIntro": "Các kênh YouTube bạn đã ẩn. Video của họ sẽ không hiện ở bất kỳ đâu trên YouTube.",
   "optionsHiddenEmpty": "Chưa có kênh nào bị ẩn. Di chuột lên một video YouTube và dùng nút ở góc video.",

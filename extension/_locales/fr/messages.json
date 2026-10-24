@@ -154,6 +154,7 @@
   "channelSuggest": { "message": "Suggérer comme chaîne IA" },
   "channelSuggestSent": { "message": "Merci, suggestion envoyée" },
   "channelSuggestFailed": { "message": "Envoi impossible, réessayez plus tard" },
+  "syncFull": { "message": "Non enregistré : le stockage de synchronisation de Chrome est plein." },
   "optionsHiddenHeading": { "message": "Chaînes masquées" },
   "optionsHiddenIntro": { "message": "Les chaînes YouTube que vous avez masquées. Leurs vidéos n’apparaissent plus nulle part sur YouTube." },
   "optionsHiddenEmpty": { "message": "Aucune chaîne masquée pour l’instant. Survolez une vidéo YouTube et utilisez le bouton dans son coin." },

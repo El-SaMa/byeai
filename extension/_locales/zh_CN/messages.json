@@ -154,6 +154,7 @@
   "channelSuggest": { "message": "建议列为 AI 频道" },
   "channelSuggestSent": { "message": "谢谢，建议已发送" },
   "channelSuggestFailed": { "message": "发送失败，请稍后再试" },
+  "syncFull": { "message": "未保存：Chrome 同步存储空间已满。" },
   "optionsHiddenHeading": { "message": "已隐藏的频道" },
   "optionsHiddenIntro": { "message": "你隐藏的 YouTube 频道。它们的视频不会出现在 YouTube 的任何地方。" },
   "optionsHiddenEmpty": { "message": "还没有隐藏的频道。将鼠标悬停在 YouTube 视频上，然后使用角落里的按钮。" },

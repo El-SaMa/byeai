@@ -122,6 +122,7 @@
   "channelSuggest": "Föreslå som AI-kanal",
   "channelSuggestSent": "Tack, förslaget har skickats",
   "channelSuggestFailed": "Kunde inte skicka, försök igen senare",
+  "syncFull": "Inte sparat: Chromes synkroniseringslagring är full.",
   "optionsHiddenHeading": "Dolda kanaler",
   "optionsHiddenIntro": "YouTube-kanaler du har dolt. Deras videor syns inte någonstans på YouTube.",
   "optionsHiddenEmpty": "Inga dolda kanaler än. Peka på en YouTube-video och använd knappen i hörnet.",

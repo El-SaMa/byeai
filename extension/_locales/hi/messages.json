@@ -154,6 +154,7 @@
   "channelSuggest": { "message": "AI चैनल के रूप में सुझाएं" },
   "channelSuggestSent": { "message": "धन्यवाद, सुझाव भेज दिया गया" },
   "channelSuggestFailed": { "message": "भेजा नहीं जा सका, बाद में कोशिश करें" },
+  "syncFull": { "message": "सहेजा नहीं गया: Chrome सिंक स्टोरेज भरा हुआ है।" },
   "optionsHiddenHeading": { "message": "छिपाए गए चैनल" },
   "optionsHiddenIntro": { "message": "आपके छिपाए गए YouTube चैनल। इनके वीडियो YouTube पर कहीं नहीं दिखते।" },
   "optionsHiddenEmpty": { "message": "अभी कोई छिपा चैनल नहीं है। किसी YouTube वीडियो पर पॉइंटर ले जाएं और उसके कोने का बटन दबाएं।" },

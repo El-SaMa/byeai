@@ -154,6 +154,7 @@
   "channelSuggest": { "message": "Als KI-Kanal vorschlagen" },
   "channelSuggestSent": { "message": "Danke, Vorschlag gesendet" },
   "channelSuggestFailed": { "message": "Senden fehlgeschlagen, bitte später erneut versuchen" },
+  "syncFull": { "message": "Nicht gespeichert: Der Chrome-Sync-Speicher ist voll." },
   "optionsHiddenHeading": { "message": "Ausgeblendete Kanäle" },
   "optionsHiddenIntro": { "message": "YouTube-Kanäle, die du ausgeblendet hast. Ihre Videos tauchen nirgends auf YouTube auf." },
   "optionsHiddenEmpty": { "message": "Noch keine ausgeblendeten Kanäle. Zeig auf ein YouTube-Video und nutze den Knopf in seiner Ecke." },

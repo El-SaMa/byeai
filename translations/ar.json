@@ -122,6 +122,7 @@
   "channelSuggest": "اقتراح كقناة ذكاء اصطناعي",
   "channelSuggestSent": "شكرًا، تم إرسال الاقتراح",
   "channelSuggestFailed": "تعذّر الإرسال، حاول لاحقًا",
+  "syncFull": "لم يتم الحفظ: مساحة مزامنة Chrome ممتلئة.",
   "optionsHiddenHeading": "القنوات المخفية",
   "optionsHiddenIntro": "قنوات YouTube التي أخفيتها. لن تظهر فيديوهاتها في أي مكان على YouTube.",
   "optionsHiddenEmpty": "لا توجد قنوات مخفية بعد. مرّر المؤشر فوق فيديو على YouTube واستخدم الزر في زاويته.",

@@ -154,6 +154,7 @@
   "channelSuggest": { "message": "Πρόταση ως κανάλι AI" },
   "channelSuggestSent": { "message": "Ευχαριστούμε, η πρόταση στάλθηκε" },
   "channelSuggestFailed": { "message": "Η αποστολή απέτυχε, δοκιμάστε αργότερα" },
+  "syncFull": { "message": "Δεν αποθηκεύτηκε: ο χώρος συγχρονισμού του Chrome είναι γεμάτος." },
   "optionsHiddenHeading": { "message": "Κρυφά κανάλια" },
   "optionsHiddenIntro": { "message": "Κανάλια YouTube που κρύψατε. Τα βίντεό τους δεν εμφανίζονται πουθενά στο YouTube." },
   "optionsHiddenEmpty": { "message": "Δεν υπάρχουν ακόμη κρυφά κανάλια. Περάστε τον δείκτη πάνω από ένα βίντεο στο YouTube και πατήστε το κουμπί στη γωνία του." },

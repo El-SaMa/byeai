@@ -154,6 +154,7 @@
   "channelSuggest": { "message": "Zaproponuj jako kanał AI" },
   "channelSuggestSent": { "message": "Dzięki, propozycja wysłana" },
   "channelSuggestFailed": { "message": "Nie udało się wysłać, spróbuj później" },
+  "syncFull": { "message": "Nie zapisano: pamięć synchronizacji Chrome jest pełna." },
   "optionsHiddenHeading": { "message": "Ukryte kanały" },
   "optionsHiddenIntro": { "message": "Kanały YouTube, które ukryłeś. Ich filmy nie pojawiają się nigdzie na YouTube." },
   "optionsHiddenEmpty": { "message": "Brak ukrytych kanałów. Najedź na film w YouTube i użyj przycisku w jego rogu." },

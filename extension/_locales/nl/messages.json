@@ -154,6 +154,7 @@
   "channelSuggest": { "message": "Voorstellen als AI-kanaal" },
   "channelSuggestSent": { "message": "Bedankt, voorstel verstuurd" },
   "channelSuggestFailed": { "message": "Versturen mislukt, probeer het later" },
+  "syncFull": { "message": "Niet opgeslagen: de synchronisatieopslag van Chrome is vol." },
   "optionsHiddenHeading": { "message": "Verborgen kanalen" },
   "optionsHiddenIntro": { "message": "YouTube-kanalen die je hebt verborgen. Hun video's zie je nergens meer op YouTube." },
   "optionsHiddenEmpty": { "message": "Nog geen verborgen kanalen. Wijs een YouTube-video aan en gebruik de knop in de hoek." },

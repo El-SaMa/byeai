@@ -177,6 +177,7 @@
   "channelSuggest": { "message": "Ehdota tekoälykanavaksi" },
   "channelSuggestSent": { "message": "Kiitos, ehdotus lähetetty" },
   "channelSuggestFailed": { "message": "Lähetys ei onnistunut, yritä myöhemmin" },
+  "syncFull": { "message": "Ei tallennettu: Chromen synkronointitila on täynnä." },
   "optionsHiddenHeading": { "message": "Piilotetut kanavat" },
   "optionsHiddenIntro": { "message": "YouTube-kanavat, jotka olet piilottanut. Niiden videot eivät näy missään YouTubessa." },
   "optionsHiddenEmpty": { "message": "Ei piilotettuja kanavia vielä. Vie hiiri YouTube-videon päälle ja paina kulman painiketta." },

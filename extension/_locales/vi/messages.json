@@ -154,6 +154,7 @@
   "channelSuggest": { "message": "Đề xuất là kênh AI" },
   "channelSuggestSent": { "message": "Cảm ơn, đã gửi đề xuất" },
   "channelSuggestFailed": { "message": "Không gửi được, hãy thử lại sau" },
+  "syncFull": { "message": "Chưa lưu: bộ nhớ đồng bộ của Chrome đã đầy." },
   "optionsHiddenHeading": { "message": "Kênh đã ẩn" },
   "optionsHiddenIntro": { "message": "Các kênh YouTube bạn đã ẩn. Video của họ sẽ không hiện ở bất kỳ đâu trên YouTube." },
   "optionsHiddenEmpty": { "message": "Chưa có kênh nào bị ẩn. Di chuột lên một video YouTube và dùng nút ở góc video." },

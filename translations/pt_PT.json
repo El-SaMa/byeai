@@ -122,6 +122,7 @@
   "channelSuggest": "Sugerir como canal de IA",
   "channelSuggestSent": "Obrigado, sugestão enviada",
   "channelSuggestFailed": "Não foi possível enviar, tente mais tarde",
+  "syncFull": "Não guardado: o armazenamento de sincronização do Chrome está cheio.",
   "optionsHiddenHeading": "Canais ocultos",
   "optionsHiddenIntro": "Canais do YouTube que ocultou. Os vídeos deles não aparecem em lado nenhum do YouTube.",
   "optionsHiddenEmpty": "Ainda não há canais ocultos. Passe o rato sobre um vídeo do YouTube e use o botão no canto.",

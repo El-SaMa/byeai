@@ -122,6 +122,7 @@
   "channelSuggest": "AI चैनल के रूप में सुझाएं",
   "channelSuggestSent": "धन्यवाद, सुझाव भेज दिया गया",
   "channelSuggestFailed": "भेजा नहीं जा सका, बाद में कोशिश करें",
+  "syncFull": "सहेजा नहीं गया: Chrome सिंक स्टोरेज भरा हुआ है।",
   "optionsHiddenHeading": "छिपाए गए चैनल",
   "optionsHiddenIntro": "आपके छिपाए गए YouTube चैनल। इनके वीडियो YouTube पर कहीं नहीं दिखते।",
   "optionsHiddenEmpty": "अभी कोई छिपा चैनल नहीं है। किसी YouTube वीडियो पर पॉइंटर ले जाएं और उसके कोने का बटन दबाएं।",

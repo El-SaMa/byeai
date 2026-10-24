@@ -122,6 +122,7 @@
   "channelSuggest": "YZ kanalı olarak öner",
   "channelSuggestSent": "Teşekkürler, öneri gönderildi",
   "channelSuggestFailed": "Gönderilemedi, daha sonra tekrar deneyin",
+  "syncFull": "Kaydedilmedi: Chrome eşitleme depolama alanı dolu.",
   "optionsHiddenHeading": "Gizlenen kanallar",
   "optionsHiddenIntro": "Gizlediğiniz YouTube kanalları. Videoları YouTube'un hiçbir yerinde görünmez.",
   "optionsHiddenEmpty": "Henüz gizlenen kanal yok. Bir YouTube videosunun üzerine gelin ve köşesindeki düğmeyi kullanın.",

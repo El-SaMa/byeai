@@ -154,6 +154,7 @@
   "channelSuggest": { "message": "پیشنهاد به‌عنوان کانال هوش مصنوعی" },
   "channelSuggestSent": { "message": "ممنون، پیشنهاد ارسال شد" },
   "channelSuggestFailed": { "message": "ارسال نشد، بعداً دوباره امتحان کنید" },
+  "syncFull": { "message": "ذخیره نشد: فضای همگام‌سازی Chrome پر است." },
   "optionsHiddenHeading": { "message": "کانال‌های پنهان" },
   "optionsHiddenIntro": { "message": "کانال‌های YouTube که پنهان کرده‌اید. ویدیوهایشان هیچ‌جای YouTube نشان داده نمی‌شود." },
   "optionsHiddenEmpty": { "message": "هنوز کانال پنهانی ندارید. نشانگر را روی یک ویدیوی YouTube ببرید و از دکمهٔ گوشهٔ آن استفاده کنید." },

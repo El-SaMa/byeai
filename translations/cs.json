@@ -122,6 +122,7 @@
   "channelSuggest": "Navrhnout jako AI kanál",
   "channelSuggestSent": "Díky, návrh odeslán",
   "channelSuggestFailed": "Nepodařilo se odeslat, zkuste to později",
+  "syncFull": "Neuloženo: úložiště synchronizace Chromu je plné.",
   "optionsHiddenHeading": "Skryté kanály",
   "optionsHiddenIntro": "Kanály na YouTube, které jste skryli. Jejich videa se na YouTube nikde nezobrazí.",
   "optionsHiddenEmpty": "Zatím žádné skryté kanály. Najeďte myší na video na YouTube a použijte tlačítko v jeho rohu.",

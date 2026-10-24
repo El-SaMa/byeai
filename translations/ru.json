@@ -122,6 +122,7 @@
   "channelSuggest": "Предложить как ИИ-канал",
   "channelSuggestSent": "Спасибо, предложение отправлено",
   "channelSuggestFailed": "Не удалось отправить, попробуйте позже",
+  "syncFull": "Не сохранено: хранилище синхронизации Chrome заполнено.",
   "optionsHiddenHeading": "Скрытые каналы",
   "optionsHiddenIntro": "Каналы YouTube, которые вы скрыли. Их видео нигде не появляются на YouTube.",
   "optionsHiddenEmpty": "Скрытых каналов пока нет. Наведите курсор на видео на YouTube и нажмите кнопку в его углу.",

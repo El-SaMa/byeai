@@ -154,6 +154,7 @@
   "channelSuggest": { "message": "YZ kanalı olarak öner" },
   "channelSuggestSent": { "message": "Teşekkürler, öneri gönderildi" },
   "channelSuggestFailed": { "message": "Gönderilemedi, daha sonra tekrar deneyin" },
+  "syncFull": { "message": "Kaydedilmedi: Chrome eşitleme depolama alanı dolu." },
   "optionsHiddenHeading": { "message": "Gizlenen kanallar" },
   "optionsHiddenIntro": { "message": "Gizlediğiniz YouTube kanalları. Videoları YouTube'un hiçbir yerinde görünmez." },
   "optionsHiddenEmpty": { "message": "Henüz gizlenen kanal yok. Bir YouTube videosunun üzerine gelin ve köşesindeki düğmeyi kullanın." },

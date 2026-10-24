@@ -154,6 +154,7 @@
   "channelSuggest": { "message": "Navrhnout jako AI kanál" },
   "channelSuggestSent": { "message": "Díky, návrh odeslán" },
   "channelSuggestFailed": { "message": "Nepodařilo se odeslat, zkuste to později" },
+  "syncFull": { "message": "Neuloženo: úložiště synchronizace Chromu je plné." },
   "optionsHiddenHeading": { "message": "Skryté kanály" },
   "optionsHiddenIntro": { "message": "Kanály na YouTube, které jste skryli. Jejich videa se na YouTube nikde nezobrazí." },
   "optionsHiddenEmpty": { "message": "Zatím žádné skryté kanály. Najeďte myší na video na YouTube a použijte tlačítko v jeho rohu." },

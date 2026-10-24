@@ -177,6 +177,7 @@
   "channelSuggest": { "message": "Suggest as AI channel" },
   "channelSuggestSent": { "message": "Thanks, suggestion sent" },
   "channelSuggestFailed": { "message": "Could not send, try later" },
+  "syncFull": { "message": "Not saved: Chrome sync storage is full." },
   "optionsHiddenHeading": { "message": "Hidden channels" },
   "optionsHiddenIntro": { "message": "YouTube channels you hid. Their videos stay out of sight everywhere on YouTube." },
   "optionsHiddenEmpty": { "message": "No hidden channels yet. Point at a YouTube video and use the button in its corner." },

@@ -122,6 +122,7 @@
   "channelSuggest": "پیشنهاد به‌عنوان کانال هوش مصنوعی",
   "channelSuggestSent": "ممنون، پیشنهاد ارسال شد",
   "channelSuggestFailed": "ارسال نشد، بعداً دوباره امتحان کنید",
+  "syncFull": "ذخیره نشد: فضای همگام‌سازی Chrome پر است.",
   "optionsHiddenHeading": "کانال‌های پنهان",
   "optionsHiddenIntro": "کانال‌های YouTube که پنهان کرده‌اید. ویدیوهایشان هیچ‌جای YouTube نشان داده نمی‌شود.",
   "optionsHiddenEmpty": "هنوز کانال پنهانی ندارید. نشانگر را روی یک ویدیوی YouTube ببرید و از دکمهٔ گوشهٔ آن استفاده کنید.",

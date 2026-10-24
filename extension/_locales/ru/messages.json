@@ -154,6 +154,7 @@
   "channelSuggest": { "message": "Предложить как ИИ-канал" },
   "channelSuggestSent": { "message": "Спасибо, предложение отправлено" },
   "channelSuggestFailed": { "message": "Не удалось отправить, попробуйте позже" },
+  "syncFull": { "message": "Не сохранено: хранилище синхронизации Chrome заполнено." },
   "optionsHiddenHeading": { "message": "Скрытые каналы" },
   "optionsHiddenIntro": { "message": "Каналы YouTube, которые вы скрыли. Их видео нигде не появляются на YouTube." },
   "optionsHiddenEmpty": { "message": "Скрытых каналов пока нет. Наведите курсор на видео на YouTube и нажмите кнопку в его углу." },

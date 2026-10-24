@@ -154,6 +154,7 @@
   "channelSuggest": { "message": "Sugerează ca un canal AI" },
   "channelSuggestSent": { "message": "Mulțumim, sugestia a fost trimisă" },
   "channelSuggestFailed": { "message": "Nu s-a putut trimite, încearcă mai târziu" },
+  "syncFull": { "message": "Nesalvat: spațiul de sincronizare Chrome este plin." },
   "optionsHiddenHeading": { "message": "Canale ascunse" },
   "optionsHiddenIntro": { "message": "Canalele YouTube pe care le-ai ascuns. Videoclipurile lor nu mai apar nicăieri pe YouTube." },
   "optionsHiddenEmpty": { "message": "Încă nu ai canale ascunse. Du cursorul peste un videoclip YouTube și folosește butonul din colț." },

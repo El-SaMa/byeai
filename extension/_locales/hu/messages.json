@@ -154,6 +154,7 @@
   "channelSuggest": { "message": "Javaslás MI-csatornaként" },
   "channelSuggestSent": { "message": "Köszönjük, a javaslatot elküldtük" },
   "channelSuggestFailed": { "message": "Nem sikerült elküldeni, próbáld később" },
+  "syncFull": { "message": "Nem mentve: a Chrome szinkronizációs tárhelye megtelt." },
   "optionsHiddenHeading": { "message": "Elrejtett csatornák" },
   "optionsHiddenIntro": { "message": "Az általad elrejtett YouTube-csatornák. A videóik sehol sem jelennek meg a YouTube-on." },
   "optionsHiddenEmpty": { "message": "Még nincs elrejtett csatorna. Vidd az egeret egy YouTube-videó fölé, és használd a sarkában lévő gombot." },

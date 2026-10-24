@@ -122,6 +122,7 @@
   "channelSuggest": "AIチャンネルとして提案",
   "channelSuggestSent": "ありがとうございます。提案を送信しました",
   "channelSuggestFailed": "送信できませんでした。後でもう一度お試しください",
+  "syncFull": "保存できませんでした。Chrome の同期ストレージがいっぱいです。",
   "optionsHiddenHeading": "非表示のチャンネル",
   "optionsHiddenIntro": "非表示にしたYouTubeチャンネルです。動画はYouTubeのどこにも表示されません。",
   "optionsHiddenEmpty": "非表示のチャンネルはまだありません。YouTubeの動画にポインターを合わせ、隅のボタンを使ってください。",

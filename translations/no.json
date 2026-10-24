@@ -122,6 +122,7 @@
   "channelSuggest": "Foreslå som KI-kanal",
   "channelSuggestSent": "Takk, forslaget er sendt",
   "channelSuggestFailed": "Kunne ikke sende, prøv igjen senere",
+  "syncFull": "Ikke lagret: Chromes synkroniseringslagring er full.",
   "optionsHiddenHeading": "Skjulte kanaler",
   "optionsHiddenIntro": "YouTube-kanaler du har skjult. Videoene deres vises ikke noe sted på YouTube.",
   "optionsHiddenEmpty": "Ingen skjulte kanaler ennå. Pek på en YouTube-video og bruk knappen i hjørnet.",

@@ -154,6 +154,7 @@
   "channelSuggest": { "message": "Запропонувати як ШІ-канал" },
   "channelSuggestSent": { "message": "Дякуємо, пропозицію надіслано" },
   "channelSuggestFailed": { "message": "Не вдалося надіслати, спробуйте пізніше" },
+  "syncFull": { "message": "Не збережено: сховище синхронізації Chrome заповнене." },
   "optionsHiddenHeading": { "message": "Сховані канали" },
   "optionsHiddenIntro": { "message": "Канали YouTube, які ви сховали. Їхні відео ніде не з’являються на YouTube." },
   "optionsHiddenEmpty": { "message": "Схованих каналів поки немає. Наведіть курсор на відео на YouTube і натисніть кнопку в його куті." },
