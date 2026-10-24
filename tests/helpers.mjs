@@ -30,6 +30,9 @@ export const PAGES = {
   // Answer-box and other-tab searches keep Google's normal page: no udm=14 added.
   'https://www.google.com/search?q=100+usd+to+eur': 'google-answers.html',
   'https://www.google.com/search?q=test&tbm=isch': 'google-answers.html',
+  'https://www.google.com/search?q=shared&udm=14': 'google-shared.html',
+  'https://www.bing.com/search?q=shared': 'bing-shared.html',
+  'https://duckduckgo.com/?q=shared&ia=web': 'duckduckgo-shared.html',
   'https://www.bing.com/search?q=test': 'bing-search.html',
   'https://duckduckgo.com/?q=test&ia=web': 'duckduckgo-search.html',
   'https://www.amazon.com/': 'amazon.html',

@@ -104,6 +104,12 @@
     if (changes.enabled || changes.allowedHosts || changes.mediaAllowedHosts || changes.features) load();
   });
 
+  // Back/forward cache: the page comes back exactly as it was left, but
+  // settings may have changed while it was frozen. Read them again.
+  window.addEventListener('pageshow', (event) => {
+    if (event.persisted) load();
+  });
+
   chrome.runtime.onMessage.addListener((message) => {
     if (message?.type === 'SETTINGS_CHANGED') load();
   });

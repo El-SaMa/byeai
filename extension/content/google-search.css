@@ -1,14 +1,14 @@
 /* Google Search AI overviews and AI mode UI */
-html[data-byeai-active="1"] [data-attnms],
-html[data-byeai-active="1"] [data-attrid="VisualDigestGeneratedDescription"],
-html[data-byeai-active="1"] [jscontroller="Elkdbc"],
-html[data-byeai-active="1"] [jsname="YrZdPb"][data-evn],
-html[data-byeai-active="1"] [jsname="lHCI7d"],
-html[data-byeai-active="1"] .oGdvd,
-html[data-byeai-active="1"] [jscontroller="DyTeib"],
-html[data-byeai-active="1"] .plR5qb,
-html[data-byeai-active="1"] .olrp5b,
-html[data-byeai-active="1"] a[href*="udm=50"] {
+html[data-byeai-active="1"] [data-attnms]:not(:has(#rso, #search, #center_col, #b_results, #links, [data-testid="mainline"], #results, .react-results--main, article[data-testid="result"], .b_algo)),
+html[data-byeai-active="1"] [data-attrid="VisualDigestGeneratedDescription"]:not(:has(#rso, #search, #center_col, #b_results, #links, [data-testid="mainline"], #results, .react-results--main, article[data-testid="result"], .b_algo)),
+html[data-byeai-active="1"] [jscontroller="Elkdbc"]:not(:has(#rso, #search, #center_col, #b_results, #links, [data-testid="mainline"], #results, .react-results--main, article[data-testid="result"], .b_algo)),
+html[data-byeai-active="1"] [jsname="YrZdPb"][data-evn]:not(:has(#rso, #search, #center_col, #b_results, #links, [data-testid="mainline"], #results, .react-results--main, article[data-testid="result"], .b_algo)),
+html[data-byeai-active="1"] [jsname="lHCI7d"]:not(:has(#rso, #search, #center_col, #b_results, #links, [data-testid="mainline"], #results, .react-results--main, article[data-testid="result"], .b_algo)),
+html[data-byeai-active="1"] .oGdvd:not(:has(#rso, #search, #center_col, #b_results, #links, [data-testid="mainline"], #results, .react-results--main, article[data-testid="result"], .b_algo)),
+html[data-byeai-active="1"] [jscontroller="DyTeib"]:not(:has(#rso, #search, #center_col, #b_results, #links, [data-testid="mainline"], #results, .react-results--main, article[data-testid="result"], .b_algo)),
+html[data-byeai-active="1"] .plR5qb:not(:has(#rso, #search, #center_col, #b_results, #links, [data-testid="mainline"], #results, .react-results--main, article[data-testid="result"], .b_algo)),
+html[data-byeai-active="1"] .olrp5b:not(:has(#rso, #search, #center_col, #b_results, #links, [data-testid="mainline"], #results, .react-results--main, article[data-testid="result"], .b_algo)),
+html[data-byeai-active="1"] a[href*="udm=50"]:not(:has(#rso, #search, #center_col, #b_results, #links, [data-testid="mainline"], #results, .react-results--main, article[data-testid="result"], .b_algo)) {
   display: none !important;
   visibility: hidden !important;
   pointer-events: none !important;

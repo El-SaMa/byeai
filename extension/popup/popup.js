@@ -210,17 +210,25 @@ resumeBtn.addEventListener('click', async () => {
   pauseHourBtn.focus();
 });
 
+// Chrome sync is full (or refused the write): say so, nothing was saved.
+function showSyncFull() {
+  allowedNote.textContent = t('syncFull') || 'Not saved: Chrome sync storage is full.';
+  allowedNote.classList.remove('hidden');
+}
+
 allowBtn.addEventListener('click', async () => {
   if (!state?.hostname) return;
 
   const allow = !state.isAllowed;
   const aiApp = state.isAiApp;
-  state = await chrome.runtime.sendMessage({
+  const reply = await chrome.runtime.sendMessage({
     type: 'TOGGLE_ALLOW_SITE',
     hostname: state.hostname,
     allow,
     tabId: activeTabId,
   });
+  if (reply?.error) return showSyncFull();
+  state = reply;
   render(state);
 
   if (!allow) {
@@ -249,12 +257,14 @@ featureRows.forEach((row) => {
 
 mediaSiteBtn.addEventListener('click', async () => {
   if (!state?.hostname) return;
-  state = await chrome.runtime.sendMessage({
+  const reply = await chrome.runtime.sendMessage({
     type: 'TOGGLE_MEDIA_SITE',
     hostname: state.hostname,
     allow: !state.isMediaAllowed,
     tabId: activeTabId,
   });
+  if (reply?.error) return showSyncFull();
+  state = reply;
   render(state);
 });
 

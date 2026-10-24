@@ -29,7 +29,8 @@
     COSMETIC_SELECTORS.forEach((selector) => {
       try {
         document.querySelectorAll(selector).forEach((el) => {
-          if (el.dataset.byeaiHidden) return;
+          // Never hide the page itself or anything that holds its main content.
+          if (el.dataset.byeaiHidden || el.matches('html, body') || el.querySelector('main, [role="main"], #rso, #search, #b_results')) return;
           el.dataset.byeaiHidden = 'widgets';
           el.style.setProperty('display', 'none', 'important');
           el.style.setProperty('visibility', 'hidden', 'important');

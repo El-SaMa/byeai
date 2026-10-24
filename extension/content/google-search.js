@@ -14,8 +14,17 @@
     return Boolean(globalThis.byeai?.state.widgets);
   }
 
+  // Where the page's own layout lives. Never hidden, however empty it looks.
+  const KEEP = 'body, html, #main, #cnt, #center_col, #rcnt, #search, #rso, #appbar, #hdtb, #hdtb-msb, #sfcnt, [role="main"], [role="navigation"], [role="search"]';
+
+  // Never hide the page's layout or anything that holds the results, whatever
+  // selector or parent-climbing found it.
+  function holdsResults(el) {
+    return el.matches(KEEP) || Boolean(el.querySelector(KEEP));
+  }
+
   function hideElement(el, key, count = true) {
-    if (!el || el.dataset.byeaiHidden) return;
+    if (!el || el.dataset.byeaiHidden || holdsResults(el)) return;
     el.dataset.byeaiHidden = 'widgets';
     el.style.setProperty('display', 'none', 'important');
     el.style.setProperty('visibility', 'hidden', 'important');
@@ -24,9 +33,6 @@
     el.style.setProperty('overflow', 'hidden', 'important');
     if (count) globalThis.byeai?.report('widgets', key);
   }
-
-  // Where the page's own layout lives. Never hidden, however empty it looks.
-  const KEEP = 'body, html, #main, #cnt, #center_col, #rcnt, #search, #rso, #appbar, #hdtb, #hdtb-msb, #sfcnt, [role="main"], [role="navigation"], [role="search"]';
 
   function gone(el) {
     return Boolean(el.dataset.byeaiHidden) || el.hidden || getComputedStyle(el).display === 'none';
@@ -65,7 +71,9 @@
 
   function hideGoogleAiOverviews() {
     document.querySelectorAll('[data-attnms]').forEach((el) => {
-      const container = el.closest('.Kevs9, .YNk70c, .SLPe5b, .WaaZC') || el.parentElement?.parentElement || el;
+      let container = el.closest('.Kevs9, .YNk70c, .SLPe5b, .WaaZC') || el.parentElement?.parentElement || el;
+      // The wrapper turned out to hold the results too: hide just the box.
+      if (holdsResults(container)) container = el;
       hideElement(container, 'google:data-attnms');
       collapseEmptyParents(container);
     });

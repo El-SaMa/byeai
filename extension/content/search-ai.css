@@ -10,95 +10,105 @@
  */
 
 /* === Bing (bing.com) === */
-html[data-byeai-active="1"] cib-serp-main,
-html[data-byeai-active="1"] cib-serp,
-html[data-byeai-active="1"] [data-priority="GenerativeSearch"],
-html[data-byeai-active="1"] [data-bm-name*="generative" i],
-html[data-byeai-active="1"] [data-bm*="generative" i],
-html[data-byeai-active="1"] [data-bm*="copilot" i],
-html[data-byeai-active="1"] [id*="b_results_chat"],
-html[data-byeai-active="1"] .b_searchbox_chat,
-html[data-byeai-active="1"] #b_pole .b_chat,
-html[data-byeai-active="1"] #b_chat_pane,
-html[data-byeai-active="1"] .b_genConvBubble,
-html[data-byeai-active="1"] [class*="GenerativeSearch"],
-html[data-byeai-active="1"] [data-tag="ChatPanel" i],
-html[data-byeai-active="1"] [aria-label*="Copilot" i],
-html[data-byeai-active="1"] a[href*="/chat" i][href*="bing.com" i],
+html[data-byeai-active="1"] cib-serp-main:not(:has(#rso, #search, #center_col, #b_results, #links, [data-testid="mainline"], #results, .react-results--main, article[data-testid="result"], .b_algo)),
+html[data-byeai-active="1"] cib-serp:not(:has(#rso, #search, #center_col, #b_results, #links, [data-testid="mainline"], #results, .react-results--main, article[data-testid="result"], .b_algo)),
+html[data-byeai-active="1"] [data-priority="GenerativeSearch"]:not(:has(#rso, #search, #center_col, #b_results, #links, [data-testid="mainline"], #results, .react-results--main, article[data-testid="result"], .b_algo)),
+html[data-byeai-active="1"] [data-bm-name*="generative" i]:not(:has(#rso, #search, #center_col, #b_results, #links, [data-testid="mainline"], #results, .react-results--main, article[data-testid="result"], .b_algo)),
+html[data-byeai-active="1"] [data-bm*="generative" i]:not(:has(#rso, #search, #center_col, #b_results, #links, [data-testid="mainline"], #results, .react-results--main, article[data-testid="result"], .b_algo)),
+html[data-byeai-active="1"] [data-bm*="copilot" i]:not(:has(#rso, #search, #center_col, #b_results, #links, [data-testid="mainline"], #results, .react-results--main, article[data-testid="result"], .b_algo)),
+html[data-byeai-active="1"] [id*="b_results_chat"]:not(:has(#rso, #search, #center_col, #b_results, #links, [data-testid="mainline"], #results, .react-results--main, article[data-testid="result"], .b_algo)),
+html[data-byeai-active="1"] .b_searchbox_chat:not(:has(#rso, #search, #center_col, #b_results, #links, [data-testid="mainline"], #results, .react-results--main, article[data-testid="result"], .b_algo)),
+html[data-byeai-active="1"] #b_pole .b_chat:not(:has(#rso, #search, #center_col, #b_results, #links, [data-testid="mainline"], #results, .react-results--main, article[data-testid="result"], .b_algo)),
+html[data-byeai-active="1"] #b_chat_pane:not(:has(#rso, #search, #center_col, #b_results, #links, [data-testid="mainline"], #results, .react-results--main, article[data-testid="result"], .b_algo)),
+html[data-byeai-active="1"] .b_genConvBubble:not(:has(#rso, #search, #center_col, #b_results, #links, [data-testid="mainline"], #results, .react-results--main, article[data-testid="result"], .b_algo)),
+html[data-byeai-active="1"] [class*="GenerativeSearch"]:not(:has(#rso, #search, #center_col, #b_results, #links, [data-testid="mainline"], #results, .react-results--main, article[data-testid="result"], .b_algo)),
+html[data-byeai-active="1"] [data-tag="ChatPanel" i]:not(:has(#rso, #search, #center_col, #b_results, #links, [data-testid="mainline"], #results, .react-results--main, article[data-testid="result"], .b_algo)),
+html[data-byeai-active="1"] [aria-label*="Copilot" i]:not(:has(#rso, #search, #center_col, #b_results, #links, [data-testid="mainline"], #results, .react-results--main, article[data-testid="result"], .b_algo)),
+html[data-byeai-active="1"] a[href*="/chat" i][href*="bing.com" i]:not(:has(#rso, #search, #center_col, #b_results, #links, [data-testid="mainline"], #results, .react-results--main, article[data-testid="result"], .b_algo)),
 /* Copilot answer, its follow-up box and chips, and the AI Mode tab (2026 markup) */
-html[data-byeai-active="1"] #b_copilot_search_container,
-html[data-byeai-active="1"] #b_copilot_search,
-html[data-byeai-active="1"] [id^="b_copilot"],
-html[data-byeai-active="1"] [class*="b_copilot"],
-html[data-byeai-active="1"] #b-scopeListItem-copilotsearch,
-html[data-byeai-active="1"] #b-scopeListItem-conv,
-html[data-byeai-active="1"] li:has(> a[href*="/copilotsearch"]),
-html[data-byeai-active="1"] a[href*="/copilotsearch"],
+html[data-byeai-active="1"] #b_copilot_search_container:not(:has(#rso, #search, #center_col, #b_results, #links, [data-testid="mainline"], #results, .react-results--main, article[data-testid="result"], .b_algo)),
+html[data-byeai-active="1"] #b_copilot_search:not(:has(#rso, #search, #center_col, #b_results, #links, [data-testid="mainline"], #results, .react-results--main, article[data-testid="result"], .b_algo)),
+html[data-byeai-active="1"] [id^="b_copilot"]:not(:has(#rso, #search, #center_col, #b_results, #links, [data-testid="mainline"], #results, .react-results--main, article[data-testid="result"], .b_algo)),
+html[data-byeai-active="1"] [class*="b_copilot"]:not(:has(#rso, #search, #center_col, #b_results, #links, [data-testid="mainline"], #results, .react-results--main, article[data-testid="result"], .b_algo)),
+html[data-byeai-active="1"] #b-scopeListItem-copilotsearch:not(:has(#rso, #search, #center_col, #b_results, #links, [data-testid="mainline"], #results, .react-results--main, article[data-testid="result"], .b_algo)),
+html[data-byeai-active="1"] #b-scopeListItem-conv:not(:has(#rso, #search, #center_col, #b_results, #links, [data-testid="mainline"], #results, .react-results--main, article[data-testid="result"], .b_algo)),
+html[data-byeai-active="1"] li:has(> a[href*="/copilotsearch"]):not(:has(#rso, #search, #center_col, #b_results, #links, [data-testid="mainline"], #results, .react-results--main, article[data-testid="result"], .b_algo)),
+html[data-byeai-active="1"] a[href*="/copilotsearch"]:not(:has(#rso, #search, #center_col, #b_results, #links, [data-testid="mainline"], #results, .react-results--main, article[data-testid="result"], .b_algo)),
 /* The Copilot answer card itself, its AI notice and feedback buttons */
-html[data-byeai-active="1"] li.b_ans:has(#copans_container),
-html[data-byeai-active="1"] #copans_container,
-html[data-byeai-active="1"] [data-feed*="GenAI" i],
-html[data-byeai-active="1"] [data-scenario*="TuringGen" i],
-html[data-byeai-active="1"] .gs_aidisc {
+html[data-byeai-active="1"] li.b_ans:has(#copans_container):not(:has(#rso, #search, #center_col, #b_results, #links, [data-testid="mainline"], #results, .react-results--main, article[data-testid="result"], .b_algo)),
+html[data-byeai-active="1"] #copans_container:not(:has(#rso, #search, #center_col, #b_results, #links, [data-testid="mainline"], #results, .react-results--main, article[data-testid="result"], .b_algo)),
+html[data-byeai-active="1"] [data-feed*="GenAI" i]:not(:has(#rso, #search, #center_col, #b_results, #links, [data-testid="mainline"], #results, .react-results--main, article[data-testid="result"], .b_algo)),
+html[data-byeai-active="1"] [data-scenario*="TuringGen" i]:not(:has(#rso, #search, #center_col, #b_results, #links, [data-testid="mainline"], #results, .react-results--main, article[data-testid="result"], .b_algo)),
+html[data-byeai-active="1"] .gs_aidisc:not(:has(#rso, #search, #center_col, #b_results, #links, [data-testid="mainline"], #results, .react-results--main, article[data-testid="result"], .b_algo)) {
   display: none !important;
   visibility: hidden !important;
   pointer-events: none !important;
 }
 
 /* === DuckDuckGo (duckduckgo.com) === */
-html[data-byeai-active="1"] [data-testid="duckassist-ia"],
-html[data-byeai-active="1"] [data-testid="duckchat-ia"],
-html[data-byeai-active="1"] [data-tile-type="duckassist"],
-html[data-byeai-active="1"] [data-tile-type="ai_chat"],
-html[data-byeai-active="1"] article[data-testid*="duck-assist" i],
-html[data-byeai-active="1"] article[data-testid*="duckassist" i],
-html[data-byeai-active="1"] [data-testid="ai-chat-button"],
-html[data-byeai-active="1"] [data-testid="ai-chat"],
-html[data-byeai-active="1"] [data-testid*="aichat" i],
-html[data-byeai-active="1"] .module--instant-answer.module--ai,
-html[data-byeai-active="1"] [class*="DuckAssist"],
-html[data-byeai-active="1"] [class*="duckchat" i],
-html[data-byeai-active="1"] a[href*="duck.ai"],
-html[data-byeai-active="1"] a[href*="ia=chat"],
+html[data-byeai-active="1"] [data-testid="duckassist-ia"]:not(:has(#rso, #search, #center_col, #b_results, #links, [data-testid="mainline"], #results, .react-results--main, article[data-testid="result"], .b_algo)),
+html[data-byeai-active="1"] [data-testid="duckchat-ia"]:not(:has(#rso, #search, #center_col, #b_results, #links, [data-testid="mainline"], #results, .react-results--main, article[data-testid="result"], .b_algo)),
+html[data-byeai-active="1"] [data-tile-type="duckassist"]:not(:has(#rso, #search, #center_col, #b_results, #links, [data-testid="mainline"], #results, .react-results--main, article[data-testid="result"], .b_algo)),
+html[data-byeai-active="1"] [data-tile-type="ai_chat"]:not(:has(#rso, #search, #center_col, #b_results, #links, [data-testid="mainline"], #results, .react-results--main, article[data-testid="result"], .b_algo)),
+html[data-byeai-active="1"] article[data-testid*="duck-assist" i]:not(:has(#rso, #search, #center_col, #b_results, #links, [data-testid="mainline"], #results, .react-results--main, article[data-testid="result"], .b_algo)),
+html[data-byeai-active="1"] article[data-testid*="duckassist" i]:not(:has(#rso, #search, #center_col, #b_results, #links, [data-testid="mainline"], #results, .react-results--main, article[data-testid="result"], .b_algo)),
+html[data-byeai-active="1"] [data-testid="ai-chat-button"]:not(:has(#rso, #search, #center_col, #b_results, #links, [data-testid="mainline"], #results, .react-results--main, article[data-testid="result"], .b_algo)),
+html[data-byeai-active="1"] [data-testid="ai-chat"]:not(:has(#rso, #search, #center_col, #b_results, #links, [data-testid="mainline"], #results, .react-results--main, article[data-testid="result"], .b_algo)),
+html[data-byeai-active="1"] [data-testid*="aichat" i]:not(:has(#rso, #search, #center_col, #b_results, #links, [data-testid="mainline"], #results, .react-results--main, article[data-testid="result"], .b_algo)),
+html[data-byeai-active="1"] .module--instant-answer.module--ai:not(:has(#rso, #search, #center_col, #b_results, #links, [data-testid="mainline"], #results, .react-results--main, article[data-testid="result"], .b_algo)),
+html[data-byeai-active="1"] [class*="DuckAssist"]:not(:has(#rso, #search, #center_col, #b_results, #links, [data-testid="mainline"], #results, .react-results--main, article[data-testid="result"], .b_algo)),
+html[data-byeai-active="1"] [class*="duckchat" i]:not(:has(#rso, #search, #center_col, #b_results, #links, [data-testid="mainline"], #results, .react-results--main, article[data-testid="result"], .b_algo)),
+html[data-byeai-active="1"] a[href*="duck.ai"]:not(:has(#rso, #search, #center_col, #b_results, #links, [data-testid="mainline"], #results, .react-results--main, article[data-testid="result"], .b_algo)),
+html[data-byeai-active="1"] a[href*="ia=chat"]:not(:has(#rso, #search, #center_col, #b_results, #links, [data-testid="mainline"], #results, .react-results--main, article[data-testid="result"], .b_algo)),
 /* Search Assist: the answer in the results, the toolbar pill and the Duck.ai chat box (2026 markup) */
-html[data-byeai-active="1"] li:has([data-testid^="duckassist"]),
-html[data-byeai-active="1"] li:has([data-assist-icon-trigger]),
-html[data-byeai-active="1"] [data-testid^="duckassist"],
-html[data-byeai-active="1"] [data-assist-icon-trigger],
-html[data-byeai-active="1"] form[action*="ia=chat"],
-html[data-byeai-active="1"] button[aria-label*="Duck.ai" i] {
+html[data-byeai-active="1"] li:has([data-testid^="duckassist"]):not(:has(#rso, #search, #center_col, #b_results, #links, [data-testid="mainline"], #results, .react-results--main, article[data-testid="result"], .b_algo)),
+html[data-byeai-active="1"] li:has([data-assist-icon-trigger]):not(:has(#rso, #search, #center_col, #b_results, #links, [data-testid="mainline"], #results, .react-results--main, article[data-testid="result"], .b_algo)),
+html[data-byeai-active="1"] [data-testid^="duckassist"]:not(:has(#rso, #search, #center_col, #b_results, #links, [data-testid="mainline"], #results, .react-results--main, article[data-testid="result"], .b_algo)),
+html[data-byeai-active="1"] [data-assist-icon-trigger]:not(:has(#rso, #search, #center_col, #b_results, #links, [data-testid="mainline"], #results, .react-results--main, article[data-testid="result"], .b_algo)),
+html[data-byeai-active="1"] form[action*="ia=chat"]:not(:has(#rso, #search, #center_col, #b_results, #links, [data-testid="mainline"], #results, .react-results--main, article[data-testid="result"], .b_algo)),
+html[data-byeai-active="1"] button[aria-label*="Duck.ai" i]:not(:has(#rso, #search, #center_col, #b_results, #links, [data-testid="mainline"], #results, .react-results--main, article[data-testid="result"], .b_algo)) {
   display: none !important;
   visibility: hidden !important;
   pointer-events: none !important;
 }
 
 /* === Brave Search (search.brave.com) === */
-html[data-byeai-active="1"] [data-testid="summarizer-content"],
-html[data-byeai-active="1"] [data-testid*="summarizer" i],
-html[data-byeai-active="1"] #summarizer,
-html[data-byeai-active="1"] .summarizer,
-html[data-byeai-active="1"] .summarizer-block,
-html[data-byeai-active="1"] .summarizer-card,
-html[data-byeai-active="1"] [class*="Summarizer"],
-html[data-byeai-active="1"] [class*="summary-card"][class*="ai" i],
-html[data-byeai-active="1"] aside[class*="leo" i],
-html[data-byeai-active="1"] [data-testid*="leo" i],
-html[data-byeai-active="1"] a[href*="leo.brave.com"] {
+html[data-byeai-active="1"] [data-testid="summarizer-content"]:not(:has(#rso, #search, #center_col, #b_results, #links, [data-testid="mainline"], #results, .react-results--main, article[data-testid="result"], .b_algo)),
+html[data-byeai-active="1"] [data-testid*="summarizer" i]:not(:has(#rso, #search, #center_col, #b_results, #links, [data-testid="mainline"], #results, .react-results--main, article[data-testid="result"], .b_algo)),
+html[data-byeai-active="1"] #summarizer:not(:has(#rso, #search, #center_col, #b_results, #links, [data-testid="mainline"], #results, .react-results--main, article[data-testid="result"], .b_algo)),
+html[data-byeai-active="1"] .summarizer:not(:has(#rso, #search, #center_col, #b_results, #links, [data-testid="mainline"], #results, .react-results--main, article[data-testid="result"], .b_algo)),
+html[data-byeai-active="1"] .summarizer-block:not(:has(#rso, #search, #center_col, #b_results, #links, [data-testid="mainline"], #results, .react-results--main, article[data-testid="result"], .b_algo)),
+html[data-byeai-active="1"] .summarizer-card:not(:has(#rso, #search, #center_col, #b_results, #links, [data-testid="mainline"], #results, .react-results--main, article[data-testid="result"], .b_algo)),
+html[data-byeai-active="1"] [class*="Summarizer"]:not(:has(#rso, #search, #center_col, #b_results, #links, [data-testid="mainline"], #results, .react-results--main, article[data-testid="result"], .b_algo)),
+html[data-byeai-active="1"] [class*="summary-card"][class*="ai" i]:not(:has(#rso, #search, #center_col, #b_results, #links, [data-testid="mainline"], #results, .react-results--main, article[data-testid="result"], .b_algo)),
+html[data-byeai-active="1"] aside[class*="leo" i]:not(:has(#rso, #search, #center_col, #b_results, #links, [data-testid="mainline"], #results, .react-results--main, article[data-testid="result"], .b_algo)),
+html[data-byeai-active="1"] [data-testid*="leo" i]:not(:has(#rso, #search, #center_col, #b_results, #links, [data-testid="mainline"], #results, .react-results--main, article[data-testid="result"], .b_algo)),
+html[data-byeai-active="1"] a[href*="leo.brave.com"]:not(:has(#rso, #search, #center_col, #b_results, #links, [data-testid="mainline"], #results, .react-results--main, article[data-testid="result"], .b_algo)) {
   display: none !important;
   visibility: hidden !important;
   pointer-events: none !important;
 }
 
 /* === Ecosia (ecosia.org) === */
-html[data-byeai-active="1"] [data-test-id*="ai-chat" i],
-html[data-byeai-active="1"] [data-test-id*="ai-summary" i],
-html[data-byeai-active="1"] [data-test-id*="ai-search" i],
-html[data-byeai-active="1"] .ai-chat,
-html[data-byeai-active="1"] [class*="AiChat"],
-html[data-byeai-active="1"] [class*="ai-chat-button"],
-html[data-byeai-active="1"] #ai-chat-panel,
-html[data-byeai-active="1"] a[href*="/chat" i][href*="ecosia.org" i] {
+html[data-byeai-active="1"] [data-test-id*="ai-chat" i]:not(:has(#rso, #search, #center_col, #b_results, #links, [data-testid="mainline"], #results, .react-results--main, article[data-testid="result"], .b_algo)),
+html[data-byeai-active="1"] [data-test-id*="ai-summary" i]:not(:has(#rso, #search, #center_col, #b_results, #links, [data-testid="mainline"], #results, .react-results--main, article[data-testid="result"], .b_algo)),
+html[data-byeai-active="1"] [data-test-id*="ai-search" i]:not(:has(#rso, #search, #center_col, #b_results, #links, [data-testid="mainline"], #results, .react-results--main, article[data-testid="result"], .b_algo)),
+html[data-byeai-active="1"] .ai-chat:not(:has(#rso, #search, #center_col, #b_results, #links, [data-testid="mainline"], #results, .react-results--main, article[data-testid="result"], .b_algo)),
+html[data-byeai-active="1"] [class*="AiChat"]:not(:has(#rso, #search, #center_col, #b_results, #links, [data-testid="mainline"], #results, .react-results--main, article[data-testid="result"], .b_algo)),
+html[data-byeai-active="1"] [class*="ai-chat-button"]:not(:has(#rso, #search, #center_col, #b_results, #links, [data-testid="mainline"], #results, .react-results--main, article[data-testid="result"], .b_algo)),
+html[data-byeai-active="1"] #ai-chat-panel:not(:has(#rso, #search, #center_col, #b_results, #links, [data-testid="mainline"], #results, .react-results--main, article[data-testid="result"], .b_algo)),
+html[data-byeai-active="1"] a[href*="/chat" i][href*="ecosia.org" i]:not(:has(#rso, #search, #center_col, #b_results, #links, [data-testid="mainline"], #results, .react-results--main, article[data-testid="result"], .b_algo)) {
   display: none !important;
   visibility: hidden !important;
   pointer-events: none !important;
+}
+
+/*
+ * No blank gap: a wrapper that held only the AI box goes with it. Each rule
+ * names the exact box, and never a wrapper that also holds the results.
+ */
+html[data-byeai-active="1"] #b_topw:has(> li:only-child > #copans_container):not(:has(#b_results, .b_algo)),
+html[data-byeai-active="1"] :is(div, section):has(> [data-testid^="duckassist"]:only-child):not(:has(#links, [data-testid="mainline"], article[data-testid="result"])),
+html[data-byeai-active="1"] :is(ol, ul):has(> li:only-child):has([data-testid^="duckassist"]):not(:has(#links, [data-testid="mainline"], article[data-testid="result"])) {
+  display: none !important;
 }

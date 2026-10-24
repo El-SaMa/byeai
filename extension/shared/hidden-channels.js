@@ -64,15 +64,28 @@
       return join(await chrome.storage.sync.get(KEYS));
     }
 
+    // Sync allows about 100 KB in all, shared with the other lists. If it says
+    // no, drop the oldest entries and try again, a few times, then report it.
     async function write(list) {
-      const chunks = split(list);
-      const set = {};
-      chunks.forEach((chunk, i) => {
-        set[KEYS[i]] = chunk;
-      });
-      await chrome.storage.sync.set(set);
-      const unused = KEYS.slice(chunks.length);
-      if (unused.length) await chrome.storage.sync.remove(unused);
+      let items = list;
+      for (let attempt = 0; ; attempt += 1) {
+        const chunks = split(items);
+        const set = {};
+        chunks.forEach((chunk, i) => {
+          set[KEYS[i]] = chunk;
+        });
+        try {
+          await chrome.storage.sync.set(set);
+        } catch (err) {
+          if (attempt >= 4 || !/quota/i.test(String(err?.message || err))) throw err;
+          const kept = chunks.flat();
+          items = kept.slice(Math.ceil(kept.length * 0.15));
+          continue;
+        }
+        const unused = KEYS.slice(chunks.length);
+        if (unused.length) await chrome.storage.sync.remove(unused);
+        return;
+      }
     }
 
     const isKey = (k) => KEYS.includes(k);

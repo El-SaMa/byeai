@@ -257,7 +257,8 @@ html[data-byeai-labeled="1"] [data-byeai-cover][data-byeai-panel]::after {
   const hideProps = ['display', 'visibility', 'pointer-events'];
 
   function hideButton(el, key) {
-    if (el.dataset.byeaiHidden) return;
+    // Never hide the page itself or anything that holds the search results or main content.
+    if (el.dataset.byeaiHidden || el.matches('html, body') || el.querySelector('#rso, #search, #b_results, main, [role="main"]')) return;
     el.dataset.byeaiHidden = 'buttons';
     el.style.setProperty('display', 'none', 'important');
     // One count per kind of button, not one per tweet.
@@ -566,6 +567,16 @@ html[data-byeai-labeled="1"] [data-byeai-cover][data-byeai-panel]::after {
     },
     true
   );
+
+  // Back/forward cache: players come back as they were. Keep covered ones paused
+  // and look at the page again (settings are re-read by byeai-flag.js).
+  window.addEventListener('pageshow', (event) => {
+    if (!event.persisted) return;
+    if (byeai.state.labeled) {
+      document.querySelectorAll('[data-byeai-cover] video, [data-byeai-cover] audio').forEach((el) => el.pause());
+    }
+    if (document.body) schedule(document.body);
+  });
 
   // YouTube reuses the player between videos.
   document.addEventListener('yt-navigate-finish', () => {

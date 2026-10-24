@@ -1,17 +1,17 @@
-html[data-byeai-active="1"] #intercom-container,
-html[data-byeai-active="1"] #intercom-frame,
-html[data-byeai-active="1"] .intercom-lightweight-app,
-html[data-byeai-active="1"] .drift-frame-controller,
-html[data-byeai-active="1"] iframe[src*="intercom"],
-html[data-byeai-active="1"] iframe[src*="drift"],
-html[data-byeai-active="1"] iframe[src*="crisp"],
-html[data-byeai-active="1"] iframe[src*="tidio"],
-html[data-byeai-active="1"] iframe[src*="zendesk"],
-html[data-byeai-active="1"] iframe[src*="livechat"],
-html[data-byeai-active="1"] iframe[src*="chatbot"],
-html[data-byeai-active="1"] iframe[src*="copilot"],
-html[data-byeai-active="1"] [data-testid*="chatbot"],
-html[data-byeai-active="1"] [class*="ai-assistant"] {
+html[data-byeai-active="1"] #intercom-container:not(body):not(html):not(:has(#rso, #search, #center_col, #b_results, #links, main, [role="main"])),
+html[data-byeai-active="1"] #intercom-frame:not(body):not(html):not(:has(#rso, #search, #center_col, #b_results, #links, main, [role="main"])),
+html[data-byeai-active="1"] .intercom-lightweight-app:not(body):not(html):not(:has(#rso, #search, #center_col, #b_results, #links, main, [role="main"])),
+html[data-byeai-active="1"] .drift-frame-controller:not(body):not(html):not(:has(#rso, #search, #center_col, #b_results, #links, main, [role="main"])),
+html[data-byeai-active="1"] iframe[src*="intercom"]:not(body):not(html):not(:has(#rso, #search, #center_col, #b_results, #links, main, [role="main"])),
+html[data-byeai-active="1"] iframe[src*="drift"]:not(body):not(html):not(:has(#rso, #search, #center_col, #b_results, #links, main, [role="main"])),
+html[data-byeai-active="1"] iframe[src*="crisp"]:not(body):not(html):not(:has(#rso, #search, #center_col, #b_results, #links, main, [role="main"])),
+html[data-byeai-active="1"] iframe[src*="tidio"]:not(body):not(html):not(:has(#rso, #search, #center_col, #b_results, #links, main, [role="main"])),
+html[data-byeai-active="1"] iframe[src*="zendesk"]:not(body):not(html):not(:has(#rso, #search, #center_col, #b_results, #links, main, [role="main"])),
+html[data-byeai-active="1"] iframe[src*="livechat"]:not(body):not(html):not(:has(#rso, #search, #center_col, #b_results, #links, main, [role="main"])),
+html[data-byeai-active="1"] iframe[src*="chatbot"]:not(body):not(html):not(:has(#rso, #search, #center_col, #b_results, #links, main, [role="main"])),
+html[data-byeai-active="1"] iframe[src*="copilot"]:not(body):not(html):not(:has(#rso, #search, #center_col, #b_results, #links, main, [role="main"])),
+html[data-byeai-active="1"] [data-testid*="chatbot"]:not(body):not(html):not(:has(#rso, #search, #center_col, #b_results, #links, main, [role="main"])),
+html[data-byeai-active="1"] [class*="ai-assistant"]:not(body):not(html):not(:has(#rso, #search, #center_col, #b_results, #links, main, [role="main"])) {
   display: none !important;
   visibility: hidden !important;
   pointer-events: none !important;

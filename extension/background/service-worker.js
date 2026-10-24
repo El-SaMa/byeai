@@ -105,14 +105,6 @@ async function saveSettings(partial) {
   if (Object.keys(local).length) await chrome.storage.local.set(local);
 }
 
-function hostToRuleId(hostname) {
-  let hash = 0;
-  for (let i = 0; i < hostname.length; i += 1) {
-    hash = (hash * 31 + hostname.charCodeAt(i)) >>> 0;
-  }
-  return WHITELIST_RULE_BASE + (hash % 900000);
-}
-
 function getTabStat(tabId) {
   if (!tabStats.has(tabId)) {
     tabStats.set(tabId, emptyStat());
@@ -184,8 +176,10 @@ async function applyDynamicRules() {
     .filter((rule) => rule.id === AI_APP_PAGE_RULE_ID || (rule.id >= WHITELIST_RULE_BASE && rule.id < WHITELIST_RULE_BASE + 1000000))
     .map((rule) => rule.id);
 
-  const addRules = settings.allowedHosts.map((host) => ({
-    id: hostToRuleId(host),
+  // Numbered one by one: a hash of the name can collide, and one duplicate
+  // id makes Chrome refuse the whole update (no allowed site would work).
+  const addRules = [...new Set(settings.allowedHosts)].map((host, i) => ({
+    id: WHITELIST_RULE_BASE + 1 + i,
     priority: 100,
     action: { type: 'allow' },
     condition: {
@@ -392,29 +386,54 @@ async function getOnceHosts() {
 async function allowOnce(tabId, urlString) {
   const host = bareHost(urlString);
   if (typeof tabId !== 'number' || !host) return false;
-  await clearOnce(tabId);
-  const rules = await chrome.declarativeNetRequest.getSessionRules();
-  const next = Math.max(ONCE_RULE_BASE, ...rules.map((r) => r.id + 1));
-  await chrome.declarativeNetRequest.updateSessionRules({
-    addRules: [
-      {
-        id: next,
-        priority: 200,
-        action: { type: 'allow' },
-        condition: { tabIds: [tabId], requestDomains: [host], resourceTypes: ['main_frame'] },
-      },
-      {
-        id: next + 1,
-        priority: 200,
-        action: { type: 'allow' },
-        condition: { tabIds: [tabId], initiatorDomains: [host], resourceTypes: BLOCK_RESOURCE_TYPES },
-      },
-    ],
-  });
-  const onceHosts = await getOnceHosts();
-  onceHosts[tabId] = host;
-  await chrome.storage.session.set({ onceHosts });
-  return true;
+  try {
+    await clearOnce(tabId);
+    const rules = await chrome.declarativeNetRequest.getSessionRules();
+    const next = Math.max(ONCE_RULE_BASE, ...rules.map((r) => r.id + 1));
+    await chrome.declarativeNetRequest.updateSessionRules({
+      addRules: [
+        {
+          id: next,
+          priority: 200,
+          action: { type: 'allow' },
+          condition: { tabIds: [tabId], requestDomains: [host], resourceTypes: ['main_frame'] },
+        },
+        {
+          id: next + 1,
+          priority: 200,
+          action: { type: 'allow' },
+          condition: { tabIds: [tabId], initiatorDomains: [host], resourceTypes: BLOCK_RESOURCE_TYPES },
+        },
+      ],
+    });
+    const onceHosts = await getOnceHosts();
+    onceHosts[tabId] = host;
+    await chrome.storage.session.set({ onceHosts });
+    return true;
+  } catch (err) {
+    // The block page stays and the button comes back: nothing is half applied.
+    console.warn('ByeAI allow once', err);
+    await clearOnce(tabId).catch(() => {});
+    return false;
+  }
+}
+
+// Session rules outlive the worker, not the browser. After a restart of the
+// worker, drop rules of tabs that no longer exist.
+async function pruneOnce() {
+  const [rules, tabs, onceHosts] = await Promise.all([
+    chrome.declarativeNetRequest.getSessionRules(),
+    chrome.tabs.query({}),
+    getOnceHosts(),
+  ]);
+  const open = new Set(tabs.map((t) => t.id));
+  const removeRuleIds = rules.filter((r) => (r.condition.tabIds || []).some((id) => !open.has(id))).map((r) => r.id);
+  if (removeRuleIds.length) await chrome.declarativeNetRequest.updateSessionRules({ removeRuleIds });
+  const stale = Object.keys(onceHosts).filter((id) => !open.has(Number(id)));
+  if (stale.length) {
+    stale.forEach((id) => delete onceHosts[id]);
+    await chrome.storage.session.set({ onceHosts });
+  }
 }
 
 async function clearOnce(tabId) {
@@ -460,7 +479,13 @@ function scheduleRuleSync(tabId) {
 
 async function getPopupState(tabId) {
   await syncMatchedRules();
-  const settings = await getSettings();
+  let settings = await getSettings();
+  // The pause end is a point in time, not a timer: a pause that is over is lifted
+  // here too, whether or not the alarm has fired yet.
+  if (settings.pausedUntil && settings.pausedUntil <= Date.now()) {
+    await checkPause();
+    settings = await getSettings();
+  }
   const stat = tabStats.get(tabId) || emptyStat();
   let hostname = '';
   let url = '';
@@ -607,6 +632,8 @@ async function toggleAllowSite(hostname, allow) {
 
   if (allow) {
     if (!allowedHosts.includes(hostname)) {
+      // One sync item holds 8 KB. Say so instead of failing quietly.
+      if (JSON.stringify([...allowedHosts, hostname]).length > HOST_LIST_BYTES) throw new Error('syncFull');
       allowedHosts.push(hostname);
     }
   } else {
@@ -640,6 +667,7 @@ async function toggleMediaSite(hostname, allow) {
   const set = new Set(settings.mediaAllowedHosts);
   if (allow) set.add(hostname);
   else set.delete(hostname);
+  if (allow && JSON.stringify([...set]).length > HOST_LIST_BYTES) throw new Error('syncFull');
   await saveSettings({ mediaAllowedHosts: [...set] });
   await broadcastSettingsChanged();
 }
@@ -1051,8 +1079,8 @@ chrome.tabs.onUpdated.addListener((tabId, changeInfo) => {
   if (changeInfo.url) {
     getOnceHosts().then((onceHosts) => {
       const base = onceHosts[tabId];
-      if (base && !sameSite(bareHost(changeInfo.url), base)) clearOnce(tabId);
-    });
+      if (base && !sameSite(bareHost(changeInfo.url), base)) return clearOnce(tabId);
+    }).catch((err) => console.warn('ByeAI allow once', err));
   }
   if (changeInfo.status !== 'loading') return;
   resetTabStat(tabId);
@@ -1112,7 +1140,10 @@ chrome.runtime.onMessage.addListener((message, sender, sendResponse) => {
         return exportSettings();
       case 'IMPORT_SETTINGS':
         if (JSON.stringify(message.data ?? null).length > EXPORT_MAX_BYTES) return { ok: false, error: 'format' };
-        return importSettings(message.data);
+        return importSettings(message.data).catch((err) => {
+          console.warn('ByeAI import', err);
+          return { ok: false, error: 'sync' };
+        });
       case 'TOGGLE_ALLOW_SITE':
         await toggleAllowSite(message.hostname, message.allow);
         return getPopupState(message.tabId);
@@ -1183,4 +1214,5 @@ migrateToSync().then(getSettings).then(async (settings) => {
   chrome.action.setBadgeBackgroundColor({ color: BADGE_COLOR }).catch(() => {});
   await syncDynamicRules();
   await checkPause();
+  await pruneOnce().catch((err) => console.warn('ByeAI allow once', err));
 });

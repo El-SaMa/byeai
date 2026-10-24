@@ -1,5 +1,18 @@
 # Changelog
 
+## 1.4.1
+
+- Google: more searches keep Google's own answer box instead of the Web view: speed test, crypto and stock prices, team scores, schedules and "A vs B", dictionary and spelling, unit conversion, timers, time zones and dates, flights, translation, maps and "near me", lyrics, package tracking, holidays, sunrise and sunset, in the same languages as before
+- Search results are never hidden: a Google, Bing or DuckDuckGo AI box that shares its parent with the results is hidden on its own, and a box found by a loose selector or by climbing to its parent is skipped if it holds the results
+- Bing and DuckDuckGo: the empty space where the Copilot answer or Search Assist was is closed
+- Allowed sites: every site gets its own rule number. Two sites with the same hashed number made Chrome refuse all of them
+- Allow once: if Chrome refuses the rule the block page stays usable, and leftover rules of closed tabs are cleaned up at start
+- Pause: a pause that is over is also lifted when you open the popup, not only by the alarm
+- Chrome sync: a list that does not fit is trimmed from the oldest end, and "Not saved: Chrome sync storage is full." is shown for hiding a channel, allowing a site or importing, instead of failing silently
+- Back/forward cache: a restored page reads its settings again and keeps covered videos paused
+- AI apps: kimi.com, kimi.ai and kimi.moonshot.cn get the block page
+- No new permissions
+
 ## 1.4.0 (2026-10-22)
 
 - Google: searches for calculator, currency and unit converter, dictionary, weather, time, sports scores and stock charts keep Google's normal page. The Web view dropped those answer boxes. Only the AI parts are hidden there

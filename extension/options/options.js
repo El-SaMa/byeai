@@ -188,6 +188,10 @@ importFile.addEventListener('change', async () => {
     return bad();
   }
   const reply = await chrome.runtime.sendMessage({ type: 'IMPORT_SETTINGS', data });
+  if (reply?.error === 'sync') {
+    importResult.textContent = t('syncFull') || 'Not saved: Chrome sync storage is full.';
+    return;
+  }
   if (!reply?.ok) return bad();
   const added = String(reply.added + reply.switches);
   const skipped = String(reply.skipped);

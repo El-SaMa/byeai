@@ -239,7 +239,15 @@
   function hide(info) {
     hiddenIds = new Set([...hiddenIds, ...info.ids]);
     changed();
-    send({ type: 'HIDE_CHANNEL', channel: entryFor(info) }).catch(() => {});
+    send({ type: 'HIDE_CHANNEL', channel: entryFor(info) })
+      .then((reply) => {
+        if (!reply?.error) return;
+        // Not saved (sync full): put it back on screen and say so.
+        info.ids.forEach((id) => hiddenIds.delete(id));
+        changed();
+        showToast(msg('syncFull', 'Not saved: Chrome sync storage is full.'), () => {});
+      })
+      .catch(() => {});
     showHideToast(info);
   }
 
@@ -1008,6 +1016,13 @@
       }
     }).observe(document.body, { childList: true, subtree: true, attributes: true, attributeFilter: ['href', 'data-byeai-cover'] });
   }
+
+  // Back/forward cache: the hover button points at layout that may have moved.
+  window.addEventListener('pageshow', (event) => {
+    if (!event.persisted) return;
+    hideButton();
+    schedule(document.body);
+  });
 
   document.addEventListener('yt-navigate-finish', () => {
     hideButton();
