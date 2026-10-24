@@ -51,6 +51,7 @@
     'ytd-playlist-panel-video-renderer',
     'ytd-grid-video-renderer',
     'ytd-reel-item-renderer',
+    'ytm-shorts-lockup-view-model-v2',
     'ytm-shorts-lockup-view-model',
     'yt-lockup-view-model',
   ].join(',');
@@ -68,6 +69,12 @@
   // Channel name -> ids, from your hidden/shown channels and the Community list.
   // Mix and playlist panels show only the channel name, no channel link.
   const names = { hidden: new Map(), shown: new Map(), community: new Map() };
+  // Video id -> Community entry, from the optional "v" lists. Shorts tiles
+  // have no channel link, only /shorts/<id>. Hidden and shown channels are
+  // matched through this map too: it is the only place that knows the videos.
+  let videos = new Map();
+  const VIDEO_LINKS = 'a[href*="/shorts/"], a[href*="/watch?v="], a[href*="/watch?"]';
+  const VIDEO_ID = /^[A-Za-z0-9_-]{11}$/;
   // Channel id -> 'labeled' | 'tagged', when ai-content.js saw an AI label or tag.
   const seen = new Map();
   const listeners = [];
@@ -105,7 +112,7 @@
       const text = (a.textContent || '').replace(/\s+/g, ' ').trim();
       if (!name && text) name = text;
     }
-    if (!ids.length) return byName(el);
+    if (!ids.length) return byVideo(el) || byName(el);
     ids.sort((x, y) => (y[0] === '@') - (x[0] === '@'));
     return { id: ids[0], ids, n: (name || ids[0]).slice(0, 60) };
   }
@@ -120,6 +127,39 @@
       const ids = map.get(key) || [];
       [c.id, c.a].map((id) => store.normId(id)).filter(Boolean).forEach((id) => ids.includes(id) || ids.push(id));
       map.set(key, ids);
+    }
+    return map;
+  }
+
+  function videoIdFromHref(href) {
+    try {
+      const url = new URL(href, location.origin);
+      const m = /^\/shorts\/([^/?#]+)/.exec(url.pathname);
+      return m ? m[1] : url.pathname === '/watch' ? url.searchParams.get('v') || '' : '';
+    } catch (_) {
+      return '';
+    }
+  }
+
+  // Tiles without a channel link (Shorts): the channel that owns the video, if the list says.
+  function byVideo(el) {
+    if (!videos.size) return null;
+    for (const a of el.querySelectorAll(VIDEO_LINKS)) {
+      const entry = videos.get(videoIdFromHref(a.getAttribute('href')));
+      if (!entry) continue;
+      const ids = [entry.id, entry.a].filter(Boolean);
+      return { id: entry.id, ids, n: (entry.n || entry.id).slice(0, 60) };
+    }
+    return null;
+  }
+
+  function videoMap(list) {
+    const map = new Map();
+    for (const c of list) {
+      const id = store.normId(c?.id);
+      if (!id || !Array.isArray(c.v)) continue;
+      const alt = store.normId(c.a);
+      for (const v of c.v) if (typeof v === 'string' && VIDEO_ID.test(v) && !map.has(v)) map.set(v, { id, n: c.n, a: alt });
     }
     return map;
   }
@@ -184,6 +224,7 @@
         const youtube = channels.filter((c) => c?.p === 'youtube');
         community = new Set(youtube.map((c) => store.normId(c.id)).filter(Boolean));
         names.community = nameMap(youtube);
+        videos = videoMap(youtube);
         changed();
       })
       .catch(() => {});

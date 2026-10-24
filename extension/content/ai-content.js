@@ -58,6 +58,7 @@
       'ytd-grid-video-renderer',
       'ytd-reel-item-renderer',
       'ytd-reel-video-renderer',
+      'ytm-shorts-lockup-view-model-v2',
       'ytm-shorts-lockup-view-model',
       'yt-lockup-view-model',
     ],
@@ -78,6 +79,13 @@
     other: [],
   };
   const cardSelector = CARDS[site].join(',');
+  // Tiles nest (a v2 wrapper around the Short, a lockup inside a rich item):
+  // cover and panel go on the outermost one only.
+  const outermost = (card) => {
+    let top = card;
+    for (let up = top?.parentElement?.closest(cardSelector); up; up = up.parentElement?.closest(cardSelector)) top = up;
+    return top;
+  };
 
   // ------------------------------------------------------------- patterns
 
@@ -413,7 +421,7 @@ html[data-byeai-labeled="1"] [data-byeai-cover][data-byeai-panel]::after {
 
     if (cardSelector) {
       const card = el.closest(cardSelector);
-      if (card) return card;
+      if (card) return outermost(card);
     }
     // YouTube watch page: the label sits in the description or its side
     // panel ("How this content was made"), so cover the player.
@@ -462,7 +470,7 @@ html[data-byeai-labeled="1"] [data-byeai-cover][data-byeai-panel]::after {
     const cards = root.matches?.(cardSelector) ? [root] : [];
     root.querySelectorAll(cardSelector).forEach((c) => cards.push(c));
     cards.forEach((card) => {
-      if (covers.has(card)) return;
+      if (covers.has(card) || card.parentElement?.closest(cardSelector)) return;
       const tag = findTag(cardText(card));
       if (tag) cover(card, 'tagged', null, tag);
     });

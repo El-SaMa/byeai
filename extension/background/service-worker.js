@@ -20,6 +20,8 @@ const SUGGEST_URL = 'https://oma.lanetti.fi/api/byeai/community/v1/suggest';
 const COMMUNITY_FILE = 'lists/community.json';
 const COMMUNITY_ALARM = 'byeai-community';
 const COMMUNITY_MAX = 50000;
+const COMMUNITY_VIDEOS_PER_CHANNEL = 30;
+const COMMUNITY_VIDEOS_MAX = 20000;
 // A bit under a day, so the daily alarm never finds the list "still fresh".
 const COMMUNITY_FRESH_MS = 23 * 60 * 60 * 1000;
 const SUGGEST_DAILY_LIMIT = 20;
@@ -687,11 +689,25 @@ async function communityWanted() {
 function cleanCommunity(data) {
   if (!data || typeof data !== 'object' || !Array.isArray(data.channels)) return null;
   const channels = [];
+  let videoTotal = 0;
   for (const c of data.channels) {
     if (c?.p !== 'youtube') continue;
     const id = globalThis.byeaiHiddenChannels.normId(c.id);
     if (!id) continue;
-    channels.push({ p: 'youtube', id, n: typeof c.n === 'string' ? c.n.slice(0, 100) : '' });
+    const entry = { p: 'youtube', id, n: typeof c.n === 'string' ? c.n.slice(0, 100) : '' };
+    // Optional recent video ids, for Shorts tiles that have no channel link.
+    if (Array.isArray(c.v)) {
+      const v = [];
+      for (const x of c.v) {
+        if (v.length >= COMMUNITY_VIDEOS_PER_CHANNEL || videoTotal >= COMMUNITY_VIDEOS_MAX) break;
+        if (typeof x === 'string' && /^[A-Za-z0-9_-]{11}$/.test(x) && !v.includes(x)) {
+          v.push(x);
+          videoTotal += 1;
+        }
+      }
+      if (v.length) entry.v = v;
+    }
+    channels.push(entry);
     if (channels.length >= COMMUNITY_MAX) break;
   }
   return {

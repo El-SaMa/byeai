@@ -1,5 +1,12 @@
 # Changelog
 
+## 1.4.2
+
+- YouTube: Shorts in search and feeds (the new `ytm-shorts-lockup-view-model-v2` tile) are covered with the blur and action panel. Nested tiles get one cover and one panel, on the outermost tile
+- YouTube: Shorts have no channel link, so the Community list can now name a few recent video ids per channel. A Short or video tile without a channel link counts as that channel: Community cover, Hide channel and Not AI work on it. Lists without video ids work as before. Hidden and shown channels are matched through this list only
+- Community list: at most 30 video ids per channel and 20,000 in all are kept, invalid ids are dropped
+- No new permissions
+
 ## 1.4.1
 
 - Google: more searches keep Google's own answer box instead of the Web view: speed test, crypto and stock prices, team scores, schedules and "A vs B", dictionary and spelling, unit conversion, timers, time zones and dates, flights, translation, maps and "near me", lyrics, package tracking, holidays, sunrise and sunset, in the same languages as before

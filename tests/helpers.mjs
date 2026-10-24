@@ -11,6 +11,7 @@ const fixture = (name) => readFileSync(path.join(root, 'fixtures', name), 'utf8'
 // fixtures under the real hostnames.
 export const PAGES = {
   'https://www.youtube.com/': 'youtube-feed.html',
+  'https://www.youtube.com/results?search_query=ai+cat+story': 'youtube-shorts.html',
   'https://www.youtube.com/watch?v=test': 'youtube-watch.html',
   'https://www.youtube.com/watch?v=plain': 'youtube-watch-plain.html',
   'https://www.youtube.com/feed/channels': 'youtube-channels.html',
