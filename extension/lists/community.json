@@ -1,6 +1,6 @@
 {
- "version": 6,
- "updatedAt": "2026-10-22T18:30:02.502Z",
+ "version": 9,
+ "updatedAt": "2026-10-22T20:20:12.029Z",
  "channels": [
   {
    "p": "youtube",
@@ -366,6 +366,11 @@
    "p": "youtube",
    "id": "@catstories025",
    "n": "Cat Stories"
+  },
+  {
+   "p": "youtube",
+   "id": "@celestfantasy",
+   "n": "Celest Fantasy"
   },
   {
    "p": "youtube",
@@ -791,6 +796,11 @@
    "p": "youtube",
    "id": "@lookbookmix",
    "n": "Lookbook Mix"
+  },
+  {
+   "p": "youtube",
+   "id": "@lovebetweenus-e7l",
+   "n": "Love Between Us"
   },
   {
    "p": "youtube",
@@ -1311,6 +1321,11 @@
    "p": "youtube",
    "id": "@yoyoai-w3q",
    "n": "Yoyo AI Drama"
+  },
+  {
+   "p": "youtube",
+   "id": "@yueryy-bf",
+   "n": "Anime Bunnie"
   },
   {
    "p": "youtube",
